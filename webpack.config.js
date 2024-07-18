@@ -17,6 +17,13 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
             },
             {
+                test: /\.(png|jpe?g|gif|svg|webp)$/,  // Process image files
+                type: 'asset/resource',
+                generator: {
+                    filename: 'media/images/[name][ext]'
+                }
+            },
+            {
                 test: /\.js$/,  // Process JavaScript files
                 exclude: /node_modules/,  // Exclude node_modules
                 use: {
@@ -40,6 +47,8 @@ module.exports = {
             patterns: [
                 { from: 'src/components', to: 'components' },  // Copy components to dist
                 { from: 'src/sections', to: 'sections' },  // Copy sections to dist
+                { from: 'src/media', to: 'media' },  // Copy media to dist
+                { from: 'src/css', to: 'css' },   // Copy css to dist
             ],
         }),
     ],
@@ -47,14 +56,17 @@ module.exports = {
         static: {
             directory: path.join(__dirname, 'dist'),  // Serve files from dist
         },
-        watchFiles: {
-            paths: ['src/**/*'],
-            options: {
-                usePolling: true,
-            },
-        },
+        watchFiles: ['src/**/*'],  // Watch files in src directory for changes
         compress: true,  // Enable gzip compression
         port: 9000,  // Development server port
         hot: true,  // Enable hot module replacement
+        host: '0.0.0.0',  // Allow access from network
+        allowedHosts: 'all',  // Allow all hosts
     },
+    performance: {
+        maxAssetSize: 12288000, // 12 MB
+        maxEntrypointSize: 12288000, // 12 MB
+        hints: 'warning', // Show warnings if limits are exceeded, or false to disable
+    },
+    mode: 'production', // Ensure this is set to your desired mode
 };

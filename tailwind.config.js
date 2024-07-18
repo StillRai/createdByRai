@@ -14,9 +14,31 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         jetBrains: ['JetBrains Mono', 'monospace'],
+        merriweather: ['Merriweather', 'serif'],
+      },
+      fontSize: {
+        'h1': '3rem',
+        'h2': '2.25rem',
+        'h3': '1.875rem',
+        'body': '1rem',
+        'code': '1rem',
+      },
+      fontWeight: {
+        'thin': '100',
+        'extralight': '200',
+        'light': '300',
+        'regular': '400',
+        'medium': '500',
+        'semibold': '600',
+        'bold': '700',
+        'extrabold': '800',
+        'black': '900',
+
       },
       opacity: {
         15: '0.15',
+        10: '0.10',
+        5: '0.05',
       },
     },
   },
