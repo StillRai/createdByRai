@@ -99,22 +99,24 @@ code span.block {
 #home .container {
     display: inline-block;
     position: absolute;
-    top: 20%;
-    transform: translateY(-25%);
+    top: 18%;
+    left: 33%; 
+    transform: translateY(-40%);
     text-align: left;
-    width: fit-content
+    width: auto;
+    max-width: 70%;
 }
 
 .resize-text {
-    margin-left: 5vw;
     margin-top: -10px;
-
+    margin-right:-25px;
 }
 
 /* Adjust font size for extra small devices (phones) */
 @media (max-width: 480px) {
     #home .container {
         top: 15%;
+        left: 10%;
     }
 
     .resize-text {
@@ -123,22 +125,26 @@ code span.block {
     }
 }
 
-
 /* Adjust font size for small devices (tablets, landscape phones) */
 @media (max-width: 768px) {
     #home .container {
         top: 17%;
+        left: 15%;
     }
 
     .resize-text {
         font-size: 0.7rem;
         margin-top: -3%;
-
     }
 }
 
 /* Adjust font size for medium devices (tablets, small desktops) */
-@media (max-width: 992px) { 
+@media (max-width: 992px) {
+        #home .container {
+            left: 20%;
+        }
+
+        
     .resize-text {
         font-size: 0.8rem;
         margin-top: -3%;
@@ -150,66 +156,17 @@ code span.block {
     background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
             url('../media/images/bg_1.jpg') type("image/jpeg"));
     background-size: cover;
-    background-position: center center;
+    background-position: center 90%;
     background-repeat: no-repeat;
     height: 100vh;
     position: relative;
     z-index: 0;
 }
 
-/* Stars and animation for the home background */
-@keyframes glow {
-
-    0%,
-    100% {
-        opacity: 0.3;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-        box-shadow: 0 0 10px 2px var(--color-light);
-        /* Adding glow effect */
-    }
-}
-
-.star {
-    position: absolute;
-    background-color: var(--color-light);
-    border-radius: 50%;
-    opacity: 0.2;
-    animation: glow 2s infinite ease-in-out;
-}
-
-.star-1 {
-    animation-duration: 22s;
-}
-
-.star-2 {
-    animation-duration: 48s;
-}
-
-.star-3 {
-    animation-duration: 63s;
-}
-
-.star-4 {
-    animation-duration: 74s;
-}
-
-.star-5 {
-    animation-duration: 98s;
-}
-
-.star-6 {
-    animation-duration: 134s;
-}
-
 /* Responsive Background Position */
 @media (max-width: 1200px) {
     .bg-home {
-        background-position: center left;
+        background-position: 80% left;
     }
 }
 
@@ -267,4 +224,55 @@ code span.block {
     align-self: flex-end;
     cursor: pointer;
     margin-bottom: 1rem;
+}
+
+
+/* Stars and animation for the home background */
+@keyframes glow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+        box-shadow: 0 0 10px 2px var(--color-light);
+        /* Adding glow effect */
+    }
+}
+
+/* star animation  */
+.star {
+    position: absolute;
+    background-color: var(--color-light);
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: glow 2s infinite ease-in-out;
+}
+
+.star-1 {
+    animation-duration: 22s;
+}
+
+.star-2 {
+    animation-duration: 48s;
+}
+
+.star-3 {
+    animation-duration: 63s;
+}
+
+.star-4 {
+    animation-duration: 74s;
+}
+
+.star-5 {
+    animation-duration: 98s;
+}
+
+.star-6 {
+    animation-duration: 134s;
 }
