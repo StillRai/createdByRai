@@ -97,38 +97,54 @@ code span.block {
 
 /* Custom styles for the home section */
 #home .container {
+    display: inline-block;
     position: absolute;
     top: 20%;
-    left: 35%;
     transform: translateY(-25%);
     text-align: left;
+    width: fit-content
 }
 
+.resize-text {
+    margin-left: 5vw;
+    margin-top: -10px;
 
-@media (max-width: 768px) {
-    #home .container {
-        top: 25%;
-        left: 10%;
-    }
-
-    /* Adjust font size for tablets */
-    .resize-text {
-        font-size: 0.8rem;
-    }
 }
 
-
+/* Adjust font size for extra small devices (phones) */
 @media (max-width: 480px) {
     #home .container {
-        top: 25%;
-        left: 10%;
+        top: 15%;
     }
 
-    /* Adjust font size for mobile */
     .resize-text {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
+        margin-top: -3%;
     }
 }
+
+
+/* Adjust font size for small devices (tablets, landscape phones) */
+@media (max-width: 768px) {
+    #home .container {
+        top: 17%;
+    }
+
+    .resize-text {
+        font-size: 0.7rem;
+        margin-top: -3%;
+
+    }
+}
+
+/* Adjust font size for medium devices (tablets, small desktops) */
+@media (max-width: 992px) { 
+    .resize-text {
+        font-size: 0.8rem;
+        margin-top: -3%;
+    }
+}
+
 
 .bg-home {
     background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
@@ -153,41 +169,41 @@ code span.block {
     50% {
         opacity: 1;
         transform: scale(1.2);
+        box-shadow: 0 0 10px 2px var(--color-light);
+        /* Adding glow effect */
     }
 }
 
 .star {
     position: absolute;
-    width: 2px;
-    height: 2px;
     background-color: var(--color-light);
     border-radius: 50%;
-    opacity: 0.3;
+    opacity: 0.2;
     animation: glow 2s infinite ease-in-out;
 }
 
 .star-1 {
-    animation-duration: 2s;
+    animation-duration: 22s;
 }
 
 .star-2 {
-    animation-duration: 8s;
+    animation-duration: 48s;
 }
 
 .star-3 {
-    animation-duration: 12s;
+    animation-duration: 63s;
 }
 
 .star-4 {
-    animation-duration: 15s;
+    animation-duration: 74s;
 }
 
 .star-5 {
-    animation-duration: 24s;
+    animation-duration: 98s;
 }
 
 .star-6 {
-    animation-duration: 48s;
+    animation-duration: 134s;
 }
 
 /* Responsive Background Position */
