@@ -3,9 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch('components/flowchart.html')
             .then(response => response.text())
             .then(data => {
-                const homeSection = document.querySelector('#home');
-                homeSection.insertAdjacentHTML('beforeend', data);
-                initializeFlowchart();
+                document.getElementById('flowchart-placeholder').innerHTML = data;
+                initializeFlowchart(); 
             })
             .catch(error => console.error('Error loading flowchart:', error));
     }

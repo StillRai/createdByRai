@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 :root {
+    --font-size-lg: 2rem;  
+    --font-size-md: 1.75rem; 
+    --font-size-sm: 1.5rem; 
+
+    --font-size-body-lg: 1rem;
+    --font-size-body-md: 0.875rem;
+    --font-size-body-sm: 0.75rem;
+
     --color-light: #F5F5F5;
     --color-dark: #111A2C;
     --color-green: #84DD63;
@@ -15,28 +23,67 @@
     --color-opacity-5: rgba(0, 0, 0, 0.05);
 }
 
+/* Default font sizes */
+h1 {
+    font-size: var(--font-size-lg);
+}
+
+h2 {
+    font-size: var(--font-size-md);
+}
+
+h3 {
+    font-size: var(--font-size-md);
+}
+
+p, code {
+    font-size: var(--font-size-body-lg);
+}
+
+/* Adjust font sizes for medium screens */
+@media (max-width: 768px) {
+    :root {
+        --font-size-lg: 1.75rem;
+        --font-size-md: 1.5rem;
+        --font-size-sm: 1.25rem;
+
+        --font-size-body-lg: 0.875rem;
+        --font-size-body-md: 0.75rem;
+        --font-size-body-sm: 0.625rem;
+    }
+}
+
+/* Adjust font sizes for small screens */
+@media (max-width: 480px) {
+    :root {
+        --font-size-lg: 1.5rem;
+        --font-size-md: 1.25rem;
+        --font-size-sm: 1rem;
+
+        --font-size-body-lg: 0.75rem;
+        --font-size-body-md: 0.625rem;
+        --font-size-body-sm: 0.5rem;
+    }
+}
+
 body {
     @apply font-sans font-regular;
 }
 
 h1 {
     @apply font-sans font-bold;
-    @apply text-h1-lg md:text-h1-md sm:text-h1-sm;
 }
 
 h2 {
     @apply font-sans font-semibold;
-    @apply text-h2-lg md:text-h2-md sm:text-h2-sm;
 }
 
 h3 {
     @apply font-sans font-semibold;
-    @apply text-h3-lg md:text-h3-md sm:text-h3-sm;
 }
 
 p {
     @apply font-mono font-regular;
-    @apply text-body-lg md:text-body-md sm:text-body-sm;
 }
 
 code {
@@ -97,26 +144,23 @@ code span.block {
 
 /* Custom styles for the home section */
 #home .container {
-    display: inline-block;
-    position: absolute;
-    top: 18%;
-    left: 33%; 
-    transform: translateY(-40%);
     text-align: left;
     width: auto;
     max-width: 70%;
+    top: 10%;
+    left: -10%;
 }
 
 .resize-text {
     margin-top: -10px;
-    margin-right:-25px;
+    margin-right: -25px;
 }
 
 /* Adjust font size for extra small devices (phones) */
 @media (max-width: 480px) {
     #home .container {
-        top: 15%;
-        left: 10%;
+        top: 80%;
+        left: -75%;
     }
 
     .resize-text {
@@ -128,10 +172,10 @@ code span.block {
 /* Adjust font size for small devices (tablets, landscape phones) */
 @media (max-width: 768px) {
     #home .container {
-        top: 17%;
-        left: 15%;
+        top: 40%;
+        left: 35%;
     }
-
+ 
     .resize-text {
         font-size: 0.7rem;
         margin-top: -3%;
@@ -140,17 +184,16 @@ code span.block {
 
 /* Adjust font size for medium devices (tablets, small desktops) */
 @media (max-width: 992px) {
-        #home .container {
-            left: 20%;
-        }
+    #home .container {
+        left: -10%;
+        top: 15%
+    }
 
-        
     .resize-text {
         font-size: 0.8rem;
         margin-top: -3%;
     }
 }
-
 
 .bg-home {
     background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
@@ -174,6 +217,12 @@ code span.block {
     .bg-home {
         background-position: 65% center;
     }
+
+    /* #home .container {
+        position: static;
+        transform: none;
+    ;
+    } */
 }
 
 @media (max-width: 480px) {
@@ -226,104 +275,101 @@ code span.block {
     margin-bottom: 1rem;
 }
 
-
-/* Stars and animation for the home background */
-@keyframes glow {
-
-    0%,
-    100% {
-        opacity: 0.3;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-        box-shadow: 0 0 10px 2px var(--color-light);
-        /* Adding glow effect */
-    }
-}
-
-/* star animation  */
-.star {
-    position: absolute;
-    background-color: var(--color-light);
-    border-radius: 50%;
-    opacity: 0.2;
-    animation: glow 2s infinite ease-in-out;
-}
-
-.star-1 {
-    animation-duration: 22s;
-}
-
-.star-2 {
-    animation-duration: 48s;
-}
-
-.star-3 {
-    animation-duration: 63s;
-}
-
-.star-4 {
-    animation-duration: 74s;
-}
-
-.star-5 {
-    animation-duration: 98s;
-}
-
-.star-6 {
-    animation-duration: 134s;
-}
-
-
-/* home container flowchart styling */
-
+/* Flowchart section */
 .flowchart-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    bottom: 6.5rem; 
 }
 
+.flowchart {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    width: 80%;
+}
+
+/* Box styles */
 .box {
-    background-color: #111A2C;
-    color: #F5F5F5;
-    padding: 20px;
-    border: 2px solid #F5F5F5;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    border: 2px solid var(--color-light);
+    padding: 0.5rem;
     text-align: center;
-    margin: 10px 0;
-    cursor: pointer;
+    min-width: 60px; 
+    z-index: 2;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-.line {
-    width: 2px;
-    background-color: #111A2C;
+/* Full-stack box */
+.full-stack {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.line.vertical {
-    height: 50px;
+/* Coding and Web Design boxes */
+.coding, .web-design {
+    width: 100px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+/* Line styles */
 .line.horizontal {
-    width: 50px;
+    flex-grow: 1; 
     height: 2px;
-    align-self: center;
+    background-color: var(--color-light);
+    margin: 0 0.5rem;
+}
+
+/* Arrow animation */
+@keyframes move-arrow {
+    0% { left: 0%; }
+    100% { left: 100%; }
 }
 
 .arrow {
+    position: absolute;
+    top: 50%;
+    left: 0;
     width: 0;
     height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #111A2C;
-    position: relative;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid var(--color-light);
     animation: move-arrow 5s infinite linear;
+    z-index: 1;
 }
 
-@keyframes move-arrow {
-    0% { top: 0; }
-    100% { top: 50px; }
+/* Adjust sizes for smaller screens */
+@media (max-width: 768px) {
+    .full-stack {
+        width: 50px;
+        height: 50px;
+        font-size: 0.7rem;
+    }
+
+    .coding, .web-design {
+        width: 80px;
+        height: 50px;
+        font-size: 0.7rem;
+    }
+
+    .line.horizontal {
+        margin: 0 0.5rem;
+    }
+
+    @keyframes move-arrow {
+        0% { left: 0%; }
+        100% { left: 100%; }
+    }
 }

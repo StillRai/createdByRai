@@ -19,6 +19,7 @@ export function initialize() {
             generateStars();
             loadFlowchart();
         });
+        
 
     fetch('sections/skills.html')
         .then(response => response.text())
