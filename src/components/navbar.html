@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/output.css" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
-
 <body>
-    <div class="navbar sticky top-0 z-50 pt-5 w-11/12 mx-auto">
+    <div class="navbar sticky top-0 z-50 pt-5 w-11/12 mx-auto" style="z-index: 102;"> <!-- Ensure navbar has highest z-index -->
         <div class="container mx-auto flex justify-between items-center p-4">
             <div class="logo text-2xl text-custom-light font-jetBrains responsive-logo">createdByRai</div>
             <div class="burger-menu md:hidden cursor-pointer" id="burger-menu">
@@ -31,34 +29,17 @@
             </nav>
         </div>
         <div class="container mx-auto">
-            <hr class="border-t-1 mt-5 border-custom-light opacity-15 w-11/12 mx-auto">
+            <hr class="border-t-1 mt-5 border-custom-light border-opacity-10 w-full mx-auto">
         </div>
-        <div class="nav-links-mobile hidden flex-col space-y-4 bg-custom-light p-4 md:hidden" id="nav-links-mobile">
+        <div class="nav-links-mobile hidden flex-col space-y-4 border-custom-light p-4 md:hidden" id="nav-links-mobile">
+            <div class="close-menu" id="close-menu">
+                <i data-feather="x" class="feather-icon-custom-dark"></i>
+            </div>
             <a href="#meetRai" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">Meet Rai</a>
-            <a href="#theJourney" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">The
-                Journey</a>
-            <a href="#theMagic" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">The
-                Magic</a>
-            <a href="#letsTalk"
-                class="text-lg font-poppins text-custom-green font-regular border border-custom-green px-3 py-1">Let's
-                Talk</a>
+            <a href="#theJourney" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">The Journey</a>
+            <a href="#theMagic" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">The Magic</a>
+            <a href="#letsTalk" class="text-lg font-poppins text-custom-green font-regular border border-custom-green px-3 py-1">Let's Talk</a>
         </div>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const burgerMenu = document.getElementById('burger-menu');
-            const navLinksMobile = document.getElementById('nav-links-mobile');
-
-            burgerMenu.addEventListener('click', () => {
-                navLinksMobile.classList.toggle('hidden');
-                navLinksMobile.classList.toggle('flex');
-                navLinksMobile.classList.toggle('active');
-            });
-
-            // Initialize Feather Icons
-            feather.replace();
-        });
-    </script>
 </body>
-
 </html>

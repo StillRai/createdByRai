@@ -16,13 +16,25 @@ module.exports = {
         jetBrains: ['JetBrains Mono', 'monospace'],
         merriweather: ['Merriweather', 'serif'],
       },
+
       fontSize: {
-        'h1': '3rem',
-        'h2': '2.25rem',
-        'h3': '1.875rem',
-        'body': '1rem',
-        'code': '1rem',
+        'h1-lg': '4rem',
+        'h1-md': '3rem',
+        'h1-sm': '2rem',
+
+        'h2-lg': '3.5rem',
+        'h2-md': '2.5rem',
+        'h2-sm': '1.5rem',
+
+        'h3-lg': '3rem',
+        'h3-md': '2rem',
+        'h3-sm': '1rem',
+        
+        'body-lg': '1.25rem',
+        'body-md': '1rem',
+        'body-sm': '0.875rem',
       },
+
       fontWeight: {
         'thin': '100',
         'extralight': '200',

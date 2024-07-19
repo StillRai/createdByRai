@@ -2,28 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-light: #F5F5F5;
+    --color-dark: #111A2C;
+    --color-green: #84DD63;
+    --custom-yellow: #F6AE2D;
+    --color-pink: #E91E63;
+    --color-purple: #9F6AFF;
+    --custom-gray: #D9D9D9;
+    --color-opacity-15: rgba(0, 0, 0, 0.15);
+    --color-opacity-10: rgba(0, 0, 0, 0.10);
+    --color-opacity-5: rgba(0, 0, 0, 0.05);
+}
+
 body {
-    @apply font-sans text-body font-regular;
+    @apply font-sans font-regular;
 }
 
 h1 {
-    @apply font-sans text-h1 font-bold;
+    @apply font-sans font-bold;
+    @apply text-8xl md:text-7xl sm:text-6xl;
 }
 
 h2 {
-    @apply font-sans text-h2 font-semibold;
+    @apply font-sans font-semibold;
+    @apply text-6xl md:text-5xl sm:text-4xl;
 }
 
 h3 {
-    @apply font-sans text-h3 font-semibold;
+    @apply font-sans font-semibold;
+    @apply text-5xl md:text-4xl sm:text-3xl;
 }
 
 p {
-    @apply font-sans text-body font-regular;
+    @apply font-mono font-regular;
+    @apply text-4xl md:text-3xl sm:text-2xl;
 }
 
 code {
-    @apply font-mono text-code font-regular;
+    @apply font-mono font-regular;
+    @apply text-3xl md:text-2xl sm:text-xl;
 }
 
 blockquote {
@@ -32,27 +50,27 @@ blockquote {
 
 /* Custom opacity utility classes */
 .opacity-15 {
-    opacity: 0.15;
+    opacity: var(--color-opacity-15);
 }
 
 .opacity-10 {
-    opacity: 0.10;
+    opacity: var(--color-opacity-10);
 }
 
 .opacity-5 {
-    opacity: 0.05;
+    opacity: var(--color-opacity-5);
 }
 
 /* Custom Feather Icon colors */
 .feather-icon-custom-light {
-    color: #F5F5F5;
+    color: var(--color-light);
 }
 
 .feather-icon-custom-dark {
-    color: #111A2C;
+    color: var(--color-dark);
 }
 
-/* Navbar responsive menu*/
+/* Navbar responsive menu */
 .responsive-text {
     font-size: calc(1vw + 0.3rem);
     line-height: calc(1vw + 0.5rem);
@@ -68,15 +86,72 @@ blockquote {
     gap: calc(3vw + 0.1rem);
 }
 
-/* Background image class */
+/* Custom styles for the home section */
+#home .container {
+    position: absolute;
+    top: 15%;
+    left: 18%;
+    transform: translateY(-25%);
+    text-align: left;
+}
+
 .bg-home {
-    /* Fallback for browsers that don't support WebP */
-    background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
-            url('../media/images/bg_1.jpg') type("image/jpeg"));
+    background-image: image-set(
+        url('../media/images/bg_1.webp') type("image/webp"),
+        url('../media/images/bg_1.jpg') type("image/jpeg")
+    );
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     height: 100vh;
+    position: relative;
+    z-index: 0;
+}
+
+/* Stars and animation for the home background */
+@keyframes glow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: var(--color-light);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: glow 2s infinite ease-in-out;
+}
+
+.star-1 {
+    animation-duration: 2s;
+}
+
+.star-2 {
+    animation-duration: 8s;
+}
+
+.star-3 {
+    animation-duration: 12s;
+}
+
+.star-4 {
+    animation-duration: 15s;
+}
+
+.star-5 {
+    animation-duration: 24s;
+}
+
+.star-6 {
+    animation-duration: 48s;
 }
 
 /* Responsive Background Position */
@@ -102,6 +177,7 @@ blockquote {
 .burger-menu {
     display: none;
     cursor: pointer;
+    z-index: 101;
 }
 
 @media (max-width: 768px) {
@@ -114,22 +190,29 @@ blockquote {
     }
 
     .nav-links-mobile {
-        display: none; /* Initially hidden */
+        display: none;
         flex-direction: column;
         width: 50%;
         height: 100%;
         position: fixed;
         top: 0;
         right: 0;
-        background-color: white;
-        z-index: 20;
+        background-color: var(--color-light);
+        z-index: 100;
         padding: 1rem;
         transform: translateX(100%);
-        transition: transform 0.3s ease-out;
+        transition: transform 0.5s cubic-bezier(.68, -0.55, .27, 1.55);
     }
 
     .nav-links-mobile.active {
-        display: flex; /* Show the nav links */
+        display: flex;
         transform: translateX(0);
     }
+}
+
+/* Close Button */
+.close-menu {
+    align-self: flex-end;
+    cursor: pointer;
+    margin-bottom: 1rem;
 }
