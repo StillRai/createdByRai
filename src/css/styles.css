@@ -21,44 +21,53 @@ body {
 
 h1 {
     @apply font-sans font-bold;
-    @apply text-8xl md:text-7xl sm:text-6xl;
+    @apply text-h1-lg md:text-h1-md sm:text-h1-sm;
 }
 
 h2 {
     @apply font-sans font-semibold;
-    @apply text-6xl md:text-5xl sm:text-4xl;
+    @apply text-h2-lg md:text-h2-md sm:text-h2-sm;
 }
 
 h3 {
     @apply font-sans font-semibold;
-    @apply text-5xl md:text-4xl sm:text-3xl;
+    @apply text-h3-lg md:text-h3-md sm:text-h3-sm;
 }
 
 p {
     @apply font-mono font-regular;
-    @apply text-4xl md:text-3xl sm:text-2xl;
+    @apply text-body-lg md:text-body-md sm:text-body-sm;
 }
 
 code {
     @apply font-mono font-regular;
-    @apply text-3xl md:text-2xl sm:text-xl;
-}
-
-blockquote {
-    @apply font-serif text-lg;
 }
 
 /* Custom opacity utility classes */
 .opacity-15 {
-    opacity: var(--color-opacity-15);
+    opacity: 0.15;
 }
 
 .opacity-10 {
-    opacity: var(--color-opacity-10);
+    opacity: 0.10;
 }
 
 .opacity-5 {
-    opacity: var(--color-opacity-5);
+    opacity: 0.05;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.opacity-100 {
+    opacity: 1;
+}
+
+code span.block {
+    display: block;
+    margin: 0;
+    /* Remove margin to prevent extra space */
 }
 
 /* Custom Feather Icon colors */
@@ -89,17 +98,41 @@ blockquote {
 /* Custom styles for the home section */
 #home .container {
     position: absolute;
-    top: 15%;
-    left: 18%;
+    top: 20%;
+    left: 35%;
     transform: translateY(-25%);
     text-align: left;
 }
 
+
+@media (max-width: 768px) {
+    #home .container {
+        top: 25%;
+        left: 10%;
+    }
+
+    /* Adjust font size for tablets */
+    .resize-text {
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    #home .container {
+        top: 25%;
+        left: 10%;
+    }
+
+    /* Adjust font size for mobile */
+    .resize-text {
+        font-size: 0.7rem;
+    }
+}
+
 .bg-home {
-    background-image: image-set(
-        url('../media/images/bg_1.webp') type("image/webp"),
-        url('../media/images/bg_1.jpg') type("image/jpeg")
-    );
+    background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
+            url('../media/images/bg_1.jpg') type("image/jpeg"));
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -110,10 +143,13 @@ blockquote {
 
 /* Stars and animation for the home background */
 @keyframes glow {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.3;
         transform: scale(1);
     }
+
     50% {
         opacity: 1;
         transform: scale(1.2);
