@@ -1,17 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>createdByRai</title>
     <link href="css/output.css" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
-
 <body class="bg-custom-light text-custom-dark">
     <div id="background-container" class="relative bg-home min-h-screen">
         <!-- Include Navbar -->
@@ -22,49 +18,10 @@
             <div id="sections-container"></div>
         </main>
 
-        <script>
-            // Load the Home section first
-            fetch('sections/home.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sections-container').innerHTML += data;
-                    // Initialize Feather Icons
-                    feather.replace();
-                });
-        </script>
-
-        <script>
-            // Load the skills section
-            fetch('sections/skills.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sections-container').innerHTML += data;
-                });
-        </script>
-
-        <script>
-            // Load the Timeline section
-            fetch('sections/timeline.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sections-container').innerHTML += data;
-                });
-        </script>
-
-        <script>
-            // Load the Work section
-            fetch('sections/work.html')
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('sections-container').innerHTML += data;
-                });
-        </script>
-
         <footer class="footer p-4 bg-custom-gray text-custom-dark">
             <p>Footer content goes here.</p>
         </footer>
-        <script src="js/bundle.js"></script> <!-- Make sure main.js is bundled here -->
+        <script src="js/flowchart.js"></script>
     </div>
 </body>
-
 </html>

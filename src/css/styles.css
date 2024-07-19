@@ -276,3 +276,54 @@ code span.block {
 .star-6 {
     animation-duration: 134s;
 }
+
+
+/* home container flowchart styling */
+
+.flowchart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.box {
+    background-color: #111A2C;
+    color: #F5F5F5;
+    padding: 20px;
+    border: 2px solid #F5F5F5;
+    text-align: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.line {
+    width: 2px;
+    background-color: #111A2C;
+}
+
+.line.vertical {
+    height: 50px;
+}
+
+.line.horizontal {
+    width: 50px;
+    height: 2px;
+    align-self: center;
+}
+
+.arrow {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #111A2C;
+    position: relative;
+    animation: move-arrow 5s infinite linear;
+}
+
+@keyframes move-arrow {
+    0% { top: 0; }
+    100% { top: 50px; }
+}

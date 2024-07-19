@@ -17,6 +17,7 @@ export function initialize() {
             document.getElementById('sections-container').innerHTML += data;
             feather.replace();
             generateStars();
+            loadFlowchart();
         });
 
     fetch('sections/skills.html')
@@ -36,4 +37,24 @@ export function initialize() {
         .then(data => {
             document.getElementById('sections-container').innerHTML += data;
         });
+
+
+    // Function to load the flowchart
+    function loadFlowchart() {
+        fetch('components/flowchart.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('flowchart-placeholder').innerHTML = data;
+                initializeFlowchart();
+            })
+            .catch(error => console.error('Error loading flowchart:', error));
+    }
+
+    // Function to initialize the flowchart animation
+    function initializeFlowchart() {
+        const arrow = document.querySelector('.arrow');
+        if (arrow) {
+            arrow.style.animation = 'move-arrow 5s infinite linear';
+        }
+    }
 }
