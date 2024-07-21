@@ -1,6 +1,6 @@
 export function generateStars() {
     const homeSection = document.querySelector('#home');
-    const numberOfStars = 6; 
+    const numberOfStars = 25; 
 
     for (let i = 0; i < numberOfStars; i++) {
         const star = document.createElement('div');
@@ -15,12 +15,12 @@ export function generateStars() {
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
 
-        const animationDuration = Math.random() * 10 + 2; 
+        const animationDuration = Math.random() * 6 + 2; 
         const easingFunctions = ['ease-in-out', 'linear', 'ease-in', 'ease-out'];
         const easingFunction = easingFunctions[Math.floor(Math.random() * easingFunctions.length)];
 
         star.style.animation = `glow ${animationDuration}s infinite ${easingFunction}`;
-        star.style.opacity = (Math.random() * 0.7 + 0.3).toFixed(2); 
+        star.style.opacity = (Math.random() * 0.9 + 0.3).toFixed(2); 
 
         homeSection.appendChild(star);
     }

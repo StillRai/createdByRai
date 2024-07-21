@@ -1,61 +1,55 @@
 import { initializeBurgerMenu } from './burgerMenu';
 import { generateStars } from './stars';
 import feather from 'feather-icons';
+import { loadFlowchart } from './flowchart';
+
+let isInitialized = false;
 
 export function initialize() {
+    if (isInitialized) return; // Prevent double initialization
+    isInitialized = true;
+
+    console.log('Initializing components...');
     fetch('components/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar-container').innerHTML = data;
             feather.replace();
             initializeBurgerMenu();
+            console.log('Navbar loaded.');
         });
 
     fetch('sections/home.html')
         .then(response => response.text())
         .then(data => {
+            document.getElementById('sections-container').innerHTML = ''; // Clear container
             document.getElementById('sections-container').innerHTML += data;
             feather.replace();
-            generateStars();
-            loadFlowchart();
-        });
-        
-
-    fetch('sections/skills.html')
+            console.log('Home section loaded.');
+            return loadFlowchart(); // Ensure flowchart loads after home section
+        })
+        .then(() => fetch('sections/skills.html'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('sections-container').innerHTML += data;
-        });
-
-    fetch('sections/timeline.html')
+            console.log('Skills section loaded.');
+        })
+        .then(() => fetch('sections/timeline.html'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('sections-container').innerHTML += data;
-        });
-
-    fetch('sections/work.html')
+            console.log('Timeline section loaded.');
+        })
+        .then(() => fetch('sections/work.html'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('sections-container').innerHTML += data;
+            console.log('Work section loaded.');
+        })
+        .then(() => {
+            generateStars(); // Ensure stars are generated after all sections are loaded
         });
-
-
-    // Function to load the flowchart
-    function loadFlowchart() {
-        fetch('components/flowchart.html')
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('flowchart-placeholder').innerHTML = data;
-                initializeFlowchart();
-            })
-            .catch(error => console.error('Error loading flowchart:', error));
-    }
-
-    // Function to initialize the flowchart animation
-    function initializeFlowchart() {
-        const arrow = document.querySelector('.arrow');
-        if (arrow) {
-            arrow.style.animation = 'move-arrow 5s infinite linear';
-        }
-    }
 }
+
+// Initialize everything on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', initialize);
