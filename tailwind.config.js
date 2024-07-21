@@ -5,11 +5,16 @@ module.exports = {
       colors: {
         'custom-light': '#F5F5F5',
         'custom-dark': '#111A2C',
-        'custom-yellow': '#F6AE2D',
-        'custom-green': '#84DD63',
-        'custom-pink': '#E91E63',
+        'custom-yellow': '#DBDBA9',
+        'custom-darkgreen': '#04BF9D',
+        'custom-lightgreen': '#5BD963',
+        'custom-pink': '#BF7ABB',
         'custom-purple': '#9F6AFF',
         'custom-gray': '#D9D9D9',
+        'custom-darkblue': '#59A8D9',
+        'custom-lightblue': '#85D3F2',
+        'custom-orange': '#C8846C',
+
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

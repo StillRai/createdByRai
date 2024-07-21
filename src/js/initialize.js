@@ -22,18 +22,18 @@ export function initialize() {
     fetch('sections/home.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('sections-container').innerHTML = ''; // Clear container
+            document.getElementById('sections-container').innerHTML = '';
             document.getElementById('sections-container').innerHTML += data;
             feather.replace();
             console.log('Home section loaded.');
-            generateStars(); // Ensure stars are generated after home section is loaded
-            return loadFlowchart(); // Ensure flowchart loads after home section
+            generateStars();
         })
         .then(() => fetch('sections/skills.html'))
         .then(response => response.text())
         .then(data => {
             document.getElementById('sections-container').innerHTML += data;
             console.log('Skills section loaded.');
+            return loadFlowchart(); // Load the flowchart after the Skills section is loaded
         })
         .then(() => fetch('sections/timeline.html'))
         .then(response => response.text())

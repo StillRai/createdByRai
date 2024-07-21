@@ -14,14 +14,19 @@
 
     --color-light: #F5F5F5;
     --color-dark: #111A2C;
-    --color-green: #84DD63;
-    --custom-yellow: #F6AE2D;
-    --color-pink: #E91E63;
+    --color-yellow: #DBDBA9;
+    --color-darkgreen: #4EBF9F;
+    --color-lightgreen: #5BD963;
+    --color-pink: #A271A1;
     --color-purple: #9F6AFF;
-    --custom-gray: #D9D9D9;
+    --color-gray: #D9D9D9;
+    --color-darkblue: #59A8D9;
+    --color-lightblue: #99D9F2;
+    --color-orange: #D6A940;
     --color-opacity-15: rgba(0, 0, 0, 0.15);
     --color-opacity-10: rgba(0, 0, 0, 0.10);
     --color-opacity-5: rgba(0, 0, 0, 0.05);
+    --color-opacity-1: rgba(0, 0, 0, 0.01);
 }
 
 /* Default font sizes */
@@ -113,6 +118,15 @@ code {
     opacity: 0.05;
 }
 
+.opacity-1 {
+    opacity: 0.01;
+}
+
+.opacity-2 {
+    opacity: 0.02;
+}
+
+
 .opacity-50 {
     opacity: 0.5;
 }
@@ -190,15 +204,6 @@ code span.block {
     margin-right: -25px;
 }
 
-/* Flowchart section */
-.flowchart-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-}
-
 /* Responsive adjustments */
 @media (max-width: 992px) {
     #home .container {
@@ -240,6 +245,48 @@ code span.block {
     .resize-text {
         font-size: 0.8rem;
     }
+}
+
+/* Custom styles for the skills section */
+
+#skills {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.skills-code-container {
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 2rem;
+    padding-right: 2rem;
+
+}
+
+/* Style for heading with JetBrains Mono font and border */
+.skills-title {
+    padding-left: 2rem;
+    display: inline-block;
+    font-family: poppins;
+    color: var(--color-light);
+    position: relative;
+    z-index: 5;
+    font-size: var(--font-size-lg);
+}
+
+/* Indentation for the skills content */
+.skills-content span {
+    display: block;
+    width: 100%;
+  
+
 }
 
 /* Burger Menu */
@@ -306,23 +353,23 @@ footer {
 
 /* Flowchart section */
 .flowchart-container {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
 }
 
 .flowchart {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     position: relative;
     width: 80%;
 }
 
 .line {
-    background-color: var(--color-dark);
+    background-color: var(--color-light);
     z-index: 1;
 }
 
@@ -346,6 +393,7 @@ footer {
 .box {
     background-color: var(--color-dark);
     color: var(--color-light);
+    border: 2px solid var(--color-light);
     padding: 1rem;
     text-align: center;
     min-width: 60px;
@@ -355,13 +403,14 @@ footer {
 
 /* Full-stack box */
 .full-stack {
-    width: 120px;
-    height: 120px;
+    padding: 5px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: relative;
     z-index: 2;
+    color: var(--color-darkgreen);
 }
 
 /* Coding and Web Design boxes */
@@ -372,58 +421,7 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-/* Arrow animation */
-@keyframes move-arrow {
-    0% {
-        left: 10%;
-        top: 41%;
-        transform: rotate(0deg);
-    }
-
-    25% {
-        left: 85%;
-        top: 41%;
-        transform: rotate(0deg);
-    }
-
-    30% {
-        left: 85%;
-        top: 41%;
-        transform: rotate(180deg);
-    }
-
-    55% {
-        left: 10%;
-        top: 41%;
-        transform: rotate(180deg);
-    }
-
-    60% {
-        left: 13.5%;
-        top: 41%;
-        transform: rotate(90deg);
-    }
-
-    100% {
-        left: 13.5%;
-        top: 140%;
-        transform: rotate(90deg);
-    }
-}
-
-.arrow {
-    position: absolute;
-    top: 41%;
-    left: 10%;
-    width: 0;
-    height: 0;
-    border-top: 10px solid transparent;
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid var(--color-dark);
-    animation: move-arrow 50s linear infinite;
-    z-index: 1;
+    color: var(--color-pink);
 }
 
 /* Adjust sizes for smaller screens */
@@ -443,15 +441,15 @@ footer {
 
     @keyframes move-arrow {
         0% {
-            left: 10%;
+            left: 0%;
         }
 
-        90% {
-            left: 85%;
+        25% {
+            left: 80%;
         }
 
         100% {
-            left: 85%;
+            left: 80%;
         }
     }
 }
