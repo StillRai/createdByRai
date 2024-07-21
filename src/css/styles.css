@@ -1,11 +1,12 @@
+/* Base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --font-size-lg: 2rem;  
-    --font-size-md: 1.75rem; 
-    --font-size-sm: 1.5rem; 
+    --font-size-lg: 2rem;
+    --font-size-md: 1.75rem;
+    --font-size-sm: 1.5rem;
 
     --font-size-body-lg: 1rem;
     --font-size-body-md: 0.875rem;
@@ -36,7 +37,8 @@ h3 {
     font-size: var(--font-size-md);
 }
 
-p, code {
+p,
+code {
     font-size: var(--font-size-body-lg);
 }
 
@@ -66,7 +68,8 @@ p, code {
     }
 }
 
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -121,7 +124,6 @@ code {
 code span.block {
     display: block;
     margin: 0;
-    /* Remove margin to prevent extra space */
 }
 
 /* Custom Feather Icon colors */
@@ -150,22 +152,37 @@ code span.block {
 }
 
 /* Custom styles for the home section */
+#background-container {
+    background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
+            url('../media/images/bg_1.jpg') type("image/jpeg"));
+    background-size: cover;
+    background-position: center 50%;
+    background-repeat: no-repeat;
+}
+
+#content-container {
+    min-height: 100vh;
+}
+
 #home {
     height: 100vh;
-    padding: 0;
-    margin: 0; 
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* position: relative;  */
 }
 
 #home .container {
     text-align: left;
     width: auto;
     max-width: 70%;
-    top: 10%;
-    left: -10%;
+    position: relative;
+    z-index: 1;
+    top: 10vw;
+    left: -10vw;
 }
 
 .resize-text {
@@ -173,37 +190,20 @@ code span.block {
     margin-right: -25px;
 }
 
-/* Adjust font size for extra small devices (phones) */
-@media (max-width: 480px) {
-    #home .container {
-        top: 80%;
-        left: -75%;
-    }
-
-    .resize-text {
-        font-size: 0.8rem;
-        margin-top: -3%;
-    }
+/* Flowchart section */
+.flowchart-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
-/* Adjust font size for small devices (tablets, landscape phones) */
-@media (max-width: 768px) {
-    #home .container {
-        top: 40%;
-        left: 35%;
-    }
-
-    .resize-text {
-        font-size: 0.7rem;
-        margin-top: -3%;
-    }
-}
-
-/* Adjust font size for medium devices (tablets, small desktops) */
+/* Responsive adjustments */
 @media (max-width: 992px) {
     #home .container {
-        left: -10%;
         top: 15%;
+        left: -5%;
     }
 
     .resize-text {
@@ -212,33 +212,33 @@ code span.block {
     }
 }
 
-.bg-home {
-    background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
-            url('../media/images/bg_1.jpg') type("image/jpeg"));
-    background-size: cover;
-    background-position: center 50%;
-    background-repeat: no-repeat;
-    height: 100vh;
-    position: relative;
-    z-index: 0;
-}
-
-/* Responsive Background Position */
-@media (max-width: 1200px) {
-    .bg-home {
-        background-position: 80% left;
-    }
-}
-
 @media (max-width: 768px) {
-    .bg-home {
+    #background-container {
         background-position: 65% center;
+    }
+
+    #home .container {
+        top: 15%;
+        left: -15%;
+    }
+
+    .resize-text {
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
-    .bg-home {
+    #background-container {
         background-position: 80% center;
+    }
+
+    #home .container {
+        top: 15%;
+        left: -15%;
+    }
+
+    .resize-text {
+        font-size: 0.8rem;
     }
 }
 
@@ -286,14 +286,31 @@ code span.block {
     margin-bottom: 1rem;
 }
 
+/* Section styles */
+section {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+#skills,
+#timeline,
+#work {
+    padding: 20px 0;
+}
+
+/* Footer styles */
+footer {
+    padding: 20px 0;
+}
+
 /* Flowchart section */
 .flowchart-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
     position: absolute;
-    bottom: 0; /* Align with the bottom */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
 .flowchart {
@@ -316,13 +333,13 @@ code span.block {
 
 .line.vertical {
     width: 2px;
-    height: 50px; 
+    height: 50px;
     margin: 0 auto;
-    position: absolute; 
+    position: absolute;
     top: 100%;
-    left: 50%; 
-    transform: translateX(-50%); 
-    z-index: 0; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
 }
 
 /* Box styles */
@@ -331,8 +348,8 @@ code span.block {
     color: var(--color-light);
     padding: 1rem;
     text-align: center;
-    min-width: 60px; 
-    z-index: 2; 
+    min-width: 60px;
+    z-index: 2;
     font-family: 'JetBrains Mono', monospace;
 }
 
@@ -344,11 +361,12 @@ code span.block {
     flex-direction: column;
     justify-content: center;
     position: relative;
-    z-index: 2; 
+    z-index: 2;
 }
 
 /* Coding and Web Design boxes */
-.coding, .web-design {
+.coding,
+.web-design {
     width: 130px;
     height: 60px;
     display: flex;
@@ -363,26 +381,31 @@ code span.block {
         top: 41%;
         transform: rotate(0deg);
     }
+
     25% {
         left: 85%;
         top: 41%;
         transform: rotate(0deg);
     }
+
     30% {
         left: 85%;
         top: 41%;
         transform: rotate(180deg);
     }
-     55% {
+
+    55% {
         left: 10%;
         top: 41%;
         transform: rotate(180deg);
     }
+
     60% {
         left: 13.5%;
         top: 41%;
         transform: rotate(90deg);
     }
+
     100% {
         left: 13.5%;
         top: 140%;
@@ -411,31 +434,43 @@ code span.block {
         font-size: 0.7rem;
     }
 
-    .coding, .web-design {
+    .coding,
+    .web-design {
         width: 90px;
         height: 50px;
         font-size: 0.7rem;
     }
 
     @keyframes move-arrow {
-        0% { left: 10%; }
-        90% { left: 85%; }
-        100% { left: 85%; } 
+        0% {
+            left: 10%;
+        }
+
+        90% {
+            left: 85%;
+        }
+
+        100% {
+            left: 85%;
+        }
     }
 }
 
 /* Star styles and animation */
 .star {
-    position: absolute;
+    position: fixed;
     background-color: var(--color-light);
-    border-radius: 90%;
+    border-radius: 50%;
 }
 
 @keyframes glow {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 0.2;
-        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
     }
+
     50% {
         opacity: 1;
         box-shadow: 0 0 20px rgba(255, 255, 255, 1);

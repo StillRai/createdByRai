@@ -10,8 +10,8 @@ export function generateStars() {
         const leftPosition = Math.random() * 100;
         const size = Math.random() * 2 + 1; 
 
-        star.style.top = `${topPosition}%`;
-        star.style.left = `${leftPosition}%`;
+        star.style.top = `${topPosition}vh`;
+        star.style.left = `${leftPosition}vw`; 
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
 

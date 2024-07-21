@@ -26,6 +26,7 @@ export function initialize() {
             document.getElementById('sections-container').innerHTML += data;
             feather.replace();
             console.log('Home section loaded.');
+            generateStars(); // Ensure stars are generated after home section is loaded
             return loadFlowchart(); // Ensure flowchart loads after home section
         })
         .then(() => fetch('sections/skills.html'))
@@ -47,7 +48,13 @@ export function initialize() {
             console.log('Work section loaded.');
         })
         .then(() => {
-            generateStars(); // Ensure stars are generated after all sections are loaded
+            // Append footer last
+            document.getElementById('sections-container').innerHTML += `
+                <footer class="footer p-4 bg-custom-gray text-custom-dark">
+                    <p>Footer content goes here.</p>
+                </footer>
+            `;
+            console.log('Footer loaded.');
         });
 }
 

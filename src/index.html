@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>createdByRai</title>
     <link href="css/output.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
+
 <body class="bg-custom-light text-custom-dark">
-    <div id="background-container" class="relative bg-home min-h-screen">
+    <div id="background-container" class="fixed inset-0 z-0"></div>
+    <div id="content-container" class="relative z-10">
         <!-- Include Navbar -->
-        <div id="navbar-container" class="relative z-10" style="z-index: 102;"></div>
+        <div id="navbar-container" class="relative z-20"></div>
 
         <!-- Main content -->
         <main id="main-content" class="p-0 m-0 relative z-10">
             <div id="sections-container"></div>
         </main>
-
-        <footer class="footer p-4 bg-custom-gray text-custom-dark">
-            <p>Footer content goes here.</p>
-        </footer>
     </div>
     <script src="js/flowchart.js"></script>
     <script src="js/initialize.js"></script>
     <script src="js/stars.js"></script>
 </body>
+
 </html>
