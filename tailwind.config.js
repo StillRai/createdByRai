@@ -10,7 +10,7 @@ module.exports = {
         'custom-lightgreen': '#5BD963',
         'custom-pink': '#BF7ABB',
         'custom-purple': '#9F6AFF',
-        'custom-gray': '#D9D9D9',
+        'custom-gray': '#878787',
         'custom-darkblue': '#59A8D9',
         'custom-lightblue': '#85D3F2',
         'custom-orange': '#C8846C',

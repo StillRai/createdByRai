@@ -19,7 +19,7 @@
     --color-lightgreen: #5BD963;
     --color-pink: #A271A1;
     --color-purple: #9F6AFF;
-    --color-gray: #D9D9D9;
+    --color-gray: #878787;
     --color-darkblue: #59A8D9;
     --color-lightblue: #99D9F2;
     --color-orange: #D6A940;
@@ -126,7 +126,6 @@ code {
     opacity: 0.02;
 }
 
-
 .opacity-50 {
     opacity: 0.5;
 }
@@ -172,6 +171,7 @@ code span.block {
     background-size: cover;
     background-position: center 50%;
     background-repeat: no-repeat;
+    height:100vh;
 }
 
 #content-container {
@@ -250,30 +250,28 @@ code span.block {
 /* Custom styles for the skills section */
 
 #skills {
-    height: 100vh;
-    position: absolute;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
     overflow: hidden;
     display: flex;
-
+    padding-bottom: 20px;
 }
-
-/* #skills .container {
-    padding-right: 2rem;
-
-} */
 
 .skills-code-container {
     text-align: left;
     justify-content: center;
     box-sizing: border-box;
     padding-left: 2rem;
-    padding-right: 3rem;
+    padding-right: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+
+
 }
 
 .skills-title {
     padding-left: 2rem;
     display: inline-block;
-    font-family: poppins;
     color: var(--color-light);
     position: relative;
     z-index: 5;
@@ -287,24 +285,41 @@ code span.block {
 }
 
 
+.js-brace {
+    color: var(--color-yellow);
+}
+
+.js-tech {
+    color: var(--color-orange);
+}
+
 /* Responsive adjustments */
 @media (max-width: 992px) {
     #skills  .resize-text {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
 }
 
 @media (max-width: 768px) {
     #skills  .resize-text {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 }
 
 @media (max-width: 480px) {
     #skills  .resize-text {
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 }
+
+/* Custom styles for the timeline section */
+
+
+#timeline {
+    display: block; /* Ensure it's not set to none */
+    visibility: visible; /* Ensure it's not hidden */
+}
+
 
 /* Burger Menu */
 .burger-menu {
@@ -481,4 +496,3 @@ footer {
         box-shadow: 0 0 20px rgba(255, 255, 255, 1);
     }
 }
-
