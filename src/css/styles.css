@@ -52,11 +52,11 @@ code {
     :root {
         --font-size-lg: 1.75rem;
         --font-size-md: 1.5rem;
-        --font-size-sm: 1.25rem;
+        --font-size-sm: 1.15rem;
 
         --font-size-body-lg: 0.875rem;
         --font-size-body-md: 0.75rem;
-        --font-size-body-sm: 0.625rem;
+        --font-size-body-sm: 0.55rem;
     }
 }
 
@@ -65,7 +65,7 @@ code {
     :root {
         --font-size-lg: 1.5rem;
         --font-size-md: 1.25rem;
-        --font-size-sm: 1rem;
+        --font-size-sm: 0.8rem;
 
         --font-size-body-lg: 0.75rem;
         --font-size-body-md: 0.625rem;
@@ -251,26 +251,25 @@ code span.block {
 
 #skills {
     height: 100vh;
-    width: 100%;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+
 }
+
+/* #skills .container {
+    padding-right: 2rem;
+
+} */
 
 .skills-code-container {
     text-align: left;
-    width: 100%;
-    display: flex;
     justify-content: center;
     box-sizing: border-box;
     padding-left: 2rem;
-    padding-right: 2rem;
-
+    padding-right: 3rem;
 }
 
-/* Style for heading with JetBrains Mono font and border */
 .skills-title {
     padding-left: 2rem;
     display: inline-block;
@@ -279,14 +278,32 @@ code span.block {
     position: relative;
     z-index: 5;
     font-size: var(--font-size-lg);
+    margin-top: 2rem;
 }
 
-/* Indentation for the skills content */
 .skills-content span {
     display: block;
     width: 100%;
-  
+}
 
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    #skills  .resize-text {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #skills  .resize-text {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #skills  .resize-text {
+        font-size: 0.7rem;
+    }
 }
 
 /* Burger Menu */
@@ -335,7 +352,7 @@ code span.block {
 
 /* Section styles */
 section {
-    padding: 0;
+    padding-bottom: 10px;
     margin: 0;
     width: 100%;
 }
@@ -365,12 +382,15 @@ footer {
     align-items: center;
     justify-content: space-between;
     position: relative;
-    width: 80%;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
 .line {
-    background-color: var(--color-light);
+    background-color: var(--color-pink);
     z-index: 1;
+    opacity:0.1;
 }
 
 .line.horizontal {
@@ -378,23 +398,10 @@ footer {
     height: 2px;
 }
 
-.line.vertical {
-    width: 2px;
-    height: 50px;
-    margin: 0 auto;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 0;
-}
-
 /* Box styles */
 .box {
     background-color: var(--color-dark);
-    color: var(--color-light);
-    border: 2px solid var(--color-light);
-    padding: 1rem;
+    padding: 0.1rem;
     text-align: center;
     min-width: 60px;
     z-index: 2;
@@ -474,3 +481,4 @@ footer {
         box-shadow: 0 0 20px rgba(255, 255, 255, 1);
     }
 }
+

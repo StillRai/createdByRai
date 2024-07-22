@@ -33,7 +33,7 @@ module.exports = {
         'h3-sm': '2rem',
         'body-lg': '1.5rem',
         'body-md': '1rem',
-        'body-sm': '0.5rem',
+        'body-sm': '0.8rem',
       },
       fontWeight: {
         thin: '100',
