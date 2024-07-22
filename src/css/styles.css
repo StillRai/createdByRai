@@ -23,6 +23,7 @@
     --color-darkblue: #59A8D9;
     --color-lightblue: #99D9F2;
     --color-orange: #D6A940;
+    --color-greyed: rgba(245, 245, 245, 0.5);
     --color-opacity-15: rgba(0, 0, 0, 0.15);
     --color-opacity-10: rgba(0, 0, 0, 0.10);
     --color-opacity-5: rgba(0, 0, 0, 0.05);
@@ -171,7 +172,7 @@ code span.block {
     background-size: cover;
     background-position: center 50%;
     background-repeat: no-repeat;
-    height:100vh;
+    height: 100vh;
 }
 
 #content-container {
@@ -253,9 +254,6 @@ code span.block {
     min-height: 100vh;
     height: auto;
     position: relative;
-    overflow: hidden;
-    display: flex;
-    padding-bottom: 20px;
 }
 
 .skills-code-container {
@@ -265,8 +263,6 @@ code span.block {
     padding-left: 2rem;
     padding-right: 2rem;
     font-family: 'JetBrains Mono', monospace;
-
-
 }
 
 .skills-title {
@@ -284,7 +280,6 @@ code span.block {
     width: 100%;
 }
 
-
 .js-brace {
     color: var(--color-yellow);
 }
@@ -295,20 +290,23 @@ code span.block {
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
-    #skills  .resize-text {
+    #skills .resize-text {
         font-size: 0.9rem;
+        line-height: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    #skills  .resize-text {
+    #skills .resize-text {
         font-size: 0.8rem;
+        line-height: 1.5rem;
     }
 }
 
 @media (max-width: 480px) {
-    #skills  .resize-text {
+    #skills .resize-text {
         font-size: 0.8rem;
+        line-height: 1.5rem;
     }
 }
 
@@ -316,10 +314,121 @@ code span.block {
 
 
 #timeline {
-    display: block; /* Ensure it's not set to none */
-    visibility: visible; /* Ensure it's not hidden */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    height: auto;
+    padding: 20px 0;
 }
 
+#timeline-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%; /* Adjust width as necessary */
+    max-width: 1200px;
+}
+
+.line.horizontal {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-dark);
+    z-index: 0;
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 20px;
+    flex: 1;
+}
+
+.timeline-item::before {
+    content: attr(data-year);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-light);
+    border-radius: 50%;
+    border: 2px solid var(--color-dark);
+    font-family: 'JetBrains Mono', monospace;
+    z-index: 1;
+    position: relative;
+}
+
+.timeline-item[data-year="2024"]::before,
+.timeline-item[data-year="2025"]::before {
+    background-color: var(--color-greyed);
+}
+
+.timeline-item:hover::after,
+.timeline-item:focus::after {
+    content: attr(data-info);
+    position: absolute;
+    background-color: var(--color-light);
+    border: 1px dashed var(--color-dark);
+    padding: 10px;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+.timeline-item:nth-child(odd):hover::after {
+    top: -50px;
+}
+
+.timeline-item:nth-child(even):hover::after {
+    bottom: -50px;
+}
+
+@media (max-width: 768px) {
+    #timeline-container {
+        flex-direction: column;
+    }
+
+    .timeline-item {
+        margin-bottom: 20px;
+    }
+
+    .timeline-item::after {
+        width: 100%;
+        height: 10px;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+    }
+
+    .timeline-item:hover::after,
+    .timeline-item:focus::after {
+        white-space: normal;
+        width: auto;
+        max-width: 200px;
+    }
+
+    .timeline-item:nth-child(odd):hover::after {
+        left: -220px;
+    }
+
+    .timeline-item:nth-child(even):hover::after {
+        right: -220px;
+    }
+
+    .line.horizontal {
+        width: 2px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 
 /* Burger Menu */
 .burger-menu {
@@ -405,7 +514,7 @@ footer {
 .line {
     background-color: var(--color-pink);
     z-index: 1;
-    opacity:0.1;
+    opacity: 0.1;
 }
 
 .line.horizontal {
@@ -484,7 +593,6 @@ footer {
 }
 
 @keyframes glow {
-
     0%,
     100% {
         opacity: 0.2;
