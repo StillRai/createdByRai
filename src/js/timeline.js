@@ -7,19 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const minYear = Math.min(...years);
     const maxYear = Math.max(...years);
     const totalYears = maxYear - minYear;
-    const containerWidth = timelineContainer.offsetWidth;
 
     timelineItems.forEach((item, index) => {
         const year = parseInt(item.getAttribute('data-year'));
         const position = ((year - minYear) / totalYears) * 100;
-        item.style.position = 'absolute';
-        
+
         if (window.innerWidth > 768) {
             item.style.left = `${position}%`;
-            item.style.top = index % 2 === 0 ? '-40px' : '40px';
+            item.style.top = '50%';
+            item.style.transform = 'translate(-50%, -50%)';
         } else {
-            item.style.left = '0';
+            item.style.left = '50%';
             item.style.top = `${position}%`;
+            item.style.transform = 'translate(-50%, -50%)';
         }
 
         item.addEventListener('click', () => {

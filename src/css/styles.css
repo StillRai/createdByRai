@@ -140,6 +140,90 @@ code span.block {
     margin: 0;
 }
 
+/* Button Styling */
+
+
+/* Green btn */
+.btn-o-lightgreen {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-lightgreen);
+    font-weight: 400;
+    border: 2px solid var(--color-lightgreen);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.btn-s-lightgreen {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    font-weight: 400;
+    border: 2px solid var(--color-lightgreen);
+    background-color: var(--color-lightgreen);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+/* orange btn */
+.btn-o-orange {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-orange);
+    font-weight: 400;
+    border: 2px solid var(--color-orange);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.btn-s-orange {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    border-radius: 8px;
+    height: 7%
+    ;
+}
+
+/* Light btn */
+.btn-o-light {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-light);
+    font-weight: 400;
+    border: 2px solid var(--color-light);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.btn-s-light {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    font-weight: 400;
+    border: 2px solid var(--color-light);
+    background-color: var(--color-light);
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+
+
 /* Custom Feather Icon colors */
 .feather-icon-custom-light {
     color: var(--color-light);
@@ -272,7 +356,9 @@ code span.block {
     position: relative;
     z-index: 5;
     font-size: var(--font-size-lg);
-    margin-top: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 0px;
+
 }
 
 .skills-content span {
@@ -284,8 +370,16 @@ code span.block {
     color: var(--color-yellow);
 }
 
+.js-list {
+    color: var(--color-darkblue);
+}
+
 .js-tech {
     color: var(--color-orange);
+}
+
+.js-bracket {
+    color: var(--color-lightgreen);
 }
 
 /* Responsive adjustments */
@@ -293,6 +387,7 @@ code span.block {
     #skills .resize-text {
         font-size: 0.9rem;
         line-height: 1.5rem;
+        margin-top: 0px;
     }
 }
 
@@ -300,6 +395,8 @@ code span.block {
     #skills .resize-text {
         font-size: 0.8rem;
         line-height: 1.5rem;
+        margin-top: 0px;
+
     }
 }
 
@@ -307,6 +404,8 @@ code span.block {
     #skills .resize-text {
         font-size: 0.8rem;
         line-height: 1.5rem;
+        margin-top: 0px;
+
     }
 }
 
@@ -473,6 +572,7 @@ footer {
 }
 
 @keyframes glow {
+
     0%,
     100% {
         opacity: 0.2;
@@ -488,7 +588,7 @@ footer {
 /* Social Icons */
 
 .social-icons {
-    position:fixed; 
+    position: fixed;
     bottom: 20px;
     right: 20px;
     display: flex;
@@ -497,7 +597,7 @@ footer {
 }
 
 .icon {
-    color: var(--color-light);
+    color: var(--color-dark);
     text-decoration: none;
 }
 
@@ -525,21 +625,20 @@ footer {
     }
 }
 
-
-
-
 /* Custom styles for the timeline section */
 
 #timeline-container {
     position: relative;
-    width: 90%;
+    width: 100%;
     height: 200px;
+    /* Adjust the height as needed */
     margin: 0 auto;
 }
 
 .line.horizontal {
     position: absolute;
     top: 50%;
+    /* Center the line vertically */
     left: 0;
     width: 100%;
     height: 2px;
@@ -549,7 +648,9 @@ footer {
 
 .timeline-item {
     position: absolute;
-    transform: translateX(-50%);
+    top: 50%;
+    /* Align with the line */
+    transform: translate(-50%, -50%);
     cursor: pointer;
     z-index: 2;
 }
@@ -565,7 +666,7 @@ footer {
     border-radius: 50%;
     border: 2px solid var(--color-dark);
     font-family: 'JetBrains Mono', monospace;
-    position: relative;
+    position: absolute;
     z-index: 3;
 }
 
@@ -601,11 +702,13 @@ footer {
     z-index: 4;
     left: 50%;
     transform: translateX(-50%);
-    display: none; /* Initially hide */
+    display: none;
+    /* Initially hide */
 }
 
 .timeline-item.active .info-box {
-    display: block; /* Show when active */
+    display: block;
+    /* Show when active */
 }
 
 /* Custom positioning for each item */
@@ -660,40 +763,46 @@ footer {
         height: 50px;
         font-size: 0.8rem;
     }
-    
+
     /* Adjust the positioning for tablet */
     .item-2003 {
         left: 7%;
     }
+
     .item-2005 {
         left: 17%;
     }
+
     .item-2007 {
         left: 27%;
     }
+
     .item-2008 {
-        left: 34%;
+        left: 37%;
     }
+
     .item-2010 {
-        left: 44%;
+        left: 47%;
     }
+
     .item-2015 {
-        left: 60%;
+        left: 57%;
     }
+
     .item-2016 {
         left: 67%;
     }
+
     .item-2022 {
-        left: 79%;
+        left: 77%;
     }
+
     .item-2023 {
-        left: 86%;
+        left: 87%;
     }
+
     .item-2024 {
-        left: 93%;
-    }
-    .item-2025 {
-        left: 100%;
+        left: 97%;
     }
 }
 
@@ -704,11 +813,10 @@ footer {
     }
 
     .timeline-item {
-        position: relative;
-        transform: none;
-        margin-bottom: 20px;
-        left: 0 !important;
-        top: 0 !important;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 40px;
+        /* Increased margin to space out items */
     }
 
     .timeline-item::before {
@@ -721,7 +829,8 @@ footer {
         width: 2px;
         height: 100%;
         top: 0;
-        left: 30px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .info-box {
@@ -732,37 +841,47 @@ footer {
 
     /* Adjust the positioning for mobile */
     .item-2003 {
-        top: 5%;
+        top: 7%;
     }
+
     .item-2005 {
-        top: 15%;
+        top: 17%;
     }
+
     .item-2007 {
-        top: 25%;
+        top: 27%;
     }
+
     .item-2008 {
-        top: 35%;
+        top: 37%;
     }
+
     .item-2010 {
-        top: 45%;
+        top: 47%;
     }
+
     .item-2015 {
-        top: 55%;
+        top: 57%;
     }
+
     .item-2016 {
-        top: 65%;
+        top: 67%;
     }
+
     .item-2022 {
-        top: 75%;
+        top: 77%;
     }
+
     .item-2023 {
-        top: 85%;
+        top: 87%;
     }
+
     .item-2024 {
-        top: 95%;
+        top: 97%;
     }
+
     .item-2025 {
-        top: 105%;
+        top: 107%;
     }
 }
 
@@ -770,27 +889,31 @@ footer {
     #timeline-container {
         height: auto;
         padding: 20px 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .timeline-item {
-        position: relative;
-        transform: none;
-        margin-bottom: 20px;
-        left: 0 !important;
-        top: 0 !important;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 40px;
+        /* Increased margin to space out items */
     }
 
     .timeline-item::before {
         width: 40px;
         height: 40px;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
 
     .line.horizontal {
         width: 2px;
         height: 100%;
         top: 0;
-        left: 20px;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .info-box {
@@ -801,36 +924,46 @@ footer {
 
     /* Adjust the positioning for small mobile */
     .item-2003 {
-        top: 5%;
+        top: 7%;
     }
+
     .item-2005 {
-        top: 15%;
+        top: 17%;
     }
+
     .item-2007 {
-        top: 95%;
+        top: 27%;
     }
+
     .item-2008 {
-        top: 35%;
+        top: 37%;
     }
+
     .item-2010 {
-        top: 45%;
+        top: 47%;
     }
+
     .item-2015 {
-        top: 55%;
+        top: 57%;
     }
+
     .item-2016 {
-        top: 65%;
+        top: 67%;
     }
+
     .item-2022 {
-        top: 75%;
+        top: 77%;
     }
+
     .item-2023 {
-        top: 85%;
+        top: 87%;
     }
+
     .item-2024 {
-        top: 95%;
+        top: 97%;
     }
+
     .item-2025 {
-        top: 105%;
+        top: 107%;
     }
 }
