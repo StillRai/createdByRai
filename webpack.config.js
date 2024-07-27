@@ -52,8 +52,8 @@ module.exports = {
         { from: 'src/components', to: 'components' },
         { from: 'src/media', to: 'media' },
         { from: 'src/css', to: 'css' },
-        // Remove the following line
-        // { from: 'src/projects', to: 'projects' },
+        { from: 'src/sections', to: 'sections' }, // Ensure this line copies the sections folder
+        { from: 'src/projects', to: 'projects', globOptions: { ignore: ['**/weatherapp/index.html'] } },
       ],
     }),
   ],

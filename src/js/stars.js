@@ -1,5 +1,10 @@
 export function generateStars() {
     const homeSection = document.querySelector('#home');
+    if (!homeSection) {
+        console.error('Home section not found');
+        return;
+    }
+
     const numberOfStars = 25; 
 
     for (let i = 0; i < numberOfStars; i++) {
