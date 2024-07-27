@@ -12,6 +12,11 @@
     --font-size-body-md: 0.875rem;
     --font-size-body-sm: 0.75rem;
 
+    --color-pastel-blue: #AECBFA;
+    --color-pastel-pink: #FFCCF9;
+    --color-pastel-green: #C1F4C5;
+    --color-pastel-yellow: #FFFFB5;
+    --color-pastel-purple: #D4A5FF;
     --color-light: #F5F5F5;
     --color-dark: #111A2C;
     --color-yellow: #DBDBA9;
@@ -142,7 +147,6 @@ code span.block {
 
 /* Button Styling */
 
-
 /* Green btn */
 .btn-o-lightgreen {
     font-family: 'Poppins', sans-serif;
@@ -194,8 +198,7 @@ code span.block {
     justify-content: center;
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
     border-radius: 8px;
-    height: 7%
-    ;
+    height: 7%;
 }
 
 /* Light btn */
@@ -221,8 +224,6 @@ code span.block {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
 }
-
-
 
 /* Custom Feather Icon colors */
 .feather-icon-custom-light {
@@ -358,7 +359,6 @@ code span.block {
     font-size: var(--font-size-lg);
     margin-top: 3rem;
     margin-bottom: 0px;
-
 }
 
 .skills-content span {
@@ -396,7 +396,6 @@ code span.block {
         font-size: 0.8rem;
         line-height: 1.5rem;
         margin-top: 0px;
-
     }
 }
 
@@ -405,7 +404,6 @@ code span.block {
         font-size: 0.8rem;
         line-height: 1.5rem;
         margin-top: 0px;
-
     }
 }
 
@@ -572,7 +570,6 @@ footer {
 }
 
 @keyframes glow {
-
     0%,
     100% {
         opacity: 0.2;
@@ -586,7 +583,6 @@ footer {
 }
 
 /* Social Icons */
-
 .social-icons {
     position: fixed;
     bottom: 20px;
@@ -625,345 +621,118 @@ footer {
     }
 }
 
-/* Custom styles for the timeline section */
+/* Container and line styles */
+#timeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
 
 #timeline-container {
     position: relative;
-    width: 100%;
-    height: 200px;
-    /* Adjust the height as needed */
-    margin: 0 auto;
+    width: 90%;
+    height: 100%;  /* Ensuring it takes full height */
+}
+
+.line {
+    position: absolute;
+    background-color: #ddd;
 }
 
 .line.horizontal {
-    position: absolute;
-    top: 50%;
-    /* Center the line vertically */
-    left: 0;
     width: 100%;
-    height: 2px;
-    background-color: var(--color-dark);
-    z-index: 1;
+    height: 4px;
+    top: 50%;
+    left: 0;
+}
+
+.line.vertical {
+    display: none;
+    width: 4px;
+    height: 100%;
+    left: 50%;
+    top: 0;
 }
 
 .timeline-item {
     position: absolute;
-    top: 50%;
-    /* Align with the line */
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    z-index: 2;
-}
-
-.timeline-item::before {
-    content: attr(data-year);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-light);
+    width: 20px; 
+    height: 20px; 
+    background-color: #3498db;
     border-radius: 50%;
-    border: 2px solid var(--color-dark);
-    font-family: 'JetBrains Mono', monospace;
+    transition: transform 0.5s, opacity 0.5s;
+    opacity: 0;
+    border: 1px solid red; /* Debugging: Add border to check visibility */
+}
+
+.timeline-item.active {
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+.timeline-info {
     position: absolute;
-    z-index: 3;
-}
-
-.timeline-item[data-year="2024"]::before,
-.timeline-item[data-year="2025"]::before {
-    background-color: var(--color-greyed);
-}
-
-.timeline-item:hover::after,
-.timeline-item:focus::after {
-    content: attr(data-info);
-    position: absolute;
-    background-color: var(--color-light);
-    border: 1px dashed var(--color-dark);
-    padding: 10px;
-    white-space: nowrap;
-    z-index: 4;
-}
-
-.timeline-item:nth-child(odd):hover::after {
-    top: -50px;
-}
-
-.timeline-item:nth-child(even):hover::after {
-    bottom: -50px;
-}
-
-.info-box {
-    position: absolute;
-    background-color: var(--color-light);
-    padding: 10px;
-    white-space: nowrap;
-    z-index: 4;
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: none;
-    /* Initially hide */
 }
 
-.timeline-item.active .info-box {
-    display: block;
-    /* Show when active */
+.timeline-info.left {
+    transform: translateX(-100%);
 }
 
-/* Custom positioning for each item */
-.item-2003 {
-    left: 5%;
+.timeline-info.right {
+    transform: translateX(100%);
 }
 
-.item-2005 {
-    left: 15%;
+.timeline-info.top {
+    transform: translateY(-100%);
 }
 
-.item-2007 {
-    left: 25%;
-}
-
-.item-2008 {
-    left: 35%;
-}
-
-.item-2010 {
-    left: 45%;
-}
-
-.item-2015 {
-    left: 55%;
-}
-
-.item-2016 {
-    left: 60%;
-}
-
-.item-2022 {
-    left: 75%;
-}
-
-.item-2023 {
-    left: 80%;
-}
-
-.item-2024 {
-    left: 85%;
-}
-
-.item-2025 {
-    left: 90%;
-}
-
-/* Tablet and mobile adjustments */
-@media (max-width: 1024px) {
-    .timeline-item::before {
-        width: 50px;
-        height: 50px;
-        font-size: 0.8rem;
-    }
-
-    /* Adjust the positioning for tablet */
-    .item-2003 {
-        left: 7%;
-    }
-
-    .item-2005 {
-        left: 17%;
-    }
-
-    .item-2007 {
-        left: 27%;
-    }
-
-    .item-2008 {
-        left: 37%;
-    }
-
-    .item-2010 {
-        left: 47%;
-    }
-
-    .item-2015 {
-        left: 57%;
-    }
-
-    .item-2016 {
-        left: 67%;
-    }
-
-    .item-2022 {
-        left: 77%;
-    }
-
-    .item-2023 {
-        left: 87%;
-    }
-
-    .item-2024 {
-        left: 97%;
-    }
+.timeline-info.bottom {
+    transform: translateY(100%);
 }
 
 @media (max-width: 768px) {
-    #timeline-container {
-        height: auto;
-        padding: 20px 0;
-    }
-
-    .timeline-item {
-        left: 50%;
-        transform: translateX(-50%);
-        margin-bottom: 40px;
-        /* Increased margin to space out items */
-    }
-
-    .timeline-item::before {
-        width: 50px;
-        height: 50px;
-        font-size: 0.8rem;
-    }
-
     .line.horizontal {
-        width: 2px;
-        height: 100%;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        display: none;
     }
 
-    .info-box {
-        left: 70px;
-        top: 0 !important;
-        transform: none;
-    }
-
-    /* Adjust the positioning for mobile */
-    .item-2003 {
-        top: 7%;
-    }
-
-    .item-2005 {
-        top: 17%;
-    }
-
-    .item-2007 {
-        top: 27%;
-    }
-
-    .item-2008 {
-        top: 37%;
-    }
-
-    .item-2010 {
-        top: 47%;
-    }
-
-    .item-2015 {
-        top: 57%;
-    }
-
-    .item-2016 {
-        top: 67%;
-    }
-
-    .item-2022 {
-        top: 77%;
-    }
-
-    .item-2023 {
-        top: 87%;
-    }
-
-    .item-2024 {
-        top: 97%;
-    }
-
-    .item-2025 {
-        top: 107%;
+    .line.vertical {
+        display: block;
     }
 }
 
-@media (max-width: 480px) {
-    #timeline-container {
-        height: auto;
-        padding: 20px 0;
-        position: relative;
-        display: flex;
+/* Dropdown menu styles */
+.group:hover .group-hover\:block {
+    display: block;
+}
+
+.nav-links .group:hover .group-hover\:block {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #nav-links-mobile {
+        display: none;
         flex-direction: column;
-        align-items: center;
+        align-items: start;
     }
 
-    .timeline-item {
-        left: 50%;
-        transform: translateX(-50%);
-        margin-bottom: 40px;
-        /* Increased margin to space out items */
+    #nav-links-mobile.active {
+        display: flex;
     }
 
-    .timeline-item::before {
-        width: 40px;
-        height: 40px;
-        font-size: 0.8rem;
+    .nav-links-mobile .group .group-hover\:block {
+        display: none;
     }
 
-    .line.horizontal {
-        width: 2px;
-        height: 100%;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .info-box {
-        left: 70px;
-        top: 0 !important;
-        transform: none;
-    }
-
-    /* Adjust the positioning for small mobile */
-    .item-2003 {
-        top: 7%;
-    }
-
-    .item-2005 {
-        top: 17%;
-    }
-
-    .item-2007 {
-        top: 27%;
-    }
-
-    .item-2008 {
-        top: 37%;
-    }
-
-    .item-2010 {
-        top: 47%;
-    }
-
-    .item-2015 {
-        top: 57%;
-    }
-
-    .item-2016 {
-        top: 67%;
-    }
-
-    .item-2022 {
-        top: 77%;
-    }
-
-    .item-2023 {
-        top: 87%;
-    }
-
-    .item-2024 {
-        top: 97%;
-    }
-
-    .item-2025 {
-        top: 107%;
+    .nav-links-mobile .group:hover .group-hover\:block {
+        display: block;
     }
 }

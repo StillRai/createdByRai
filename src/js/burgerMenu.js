@@ -25,6 +25,15 @@ export function initializeBurgerMenu() {
                 navLinksMobile.classList.remove('active');
             }
         });
+
+        // Mobile dropdown behavior
+        const magicLinkMobile = document.querySelector('.nav-links-mobile .group > a');
+        const magicDropdownMobile = document.querySelector('.nav-links-mobile .group .group-hover\\:block');
+
+        magicLinkMobile.addEventListener('click', (e) => {
+            e.preventDefault();
+            magicDropdownMobile.classList.toggle('hidden');
+        });
     } else {
         console.error('Burger menu or nav links mobile elements not found');
     }

@@ -1,53 +1,60 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    const timelineContainer = document.getElementById('timeline-container');
+document.addEventListener("DOMContentLoaded", function() {
+    const timelineItems = document.querySelectorAll(".timeline-item");
 
-    // Calculate total time span and position items
-    const years = Array.from(timelineItems).map(item => parseInt(item.getAttribute('data-year')));
-    const minYear = Math.min(...years);
-    const maxYear = Math.max(...years);
-    const totalYears = maxYear - minYear;
+    console.log("Timeline items:", timelineItems);
 
-    timelineItems.forEach((item, index) => {
-        const year = parseInt(item.getAttribute('data-year'));
-        const position = ((year - minYear) / totalYears) * 100;
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.5
+    };
 
-        if (window.innerWidth > 768) {
-            item.style.left = `${position}%`;
-            item.style.top = '50%';
-            item.style.transform = 'translate(-50%, -50%)';
-        } else {
-            item.style.left = '50%';
-            item.style.top = `${position}%`;
-            item.style.transform = 'translate(-50%, -50%)';
-        }
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const item = entry.target;
+                console.log("Item intersecting:", item);
+                item.classList.add("active");
+                const info = document.createElement("div");
+                info.classList.add("timeline-info");
 
-        item.addEventListener('click', () => {
-            item.classList.toggle('active');
-            const infoBox = item.querySelector('.info-box');
-            if (item.classList.contains('active')) {
-                if (!infoBox) {
-                    showInfo(item);
+                const index = Array.from(timelineItems).indexOf(item);
+                if (window.innerWidth > 768) {
+                    info.classList.add(index % 2 === 0 ? "left" : "right");
+                } else {
+                    info.classList.add(index % 2 === 0 ? "top" : "bottom");
                 }
-            } else {
-                if (infoBox) {
-                    hideInfo(item);
-                }
+
+                info.textContent = item.dataset.info;
+                item.appendChild(info);
+                info.style.display = "block";
+
+                setTimeout(() => {
+                    observer.unobserve(item);
+                }, 500);
             }
         });
-    });
+    };
 
-    function showInfo(item) {
-        const infoBox = document.createElement('div');
-        infoBox.className = 'info-box';
-        infoBox.textContent = item.getAttribute('data-info');
-        item.appendChild(infoBox);
-    }
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    function hideInfo(item) {
-        const infoBox = item.querySelector('.info-box');
-        if (infoBox) {
-            item.removeChild(infoBox);
+    const startYear = 2003;
+    const endYear = 2025;
+
+    timelineItems.forEach((item, index) => {
+        const year = parseInt(item.dataset.year, 10);
+        const positionPercentage = ((year - startYear) / (endYear - startYear)) * 100;
+
+        if (window.innerWidth > 768) {
+            item.style.left = `${positionPercentage}%`;
+        } else {
+            item.style.top = `${positionPercentage}%`;
         }
-    }
+
+        console.log(`Observing item: ${item.dataset.year} at ${positionPercentage}%`);
+
+        setTimeout(() => {
+            observer.observe(item);
+        }, index * 500);
+    });
 });

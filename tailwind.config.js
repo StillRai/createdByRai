@@ -14,7 +14,11 @@ module.exports = {
         'custom-darkblue': '#59A8D9',
         'custom-lightblue': '#85D3F2',
         'custom-orange': '#C8846C',
-
+        'pastelBlue': '#AECBFA',
+        'pastelPink': '#FFCCF9',
+        'pastelGreen': '#C1F4C5',
+        'pastelYellow': '#FFFFB5',
+        'pastelPurple': '#D4A5FF',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

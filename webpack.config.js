@@ -4,69 +4,75 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './src/js/main.js',  // Entry point for your JavaScript
-    output: {
-        filename: 'js/bundle.js',  // Output bundle file
-        path: path.resolve(__dirname, 'dist'),  // Output directory
-        clean: true, // Clean the output directory before emit
-    },
-    module: {
-        rules: [
-            {
-                test: /\.css$/,  // Process CSS files
-                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg|webp)$/,  // Process image files
-                type: 'asset/resource',
-                generator: {
-                    filename: 'media/images/[name][ext]'
-                }
-            },
-            {
-                test: /\.js$/,  // Process JavaScript files
-                exclude: /node_modules/,  // Exclude node_modules
-                use: {
-                    loader: 'babel-loader',  // Use Babel loader
-                    options: {
-                        presets: ['@babel/preset-env'],  // Preset for modern JavaScript
-                    },
-                },
-            },
-        ],
-    },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: 'css/output.css',  // Output CSS file
-        }),
-        new HtmlWebpackPlugin({
-            template: './src/index.html',  // Template HTML file
-            filename: 'index.html',  // Output HTML file
-        }),
-        new CopyWebpackPlugin({
-            patterns: [
-                { from: 'src/components', to: 'components' },  // Copy components to dist
-                { from: 'src/sections', to: 'sections' },  // Copy sections to dist
-                { from: 'src/media', to: 'media' },  // Copy media to dist
-                { from: 'src/css', to: 'css' },   // Copy css to dist
-            ],
-        }),
-    ],
-    devServer: {
-        static: {
-            directory: path.join(__dirname, 'dist'),  // Serve files from dist
+  entry: './src/js/main.js',
+  output: {
+    filename: 'js/bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|webp)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'media/images/[name][ext]'
+        }
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+          },
         },
-        watchFiles: ['src/**/*'],  // Watch files in src directory for changes
-        compress: true,  // Enable gzip compression
-        port: 9000,  // Development server port
-        hot: true,  // Enable hot module replacement
-        host: '0.0.0.0',  // Allow access from network
-        allowedHosts: 'all',  // Allow all hosts
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'css/output.css',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      filename: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/projects/weatherapp/index.html',
+      filename: 'projects/weatherapp/index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'src/components', to: 'components' },
+        { from: 'src/media', to: 'media' },
+        { from: 'src/css', to: 'css' },
+        // Remove the following line
+        // { from: 'src/projects', to: 'projects' },
+      ],
+    }),
+  ],
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
     },
-    performance: {
-        maxAssetSize: 12288000, // 12 MB
-        maxEntrypointSize: 12288000, // 12 MB
-        hints: 'warning', // Show warnings if limits are exceeded, or false to disable
-    },
-    mode: 'production', // Ensure this is set to your desired mode
+    watchFiles: ['src/**/*'],
+    compress: true,
+    port: 9000,
+    hot: true,
+    host: '0.0.0.0',
+    allowedHosts: 'all',
+    historyApiFallback: true,
+  },
+  performance: {
+    maxAssetSize: 12288000,
+    maxEntrypointSize: 12288000,
+    hints: 'warning',
+  },
+  mode: 'development',
 };
