@@ -38,8 +38,7 @@
   max-width: 500px;
   animation: fadeIn 1.5s ease-in-out;
   color: var(--color-light);
-  height: auto;
-  /* Adjust height to auto */
+  height: auto; 
 }
 
 .weather-app-header {
@@ -54,30 +53,28 @@
 }
 
 .weather-app-header p {
-  font-size: 1.rem;
+  font-size: 1rem;
   color: var(--color-light);
 }
 
 .weather-app-content {
   padding: 20px;
   border-radius: 15px;
-  margin-top: 0;
-  /* Ensure no margin above content */
+  margin-top: 0; 
 }
 
 #city-suggestions {
-    background: var(--color-light);
-    border-top: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    max-height: 130px;
-    overflow-y: auto;
-    z-index: 10;
-    position: absolute;
-    width: 100%;
-    top: 80px;
+  background: var(--color-light);
+  border-top: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-height: 130px;
+  overflow-y: auto;
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  top: 80px;
 }
-
 
 #city-suggestions .suggestion {
   padding: 10px;
@@ -87,7 +84,7 @@
 }
 
 #city-suggestions .suggestion:hover {
-  background: var (--color-pastel-green);
+  background: var(--color-pastel-green);
 }
 
 .weather-app-input-container {
@@ -99,8 +96,7 @@
   border: none;
   padding: 15px;
   border-radius: 10px 0 0 10px;
-  width: calc(100% - 50px);
-  /* Adjust width to fit next to the button */
+  width: calc(100% - 50px); 
   margin-bottom: 15px;
   background: rgba(255, 255, 255, 0.3);
   color: var(--color-light);
@@ -121,10 +117,8 @@
   padding: 0;
   border: none;
   border-radius: 0 10px 10px 0;
-  width: 50px;
-  /* Square button */
+  width: 50px; 
   height: 50px;
-  /* Square button */
   margin-bottom: 15px;
   background-color: var(--color-button-dark);
   color: var(--color-light);
@@ -141,7 +135,6 @@
 
 .weather-app-button i {
   margin: 0;
-  /* Remove margin for icon */
 }
 
 #current-location-button {
@@ -159,7 +152,10 @@
   display: flex;
   justify-content: left;
   align-items: center;
+}
 
+#current-location-button i {
+  margin-right: 10px;
 }
 
 #current-location-button:hover {
@@ -173,15 +169,12 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   animation: fadeIn 2s ease-in-out;
   background: rgba(255, 255, 255, 0.3);
-  display: none;
-  /* Hide by default */
+  display: none; 
   text-align: left;
-  /* Align text to left */
 }
 
 #weather-container.visible {
-  display: block;
-  /* Show when data is loaded */
+  display: block; 
 }
 
 .weather-item {
@@ -190,8 +183,18 @@
   margin-bottom: 10px;
 }
 
-.weather-item i {
-  margin-right: 10px;
+.weather-item i.weather-icon {
+  margin-right: 10px; 
+}
+
+.weather-item h2, .weather-item div {
+  margin: 0;
+}
+
+#weather-container i {
+  width: 16px;
+  height: 16px; 
+  margin-right: 8px; 
 }
 
 @keyframes fadeIn {
@@ -225,16 +228,12 @@
 .weather-app-button {
   animation: slideIn 0.5s ease-in-out;
   height: 4rem;
-
 }
 
 i[data-feather] {
-  width: 24px;
-  height: 24px;
   stroke-width: 2;
   stroke: currentColor;
   fill: none;
   color: var(--color-light);
   vertical-align: middle;
-  /* Ensure icons are vertically aligned */
 }

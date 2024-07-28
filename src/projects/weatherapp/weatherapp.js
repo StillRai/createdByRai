@@ -1,16 +1,17 @@
 import feather from 'feather-icons';
 import '../weatherapp/weatherapp.css';
+import weatherIcons from '../weatherapp/weatherIcons.json';
 
 export function initializeWeatherApp() {
   const apiKey = process.env.WEATHER_API_KEY;
-  const geoNamesUsername = process.env.GEONAMES_USERNAME; // Add this line
+  const geoNamesUsername = process.env.GEONAMES_USERNAME;
   const weatherContainer = document.getElementById('weather-container');
   const searchButton = document.getElementById('search-button');
   const cityInput = document.getElementById('city-input');
   const currentLocationButton = document.getElementById('current-location-button');
   const citySuggestions = document.getElementById('city-suggestions');
 
-  if (!apiKey || !geoNamesUsername) { // Check for both API keys
+  if (!apiKey || !geoNamesUsername) {
     console.error('API keys are missing');
     if (weatherContainer) {
       weatherContainer.innerHTML = '<p class="text-red-500">API keys are missing. Please check your .env file.</p>';
@@ -96,12 +97,15 @@ export function initializeWeatherApp() {
   }
 
   function fetchCitySuggestions(query) {
-    const apiUrl = `http://api.geonames.org/searchJSON?q=${query}&maxRows=5&username=${geoNamesUsername}`;
+    const apiUrl = `http://api.geonames.org/searchJSON?q=${query}&maxRows=5&username=${geoNamesUsername}&featureClass=P&orderby=population`;
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
+        const populationThreshold = 100000; 
+        const filteredCities = data.geonames.filter(city => city.population > populationThreshold);
+  
         citySuggestions.innerHTML = '';
-        data.geonames.forEach(city => {
+        filteredCities.forEach(city => {
           const suggestion = document.createElement('div');
           suggestion.className = 'suggestion';
           suggestion.textContent = `${city.name}, ${city.countryName}`;
@@ -116,18 +120,20 @@ export function initializeWeatherApp() {
         console.error('Error fetching city suggestions:', error);
       });
   }
+  
 
   function displayWeatherData(data) {
     const { location, current } = data;
+    const weatherIcon = weatherIcons[current.condition.text] || 'cloud'; 
     weatherContainer.innerHTML = `
-      <div class="weather-item"><i data-feather="map-pin"></i><h2 class="text-2xl font-bold mb-2">${location.name}</h2></div>
-      <div class="weather-item"><i data-feather="cloud"></i><div class="text-xl mb-2">${current.condition.text}</div></div>
-      <div class="weather-item"><i data-feather="thermometer"></i><div class="text-xl mb-2">${current.temp_c} °C</div></div>
-      <div class="weather-item"><i data-feather="wind"></i><div class="text-xl mb-2">${current.wind_kph} kph</div></div>
-      <div class="weather-item"><i data-feather="droplet"></i><div class="text-xl">${current.humidity}% Humidity</div></div>
+     <h1 class="text-3xl font-bold mb-7 text-custom-buttondark">${location.name}</h1>
+      <div class="weather-item"><i data-feather="${weatherIcon}"></i>&nbsp;<div class="text-xl mb-2">${current.condition.text}</div></div>
+      <div class="weather-item"><i data-feather="thermometer"></i>&nbsp;<div class="text-xl mb-2">${current.temp_c} °C</div></div>
+      <div class="weather-item"><i data-feather="wind"></i>&nbsp;<div class="text-xl mb-2">${current.wind_kph} kph</div></div>
+      <div class="weather-item"><i data-feather="droplet"></i>&nbsp;<div class="text-xl">${current.humidity}% Humidity</div></div>
     `;
     feather.replace();
-    weatherContainer.classList.add('visible'); // Show the weather container
+    weatherContainer.classList.add('visible'); 
   }
 }
 

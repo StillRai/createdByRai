@@ -19,6 +19,8 @@ module.exports = {
         'pastelGreen': '#C1F4C5',
         'pastelYellow': '#FFFFB5',
         'pastelPurple': '#D4A5FF',
+        'custom-buttondark': '#3F3F3F',
+
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
