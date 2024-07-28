@@ -422,6 +422,7 @@ code span.block {
 
     .nav-links {
         display: none;
+
     }
 
     .nav-links-mobile {
@@ -712,10 +713,15 @@ footer {
 /* Dropdown menu styles */
 .group:hover .group-hover\:block {
     display: block;
+    
 }
 
 .nav-links .group:hover .group-hover\:block {
     display: block;
+    width: 150px;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 10px;
 }
 
 @media (max-width: 768px) {

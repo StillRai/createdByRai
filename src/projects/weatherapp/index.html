@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link href="../../css/styles.css" rel="stylesheet">
+
     <link href="../../projects/weatherapp/weatherapp.css" rel="stylesheet">
-    <script src="../../js/bundle.js" defer></script>
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="../../js/weatherapp.bundle.js" defer></script>
 </head>
-<body class="text-custom-dark">
+<body class="bg-pastel-blue text-custom-dark">
     <div id="content-container" class="relative z-10">
         <!-- Back Button -->
         <div class="p-4">
@@ -45,7 +48,7 @@
             }
         });
 
-        // Ensure Feather Icons are loaded
+        // Feather Icons
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof feather !== 'undefined') {
                 feather.replace();

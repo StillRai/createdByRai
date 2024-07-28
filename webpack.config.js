@@ -5,11 +5,20 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/js/main.js',
+  entry: {
+    main: './src/js/main.js',
+    weatherapp: './src/projects/weatherapp/weatherapp.js'
+  },
   output: {
-    filename: 'js/bundle.js',
+    filename: 'js/[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
+  },
+  cache: {
+    type: 'filesystem', // 'memory' for development
+    buildDependencies: {
+      config: [__filename], // Cache invalidation on config change
+    },
   },
   module: {
     rules: [
@@ -38,15 +47,17 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'css/output.css',
+      filename: 'css/[name].css',  // Use [name] to generate unique filenames for each chunk
     }),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
+      template: './src/index.html',  // Ensure the main index.html is included
+      filename: 'index.html',  // Output filename
+      chunks: ['main'],  // Specify the chunks to include
     }),
     new HtmlWebpackPlugin({
       template: './src/projects/weatherapp/index.html',
       filename: 'projects/weatherapp/index.html',
+      chunks: ['weatherapp']
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -69,7 +80,10 @@ module.exports = {
     hot: true,
     host: '0.0.0.0',
     allowedHosts: 'all',
-    historyApiFallback: true,
+    historyApiFallback: true,  // Enable history API fallback to serve index.html for all routes
+    devMiddleware: {
+      writeToDisk: true, 
+    },
   },
   performance: {
     maxAssetSize: 12288000,
