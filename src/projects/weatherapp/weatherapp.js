@@ -1,18 +1,19 @@
 import feather from 'feather-icons';
 import '../weatherapp/weatherapp.css';
 
-
 export function initializeWeatherApp() {
   const apiKey = process.env.WEATHER_API_KEY;
+  const geoNamesUsername = process.env.GEONAMES_USERNAME;
   const weatherContainer = document.getElementById('weather-container');
   const searchButton = document.getElementById('search-button');
   const cityInput = document.getElementById('city-input');
   const currentLocationButton = document.getElementById('current-location-button');
+  const citySuggestions = document.getElementById('city-suggestions');
 
-  if (!apiKey) {
-    console.error('API key is missing');
+  if (!apiKey || !geoNamesUsername) {
+    console.error('API keys are missing');
     if (weatherContainer) {
-      weatherContainer.innerHTML = '<p class="text-red-500">API key is missing. Please check your .env file.</p>';
+      weatherContainer.innerHTML = '<p class="text-red-500">API keys are missing. Please check your .env file.</p>';
     }
     return;
   }
@@ -22,6 +23,15 @@ export function initializeWeatherApp() {
       const city = cityInput.value;
       if (city) {
         fetchWeatherData(city);
+      }
+    });
+
+    cityInput.addEventListener('input', () => {
+      const query = cityInput.value;
+      if (query.length > 2) {
+        fetchCitySuggestions(query);
+      } else {
+        citySuggestions.innerHTML = '';
       }
     });
   } else {
@@ -57,7 +67,6 @@ export function initializeWeatherApp() {
         return response.json();
       })
       .then(data => {
-        console.log('Weather data:', data); // Log the data
         if (data.error) {
           throw new Error(data.error.message);
         }
@@ -83,6 +92,28 @@ export function initializeWeatherApp() {
       .catch(error => {
         console.error('Error fetching weather data:', error);
         weatherContainer.innerHTML = '<p class="text-red-500">Error fetching weather data. Please try again later.</p>';
+      });
+  }
+
+  function fetchCitySuggestions(query) {
+    const apiUrl = `http://api.geonames.org/searchJSON?q=${query}&maxRows=5&username=${geoNamesUsername}`;
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        citySuggestions.innerHTML = '';
+        data.geonames.forEach(city => {
+          const suggestion = document.createElement('div');
+          suggestion.className = 'suggestion';
+          suggestion.textContent = `${city.name}, ${city.countryName}`;
+          suggestion.addEventListener('click', () => {
+            cityInput.value = city.name;
+            citySuggestions.innerHTML = '';
+          });
+          citySuggestions.appendChild(suggestion);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching city suggestions:', error);
       });
   }
 

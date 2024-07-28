@@ -12,6 +12,12 @@
     --color-dark: #111A2C;
 }
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-pastel-blue);
+    color: var(--color-dark);
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
 }
@@ -39,8 +45,52 @@
 #city-suggestions .suggestion {
     padding: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #city-suggestions .suggestion:hover {
-    background: #f0f0f0;
+    background: var(--color-pastel-green);
+}
+
+input {
+    border: 2px solid var(--color-dark);
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: var(--color-pastel-purple);
+}
+
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button#search-button {
+    background-color: var(--color-pastel-yellow);
+    color: var(--color-dark);
+}
+
+button#search-button:hover {
+    background-color: var(--color-pastel-pink);
+}
+
+button#current-location-button {
+    background-color: var(--color-pastel-green);
+    color: var(--color-dark);
+    margin-top: 10px;
+}
+
+button#current-location-button:hover {
+    background-color: var(--color-pastel-blue);
+}
+
+#weather-container {
+    margin-top: 20px;
 }
