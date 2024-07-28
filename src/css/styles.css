@@ -251,6 +251,7 @@ code span.block {
 }
 
 /* Custom styles for the home section */
+
 #background-container {
     background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
             url('../media/images/bg_1.jpg') type("image/jpeg"));
@@ -375,7 +376,7 @@ code span.block {
 }
 
 .js-tech {
-    color: var(--color-orange);
+    color: var (--color-orange);
 }
 
 .js-bracket {

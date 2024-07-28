@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/js/main.js',
@@ -52,10 +53,11 @@ module.exports = {
         { from: 'src/components', to: 'components' },
         { from: 'src/media', to: 'media' },
         { from: 'src/css', to: 'css' },
-        { from: 'src/sections', to: 'sections' }, // Ensure this line copies the sections folder
+        { from: 'src/sections', to: 'sections' },
         { from: 'src/projects', to: 'projects', globOptions: { ignore: ['**/weatherapp/index.html'] } },
       ],
     }),
+    new Dotenv(), // Add Dotenv plugin
   ],
   devServer: {
     static: {

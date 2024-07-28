@@ -5,19 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link href="../../css/styles.css" rel="stylesheet">
-    <link href="../../css/weatherapp.css" rel="stylesheet">
+    <link href="../../projects/weatherapp/weatherapp.css" rel="stylesheet">
     <script src="../../js/bundle.js" defer></script>
 </head>
-<body class="bg-pastel-blue text-custom-dark">
-    <div id="background-container" class="fixed inset-0 z-0"></div>
+<body class="text-custom-dark">
     <div id="content-container" class="relative z-10">
-        <!-- Include Navbar -->
-        <div id="navbar-container" class="relative z-20"></div>
+        <!-- Back Button -->
+        <div class="p-4">
+            <button id="back-button" class="flex items-center text-blue-500 hover:text-blue-600 transition duration-200">
+                <i data-feather="arrow-left" class="mr-2"></i> Back
+            </button>
+        </div>
 
         <!-- Main content -->
         <main id="main-content" class="p-0 m-0 relative z-10">
-            <!-- Weather App content will be loaded here -->
+            <section id="weather" class="h-screen flex flex-col items-center justify-center p-10 bg-gradient-to-r from-blue-400 to-blue-200">
+                <div class="container mx-auto text-center bg-white shadow-lg rounded-lg p-6 max-w-lg">
+                    <h1 class="text-4xl font-bold mb-4 text-custom-dark">Weather App</h1>
+                    <div class="mb-4 relative">
+                        <input id="city-input" type="text" placeholder="Enter city name" class="p-2 border rounded w-full mb-2">
+                        <div id="city-suggestions" class="absolute left-0 right-0 bg-white shadow rounded-lg"></div>
+                    </div>
+                    <button id="search-button" class="p-2 bg-blue-500 text-white rounded w-full hover:bg-blue-600 transition duration-200">Search</button>
+                    <button id="current-location-button" class="p-2 bg-green-500 text-white rounded w-full mt-2 hover:bg-green-600 transition duration-200">Use Current Location</button>
+                    <div id="weather-container" class="mt-8 p-6 bg-gray-100 shadow rounded-lg">
+                        <!-- Weather data will be displayed here -->
+                    </div>
+                </div>
+            </section>
         </main>
     </div>
+    <script>
+        // Back Button Script
+        document.getElementById('back-button').addEventListener('click', () => {
+            if (document.referrer.includes('createdbyrai')) {
+                window.history.back();
+            } else {
+                window.location.href = '/';
+            }
+        });
+
+        // Ensure Feather Icons are loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof feather !== 'undefined') {
+                feather.replace();
+            } else {
+                console.error('Feather icons library is not loaded.');
+            }
+        });
+    </script>
 </body>
 </html>
