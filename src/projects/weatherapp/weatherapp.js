@@ -3,14 +3,14 @@ import '../weatherapp/weatherapp.css';
 
 export function initializeWeatherApp() {
   const apiKey = process.env.WEATHER_API_KEY;
-  const geoNamesUsername = process.env.GEONAMES_USERNAME;
+  const geoNamesUsername = process.env.GEONAMES_USERNAME; // Add this line
   const weatherContainer = document.getElementById('weather-container');
   const searchButton = document.getElementById('search-button');
   const cityInput = document.getElementById('city-input');
   const currentLocationButton = document.getElementById('current-location-button');
   const citySuggestions = document.getElementById('city-suggestions');
 
-  if (!apiKey || !geoNamesUsername) {
+  if (!apiKey || !geoNamesUsername) { // Check for both API keys
     console.error('API keys are missing');
     if (weatherContainer) {
       weatherContainer.innerHTML = '<p class="text-red-500">API keys are missing. Please check your .env file.</p>';
@@ -120,13 +120,14 @@ export function initializeWeatherApp() {
   function displayWeatherData(data) {
     const { location, current } = data;
     weatherContainer.innerHTML = `
-      <h2 class="text-2xl font-bold mb-2 text-custom-dark">${location.name}</h2>
-      <div class="text-xl mb-2 text-custom-dark"><i data-feather="cloud"></i> ${current.condition.text}</div>
-      <div class="text-xl mb-2 text-custom-dark"><i data-feather="thermometer"></i> ${current.temp_c} °C</div>
-      <div class="text-xl mb-2 text-custom-dark"><i data-feather="wind"></i> ${current.wind_kph} kph</div>
-      <div class="text-xl text-custom-dark"><i data-feather="droplet"></i> ${current.humidity}% Humidity</div>
+      <div class="weather-item"><i data-feather="map-pin"></i><h2 class="text-2xl font-bold mb-2">${location.name}</h2></div>
+      <div class="weather-item"><i data-feather="cloud"></i><div class="text-xl mb-2">${current.condition.text}</div></div>
+      <div class="weather-item"><i data-feather="thermometer"></i><div class="text-xl mb-2">${current.temp_c} °C</div></div>
+      <div class="weather-item"><i data-feather="wind"></i><div class="text-xl mb-2">${current.wind_kph} kph</div></div>
+      <div class="weather-item"><i data-feather="droplet"></i><div class="text-xl">${current.humidity}% Humidity</div></div>
     `;
     feather.replace();
+    weatherContainer.classList.add('visible'); // Show the weather container
   }
 }
 
