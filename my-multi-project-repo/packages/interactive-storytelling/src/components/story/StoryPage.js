@@ -1,33 +1,27 @@
-import React, { createContext, useState, useEffect } from 'react';
-import storyContent from '../assets/storyContent.json';
+import React, { useContext } from 'react';
+import { StoryContext } from '../../contexts/StoryContext';
+import Choice from './Choice';
 
-// Create a context
-export const StoryContext = createContext();
-
-const StoryProvider = ({ children }) => {
-  const [currentChapter, setCurrentChapter] = useState(1);
-  const [choices, setChoices] = useState([]);
-  const [currentContent, setCurrentContent] = useState(storyContent[1]);
-
-  useEffect(() => {
-    console.log(`Updating content for chapter ${currentChapter}`);
-    if (storyContent[currentChapter]) {
-      setCurrentContent(storyContent[currentChapter]);
-    } else {
-      console.error(`Chapter ${currentChapter} not found in story content.`);
-    }
-  }, [currentChapter]);
-
-  const makeChoice = (choice) => {
-    setChoices([...choices, choice]);
-    setCurrentChapter(choice.nextChapter);
-  };
+const StoryPage = () => {
+  const { currentContent, makeChoice } = useContext(StoryContext);
 
   return (
-    <StoryContext.Provider value={{ currentChapter, choices, currentContent, makeChoice }}>
-      {children}
-    </StoryContext.Provider>
+    <div className="story-page">
+      {currentContent.image && (
+        <img 
+          src={require(`../../assets/images/${currentContent.image}`)} 
+          alt="Story Scene" 
+          className="story-image"
+        />
+      )}
+      <h1>{currentContent.text}</h1>
+      <div className="choices">
+        {currentContent.choices && currentContent.choices.map((choice, index) => (
+          <Choice key={index} choice={choice} onClick={() => makeChoice(choice)} />
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default StoryProvider;
+export default StoryPage;

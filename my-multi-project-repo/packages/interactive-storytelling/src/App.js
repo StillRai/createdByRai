@@ -1,22 +1,22 @@
+// App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './App.css';  
+
 import Header from './components/common/Header';
 import Footer from './components/common/Footer';
+import StoryProvider from './contexts/StoryContext';
 import StoryPage from './components/story/StoryPage';
 
-const App = () => {
+function App() {
   return (
-    <Router>
-      <div>
-        <Header />
-        <Routes>
-          <Route path="/" element={<StoryPage />} />
-          {/* Add more routes as needed */}
-        </Routes>
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <Header />
+      <StoryProvider>
+        <StoryPage />
+      </StoryProvider>
+      <Footer />
+    </div>
   );
-};
+}
 
 export default App;
