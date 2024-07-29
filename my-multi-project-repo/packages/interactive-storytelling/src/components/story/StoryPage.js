@@ -8,11 +8,7 @@ const StoryPage = () => {
   return (
     <div className="story-page">
       {currentContent.image && (
-        <img 
-          src={require(`../../assets/images/${currentContent.image}`)} 
-          alt="Story Scene" 
-          className="story-image"
-        />
+        <img src={currentContent.image} alt="Chapter illustration" className="story-image" />
       )}
       <h1>{currentContent.text}</h1>
       <div className="choices">

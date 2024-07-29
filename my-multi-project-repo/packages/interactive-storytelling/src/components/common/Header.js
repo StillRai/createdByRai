@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Header = () => (
-  <header className="bg-gray-800 text-white p-4">
-    <div className="container mx-auto">
-      <h1 className="text-3xl font-bold">Interactive Storytelling App</h1>
-    </div>
-  </header>
-);
+const Header = () => {
+  return (
+    <header className="bg-primary text-light py-4 flex justify-between items-center px-4">
+      <h1 className="text-4xl font-heading"><i className="fas fa-book-open"></i> Interactive Storytelling</h1>
+    </header>
+  );
+};
 
 export default Header;

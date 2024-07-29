@@ -1,11 +1,9 @@
-// App.js
 import React from 'react';
-import './App.css';  
-
-import Header from './components/common/Header';
-import Footer from './components/common/Footer';
+import './App.css';
 import StoryProvider from './contexts/StoryContext';
 import StoryPage from './components/story/StoryPage';
+import Header from './components/common/Header';
+import Footer from './components/common/Footer';
 
 function App() {
   return (
