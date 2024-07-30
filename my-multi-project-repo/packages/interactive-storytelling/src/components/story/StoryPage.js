@@ -1,21 +1,19 @@
 import React, { useContext } from 'react';
 import { StoryContext } from '../../contexts/StoryContext';
 import Choice from './Choice';
-import ch1Image from '../../assets/images/ch-1.png'; // Adjust the path as necessary
 import backgroundImage from '../../assets/images/st_bg1.png'; // Adjust the path as necessary
 
+// Dynamically import all images from the assets/images directory
+const images = {};
+const importAll = (r) => r.keys().forEach((key) => (images[key.replace('./', '')] = r(key)));
+importAll(require.context('../../assets/images', false, /\.(png|jpe?g|svg)$/));
+
 const StoryPage = () => {
-  const { currentContent, makeChoice } = useContext(StoryContext);
+  const { currentContent, makeChoice, resetStory } = useContext(StoryContext);
 
   // Determine the correct image to display
   const getImage = (image) => {
-    switch (image) {
-      case 'assets/images/ch-1.png':
-        return ch1Image;
-      // Add cases for other images as needed
-      default:
-        return null;
-    }
+    return images[image] || null;
   };
 
   return (
@@ -36,16 +34,21 @@ const StoryPage = () => {
       }}
     >
       <div className="story-page">
-        {currentContent.image && (
-          <img src={getImage(currentContent.image)} alt="Chapter illustration" className="story-image" />
-        )}
-        <h1>{currentContent.title}</h1>
-        <p className="story-text">{currentContent.text}</p>
-        <div className="choices">
-          {currentContent.choices && currentContent.choices.map((choice, index) => (
-            <Choice key={index} choice={choice} onClick={() => makeChoice(choice)} />
-          ))}
+        <div className="story-content">
+          <h1>{currentContent.title}</h1>
+          <p className="story-text">{currentContent.text}</p>
         </div>
+        <div className="story-body">
+          {currentContent.image && (
+            <img src={getImage(currentContent.image)} alt="Chapter illustration" className="story-image" />
+          )}
+          <div className="buttons">
+            {currentContent.choices && currentContent.choices.map((choice, index) => (
+              <Choice key={index} choice={choice} onClick={() => makeChoice(choice)} />
+            ))}
+          </div>
+        </div>
+        <button className="choice-button" onClick={resetStory}>Restart</button>
       </div>
     </div>
   );

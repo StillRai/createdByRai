@@ -2,8 +2,8 @@
   "chapters": [
     {
       "chapter": 1,
-      "text": "Taylor, a historian, is working late at the university archives when they discover a hidden room filled with ancient artifacts. Among them is a peculiar device that resembles a watch but with strange engravings. Intrigued, Taylor activates the device and is suddenly transported to a different time. They find themselves in the midst of a bustling medieval marketplace. As they try to make sense of their surroundings, they notice a hooded figure watching them intently.",
-      "image": "assets/images/ch-1.png",
+      "text": "Taylor, a historian, is working late at the university archives when he discovers a hidden room filled with ancient artifacts. Among them is a peculiar device that resembles a watch but with strange engravings. Intrigued, Taylor activates the device and is suddenly transported to a different time. He finds himself in the midst of a bustling marketplace. As he tries to make sense of his surroundings, he notices a hooded figure watching him intently.",
+      "image": "ch-1.png",
       "choices": [
         { "text": "Approach the hooded figure and ask for help.", "nextChapter": 2 },
         { "text": "Blend in with the crowd and observe.", "nextChapter": 3 },
@@ -12,7 +12,8 @@
     },
     {
       "chapter": 2,
-      "text": "Taylor decides to approach the hooded figure. As they get closer, the figure pulls them into an alleyway and reveals themselves to be a fellow time traveler named Elara. Elara explains that the device Taylor found is a Timepiece, a powerful artifact that allows travel between eras. She warns Taylor of the dangers and suggests they team up to navigate this era safely.",
+      "text": "Taylor decides to approach the hooded figure. As he gets closer, the figure pulls him into an alleyway and reveals themselves to be a fellow time traveler named Elara. Elara explains that the device Taylor found is a Timepiece, a powerful artifact that allows travel between eras. She warns Taylor of the dangers and suggests they team up to navigate this era safely.",
+      "image": "ch-2.png",
       "choices": [
         { "text": "Agree to team up with Elara.", "nextChapter": 5 },
         { "text": "Refuse and continue alone.", "nextChapter": 6 }

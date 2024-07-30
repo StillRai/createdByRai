@@ -5,11 +5,23 @@ import storyContent from '../assets/storyContent.json';
 export const StoryContext = createContext();
 
 const StoryProvider = ({ children }) => {
-  const [currentChapter, setCurrentChapter] = useState(1);
+  const [currentChapter, setCurrentChapter] = useState(() => {
+    // Check if there's a saved chapter in localStorage
+    const savedChapter = localStorage.getItem('currentChapter');
+    return savedChapter ? JSON.parse(savedChapter) : 1;
+  });
   const [choices, setChoices] = useState([]);
-  const [currentContent, setCurrentContent] = useState(storyContent.chapters[0]);
+  const [currentContent, setCurrentContent] = useState(() => {
+    // Load the initial content based on the saved chapter or the first chapter
+    const savedChapter = localStorage.getItem('currentChapter');
+    const initialChapter = savedChapter ? JSON.parse(savedChapter) : 1;
+    return storyContent.chapters.find(chapter => chapter.chapter === initialChapter);
+  });
 
   useEffect(() => {
+    // Save the current chapter to localStorage whenever it changes
+    localStorage.setItem('currentChapter', JSON.stringify(currentChapter));
+
     const foundContent = storyContent.chapters.find(chapter => chapter.chapter === currentChapter);
     if (foundContent) {
       setCurrentContent(foundContent);
@@ -23,8 +35,14 @@ const StoryProvider = ({ children }) => {
     setCurrentChapter(choice.nextChapter);
   };
 
+  const resetStory = () => {
+    localStorage.removeItem('currentChapter');
+    setCurrentChapter(1);
+    setChoices([]);
+  };
+
   return (
-    <StoryContext.Provider value={{ currentChapter, choices, currentContent, makeChoice }}>
+    <StoryContext.Provider value={{ currentChapter, choices, currentContent, makeChoice, resetStory }}>
       {children}
     </StoryContext.Provider>
   );

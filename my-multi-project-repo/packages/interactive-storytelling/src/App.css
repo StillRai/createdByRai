@@ -14,10 +14,14 @@ body {
 
 .story-page {
   @apply bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-lg p-4 rounded-lg shadow-2xl;
-  max-width: 90%;
+  max-width: 60%;
   margin: 1rem;
   text-align: left;
   color: #f0e7db;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
   --tw-backdrop-blur: blur(5px);
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
   --tw-bg-opacity: 0.1;
@@ -25,13 +29,26 @@ body {
   --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
 }
 
+.story-content {
+  @apply text-center mb-4;
+}
+
 .story-image {
-  @apply w-full max-w-xs h-auto mx-auto mb-4 rounded-lg animate-fadeIn;
+  @apply max-w-xs h-auto mx-auto mb-4 rounded-lg animate-fadeIn;
   border: 2px solid #f0e7db;
 }
 
+.story-body {
+  @apply flex flex-row items-start;
+}
+
+.buttons {
+  @apply flex flex-col space-y-2 ml-4 justify-center;
+  height: auto;
+}
+
 h1 {
-  @apply text-lg font-heading mb-4 text-gray-200 leading-tight;
+  @apply text-lg font-heading mb-2 text-gray-200 leading-tight;
   border-bottom: 1px solid #f0e7db;
   padding-bottom: 0.5rem;
 }
@@ -39,16 +56,16 @@ h1 {
 .story-text {
   @apply mb-4 text-sm text-gray-300;
   line-height: 1.4;
-}
-
-.choices {
-  @apply flex flex-col space-y-2;
+  color: #f0e7db;
 }
 
 /* Button styles */
 .choice-button {
-  @apply px-3 py-1 text-xs font-bold cursor-pointer rounded-lg bg-blue-700 bg-opacity-70 text-gray-200 transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105;
+  @apply px-4 py-2 text-sm font-bold cursor-pointer rounded-lg bg-blue-700 bg-opacity-20 text-gray-200 transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105;
   border: 1px solid #f0e7db;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Mobile and tablet responsiveness */
@@ -56,6 +73,15 @@ h1 {
   .story-page {
     @apply p-2;
     margin: 0.5rem;
+    flex-direction: column;
+  }
+
+  .story-body {
+    @apply flex-col items-center;
+  }
+
+  .buttons {
+    @apply ml-0 mt-2;
   }
 
   h1 {
