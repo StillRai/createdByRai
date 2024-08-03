@@ -21,7 +21,8 @@
     },
     {
       "chapter": 3,
-      "text": "Taylor decides to blend in with the crowd. They observe the marketplace, noticing the mix of medieval attire and the occasional out-of-place modern item. The hooded figure continues to watch from a distance. Taylor overhears a conversation about a powerful relic hidden in the nearby castle that could potentially aid in their return to the present.",
+      "text": "Taylor decides to blend in with the crowd. He observes the marketplace, noticing the mix of medieval attire and the occasional out-of-place modern item. The hooded figure continues to watch from a distance. Taylor overhears a conversation about a powerful relic hidden in the nearby castle that could potentially aid in his return to the present.",
+      "image": "ch-3.png",
       "choices": [
         { "text": "Investigate the castle for the relic.", "nextChapter": 7 },
         { "text": "Confront the hooded figure.", "nextChapter": 8 }
@@ -29,7 +30,8 @@
     },
     {
       "chapter": 4,
-      "text": "Panicked, Taylor tries to use the Timepiece to return home, but it malfunctions, leaving them stranded. They must now find a way to repair it. Taylor hears rumors of a wise blacksmith in a nearby village who might be able to help.",
+      "text": "Panicked, Taylor tries to use the Timepiece to return home, but it malfunctions, leaving him stranded. He must now find a way to repair it. Taylor hears rumors of a wise blacksmith in a nearby village who might be able to help.",
+      "image": "ch-4.png",
       "choices": [
         { "text": "Travel to the village to find the blacksmith.", "nextChapter": 9 },
         { "text": "Seek help from the locals in the marketplace.", "nextChapter": 10 }
@@ -45,7 +47,7 @@
     },
     {
       "chapter": 6,
-      "text": "Taylor decides to continue alone. They wander the streets, feeling increasingly lost and vulnerable. The hooded figure reappears, now more menacing, and corners Taylor. 'You should have listened,' the figure says, pulling out a strange, glowing dagger.",
+      "text": "Taylor decides to continue alone. He wanders the streets, feeling increasingly lost and vulnerable. The hooded figure reappears, now more menacing, and corners Taylor. 'You should have listened,' the figure says, pulling out a strange, glowing dagger.",
       "choices": [
         { "text": "Fight the hooded figure.", "nextChapter": 13 },
         { "text": "Try to reason with the figure.", "nextChapter": 14 }

@@ -4,9 +4,7 @@ export function initializeBurgerMenu() {
     const closeMenu = document.getElementById('close-menu');
 
     if (burgerMenu && navLinksMobile && closeMenu) {
-        console.log('Burger menu and nav links mobile elements found');
         burgerMenu.addEventListener('click', () => {
-            console.log('Burger menu clicked');
             navLinksMobile.classList.toggle('hidden');
             navLinksMobile.classList.toggle('flex');
             navLinksMobile.classList.toggle('active');
@@ -34,7 +32,5 @@ export function initializeBurgerMenu() {
             e.preventDefault();
             magicDropdownMobile.classList.toggle('hidden');
         });
-    } else {
-        console.error('Burger menu or nav links mobile elements not found');
     }
 }
