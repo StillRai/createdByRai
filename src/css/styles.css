@@ -712,7 +712,6 @@ footer {
 /* Dropdown menu styles */
 .group:hover .group-hover\:block {
     display: block;
-    
 }
 
 .nav-links .group:hover .group-hover\:block {
@@ -736,6 +735,30 @@ footer {
 .nav-links .group:hover .group-hover\:block:hover {
     display: block;
 }
+
+.nav-links .group:hover .group-hover\:block:hover {
+    display: block;
+}
+
+.nav-links .group .group-hover\:block:hover {
+    display: block;
+}
+
+.nav-links .group .group-hover\:visible:hover {
+    visibility: visible;
+    display: block;
+}
+
+/* Ensure the dropdown does not disappear when hovered */
+.nav-links .group:hover .group-hover\:block:hover {
+    display: block;
+}
+
+.nav-links .group:hover .group-hover\:visible:hover {
+    display: block;
+    visibility: visible;
+}
+
 
 @media (max-width: 768px) {
     #nav-links-mobile {

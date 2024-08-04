@@ -17,28 +17,15 @@ const StoryPage = () => {
   };
 
   return (
-    <div
-      className="App"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        width: '100vw',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '20px',
-        boxSizing: 'border-box',
-      }}
-    >
+    <div className="App bg-gradient-to-t from-color-gradient-end to-color-gradient-start">
       <div className="story-page">
         <div className="story-content">
-          <h1>{currentContent.title}</h1>
           <p className="story-text">{currentContent.text}</p>
+          <h1>{currentContent.title}</h1>
+
         </div>
         <div className="story-body">
+
           {currentContent.image && (
             <img src={getImage(currentContent.image)} alt="Chapter illustration" className="story-image" />
           )}
@@ -48,7 +35,7 @@ const StoryPage = () => {
             ))}
           </div>
         </div>
-        <button className="choice-button" onClick={resetStory}>Restart</button>
+        <button className="restart-button" onClick={resetStory}>Restart</button>
       </div>
     </div>
   );
