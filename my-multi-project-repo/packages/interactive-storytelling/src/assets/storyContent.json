@@ -38,7 +38,7 @@
     },
     {
       "chapter": 5,
-      "text": "Taylor continues alone and is soon confronted by a man who looks just like him, wielding a glowing dagger.",
+      "text": "Taylor continues alone and is soon confronted by a man who looks eerily similar, wielding a glowing dagger.",
       "image": "ch-5.png",
       "choices": [
         { "text": "Fight the figure.", "nextChapter": 8 },
@@ -47,7 +47,7 @@
     },
     {
       "chapter": 6,
-      "text": "Taylor and Elara sneak into the castle and find the relic guarded by a fierce knight who looks just like him.",
+      "text": "Taylor and Elara sneak into the castle and find the relic guarded by a fierce knight",
        "image": "ch-6.png",
       "choices": [
         { "text": "Confront the knight.", "nextChapter": 10 },
@@ -87,7 +87,7 @@
     {
       "chapter": 11,
       "text": "The knight, impressed by Taylor's courage, hands over the relic peacefully. The Timepiece is enhanced.",
-      "image": "ch-11.png",
+      "image": "ch-10.png",
       "choices": [
         { "text": "Return to the present.", "nextChapter": 12 },
         { "text": "Explore another era.", "nextChapter": 14 }
@@ -95,7 +95,7 @@
     },
     {
       "chapter": 12,
-      "text": "Taylor returns to the present with a deeper understanding of time travel and a powerful ally in Elara.",
+      "text": "Taylor returns to the present with a deeper understanding of time travel and a beautiful future with Elara.",
       "image": "ch-12.png",
       "outcome": "great"
     },
@@ -117,7 +117,7 @@
     {
       "chapter": 15,
       "text": "Taylor returns to the present, enriched by his adventures and the knowledge gained from his allies.",
-      "image": "ch-15.png",
+      "image": "ch-17.png",
       "outcome": "great"
     },
     {
