@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import zxcvbn from 'zxcvbn';
 
-const PasswordStrengthAnalyser = () => {
+const PasswordStrengthAnalyser = ({ prevLesson }) => {
   const [password, setPassword] = useState('');
   const [strength, setStrength] = useState(null);
 
@@ -13,7 +13,7 @@ const PasswordStrengthAnalyser = () => {
 
   return (
     <div className="content">
-      <h2 className="text-2xl font-bold mb-4">Password Strength Analyzer</h2>
+      <h2 className="text-2xl font-bold mb-4">Password Strength Analyser</h2>
       <div className="input-container">
         <input
           type="password"
@@ -30,6 +30,11 @@ const PasswordStrengthAnalyser = () => {
           <p>{strength.feedback.suggestions.join(' ')}</p>
         </div>
       )}
+      <div className="flex justify-between mt-4">
+        <button onClick={prevLesson} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700">
+          Back
+        </button>
+      </div>
     </div>
   );
 };
