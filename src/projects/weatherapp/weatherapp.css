@@ -41,22 +41,6 @@
   height: auto; 
 }
 
-.weather-app-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.weather-app-header h1 {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--color-light);
-}
-
-.weather-app-header p {
-  font-size: 1rem;
-  color: var(--color-light);
-}
-
 .weather-app-content {
   padding: 20px;
   border-radius: 15px;

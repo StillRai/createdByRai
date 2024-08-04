@@ -40,9 +40,9 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: 'Inter', sans-serif;
-  --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.8);
-  --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
   border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  color: var(--color-light);
 }
 
 .story-content {
@@ -90,7 +90,6 @@ h1 {
   font-size: 1.2rem;
   color: #fae1dd;
   font-weight: 700;
-  
 }
 
 .choice-button:hover {
@@ -103,14 +102,28 @@ h1 {
   background: var(--color-dark);
   color: var(--color-gradient-start);
   font-size: 1rem;
-  margin-top: 1rem;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
 }
 
 .restart-button:hover {
   background: var(--color-secondary);
+}
+
+.audio-toggle {
+  @apply cursor-pointer rounded-full transition duration-300 ease-in-out transform hover:scale-110;
+  color: var(--color-dark);
+  font-size: 1.8rem;
+  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gradient-start);
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+}
+
+.controls {
+  @apply flex items-center justify-center mt-4;
 }
 
 /* Tablet responsiveness */
@@ -165,6 +178,12 @@ h1 {
     margin-right: auto;
     display: block;
   }
+
+  .audio-toggle {
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -199,5 +218,11 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     display: block;
+  }
+
+  .audio-toggle {
+    font-size: 0.75rem;
+    width: 25px;
+    height: 25px;
   }
 }
