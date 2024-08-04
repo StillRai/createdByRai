@@ -6,23 +6,23 @@
 @tailwind utilities;
 
 :root {
-  --color-pastel-blue: #89CFF0;
-  --color-pastel-pink: #FFB6C1;
-  --color-pastel-green: #77DD77;
-  --color-pastel-yellow: #FFEF00;
-  --color-pastel-purple: #B19CD9;
-  --color-light: #e7e7e7;
-  --color-dark: #2C2C2C;
-  --color-gradient-start: #3a7bd5;
-  --color-gradient-end: #3a6073;
-  --color-button-dark: #4a6fa5;
-  --color-button-light: #819ac3;
+  --color-primary: #a87070;
+  --color-secondary: #835757;
+  --color-tertiary: #6BFFB3;
+  --color-quaternary: #FFFFFF;
+  --color-quinary: #9B9B9B;
+  --color-light: #FAFAFA;
+  --color-dark: #333333;
+  --color-gradient-start: #f0bcb4;
+  --color-gradient-end: #583535;
+  --color-button-dark: rgba(212, 103, 103, 0.74);
+  --color-button-light: rgba(224, 161, 161, 0.2);
 }
 
 /* General styles */
 body {
   @apply bg-gray-900 text-gray-200 font-sans leading-relaxed;
-  background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);
+  background: linear-gradient(to top, var(--color-gradient-end), var(--color-gradient-start));
 }
 
 .App {
@@ -30,10 +30,11 @@ body {
 }
 
 .story-page {
-  @apply bg-gray-800 bg-opacity-60 backdrop-filter backdrop-blur-lg p-4  shadow-2xl;
+  @apply bg-opacity-60 backdrop-filter backdrop-blur-lg p-6 shadow-2xl;
   max-width: 60%;
   margin: 1rem;
   text-align: left;
+  background-color: #ffffff1a;
   background-blend-mode: multiply;
   display: flex;
   flex-direction: column;
@@ -50,20 +51,19 @@ body {
 
 .story-image {
   @apply max-w-xs h-auto mx-auto mb-4 rounded-lg animate-fadeIn;
-  border: 2px solid #f0e7db;
+  border: 2px solid var(--color-quaternary);
 }
 
 .story-body {
-  @apply flex flex-row items-start;
+  @apply flex flex-col items-center;
 }
 
 .buttons {
-  @apply flex flex-col space-y-2 ml-4 justify-center;
-  height: auto;
+  @apply flex flex-col space-y-2 mt-4;
 }
 
 h1 {
-  @apply text-lg font-heading mb-10 text-gray-200 leading-tight;
+  @apply text-lg font-heading mb-10 text-gray-800 leading-tight;
   border-bottom: 1px solid rgba(201, 201, 201, 0.1);
   padding-bottom: 0.5rem;
   margin-left: 70px;
@@ -71,35 +71,49 @@ h1 {
 }
 
 .story-text {
-  @apply mb-4 text-sm text-gray-300;
+  @apply mb-4 text-sm text-gray-700;
   line-height: 1.8;
-  color: var(--color-light);
+  color: var(--color-dark);
   font-size: 1.5rem;
   padding: 20px 50px;
 }
 
 /* Button styles */
 .choice-button {
-  @apply cursor-pointer rounded-lg transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105;
-  border: 2px solid var(--color-dark);
+  @apply cursor-pointer rounded-lg transition duration-300 ease-in-out transform hover:scale-105;
   backdrop-filter: blur(10px);
   padding: 20px 20px;
-  background-color: rgba(77, 61, 61, 0.062);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  width: 20rem;
+  background: var(--color-primary);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
   font-size: 1.2rem;
+  color: #fae1dd;
+  font-weight: 700;
+  
+}
+
+.choice-button:hover {
+  background: var(--color-secondary);
 }
 
 .restart-button {
-  @apply cursor-pointer rounded-sm py-1 px-2 transition duration-300 ease-in-out transform hover:bg-blue-500 hover:scale-105;
+  @apply cursor-pointer rounded-sm py-2 px-4 transition duration-300 ease-in-out transform hover:scale-105;
   backdrop-filter: blur(10px);
-  background-color: var(--color-light);
-  color: var(--color-dark);
+  background: var(--color-dark);
+  color: var(--color-gradient-start);
   font-size: 1rem;
   margin-top: 1rem;
-  align-self: flex-end;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
-/* Mobile and tablet responsiveness */
+.restart-button:hover {
+  background: var(--color-secondary);
+}
+
+/* Tablet responsiveness */
 @media (max-width: 1024px) {
   .story-page {
     @apply p-3;
@@ -117,20 +131,12 @@ h1 {
   }
 }
 
+/* Mobile responsiveness */
 @media (max-width: 768px) {
   .story-page {
     @apply p-2;
     margin: 0.5rem;
-    flex-direction: column;
     max-width: 90%;
-  }
-
-  .story-body {
-    @apply flex-col items-center;
-  }
-
-  .buttons {
-    @apply ml-0 mt-2;
   }
 
   h1 {
@@ -154,8 +160,10 @@ h1 {
   }
 
   .restart-button {
-    @apply px-2 py-1 text-xs;
-    align-self: center; /* Center align the button on small screens */
+    @apply px-3 py-2 text-xs;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 }
 
@@ -163,16 +171,7 @@ h1 {
   .story-page {
     @apply p-2;
     margin: 0.5rem;
-    flex-direction: column;
     max-width: 100%;
-  }
-
-  .story-body {
-    @apply flex-col items-center;
-  }
-
-  .buttons {
-    @apply ml-0 mt-2;
   }
 
   h1 {
@@ -197,6 +196,8 @@ h1 {
 
   .restart-button {
     @apply px-2 py-1 text-xs;
-    align-self: center; /* Center align the button on small screens */
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
   }
 }
