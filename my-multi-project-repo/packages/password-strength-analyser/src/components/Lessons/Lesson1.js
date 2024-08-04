@@ -11,6 +11,8 @@ const Lesson1 = ({ nextLesson, prevLesson }) => (
     </p>
     <p className="mb-4">
       Before we dive in, let's break down some password security jargon:
+      <br></br>      <br></br>
+
       <ul className="list-disc ml-6">
         <li><strong>Brute Force Attacks:</strong> A method where attackers try every possible combination of characters to guess a password.</li>
         <li><strong>Phishing:</strong> A technique where attackers trick you into revealing your passwords by pretending to be a trustworthy entity in an electronic communication.</li>

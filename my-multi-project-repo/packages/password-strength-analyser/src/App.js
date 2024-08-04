@@ -8,6 +8,7 @@ import Lesson2 from './components/Lessons/Lesson2';
 import Lesson3Part1 from './components/Lessons/Lesson3';
 import Lesson3Part2 from './components/Lessons/Lesson3_2';
 import Lesson3Part3 from './components/Lessons/Lesson3_3';
+import SummaryPage from './pages/SummaryPage';
 import DragAndDropQuiz from './components/Quizzes/DragAndDropQuiz';
 
 const App = () => {
@@ -52,6 +53,8 @@ const App = () => {
         <Route path="/" element={renderLesson(currentLesson)} />
         <Route path="/learn" element={<LearnPasswordStrength />} />
         <Route path="/analyser" element={<PasswordStrengthAnalyser />} />
+        <Route path="/summary" element={<SummaryPage />} /> 
+
       </Routes>
     </Router>
   );

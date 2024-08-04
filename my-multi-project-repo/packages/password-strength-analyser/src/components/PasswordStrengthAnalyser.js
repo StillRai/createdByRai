@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import zxcvbn from 'zxcvbn';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const PasswordStrengthAnalyser = ({ prevLesson }) => {
+const PasswordStrengthAnalyser = () => {
   const [password, setPassword] = useState('');
   const [strength, setStrength] = useState(null);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const pwd = e.target.value;
@@ -12,20 +13,44 @@ const PasswordStrengthAnalyser = ({ prevLesson }) => {
     setStrength(zxcvbn(pwd));
   };
 
+  const handleBack = () => {
+    navigate('/');
+  };
+
+  const handleFinish = () => {
+    navigate('/summary');
+  };
+
+  // Function to mask the password
+  const maskPassword = (pwd) => {
+    return '•'.repeat(pwd.length);
+  };
+
   return (
     <div className="content">
       <h2 className="text-2xl font-bold mb-4">Password Strength Analyser</h2>
       <div className="input-container">
-        {/* Hidden input to trick password managers */}
-        <input type="text" name="fakeusernameremembered" style={{ display: 'none' }} />
-        <input type="password" name="fakepasswordremembered" style={{ display: 'none' }} />
         <input
-          type="password"
-          value={password}
-          onChange={handleChange}
+          type="text"
+          value={maskPassword(password)}
+          onChange={(e) => {
+            // Only update if the length has increased
+            if (e.target.value.length > password.length) {
+              setPassword(password + e.target.value.slice(-1));
+              setStrength(zxcvbn(password + e.target.value.slice(-1)));
+            } else if (e.target.value.length < password.length) {
+              // Handle backspace
+              const newPassword = password.slice(0, -1);
+              setPassword(newPassword);
+              setStrength(zxcvbn(newPassword));
+            }
+          }}
           placeholder="Enter your password"
           className="input"
-          autoComplete="new-password"
+          autoComplete="off"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck="false"
         />
       </div>
       {strength && (
@@ -41,17 +66,19 @@ const PasswordStrengthAnalyser = ({ prevLesson }) => {
           {strength.score === 4 && (
             <div className="mt-4">
               <p className="text-green-600 font-bold">Congratulations! You have successfully created a strong password.</p>
-              <Link to="/" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700">
-                Finish
-              </Link>
             </div>
           )}
         </div>
       )}
       <div className="flex justify-between mt-4">
-        <button onClick={prevLesson} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700">
+        <button onClick={handleBack} className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700">
           Back
         </button>
+        {strength && strength.score === 4 && (
+          <button onClick={handleFinish} className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-700">
+            Finish
+          </button>
+        )}
       </div>
     </div>
   );
