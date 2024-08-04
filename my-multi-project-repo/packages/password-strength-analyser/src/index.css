@@ -27,7 +27,6 @@ body {
   height: 100vh;
   margin: 0;
   color: var(--color-light);
-  overflow: hidden;
 }
 
 .container {
@@ -38,13 +37,14 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
   width: 100%;
   max-width: 900px;
-  height: 90vh;
-  overflow-y: auto;
+  height: auto;
+  min-height: 80%;
   animation: fadeIn 1.5s ease-in-out;
   color: var(--color-dark);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
 }
 
 /* Custom Scrollbar Styles */
@@ -77,22 +77,22 @@ body {
 .input-container {
   display: flex;
   width: 100%;
+  
 }
 
 .input {
   border: none;
   padding: 0.9375rem;
-  border-radius: 0.625rem 0 0 0.625rem;
-  width: calc(100% - 3.125rem);
+  border-radius: 20px;
+  width: 100%;
   margin-bottom: 0.9375rem;
   background: rgba(255, 255, 255, 0.3);
-  color: var(--color-light);
-  font-size: 0.875rem; /* Reduced font size */
+  color: var(--color-dark);
   transition: background-color 0.3s ease;
 }
 
 .input::placeholder {
-  color: var(--color-light);
+  color: var(--color-dark);
   opacity: 0.7;
 }
 
@@ -102,9 +102,8 @@ body {
 
 .button {
   padding: 0;
-  border: none;
-  border-radius: 0 0.625rem 0.625rem 0;
-  width: 3.125rem;
+  border-radius: 20px;
+  width: auto; /* Changed from 100% to auto */
   height: 3.125rem;
   margin-bottom: 0.9375rem;
   background-color: var(--color-button-dark);
@@ -115,6 +114,14 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the buttons horizontally */
+  gap: 1rem; /* Space between buttons */
+  width: 100%; /* Ensure the container takes up the full width */
+}
+
 
 .button:hover {
   background-color: var(--color-button-light);
@@ -156,10 +163,10 @@ h1 {
 }
 
 h2 {
-  @apply text-lg md:text-xl lg:text-2xl;
+  @apply text-base md:text-lg lg:text-xl;
 }
 
-p, label, input {
+p, label, input, ul li {
   @apply text-sm md:text-base lg:text-lg;
 }
 

@@ -2,10 +2,35 @@ import React, { useState } from 'react';
 
 const TextInputQuiz = ({ nextLesson }) => {
   const [password, setPassword] = useState('');
+  const [feedback, setFeedback] = useState('');
 
   const handleSubmit = () => {
-    // Implement logic to check if the password meets criteria
-    nextLesson();
+    const feedbackMessage = validatePassword(password);
+    if (feedbackMessage) {
+      setFeedback(feedbackMessage);
+    } else {
+      setFeedback('');
+      nextLesson();
+    }
+  };
+
+  const validatePassword = (password) => {
+    if (password.length < 12) {
+      return 'Password must be at least 12 characters long.';
+    }
+    if (!/[A-Z]/.test(password)) {
+      return 'Password must include at least one uppercase letter.';
+    }
+    if (!/[a-z]/.test(password)) {
+      return 'Password must include at least one lowercase letter.';
+    }
+    if (!/[0-9]/.test(password)) {
+      return 'Password must include at least one number.';
+    }
+    if (!/[\W_]/.test(password)) {
+      return 'Password must include at least one symbol.';
+    }
+    return '';
   };
 
   return (
@@ -26,6 +51,11 @@ const TextInputQuiz = ({ nextLesson }) => {
         placeholder="Enter your password"
         className="input border border-gray-300 p-2 rounded w-full"
       />
+      {feedback && (
+        <div className="mt-4 text-red-500">
+          {feedback}
+        </div>
+      )}
       <button onClick={handleSubmit} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 mt-4">
         Submit
       </button>
