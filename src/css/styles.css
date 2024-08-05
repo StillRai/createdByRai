@@ -447,6 +447,7 @@ code span.block {
 
 .dropdownlink {
     padding-bottom: 20px;
+   
 }
 
 /* Close Button */
@@ -720,7 +721,7 @@ footer {
 
 .nav-links .group:hover .group-hover\:block {
     display: block;
-    width: 200px;
+   
     justify-content: center !important;
     align-items: center !important;
     border-radius: 10px;
@@ -729,10 +730,13 @@ footer {
 .nav-links .group .group-hover\:block {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: var(--color-light);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
     margin-top: 0.5rem;
+    width: auto;
+    min-width: 200px;
+    font-family: 'Poppins', sans-serif;
     z-index: 10;
 }
 
@@ -787,6 +791,7 @@ footer {
 #theMagicGroup:hover #theMagicDropdown,
 #theMagicDropdown:hover {
     display: block !important;
+
 }
 
 #theMagicGroupMobile:hover #theMagicDropdownMobile,
