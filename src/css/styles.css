@@ -735,7 +735,7 @@ footer {
     border-radius: 10px;
     margin-top: 0.5rem;
     width: auto;
-    min-width: 200px;
+    min-width: 200px; 
     font-family: 'Poppins', sans-serif;
     z-index: 10;
 }
