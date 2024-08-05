@@ -1,45 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import zxcvbn from 'zxcvbn';
 import { useNavigate } from 'react-router-dom';
+import feather from 'feather-icons';
+import { AudioContext } from '../context/AudioContext';
 
 const PasswordStrengthAnalyser = () => {
   const [password, setPassword] = useState('');
   const [strength, setStrength] = useState(null);
   const navigate = useNavigate();
+  const { isPlaying, toggleAudio, stopAudio } = useContext(AudioContext);
 
   const handleChange = (e) => {
     const pwd = e.target.value;
     setPassword(pwd);
     setStrength(zxcvbn(pwd));
   };
- 
+
   const handleBack = () => {
+    stopAudio();
     navigate('/');
   };
 
   const handleFinish = () => {
+    stopAudio();
     navigate('/summary');
   };
 
-  // Function to mask the password
-  const maskPassword = (pwd) => {
-    return '•'.repeat(pwd.length);
-  };
+  const maskPassword = (pwd) => '•'.repeat(pwd.length);
 
   return (
     <div className="content">
-      <h2 className="text-2xl font-bold mb-4">Password Strength Analyser</h2>
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl font-bold mb-4">Password Strength Analyser</h2>
+      
+      </div>
       <div className="input-container">
         <input
           type="text"
           value={maskPassword(password)}
           onChange={(e) => {
-            // Only update if the length has increased
             if (e.target.value.length > password.length) {
               setPassword(password + e.target.value.slice(-1));
               setStrength(zxcvbn(password + e.target.value.slice(-1)));
             } else if (e.target.value.length < password.length) {
-              // Handle backspace
               const newPassword = password.slice(0, -1);
               setPassword(newPassword);
               setStrength(zxcvbn(newPassword));

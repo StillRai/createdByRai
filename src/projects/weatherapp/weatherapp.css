@@ -221,3 +221,8 @@ i[data-feather] {
   color: var(--color-light);
   vertical-align: middle;
 }
+
+.headertitle {
+  font-size: 4 rem !important;
+  margin-bottom: 10px;
+}
