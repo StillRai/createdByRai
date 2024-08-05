@@ -421,6 +421,7 @@ code span.block {
 
     .nav-links {
         display: flex;
+        padding-bottom: 20px !important;
     }
 
     .nav-links-mobile {
@@ -444,10 +445,14 @@ code span.block {
     }
 }
 
+.dropdownlink {
+    padding-bottom: 20px;
+}
+
 /* Close Button */
 .close-menu {
     align-self: flex-end;
-    cursor: pointer;
+    cursor: pointer; 
     margin-bottom: 1rem;
 }
 

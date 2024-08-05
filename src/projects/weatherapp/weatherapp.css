@@ -223,6 +223,8 @@ i[data-feather] {
 }
 
 .headertitle {
-  font-size: 4 rem !important;
+  font-size: 30px;
+  font-weight: 600;
   margin-bottom: 10px;
+
 }
