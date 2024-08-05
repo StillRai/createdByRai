@@ -4,12 +4,16 @@ export function loadFlowchart() {
     fetch('components/flowchart.html')
         .then(response => response.text())
         .then(data => {
-            document.getElementById('flowchart-placeholder').innerHTML = data;
-            console.log('Flowchart content loaded.');
-            initializeFlowchart(); 
+            const flowchartPlaceholder = document.getElementById('flowchart-placeholder');
+            if (flowchartPlaceholder) {
+                flowchartPlaceholder.innerHTML = data;
+                console.log('Flowchart content loaded.');
+                initializeFlowchart(); // Ensure this function exists and is imported
+            } else {
+                console.error('Flowchart container not found');
+            }
         })
         .catch(error => console.error('Error loading flowchart:', error));
 }
-
 
 document.addEventListener('DOMContentLoaded', loadFlowchart);

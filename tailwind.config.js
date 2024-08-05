@@ -1,6 +1,7 @@
 module.exports = {
   content: [
     './src/**/*.{html,js,jsx,ts,tsx}',
+    './src/projects/**/*.{html,js,jsx,ts,tsx}', 
   ],
   theme: {
     extend: {
@@ -90,6 +91,7 @@ module.exports = {
   variants: {
     extend: {
       backdropFilter: ['responsive'], 
+      display: ['group-hover'],
     },
   },
 }

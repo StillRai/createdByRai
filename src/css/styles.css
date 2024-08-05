@@ -170,7 +170,7 @@ code span.block {
     padding-bottom: 0.25rem;
 }
 
-/* orange btn */
+/* Orange btn */
 .btn-o-orange {
     font-family: 'Poppins', sans-serif;
     color: var(--color-orange);
@@ -416,16 +416,15 @@ code span.block {
 
 @media (max-width: 768px) {
     .burger-menu {
-        display: block;
+        display: block;  
     }
 
     .nav-links {
-        display: none;
-
+        display: flex;
     }
 
     .nav-links-mobile {
-        display: none;
+        display: flex;
         flex-direction: column;
         width: 50%;
         height: 100%;
@@ -759,7 +758,6 @@ footer {
     visibility: visible;
 }
 
-
 @media (max-width: 768px) {
     #nav-links-mobile {
         display: none;
@@ -778,4 +776,15 @@ footer {
     .nav-links-mobile .group:hover .group-hover\:block {
         display: block;
     }
+}
+
+/* Add CSS for keeping dropdown open */
+#theMagicGroup:hover #theMagicDropdown,
+#theMagicDropdown:hover {
+    display: block !important;
+}
+
+#theMagicGroupMobile:hover #theMagicDropdownMobile,
+#theMagicDropdownMobile:hover {
+    display: block !important;
 }

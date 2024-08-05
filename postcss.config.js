@@ -9,6 +9,8 @@ module.exports = {
           './src/**/*.html',
           './src/**/*.js',
           './src/**/*.jsx',
+          './src/projects/**/*.{html,js,jsx,ts,tsx}',
+
         ],
         defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
       })] : [])

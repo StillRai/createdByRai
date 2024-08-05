@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import LearnPasswordStrength from './pages/LearnPasswordStrength';
 import PasswordStrengthAnalyser from './components/PasswordStrengthAnalyser';
@@ -10,6 +10,7 @@ import Lesson3Part2 from './components/Lessons/Lesson3_2';
 import Lesson3Part3 from './components/Lessons/Lesson3_3';
 import SummaryPage from './pages/SummaryPage';
 import DragAndDropQuiz from './components/Quizzes/DragAndDropQuiz';
+import './index.css';
 
 const App = () => {
   const [currentLesson, setCurrentLesson] = useState(0);
@@ -49,14 +50,15 @@ const App = () => {
 
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={renderLesson(currentLesson)} />
-        <Route path="/learn" element={<LearnPasswordStrength />} />
-        <Route path="/analyser" element={<PasswordStrengthAnalyser />} />
-        <Route path="/summary" element={<SummaryPage />} /> 
-
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={renderLesson(currentLesson)} />
+      <Route path="/learn" element={<LearnPasswordStrength />} />
+      <Route path="/analyser" element={<PasswordStrengthAnalyser />} />
+      <Route path="/summary" element={<SummaryPage />} />
+      <Route path="/projects/password-strength-analyser/index.html" element={<HomePage />} />
+    </Routes>
+  </Router>
+  
   );
 };
 

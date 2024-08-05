@@ -28,9 +28,39 @@ export function initializeBurgerMenu() {
         const magicLinkMobile = document.querySelector('.nav-links-mobile .group > a');
         const magicDropdownMobile = document.querySelector('.nav-links-mobile .group .group-hover\\:block');
 
-        magicLinkMobile.addEventListener('click', (e) => {
-            e.preventDefault();
-            magicDropdownMobile.classList.toggle('hidden');
+        if (magicLinkMobile && magicDropdownMobile) {
+            magicLinkMobile.addEventListener('click', (e) => {
+                e.preventDefault();
+                magicDropdownMobile.classList.toggle('hidden');
+                magicDropdownMobile.classList.toggle('block');
+            });
+        }
+    }
+
+    // Desktop dropdown behavior
+    const theMagicGroup = document.getElementById('theMagicGroup');
+    const theMagicDropdown = document.getElementById('theMagicDropdown');
+
+    if (theMagicGroup && theMagicDropdown) {
+        theMagicGroup.addEventListener('mouseenter', () => {
+            theMagicDropdown.classList.remove('hidden');
+        });
+
+        theMagicGroup.addEventListener('mouseleave', () => {
+            theMagicDropdown.classList.add('hidden');
+        });
+
+        theMagicDropdown.addEventListener('mouseenter', () => {
+            theMagicDropdown.classList.remove('hidden');
+        });
+
+        theMagicDropdown.addEventListener('mouseleave', () => {
+            theMagicDropdown.classList.add('hidden');
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    initializeBurgerMenu();
+    feather.replace();
+});
