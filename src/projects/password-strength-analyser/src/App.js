@@ -10,6 +10,7 @@ import Lesson3Part2 from './components/Lessons/Lesson3_2';
 import Lesson3Part3 from './components/Lessons/Lesson3_3';
 import SummaryPage from './pages/SummaryPage';
 import DragAndDropQuiz from './components/Quizzes/DragAndDropQuiz';
+import BackArrow from './components/BackArrow';
 import './index.css';
 
 const App = () => {
@@ -50,15 +51,17 @@ const App = () => {
 
   return (
     <Router>
-    <Routes>
-      <Route path="/" element={renderLesson(currentLesson)} />
-      <Route path="/learn" element={<LearnPasswordStrength />} />
-      <Route path="/analyser" element={<PasswordStrengthAnalyser />} />
-      <Route path="/summary" element={<SummaryPage />} />
-      <Route path="/projects/password-strength-analyser/index.html" element={<HomePage />} />
-    </Routes>
-  </Router>
-  
+      <div>
+        <BackArrow /> {/* Include the Back Arrow */}
+        <Routes>
+          <Route path="/" element={renderLesson(currentLesson)} />
+          <Route path="/learn" element={<LearnPasswordStrength />} />
+          <Route path="/analyser" element={<PasswordStrengthAnalyser />} />
+          <Route path="/summary" element={<SummaryPage />} />
+          <Route path="/projects/password-strength-analyser/index.html" element={<HomePage />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

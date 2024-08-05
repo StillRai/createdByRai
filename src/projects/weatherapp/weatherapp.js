@@ -10,6 +10,7 @@ export function initializeWeatherApp() {
   const cityInput = document.getElementById('city-input');
   const currentLocationButton = document.getElementById('current-location-button');
   const citySuggestions = document.getElementById('city-suggestions');
+  const backArrowContainer = document.getElementById('back-arrow');
 
   if (!apiKey || !geoNamesUsername) {
     console.error('API keys are missing');
@@ -17,6 +18,21 @@ export function initializeWeatherApp() {
       weatherContainer.innerHTML = '<p class="text-red-500">API keys are missing. Please check your .env file.</p>';
     }
     return;
+  }
+
+  // Add back arrow
+  if (backArrowContainer) {
+    backArrowContainer.innerHTML = `
+      <div style="position: absolute; top: 20px; left: 20px; z-index: 50;">
+        <button id="back-button" class="flex items-center text-light hover:text-gray-300 transition duration-200">
+          <i data-feather="arrow-left" class="mr-2"></i> Back
+        </button>
+      </div>
+    `;
+    const backButton = document.getElementById('back-button');
+    backButton.addEventListener('click', () => {
+      window.history.back();
+    });
   }
 
   if (searchButton && cityInput) {

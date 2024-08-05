@@ -4,18 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Creative Weather App</title>
-    <link href="css/weatherapp.css" rel="stylesheet">
+    <link href="./weatherapp.css" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
-    <script src="js/weatherapp.bundle.js" defer></script>
+    <script src="./weatherapp.js" defer></script>
 </head>
 <body class="weather-app-body">
     <div id="content-container" class="weather-app-container relative z-10">
         <!-- Back Button -->
-        <div class="absolute top-4 left-4">
-            <button id="back-button" class="flex items-center text-light hover:text-gray-300 transition duration-200">
-                <i data-feather="arrow-left" class="mr-2"></i> Back
-            </button>
-        </div>
+        <div id="back-arrow"></div> <!-- Placeholder for the back arrow -->
 
         <!-- Main content -->
         <main id="main-content" class="text-center">
@@ -39,15 +35,6 @@
         </main>
     </div>
     <script>
-        // Back Button Script
-        document.getElementById('back-button').addEventListener('click', () => {
-            if (document.referrer.includes('createdbyrai')) {
-                window.history.back();
-            } else {
-                window.location.href = '/';
-            }
-        });
-
         // Feather Icons
         document.addEventListener('DOMContentLoaded', () => {
             if (typeof feather !== 'undefined') {

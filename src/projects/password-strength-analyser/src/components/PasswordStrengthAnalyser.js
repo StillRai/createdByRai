@@ -12,7 +12,7 @@ const PasswordStrengthAnalyser = () => {
     setPassword(pwd);
     setStrength(zxcvbn(pwd));
   };
-
+ 
   const handleBack = () => {
     navigate('/');
   };
