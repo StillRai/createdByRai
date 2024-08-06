@@ -358,7 +358,7 @@ code span.block {
     z-index: 5;
     font-size: var(--font-size-lg);
     margin-top: 3rem;
-    margin-bottom: 0px;
+    margin-bottom: 2rem;
 }
 
 .skills-content span {
@@ -381,6 +381,36 @@ code span.block {
 .js-bracket {
     color: var(--color-lightgreen);
 }
+
+.text-custom-light {
+    color: var(--custom-light);
+}
+
+.text-custom-darkgreen {
+    color: var(--custom-darkgreen);
+}
+
+.code-style {
+    background-color: var(--primary); /* Dark Gray */
+    color: var(--custom-light); /* Light Cream */
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+}
+
+.code-style .js-tech {
+    color: var(--custom-yellow);
+}
+
+.code-style .js-brace {
+    color: var(--custom-pink);
+}
+
+.code-style span {
+    color: var(--custom-light);
+}
+
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
@@ -817,3 +847,13 @@ footer {
     border: none;
     cursor: pointer;
 }
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+  }
+  
+  

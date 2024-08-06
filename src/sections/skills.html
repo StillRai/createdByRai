@@ -1,76 +1,59 @@
 <section id="skills" class="h-screen relative w-full flex flex-col items-center justify-start bg-custom-dark pt-10">
     <div id="flowchart-placeholder" class="flowchart-container w-full mb-1"></div>
     <div class="container mx-auto text-left">
-        <hr class="border-t-1 mt-5  border-custom-light border-opacity-10 w-10/12 mx-auto">
 
-        <div class="font-bold skills-title font-poppins">In a Nutshell</div>
-        <div class="skills-code-container">
-            <span class=" text-custom-darkgreen font-jetBrains resize-text">I’m a developer with a diverse skill set
-                that includes website creation,
-                dynamic web applications, mobile app development, audio editing, multimedia production and networking and & cyber security.</span>
-        </div>
-        <div class="font-bold skills-title font-poppins">Let's cut the jargon</div>
-        <div class="skills-code-container">
-            <span class=" text-custom-darkgreen font-jetBrains resize-text"> I can create and design the visible parts
-                of websites,
-                including interactive elements and components. I can build from scratch, handling the behind-the-scenes
-                coding, or use pre-built
-                software for easier user maintenance. I use tools to connect software, speed up websites, test, and
-                utilise cloud services. I can also create and edit visuals, videos, and sounds.
-                Plus, I have a digital marketing team who can help push you to the next level. </span>
-        </div>
-        <br>
-        <div class="skills-code-container">
-            <span class=" text-custom-darkgreen font-jetBrains resize-text">And if you still didn't understand any of
-                that, it just means that I know a
-                lot and I will make your project a success! Now for the geek speak. </span>
-        </div>
-
-        <div class="font-bold skills-title font-poppins">Technical Skills </div>
-        <div class="skills-code-container">
-            <span class="resize-text  text-custom-darkgreen font-jetBrains">
-            <span class="js-tech">Frontend</span> 
-            <span
-                class="js-brace">{</span> <span>HTML, Tailwind, Javascript,
-                React </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Backend</span> <span class="js-brace">{</span> <span>Python, PHP, Node,
-                Express, TypeScript </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Databases</span> <span class="js-brace">{</span> <span>MySQL, MongoDB,
-                Redis </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">CMS</span> <span class="js-brace">{</span> <span>WordPress, Joomla, Drupal
-            </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Version Control</span> <span class="js-brace">{</span> <span>Git
-            </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Work Flow</span> <span class="js-brace">{</span> <span>Agile,
-                Scrum, Slack </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Tools</span> <span class="js-brace">{</span> <span>RESTful APIs, WPO, Jest,
-                Azure </span><span class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Multimedia</span> <span class="js-brace">{</span> <span>Photoshop,
-                Illustrator, Premiere Pro, After Effects, Affinity Designer, Figma </span><span
-                class="js-brace">}</span>
+        <!-- Parent container for the two columns -->
+        <div class="flex flex-wrap w-12/12 mx-auto">
+            <!-- Column 1 -->
+            <div class="w-full md:w-1/2">
+                <div class="font-bold skills-title font-poppins">In a Nutshell</div>
+                <div class="skills-code-container">
+                    <span class="text-custom-light font-jetBrains resize-text">
+                        I’m a developer with a diverse skill set that includes <span class="text-custom-darkgreen">website creation</span>, <span class="text-custom-darkgreen">dynamic web applications</span>, and <span class="text-custom-darkgreen">mobile app development</span>. I also work with <span class="text-custom-darkgreen">audio editing</span>, <span class="text-custom-darkgreen">multimedia production</span>, and have knowledge in <span class="text-custom-darkgreen">networking</span> and <span class="text-custom-darkgreen">cybersecurity</span>, providing well-rounded solutions for various digital projects.
+                    </span>
+                </div>
+                <!-- Added image -->
+                <div class="image-container">
+                    <img src="../media/images/coder-girl.png" alt="Developer illustration" style="transform: scaleX(-1); max-width: 100%; height: auto; max-height: 300px;">
+                </div>
+            </div>
+            <!-- Column 2 -->
+            <div class="w-full md:w-1/2">
+                <div class="font-bold skills-title font-poppins">Let's cut the jargon</div>
+                <div class="skills-code-container">
+                    <span class="text-custom-light font-jetBrains resize-text">
+                        I can create and design the visible parts of <span class="text-custom-darkgreen">websites</span>, including interactive elements and components. I can build from scratch, handling the behind-the-scenes coding, or use pre-built software for easier user maintenance. I use tools to <span class="text-custom-darkgreen">connect software</span>, <span class="text-custom-darkgreen">speed up websites</span>, test, and utilize cloud services. I can also create and edit <span class="text-custom-darkgreen">visuals</span>, <span class="text-custom-darkgreen">videos</span>, and <span class="text-custom-darkgreen">sounds</span>. Plus, I have a digital marketing team who can help push you to the next level.
+                    </span>
+                </div>
                 <br>
-                <span class="js-tech">Network & Cyber Security</span> <span class="js-brace">{</span> <span>Cisco Networking, Security Fundamentals, ACL</span><span
-                    class="js-brace">}</span>
-            <br>
-            <span class="js-tech">Audio </span><span class="js-brace">{</span> <span>Audition, Logic Pro,
-                Podbean </span><span class="js-brace">}</span>
-            <br> <br>
+                <div class="skills-code-container">
+                    <span class="text-custom-light font-jetBrains resize-text">
+                        And if you still didn't understand any of that, it just means that I know a lot and I will make your project a success! Now for the geek speak.
+                    </span>
+                </div>
+            </div>
+        </div>
+        <hr class="border-t-1 mt-5 border-custom-light border-opacity-10 w-10/12 mx-auto">
+
+        <div class="font-bold skills-title font-poppins">Technical Skills</div>
+        <div class="skills-code-container">
+            <span class="resize-text text-custom-light font-jetBrains">
+                <span class="js-tech">Frontend</span> 
+                <span class="js-brace">{</span> <span>HTML, Tailwind, Javascript, React </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Backend</span> <span class="js-brace">{</span> <span>Python, PHP, Node, Express, TypeScript </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Databases</span> <span class="js-brace">{</span> <span>MySQL, MongoDB, Redis </span><span class="js-brace">}</span><br>
+                <span class="js-tech">CMS</span> <span class="js-brace">{</span> <span>WordPress, Joomla, Drupal </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Version Control</span> <span class="js-brace">{</span> <span>Git </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Work Flow</span> <span class="js-brace">{</span> <span>Agile, Scrum, Slack </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Tools</span> <span class="js-brace">{</span> <span>RESTful APIs, WPO, Jest, Azure </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Multimedia</span> <span class="js-brace">{</span> <span>Photoshop, Illustrator, Premiere Pro, After Effects, Affinity Designer, Figma </span><span class="js-brace">}</span><br>
+                <span class="js-tech">Network & Cyber Security</span> <span class="js-brace">{</span> <span>Cisco Networking, Security Fundamentals, ACL</span><span class="js-brace">}</span><br>
+                <span class="js-tech">Audio </span><span class="js-brace">{</span> <span>Audition, Logic Pro, Podbean </span><span class="js-brace">}</span><br><br>
             </span>
         </div>
     </div>
 
     <div class="skills-code-container w-10/12">
-        <a href="#contact" class="btn-s-orange text-lg text-custom-dark icon target=" _blank" aria-label="Email"">Let's talk!</a> 
-                        </div>
-
+        <a href="#contact" class="btn-s-orange text-lg text-custom-dark icon" target="_blank" aria-label="Email">Let's talk!</a>
     </div>
-    </div>
-
 </section>
