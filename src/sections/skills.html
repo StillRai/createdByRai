@@ -3,114 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>createdByRai</title>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/src/css/styles.css">
-    <script src="https://unpkg.com/feather-icons"></script>
+    <title>Skills Section</title>
+    <link rel="stylesheet" href="../css/styles.css"> 
+    <script src="../js/typeEffect.js" defer></script> 
 </head>
-<body class="bg-custom-light text-custom-dark">
-    <div id="background-container" class="fixed inset-0 z-0"></div>
-    <div id="content-container" class="relative z-10">
-        <div id="navbar-container" class="relative z-20"></div>
-        <main id="main-content" class="p-0 m-0 relative z-10">
-            <div id="sections-container">
-                <section id="skills" class="h-screen relative w-full flex flex-col items-center justify-start bg-custom-dark pt-10">
-                    <div id="flowchart-placeholder" class="flowchart-container w-full mb-1"></div>
-                    <div class="container mx-auto text-left">
-                        <div class="flex flex-wrap w-12/12 mx-auto">
-                            <div class="w-full md:w-1/2">
-                                <div class="font-bold skills-title font-poppins">In a Nutshell</div>
-                                <div class="skills-code-container">
-                                    <span class="text-custom-light font-jetBrains resize-text">
-                                        I’m a <span class="text-custom-darkgreen">developer</span> with a diverse skill set that
-                                        includes <span class="text-custom-darkgreen">website creation</span>, <span
-                                            class="text-custom-darkgreen">dynamic web applications</span>, and <span
-                                            class="text-custom-darkgreen">mobile app development</span>. I also work with <span
-                                            class="text-custom-darkgreen">audio editing</span>, <span
-                                            class="text-custom-darkgreen">multimedia production</span>, and have knowledge in <span
-                                            class="text-custom-darkgreen">networking</span> and <span
-                                            class="text-custom-darkgreen">cybersecurity</span>, providing well-rounded solutions for
-                                        various digital projects.
-                                    </span>
-                                </div>
-                                <div class="image-container">
-                                    <img src="../media/images/coder-girl.png" alt="Developer illustration" class="blended-image">
-                                </div>
-                            </div>
-                            <div class="w-full md:w-1/2 justify-center">
-                                <div class="font-bold skills-title font-poppins">Technical Skills</div>
-                                <div class="skills-list">
-                                    <div class="skill-item" data-target="frontend">Frontend</div>
-                                    <div id="frontend" class="skill-details" data-text="Frontend { HTML, Tailwind, Javascript, React }"></div>
-                                    <div class="skill-item" data-target="backend">Backend</div>
-                                    <div id="backend" class="skill-details" data-text="Backend { Python, PHP, Node, Express, TypeScript }"></div>
-                                    <div class="skill-item" data-target="databases">Databases</div>
-                                    <div id="databases" class="skill-details" data-text="Databases { MySQL, MongoDB, Redis }"></div>
-                                    <div class="skill-item" data-target="cms">CMS</div>
-                                    <div id="cms" class="skill-details" data-text="CMS { WordPress, Joomla, Drupal }"></div>
-                                    <div class="skill-item" data-target="version-control">Version Control</div>
-                                    <div id="version-control" class="skill-details" data-text="Version Control { Git }"></div>
-                                    <div class="skill-item" data-target="workflow">Work Flow</div>
-                                    <div id="workflow" class="skill-details" data-text="Work Flow { Agile, Scrum, Slack }"></div>
-                                    <div class="skill-item" data-target="tools">Tools</div>
-                                    <div id="tools" class="skill-details" data-text="Tools { RESTful APIs, WPO, Jest, Azure }"></div>
-                                    <div class="skill-item" data-target="multimedia">Multimedia</div>
-                                    <div id="multimedia" class="skill-details" data-text="Multimedia { Photoshop, Illustrator, Premiere Pro, After Effects, Affinity Designer, Figma }"></div>
-                                    <div class="skill-item" data-target="network-cybersecurity">Network & Cyber Security</div>
-                                    <div id="network-cybersecurity" class="skill-details" data-text="Network & Cyber Security { Cisco Networking, Security Fundamentals, ACL }"></div>
-                                    <div class="skill-item" data-target="audio">Audio</div>
-                                    <div id="audio" class="skill-details" data-text="Audio { Audition, Logic Pro, Podbean }"></div>
-                                </div>
-                            </div>
-                        </div>
+<body>
+    <section id="skills" class="h-screen relative w-full flex flex-col items-center justify-start bg-custom-dark pt-10">
+        <div id="flowchart-placeholder" class="flowchart-container w-full mb-1"></div>
+        <div class="container mx-auto text-left">
+            <!-- Parent container for the two columns -->
+            <div class="flex flex-wrap w-12/12 mx-auto">
+                <!-- Column 1 -->
+                <div class="w-full md:w-1/2">
+                    <div class="font-bold skills-title font-poppins">In a Nutshell</div>
+                    <div class="skills-code-container">
+                        <span class="text-custom-light font-jetBrains resize-text">
+                            I’m a <span class="text-custom-darkgreen">developer</span> with a diverse skill set that
+                            includes <span class="text-custom-darkgreen">website creation</span>, <span
+                                class="text-custom-darkgreen">dynamic web applications</span>, and <span
+                                class="text-custom-darkgreen">mobile app development</span>. I also work with <span
+                                class="text-custom-darkgreen">audio editing</span>, <span
+                                class="text-custom-darkgreen">multimedia production</span>, and have knowledge in <span
+                                class="text-custom-darkgreen">networking</span> and <span
+                                class="text-custom-darkgreen">cybersecurity</span>, providing well-rounded solutions for
+                            various digital projects.
+                        </span>
                     </div>
-                </section>
+                    <!-- Added image -->
+                    <div class="image-container">
+                        <img src="../media/images/coder-girl.png" alt="Developer illustration" class="blended-image">
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="w-full md:w-1/2 justify-center">
+                    <div class="font-bold skills-title font-poppins">Technical Skills</div>
+                    <div class="skills-list">
+                        <div class="skill-item" data-target="frontend">Frontend</div>
+                        <div id="frontend" class="skill-details" data-text="Frontend involves working with technologies like HTML, CSS, and JavaScript to create the visual and interactive parts of a website. It's about ensuring a seamless user experience by implementing responsive design, animations, and other interactive elements. Frontend development is constantly evolving, requiring continuous learning and adaptation to new frameworks and libraries."></div>
+                        <div class="skill-item" data-target="backend">Backend</div>
+                        <div id="backend" class="skill-details" data-text="Backend development focuses on server-side logic, databases, and application programming interfaces (APIs). It's about managing data, ensuring security, and optimizing performance. Backend developers work with languages like Python, PHP, and Node.js to build scalable and efficient systems. They also handle integrations with third-party services and ensure the application's stability and reliability."></div>
+                        <div class="skill-item" data-target="databases">Databases</div>
+                        <div id="databases" class="skill-details" data-text="Databases are crucial for storing, retrieving, and managing data in applications. Knowledge in SQL and NoSQL databases, such as MySQL, MongoDB, and Redis, is essential for efficient data handling. This involves designing schemas, optimizing queries, and ensuring data integrity and security. Understanding database management is key to building robust and scalable applications."></div>
+                        <div class="skill-item" data-target="cms">CMS</div>
+                        <div id="cms" class="skill-details" data-text="Content Management Systems (CMS) like WordPress, Joomla, and Drupal allow for easy content creation and management. CMS platforms provide tools for creating, editing, and publishing content without needing extensive coding knowledge. They offer themes and plugins to extend functionality and enhance the website's appearance and user experience."></div>
+                        <div class="skill-item" data-target="version-control">Version Control</div>
+                        <div id="version-control" class="skill-details" data-text="Version control systems, like Git, are essential for managing changes in code over time. They facilitate collaboration among developers, allowing multiple people to work on the same project simultaneously. Version control helps track changes, revert to previous states, and resolve conflicts, ensuring the project's history is well-documented and recoverable."></div>
+                        <div class="skill-item" data-target="workflow">Work Flow</div>
+                        <div id="workflow" class="skill-details" data-text="Efficient workflows are crucial for project management and delivery. Familiarity with Agile and Scrum methodologies, as well as tools like Slack and Trello, helps streamline communication and task management. This ensures projects are delivered on time and meet quality standards."></div>
+                        <div class="skill-item" data-target="tools">Tools</div>
+                        <div id="tools" class="skill-details" data-text="Various tools and technologies are used in development to improve productivity and quality. This includes RESTful APIs for communication between client and server, testing frameworks like Jest, and cloud services like Azure for deployment and scaling. Mastery of these tools is essential for modern development."></div>
+                        <div class="skill-item" data-target="multimedia">Multimedia</div>
+                        <div id="multimedia" class="skill-details" data-text="Multimedia skills involve working with graphic design and video editing tools such as Photoshop, Illustrator, Premiere Pro, and After Effects. These skills are crucial for creating engaging visual content, enhancing user experience, and supporting marketing efforts. Knowledge in these areas enables the creation of high-quality, professional multimedia content."></div>
+                        <div class="skill-item" data-target="network-cybersecurity">Network & Cyber Security</div>
+                        <div id="network-cybersecurity" class="skill-details" data-text="Network and cybersecurity skills involve understanding network protocols, firewalls, and encryption methods to protect data and systems from threats. Knowledge in Cisco Networking, Security Fundamentals, and Access Control Lists (ACL) is essential for securing information and ensuring compliance with security standards."></div>
+                        <div class="skill-item" data-target="audio">Audio</div>
+                        <div id="audio" class="skill-details" data-text="Audio skills include editing and producing sound using tools like Adobe Audition and Logic Pro. This involves mixing, mastering, and creating soundscapes for various media. Proficiency in audio production enhances the overall quality of multimedia projects, providing an immersive auditory experience."></div>
+                    </div>
+                </div>
             </div>
-        </main>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            console.log("Document is ready");
-
-            function typeText(element, text) {
-                let index = 0;
-                element.innerHTML = '';
-                function type() {
-                    if (index < text.length) {
-                        element.innerHTML += text.charAt(index);
-                        index++;
-                        setTimeout(type, 50); // Adjust typing speed here
-                    }
-                }
-                type();
-            }
-
-            var skillItems = document.querySelectorAll(".skill-item");
-            console.log("Skill items found:", skillItems.length); // Log number of skill items found
-
-            skillItems.forEach(function (item) {
-                item.addEventListener("mouseover", function () {
-                    var id = this.getAttribute("data-target");
-                    var targetElement = document.getElementById(id);
-                    var text = targetElement.getAttribute("data-text");
-                    console.log("Mouseover on:", id, "Target element:", targetElement, "Text:", text);
-                    if (targetElement) {
-                        targetElement.style.display = 'block';
-                        typeText(targetElement, text);
-                    }
-                });
-                item.addEventListener("mouseout", function () {
-                    var id = this.getAttribute("data-target");
-                    var targetElement = document.getElementById(id);
-                    console.log("Mouseout from:", id, "Target element:", targetElement);
-                    if (targetElement) {
-                        targetElement.style.display = 'none';
-                        targetElement.innerHTML = '';
-                    }
-                });
-            });
-        });
-    </script>
+        </div>
+    </section>
 </body>
+
 </html>

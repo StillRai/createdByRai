@@ -8,12 +8,13 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = {
   entry: {
     main: './src/js/main.js',
+    typeEffect: './src/js/typeEffect.js', // Entry point for typeEffect
     weatherapp: './src/projects/weatherapp/weatherapp.js',
     'password-strength-analyser': './src/projects/password-strength-analyser/src/index.js',
     'interactive-storytelling': './src/projects/interactive-storytelling/src/index.js'
   },
   output: {
-    filename: 'js/[name].bundle.js',
+    filename: 'js/[name].bundle.js', // Output pattern for JS files
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     publicPath: '/',
@@ -102,6 +103,11 @@ module.exports = {
       template: path.resolve(__dirname, 'src/projects/interactive-storytelling/public/index.html'),
       filename: 'projects/interactive-storytelling/index.html',
       chunks: ['interactive-storytelling']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/sections/skills.html',
+      filename: 'sections/skills.html',
+      chunks: ['typeEffect'] // Ensure this references the correct entry point
     }),
     new CopyWebpackPlugin({
       patterns: [

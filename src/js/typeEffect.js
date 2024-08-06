@@ -1,9 +1,12 @@
+console.log("JavaScript file is loaded");
+
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Document is ready");
 
     function typeText(element, text) {
+        console.log("typeText function called"); // Debugging line
         let index = 0;
-        element.innerHTML = '';
+        element.innerHTML = ''; // Clear any existing text
         function type() {
             if (index < text.length) {
                 element.innerHTML += text.charAt(index);
@@ -15,43 +18,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var skillItems = document.querySelectorAll(".skill-item");
+    console.log("Skill items found:", skillItems.length); // Log number of skill items found
+
     skillItems.forEach(function (item) {
+        console.log("Adding event listeners to:", item); // Log each item
         item.addEventListener("mouseover", function () {
             var id = this.getAttribute("data-target");
             var targetElement = document.getElementById(id);
             var text = targetElement.getAttribute("data-text");
+            console.log("Mouseover on:", id, "Target element:", targetElement, "Text:", text);
             if (targetElement) {
-                targetElement.style.display = 'block'; // Ensure the element is visible
+                targetElement.style.display = 'block';
                 typeText(targetElement, text);
             }
         });
         item.addEventListener("mouseout", function () {
             var id = this.getAttribute("data-target");
             var targetElement = document.getElementById(id);
+            console.log("Mouseout from:", id, "Target element:", targetElement);
             if (targetElement) {
-                targetElement.style.display = 'none'; // Hide the element on mouse out
-                targetElement.innerHTML = ''; // Clear text on mouse out
-            }
-        });
-    });
-
-    // For touch devices
-    skillItems.forEach(function (item) {
-        item.addEventListener("touchstart", function () {
-            var id = this.getAttribute("data-target");
-            var targetElement = document.getElementById(id);
-            var text = targetElement.getAttribute("data-text");
-            if (targetElement) {
-                targetElement.style.display = 'block'; // Ensure the element is visible
-                typeText(targetElement, text);
-            }
-        });
-        item.addEventListener("touchend", function () {
-            var id = this.getAttribute("data-target");
-            var targetElement = document.getElementById(id);
-            if (targetElement) {
-                targetElement.style.display = 'none'; // Hide the element on touch end
-                targetElement.innerHTML = ''; // Clear text on touch end
+                targetElement.style.display = 'none';
+                targetElement.innerHTML = '';
             }
         });
     });

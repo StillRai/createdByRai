@@ -398,32 +398,29 @@ code span.block {
     cursor: pointer;
     transition: background-color 0.3s ease;
     border: 1px solid var(--color-light);
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.skill-details {
+    display: none; /* Hidden by default */
+    color: var(--color-light); 
+    padding-left: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    position: relative; 
+    background-color: var(--color-dark); 
+    padding: 0.5rem; 
+    border-radius: 5px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 
 .skill-item:hover {
-    background-color: var(--color-pastel-blue); 
     transform: translateY(-2px); 
-}
-
-.skill-details {
-    display: none; /* Ensure skill details are initially hidden */
-    color: var(--color-light); /* Adjust as necessary */
-    padding-left: 1rem; /* Adjust as necessary */
-    font-family: 'JetBrains Mono', monospace; /* Adjust as necessary */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 
-.skill-item:hover + .skill-details {
-    display: inline-block;
-}
 
-.skill-details span {
-    display: inline-block;
-   
-}
 
 .skill-details .js-tech {
     color: var(--color-yellow);
