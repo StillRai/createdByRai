@@ -286,7 +286,6 @@ code span.block {
 }
 
 .resize-text {
-    margin-top: -10px;
     margin-right: -25px;
 }
 
@@ -375,42 +374,64 @@ code span.block {
 }
 
 .js-tech {
-    color: var (--color-orange);
+    color: var(--color-orange);
 }
 
 .js-bracket {
     color: var(--color-lightgreen);
 }
 
-.text-custom-light {
-    color: var(--custom-light);
+/* Skill items and dropdown */
+.skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
 }
 
-.text-custom-darkgreen {
-    color: var(--custom-darkgreen);
-}
-
-.code-style {
-    background-color: var(--primary); /* Dark Gray */
-    color: var(--custom-light); /* Light Cream */
-    padding: 1rem;
+.skill-item {
+    background-color: var(--primary);
+    color: var(--color-light);
+    padding: 0.5rem 1rem;
     border-radius: 0.5rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--color-light);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.code-style .js-tech {
-    color: var(--custom-yellow);
+
+.skill-item:hover {
+    background-color: var(--color-pastel-blue); 
+    transform: translateY(-2px); 
 }
 
-.code-style .js-brace {
-    color: var(--custom-pink);
+.skill-details {
+    display: none; /* Ensure skill details are initially hidden */
+    color: var(--color-light); /* Adjust as necessary */
+    padding-left: 1rem; /* Adjust as necessary */
+    font-family: 'JetBrains Mono', monospace; /* Adjust as necessary */
 }
 
-.code-style span {
-    color: var(--custom-light);
+
+.skill-item:hover + .skill-details {
+    display: inline-block;
 }
 
+.skill-details span {
+    display: inline-block;
+   
+}
+
+.skill-details .js-tech {
+    color: var(--color-yellow);
+}
+
+.skill-details .js-brace {
+    color: var(--color-pink);
+}
 
 /* Responsive adjustments */
 @media (max-width: 992px) {
@@ -446,7 +467,7 @@ code span.block {
 
 @media (max-width: 768px) {
     .burger-menu {
-        display: block;  
+        display: block;
     }
 
     .nav-links {
@@ -477,13 +498,12 @@ code span.block {
 
 .dropdownlink {
     padding-bottom: 20px;
-   
 }
 
 /* Close Button */
 .close-menu {
     align-self: flex-end;
-    cursor: pointer; 
+    cursor: pointer;
     margin-bottom: 1rem;
 }
 
@@ -497,7 +517,7 @@ section {
 #skills,
 #timeline,
 #work {
-    padding: 20px 0;
+    padding-top: 20px;
 }
 
 /* Footer styles */
@@ -695,8 +715,8 @@ footer {
 
 .timeline-item {
     position: absolute;
-    width: 20px; 
-    height: 20px; 
+    width: 20px;
+    height: 20px;
     background-color: #3498db;
     border-radius: 50%;
     transition: transform 0.5s, opacity 0.5s;
@@ -854,6 +874,13 @@ footer {
     justify-content: center;
     margin-top: 1rem;
     width: 100%;
-  }
-  
-  
+}
+
+.blended-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    opacity: 0.8;
+    border-radius: 15px;
+    transform: scaleX(-1);
+}
