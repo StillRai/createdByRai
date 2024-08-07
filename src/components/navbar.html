@@ -1,40 +1,64 @@
-<div class="navbar sticky top-0 z-50 pt-5 w-11/12 mx-auto" style="z-index: 102;">
-    <div class="container mx-auto flex justify-between items-center p-4">
-        <div class="logo text-2xl text-custom-light font-jetBrains responsive-logo">createdByRai</div>
-        <div class="burger-menu md:hidden cursor-pointer" id="burger-menu">
-            <i data-feather="menu" class="feather-icon-custom-light"></i>
-        </div>
-        <nav class="nav-links responsive-space-x hidden md:flex">
-            <a href="#meetRai" class="text-lg font-poppins font-regular text-custom-light hover:text-black responsive-text">Meet Rai</a>
-            <a href="#theJourney" class="text-lg font-poppins font-regular text-custom-light hover:text-black responsive-text">The Journey</a>
-            <div class="relative group" id="theMagicGroup">
-                <a href="#theMagic" class="text-lg font-poppins font-regular text-custom-light hover:text-black responsive-text pb-4">The Magic</a>
-                <div class="absolute hidden group-hover:block bg-white shadow-lg rounded-lg mt-2" id="theMagicDropdown">
-                    <a href="/projects/weatherapp/index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Weather App</a>
-                    <a href="/projects/interactive-storytelling/index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Interactive Storytelling</a>
-                    <a href="/projects/password-strength-analyser/index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Password Strength Analyzer</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Section</title>
+    <link rel="stylesheet" href="./../css/styles.css">
+    <script defer src="../js/typeEffect.js"></script>
+</head>
+<body>
+    <section id="skills" class="h-screen relative w-full flex flex-col items-center justify-start bg-custom-dark pt-10">
+        <div id="flowchart-placeholder" class="flowchart-container w-full mb-1"></div>
+        <div class="container mx-auto text-left">
+            <div class="flex flex-wrap w-12/12 mx-auto">
+                <div class="w-full md:w-1/2">
+                    <div class="font-bold skills-title font-poppins">In a Nutshell</div>
+                    <div class="skills-code-container">
+                        <span class="text-custom-light font-jetBrains resize-text">
+                            I’m a <span class="text-custom-darkgreen">developer</span> with a diverse skill set that includes <span class="text-custom-darkgreen">website creation</span>, <span class="text-custom-darkgreen">dynamic web applications</span>, and <span class="text-custom-darkgreen">mobile app development</span>. I also work with <span class="text-custom-darkgreen">audio editing</span>, <span class="text-custom-darkgreen">multimedia production</span>, and have knowledge in <span class="text-custom-darkgreen">networking</span> and <span class="text-custom-darkgreen">cybersecurity</span>, providing well-rounded solutions for various digital projects.
+                        </span>
+                    </div>
+                    <div class="image-container">
+                        <img src="../media/images/coder-girl.png" alt="Developer illustration" class="blended-image">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 justify-center">
+                    <div class="font-bold skills-title font-poppins">Technical Skills</div>
+                    <div class="skills-list">
+                        <div class="skill-item" data-target="frontend">Frontend</div>
+                        <div id="frontend" class="skill-details" data-text='<span class="js-tech">Frontend</span> <span class="js-brace">{</span> <span>HTML, Tailwind, Javascript, React </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="backend">Backend</div>
+                        <div id="backend" class="skill-details" data-text='<span class="js-tech">Backend</span> <span class="js-brace">{</span> <span>Python, PHP, Node, Express, TypeScript </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="databases">Databases</div>
+                        <div id="databases" class="skill-details" data-text='<span class="js-tech">Databases</span> <span class="js-brace">{</span> <span>MySQL, MongoDB, Redis </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="cms">CMS</div>
+                        <div id="cms" class="skill-details" data-text='<span class="js-tech">CMS</span> <span class="js-brace">{</span> <span>WordPress, Joomla, Drupal </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="version-control">Version Control</div>
+                        <div id="version-control" class="skill-details" data-text='<span class="js-tech">Version Control</span> <span class="js-brace">{</span> <span>Git </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="workflow">Work Flow</div>
+                        <div id="workflow" class="skill-details" data-text='<span class="js-tech">Work Flow</span> <span class="js-brace">{</span> <span>Agile, Scrum, Slack </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="tools">Tools</div>
+                        <div id="tools" class="skill-details" data-text='<span class="js-tech">Tools</span> <span class="js-brace">{</span> <span>RESTful APIs, WPO, Jest, Azure </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="multimedia">Multimedia</div>
+                        <div id="multimedia" class="skill-details" data-text='<span class="js-tech">Multimedia</span> <span class="js-brace">{</span> <span>Photoshop, Illustrator, Premiere Pro, After Effects, Affinity Designer, Figma </span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="network-cybersecurity">Network & Cyber Security</div>
+                        <div id="network-cybersecurity" class="skill-details" data-text='<span class="js-tech">Network & Cyber Security</span> <span class="js-brace">{</span> <span>Cisco Networking, Security Fundamentals, ACL</span><span class="js-brace">}</span><br>'></div>
+                        
+                        <div class="skill-item" data-target="audio">Audio</div>
+                        <div id="audio" class="skill-details" data-text='<span class="js-tech">Audio</span> <span class="js-brace">{</span> <span>Audition, Logic Pro, Podbean </span><span class="js-brace">}</span><br>'></div>
+                    </div>
                 </div>
             </div>
-            <a href="#letsTalk" class="btn-o-orange text-lg">Let's Talk</a>
-        </nav>
-    </div>
-    <div class="container mx-auto">
-        <hr class="border-t-1 mt-2 border-custom-light border-opacity-10 w-full mx-auto">
-    </div>
-    <div class="nav-links-mobile hidden flex-col space-y-4 border-custom-light p-4 md:hidden" id="nav-links-mobile">
-        <div class="close-menu" id="close-menu">
-            <i data-feather="x" class="feather-icon-custom-dark"></i>
         </div>
-        <a href="#meetRai" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">Meet Rai</a>
-        <a href="#theJourney" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">The Journey</a>
-        <div class="relative group" id="theMagicGroupMobile">
-            <a href="#theMagic" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">The Magic</a>
-            <div class="hidden mt-2 pl-4 group-hover:block" id="theMagicDropdownMobile">
-                <a href="/projects/weatherapp/index.html" class="block py-2 text-gray-800 hover:bg-gray-100">Weather App</a>
-                <a href="/projects/interactive-storytelling/index.html" class="block py-2 text-gray-800 hover:bg-gray-100">Interactive Storytelling</a>
-                <a href="/projects/password-strength-analyser/index.html" class="block py-2 text-gray-800 hover:bg-gray-100">Password Strength Analyser</a>
-            </div>
-        </div>
-        <a href="#letsTalk" class="btn-o-lightgreen text-lg">Let's Talk</a>
-    </div>
-</div>
+    </section>
+</body>
+</html>

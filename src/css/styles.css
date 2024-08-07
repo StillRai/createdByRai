@@ -366,21 +366,30 @@ code span.block {
 }
 
 .js-brace {
-    color: var(--color-yellow);
-}
-
-.js-list {
-    color: var(--color-darkblue);
+    color: var(--color-pink);
 }
 
 .js-tech {
-    color: var(--color-orange);
+    color: var(--color-orange); /* Customize the color as needed */
 }
 
 .js-bracket {
     color: var(--color-lightgreen);
 }
 
+.js-punctuation {
+    color: var(--color-gray); /* Customize the color as needed */
+}
+
+.skill-details,
+.skill-details .js-list,
+.skill-details .js-text {
+    color: var(--color-darkblue);
+}
+
+.skill-details .js-brace {
+    color: var(--color-pink);
+}
 /* Skill items and dropdown */
 /* Skill items and dropdown */
 .skills-list {
@@ -404,11 +413,6 @@ code span.block {
 
 .skill-details {
     display: none; 
-   
-}
-
-.skill-details.visible {
-    display: block;
     color: var(--color-light);
     padding-left: 1rem;
     font-family: 'JetBrains Mono', monospace;
@@ -417,6 +421,15 @@ code span.block {
     padding: 0.5rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.skill-details span {
+    display: inline;
+}
+
+.skill-details.visible {
+    display: block;
+    /* styles for visible state */
 }
 
 .skill-item:hover .skill-details {
