@@ -32,16 +32,37 @@ class TypewriterEffect {
         console.log("typeText function called with text:", text);
         let index = 0;
         element.innerHTML = ''; // Clear any existing text
-
+    
         const type = () => {
             if (index < text.length) {
-                element.innerHTML += text.charAt(index);
+                const currentChar = text[index];
+                const span = document.createElement('span');
+                
+                if (currentChar === '{' || currentChar === '}') {
+                    span.classList.add('js-brace');
+                    span.textContent = currentChar;
+                } else if (index === 0 || (text[index - 1] === ' ' && text.substring(index, text.indexOf('{')).trim().length > 0)) {
+                    // This is the start of the tech name
+                    span.classList.add('js-tech');
+                    let techName = '';
+                    while (index < text.length && text[index] !== '{') {
+                        techName += text[index];
+                        index++;
+                    }
+                    span.textContent = techName.trim();
+                    index--; // Adjust for the extra increment
+                } else {
+                    span.textContent = currentChar;
+                }
+                
+                element.appendChild(span);
                 index++;
-                setTimeout(type, 50); // Adjust typing speed here
+                setTimeout(type, 25); // Increased typing speed for longer texts
             }
         };
         type();
     }
+    
 
     handleMouseOver(event) {
         const item = event.target.closest('.skill-item');
