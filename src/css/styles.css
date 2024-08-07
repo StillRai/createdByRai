@@ -382,6 +382,7 @@ code span.block {
 }
 
 /* Skill items and dropdown */
+/* Skill items and dropdown */
 .skills-list {
     display: flex;
     flex-direction: column;
@@ -402,25 +403,30 @@ code span.block {
 }
 
 .skill-details {
-    display: none; /* Hidden by default */
-    color: var(--color-light); 
+    display: none; 
+   
+}
+
+.skill-details.visible {
+    display: block;
+    color: var(--color-light);
     padding-left: 1rem;
     font-family: 'JetBrains Mono', monospace;
-    position: relative; 
-    background-color: var(--color-dark); 
-    padding: 0.5rem; 
-    border-radius: 5px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    background-color: var(--color-dark);
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.skill-item:hover .skill-details {
+    display: block; /* Show on hover */
+}
 
 .skill-item:hover {
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-
-
 
 .skill-details .js-tech {
     color: var(--color-yellow);
@@ -429,6 +435,8 @@ code span.block {
 .skill-details .js-brace {
     color: var(--color-pink);
 }
+
+
 
 /* Responsive adjustments */
 @media (max-width: 992px) {

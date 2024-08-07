@@ -1,3 +1,4 @@
+// initialize.js
 import { initializeBurgerMenu } from './burgerMenu';
 import feather from 'feather-icons';
 import { loadFlowchart } from './flowchart';
@@ -52,6 +53,7 @@ export function initialize() {
                 if (sectionsContainer) {
                     sectionsContainer.innerHTML += data;
                     console.log('Skills section loaded.');
+                    document.dispatchEvent(new Event('skillsLoaded')); // Dispatch custom event
                     return loadFlowchart(); // Load the flowchart after the Skills section is loaded
                 }
             })
@@ -84,7 +86,8 @@ export function initialize() {
                     `;
                     console.log('Footer loaded.');
                 }
-            });
+            })
+            .catch(error => console.error('Error loading section:', error));
     } else if (currentPath.includes('projects/weatherapp')) {
         const backgroundContainer = document.getElementById('background-container');
         if (backgroundContainer) {
@@ -101,7 +104,8 @@ export function initialize() {
                         module.initializeWeatherApp();
                     });
                 }
-            });
+            })
+            .catch(error => console.error('Error loading weather app section:', error));
     }
 }
 

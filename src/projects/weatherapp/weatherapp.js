@@ -51,8 +51,6 @@ export function initializeWeatherApp() {
         citySuggestions.innerHTML = '';
       }
     });
-  } else {
-    console.error('Search button or city input not found');
   }
 
   if (currentLocationButton) {
@@ -70,10 +68,7 @@ export function initializeWeatherApp() {
           }
         });
     });
-  } else {
-    console.error('Current location button not found');
   }
-
   function fetchWeatherData(city) {
     const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
     fetch(apiUrl)

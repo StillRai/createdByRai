@@ -1,45 +1,85 @@
-console.log("JavaScript file is loaded");
+class TypewriterEffect {
+    constructor() {
+        this.init();
+    }
 
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("Document is ready");
+    init() {
+        // Use event delegation
+        document.addEventListener('mouseover', this.handleMouseOver.bind(this));
+        document.addEventListener('mouseout', this.handleMouseOut.bind(this));
 
-    function typeText(element, text) {
-        console.log("typeText function called"); // Debugging line
+        // Listen for skills loaded event
+        document.addEventListener("skillsLoaded", () => {
+            console.log("Skills section loaded, checking for skill items");
+            setTimeout(() => this.logSkillItems(), 0); // Check after a tick
+        });
+
+        if (module.hot) {
+            module.hot.accept(() => {
+                console.log("HMR update detected");
+                this.logSkillItems();
+            });
+        }
+    }
+
+    logSkillItems() {
+        const skillItems = document.querySelectorAll(".skill-item");
+        console.log("Skill items found:", skillItems.length);
+        skillItems.forEach(item => console.log("Skill item:", item.textContent));
+    }
+
+    typeText(element, text) {
+        console.log("typeText function called with text:", text);
         let index = 0;
         element.innerHTML = ''; // Clear any existing text
-        function type() {
+
+        const type = () => {
             if (index < text.length) {
                 element.innerHTML += text.charAt(index);
                 index++;
                 setTimeout(type, 50); // Adjust typing speed here
             }
-        }
+        };
         type();
     }
 
-    var skillItems = document.querySelectorAll(".skill-item");
-    console.log("Skill items found:", skillItems.length); // Log number of skill items found
+    handleMouseOver(event) {
+        const item = event.target.closest('.skill-item');
+        if (!item) return;
 
-    skillItems.forEach(function (item) {
-        console.log("Adding event listeners to:", item); // Log each item
-        item.addEventListener("mouseover", function () {
-            var id = this.getAttribute("data-target");
-            var targetElement = document.getElementById(id);
-            var text = targetElement.getAttribute("data-text");
-            console.log("Mouseover on:", id, "Target element:", targetElement, "Text:", text);
-            if (targetElement) {
-                targetElement.style.display = 'block';
-                typeText(targetElement, text);
-            }
-        });
-        item.addEventListener("mouseout", function () {
-            var id = this.getAttribute("data-target");
-            var targetElement = document.getElementById(id);
-            console.log("Mouseout from:", id, "Target element:", targetElement);
-            if (targetElement) {
-                targetElement.style.display = 'none';
-                targetElement.innerHTML = '';
-            }
-        });
-    });
+        const id = item.getAttribute("data-target");
+        const targetElement = document.getElementById(id);
+
+        if (!targetElement) {
+            console.error("No target element found for id:", id);
+            return;
+        }
+
+        const text = targetElement.getAttribute("data-text");
+        console.log("Mouseover detected on:", item.textContent, "Target element:", targetElement, "Text:", text);
+        targetElement.classList.add('visible');
+        this.typeText(targetElement, text);
+    }
+
+    handleMouseOut(event) {
+        const item = event.target.closest('.skill-item');
+        if (!item) return;
+
+        const id = item.getAttribute("data-target");
+        const targetElement = document.getElementById(id);
+
+        if (!targetElement) {
+            console.error("No target element found for id:", id);
+            return;
+        }
+
+        console.log("Mouseout detected from:", item.textContent, "Target element:", targetElement);
+        targetElement.classList.remove('visible');
+    targetElement.innerHTML = '';
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document is ready");
+    new TypewriterEffect();
 });
