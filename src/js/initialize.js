@@ -1,4 +1,3 @@
-// initialize.js
 import { initializeBurgerMenu } from './burgerMenu';
 import feather from 'feather-icons';
 import { loadFlowchart } from './flowchart';
@@ -8,15 +7,15 @@ import './timeline';
 let isInitialized = false;
 
 export function initialize() {
-    if (isInitialized) return; // Prevent double initialization
+    if (isInitialized) return; 
     isInitialized = true;
 
     console.log('Initializing components...');
     const currentPath = window.location.pathname;
 
-    // Adjust the base path depending on the current location
     const basePath = currentPath.includes('projects/weatherapp') ? '../../' : '';
 
+    // Load Navbar
     fetch(basePath + 'components/navbar.html')
         .then(response => response.text())
         .then(data => {
@@ -27,85 +26,74 @@ export function initialize() {
                 initializeBurgerMenu();
                 console.log('Navbar loaded.');
             }
-        });
+        })
+        .catch(error => console.error('Error loading navbar:', error));
 
     if (currentPath === '/' || currentPath === '/index.html') {
         const backgroundContainer = document.getElementById('background-container');
         if (backgroundContainer) {
             backgroundContainer.style.display = 'block';
         }
-        fetch('sections/home.html')
-            .then(response => response.text())
-            .then(data => {
-                const sectionsContainer = document.getElementById('sections-container');
-                if (sectionsContainer) {
-                    sectionsContainer.innerHTML = '';
-                    sectionsContainer.innerHTML += data;
-                    feather.replace();
-                    console.log('Home section loaded.');
-                    generateStars(); // Ensure stars are generated after home section is loaded
-                }
-            })
-            .then(() => fetch('sections/skills.html'))
-            .then(response => response.text())
-            .then(data => {
-                const sectionsContainer = document.getElementById('sections-container');
-                if (sectionsContainer) {
-                    sectionsContainer.innerHTML += data;
-                    console.log('Skills section loaded.');
-                    document.dispatchEvent(new Event('skillsLoaded')); // Dispatch custom event
-                    return loadFlowchart(); // Load the flowchart after the Skills section is loaded
-                }
-            })
-            .then(() => fetch('sections/timeline.html'))
-            .then(response => response.text())
-            .then(data => {
-                const sectionsContainer = document.getElementById('sections-container');
-                if (sectionsContainer) {
-                    sectionsContainer.innerHTML += data;
-                    console.log('Timeline section loaded.');
-                }
-            })
-            .then(() => fetch('sections/work.html'))
-            .then(response => response.text())
-            .then(data => {
-                const sectionsContainer = document.getElementById('sections-container');
-                if (sectionsContainer) {
-                    sectionsContainer.innerHTML += data;
-                    console.log('Work section loaded.');
-                }
-            })
-            .then(() => {
-                // Append footer last
-                const sectionsContainer = document.getElementById('sections-container');
-                if (sectionsContainer) {
-                    sectionsContainer.innerHTML += `
-                        <footer class="footer p-4 bg-custom-gray text-custom-dark">
-                            <p>Footer content goes here.</p>
-                        </footer>
-                    `;
-                    console.log('Footer loaded.');
-                }
-            })
-            .catch(error => console.error('Error loading section:', error));
+        const sectionsContainer = document.getElementById('sections-container');
+        if (sectionsContainer) {
+            sectionsContainer.innerHTML = ''; 
+        }
+
+        const sections = [
+            'sections/home.html',
+            'sections/skills.html',
+            'sections/timeline.html',
+            'sections/work.html'
+        ];
+
+        sections.reduce((promise, section) => {
+            return promise.then(() => {
+                console.log(`Fetching ${section}`);
+                return fetch(basePath + section)
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log(`Loaded content for ${section}:`, data);
+                        if (sectionsContainer) {
+                            sectionsContainer.innerHTML += data;
+                            feather.replace();
+                            console.log(`${section} section loaded.`);
+                            if (section.includes('skills')) {
+                                document.dispatchEvent(new Event('skillsLoaded'));
+                                return loadFlowchart();
+                            }
+                        }
+                    });
+            });
+        }, Promise.resolve())
+        .then(() => {
+            if (sectionsContainer) {
+                sectionsContainer.innerHTML += `
+                    <footer class="footer p-4 bg-custom-gray text-custom-dark">
+                        <p>Footer content goes here.</p>
+                    </footer>
+                `;
+                console.log('Footer loaded.');
+            }
+        })
+        .catch(error => console.error('Error loading section:', error));
     } else if (currentPath.includes('projects/weatherapp')) {
         const backgroundContainer = document.getElementById('background-container');
         if (backgroundContainer) {
             backgroundContainer.style.display = 'none';
         }
-        fetch(basePath + 'projects/weatherapp/index.html')
-            .then(response => response.text())
-            .then(data => {
-                const mainContent = document.getElementById('main-content');
-                if (mainContent) {
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            fetch(basePath + 'projects/weatherapp/index.html')
+                .then(response => response.text())
+                .then(data => {
                     mainContent.innerHTML = data;
                     console.log('Weather section loaded.');
                     import('../projects/weatherapp/initializeWeatherApp.js').then(module => {
                         module.initializeWeatherApp();
                     });
-                }
-            })
-            .catch(error => console.error('Error loading weather app section:', error));
+                })
+                .catch(error => console.error('Error loading weather app section:', error));
+        }
     }
 }
 

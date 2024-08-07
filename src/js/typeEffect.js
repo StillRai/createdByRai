@@ -34,7 +34,7 @@ class TypewriterEffect {
                    .replace(/^(\w+)(?=\s*\{)/g, '<span class="js-tech">$1</span>')
                    .replace(/,\s*(\w+)/g, ', <span class="js-text">$1</span>');
     }
-
+ 
     typeText(element, text) {
         console.log("typeText function called with text:", text);
         let formattedText = this.formatText(text);
