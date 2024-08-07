@@ -334,6 +334,8 @@ code span.block {
 
 /* Custom styles for the skills section */
 
+/* Custom styles for the skills section */
+
 #skills {
     min-height: 100vh;
     height: auto;
@@ -391,11 +393,10 @@ code span.block {
     color: var(--color-pink);
 }
 /* Skill items and dropdown */
-/* Skill items and dropdown */
 .skills-list {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.8rem;
     padding-left: 2rem;
     padding-right: 2rem;
 }
@@ -447,7 +448,6 @@ code span.block {
 }
 
 
-
 /* Responsive adjustments */
 @media (max-width: 992px) {
     #skills .resize-text {
@@ -456,6 +456,19 @@ code span.block {
         margin-top: 0px;
     }
 }
+
+.skill-item, .skills-detail {
+    transition: opacity 0.3s ease;
+}
+
+.skills-detail {
+    opacity: 0;
+}
+
+.skills-detail:hover {
+    opacity: 1;
+}
+
 
 @media (max-width: 768px) {
     #skills .resize-text {
@@ -894,7 +907,7 @@ footer {
 .blended-image {
     max-width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 350px;
     opacity: 0.8;
     border-radius: 15px;
     transform: scaleX(-1);

@@ -3,12 +3,28 @@ class TypewriterEffect {
         this.currentTimeout = null;
         this.queue = [];
         this.isTyping = false;
+        this.currentOpenItem = null;
+        this.audio = new Audio('/media/audio/Typing.mp3');
+        this.audio.loop = true;
+        this.audioLoaded = false;
+        this.audioPromise = null;
+
+        console.log("Audio source:", this.audio.src);
+        this.audio.addEventListener('canplaythrough', () => {
+            console.log("Audio can play through");
+            this.audioLoaded = true;
+        });
+        this.audio.addEventListener('error', (e) => {
+            console.error("Audio error:", e);
+        });
+
         this.init();
     }
 
     init() {
         document.addEventListener('mouseover', this.handleMouseOver.bind(this));
         document.addEventListener('mouseout', this.handleMouseOut.bind(this));
+        document.addEventListener('click', this.handleClick.bind(this));
 
         document.addEventListener("skillsLoaded", () => {
             console.log("Skills section loaded, checking for skill items");
@@ -34,12 +50,39 @@ class TypewriterEffect {
                    .replace(/^(\w+)(?=\s*\{)/g, '<span class="js-tech">$1</span>')
                    .replace(/,\s*(\w+)/g, ', <span class="js-text">$1</span>');
     }
- 
-    typeText(element, text) {
+
+    async playAudio() {
+        if (!this.audioLoaded) {
+            console.log("Audio not loaded yet, waiting...");
+            await new Promise(resolve => {
+                this.audio.addEventListener('canplaythrough', resolve, { once: true });
+            });
+        }
+
+        try {
+            if (this.audioPromise && this.audioPromise.status === 'pending') {
+                await this.audioPromise;
+            }
+            this.audioPromise = this.audio.play();
+            await this.audioPromise;
+        } catch (error) {
+            console.error("Error playing audio:", error);
+        }
+    }
+
+    pauseAudio() {
+        if (this.audio.paused) return;
+        this.audio.pause();
+    }
+
+    async typeText(element, text) {
         console.log("typeText function called with text:", text);
         let formattedText = this.formatText(text);
         let index = 0;
         element.innerHTML = ''; // Clear any existing text
+
+        this.audio.currentTime = 0;
+        await this.playAudio();
 
         const type = () => {
             if (index < formattedText.length) {
@@ -48,6 +91,7 @@ class TypewriterEffect {
                 this.currentTimeout = setTimeout(type, 7);
             } else {
                 this.isTyping = false;
+                this.pauseAudio();
                 if (this.queue.length > 0) {
                     const nextTask = this.queue.shift();
                     this.typeText(nextTask.element, nextTask.text);
@@ -63,39 +107,27 @@ class TypewriterEffect {
     }
 
     handleMouseOver(event) {
-        const item = event.target.closest('.skill-item');
-        if (!item) return;
-
-        const id = item.getAttribute("data-target");
-        const targetElement = document.getElementById(id);
-
-        if (!targetElement) {
-            console.error("No target element found for id:", id);
-            return;
-        }
-
-        const text = targetElement.getAttribute("data-text");
-        if (!text) {
-            console.error("No data-text attribute found for id:", id);
-            return;
-        }
-
-        // Decode HTML entities in the text
-        const decodedText = this.decodeHTMLEntities(text);
-
-        console.log("Mouseover detected on:", item.textContent, "Target element:", targetElement, "Text:", decodedText);
-        targetElement.style.display = 'block';
-
-        if (this.isTyping) {
-            this.queue.push({ element: targetElement, text: decodedText });
-        } else {
-            this.isTyping = true;
-            this.typeText(targetElement, decodedText);
-        }
+        if (window.innerWidth <= 768) return; // Skip for mobile devices
+        this.toggleSkillItem(event.target.closest('.skill-item'), true);
     }
 
     handleMouseOut(event) {
+        if (window.innerWidth <= 768) return; // Skip for mobile devices
+        this.toggleSkillItem(event.target.closest('.skill-item'), false);
+    }
+
+    handleClick(event) {
         const item = event.target.closest('.skill-item');
+        if (!item) return;
+
+        if (this.currentOpenItem && this.currentOpenItem !== item) {
+            this.toggleSkillItem(this.currentOpenItem, false);
+        }
+
+        this.toggleSkillItem(item, this.currentOpenItem !== item);
+    }
+
+    async toggleSkillItem(item, show) {
         if (!item) return;
 
         const id = item.getAttribute("data-target");
@@ -106,18 +138,47 @@ class TypewriterEffect {
             return;
         }
 
-        console.log("Mouseout detected from:", item.textContent, "Target element:", targetElement);
-        targetElement.style.display = 'none';
-        targetElement.innerHTML = '';
+        if (show) {
+            const text = targetElement.getAttribute("data-text");
+            if (!text) {
+                console.error("No data-text attribute found for id:", id);
+                return;
+            }
 
-        // Clear the timeout to stop any ongoing typewriter effect
-        if (this.currentTimeout) {
-            clearTimeout(this.currentTimeout);
-            this.currentTimeout = null;
+            const decodedText = this.decodeHTMLEntities(text);
+            console.log("Showing:", item.textContent, "Target element:", targetElement, "Text:", decodedText);
+            
+            targetElement.style.display = 'block';
+            item.classList.add('active');
+
+            if (this.isTyping) {
+                this.queue.push({ element: targetElement, text: decodedText });
+            } else {
+                this.isTyping = true;
+                await this.typeText(targetElement, decodedText);
+            }
+
+            this.currentOpenItem = item;
+        } else {
+            console.log("Hiding:", item.textContent, "Target element:", targetElement);
+            targetElement.style.display = 'none';
+            targetElement.innerHTML = '';
+            item.classList.remove('active');
+
+            if (this.currentOpenItem === item) {
+                this.currentOpenItem = null;
+            }
+
+            // Clear the timeout to stop any ongoing typewriter effect
+            if (this.currentTimeout) {
+                clearTimeout(this.currentTimeout);
+                this.currentTimeout = null;
+            }
+
+            this.isTyping = false;
+            this.queue = [];
+            this.pauseAudio();
         }
-
-        this.isTyping = false;
-        this.queue = [];
     }
 
     decodeHTMLEntities(text) {
