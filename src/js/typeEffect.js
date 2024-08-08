@@ -79,7 +79,7 @@ class TypewriterEffect {
         console.log("typeText function called with text:", text);
         let formattedText = this.formatText(text);
         let index = 0;
-        element.innerHTML = ''; // Clear any existing text
+        element.innerHTML = ''; 
 
         this.audio.currentTime = 0;
         await this.playAudio();

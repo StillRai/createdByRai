@@ -1,8 +1,7 @@
 import { initializeBurgerMenu } from './burgerMenu';
 import feather from 'feather-icons';
-import { loadFlowchart } from './flowchart';
 import { generateStars } from './stars';
-import './timeline';
+import { InteractiveFlowchart } from './flowchart.js';
 
 let isInitialized = false;
 
@@ -42,8 +41,6 @@ export function initialize() {
         const sections = [
             'sections/home.html',
             'sections/skills.html',
-            'sections/timeline.html',
-            'sections/work.html'
         ];
 
         sections.reduce((promise, section) => {
@@ -59,7 +56,9 @@ export function initialize() {
                             console.log(`${section} section loaded.`);
                             if (section.includes('skills')) {
                                 document.dispatchEvent(new Event('skillsLoaded'));
-                                return loadFlowchart();
+                            }
+                            if (section.includes('theJourney')) {
+                                new InteractiveFlowchart();
                             }
                         }
                     });
@@ -67,12 +66,14 @@ export function initialize() {
         }, Promise.resolve())
         .then(() => {
             if (sectionsContainer) {
-                sectionsContainer.innerHTML += `
-                    <footer class="footer p-4 bg-custom-gray text-custom-dark">
-                        <p>Footer content goes here.</p>
-                    </footer>
-                `;
-                console.log('Footer loaded.');
+                fetch(basePath + 'components/footer.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        sectionsContainer.innerHTML += data;
+                        feather.replace();
+                        console.log('Footer loaded.');
+                    })
+                    .catch(error => console.error('Error loading footer:', error));
             }
         })
         .catch(error => console.error('Error loading section:', error));

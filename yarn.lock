@@ -3532,7 +3532,7 @@ cookie@0.6.0:
 
 copy-webpack-plugin@^12.0.2:
   version "12.0.2"
-  resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-12.0.2.tgz#935e57b8e6183c82f95bd937df658a59f6a2da28"
+  resolved "https://registry.npmjs.org/copy-webpack-plugin/-/copy-webpack-plugin-12.0.2.tgz"
   integrity sha512-SNwdBeHyII+rWvee/bTnAYyO8vfVdcSTud4EIb6jcZ8inLeWucJE0DnxXQBjlQ5zlteuuvooGQy3LIyGxhvlOA==
   dependencies:
     fast-glob "^3.3.2"
@@ -6908,6 +6908,11 @@ lru-cache@^5.1.1:
   integrity sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==
   dependencies:
     yallist "^3.0.2"
+
+lucide-react@^0.426.0:
+  version "0.426.0"
+  resolved "https://registry.yarnpkg.com/lucide-react/-/lucide-react-0.426.0.tgz#15ab8cbf73c45655bcc8d3a69065277d4e201808"
+  integrity sha512-aby5G+Zt+LIIEU0n9900XQNJFJUcs7/S+jOEgIhkV08NX3kGx1zxALKh1JvAKcYqutWLg07exbnYvh66szhrRA==
 
 lz-string@^1.5.0:
   version "1.5.0"

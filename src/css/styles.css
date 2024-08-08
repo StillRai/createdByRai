@@ -549,102 +549,59 @@ section {
 }
 
 /* Footer styles */
-footer {
-    padding: 20px 0;
-}
-
-/* Flowchart section */
-.flowchart-container {
+.footer {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    width: 100%;
-}
-
-.flowchart {
-    display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    position: relative;
-    width: 100%;
-    padding-left: 2rem;
-    padding-right: 2rem;
+    background-color: #c4dac6;
+    color: #ecf0f1;
+
+    
 }
 
-.line {
-    background-color: var(--color-pink);
-    z-index: 1;
-    opacity: 0.1;
+.footer .contact-info {
+    flex: 1;
 }
 
-.line.horizontal {
-    flex-grow: 1;
-    height: 2px;
+.footer .contact-info h4 {
+    margin: 0;
+    font-size: 1.5rem;
 }
 
-/* Box styles */
-.box {
-    background-color: var(--color-dark);
-    padding: 0.1rem;
-    text-align: center;
-    min-width: 60px;
-    z-index: 2;
-    font-family: 'JetBrains Mono', monospace;
+.footer .contact-info p {
+    margin: 5px 0;
 }
 
-/* Full-stack box */
-.full-stack {
-    padding: 5px;
-    height: 100%;
+.footer .qr-code {
+    flex: 1;
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    position: relative;
-    z-index: 2;
-    color: var(--color-darkgreen);
 }
 
-/* Coding and Web Design boxes */
-.coding,
-.web-design {
-    width: 130px;
-    height: 60px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--color-pink);
+.footer .qr-code img {
+    width: 100px;
+    height: 100px;
 }
 
-/* Adjust sizes for smaller screens */
-@media (max-width: 768px) {
-    .full-stack {
-        width: 90px;
-        height: 90px;
-        font-size: 0.7rem;
+@media (min-width: 768px) {
+    .footer {
+        flex-direction: row;
+        align-items: center;
     }
 
-    .coding,
-    .web-design {
-        width: 90px;
-        height: 50px;
-        font-size: 0.7rem;
+    .footer .contact-info {
+        text-align: left;
+        margin-right: 20px;
     }
 
-    @keyframes move-arrow {
-        0% {
-            left: 0%;
-        }
-
-        25% {
-            left: 80%;
-        }
-
-        100% {
-            left: 80%;
-        }
+    .footer .qr-code {
+        justify-content: flex-end;
     }
 }
+
+
+
 
 /* Star styles and animation */
 .star {
@@ -911,4 +868,162 @@ footer {
     opacity: 0.8;
     border-radius: 15px;
     transform: scaleX(-1);
+}
+
+
+/* Flowchart styling */
+.flowchart {
+    --start-year: 2003;
+    --end-year: 2025;
+    --total-years: calc(var(--end-year) - var(--start-year));
+    --flowchart-height: 80vh; /* Reduced to leave space for title and padding */
+    height: var(--flowchart-height);
+    position: relative;
+    padding: 20px 0;
+    margin-top: 60px; /* Space for the title */
+}
+
+.line.vertical {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #c91212;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.flowchart-item {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    top: calc((var(--year) - var(--start-year)) / var(--total-years) * (var(--flowchart-height) - 80px));
+}
+
+.year-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #3498db;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 3;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.year-circle:hover {
+    transform: scale(1.1);
+}
+
+.info-box {
+    position: absolute;
+    width: 180px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.info-box.left {
+    right: calc(50% + 50px);
+    transform: translateX(20px);
+}
+
+.info-box.right {
+    left: calc(50% + 50px);
+    transform: translateX(-20px);
+}
+
+.info-content {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.flowchart-item:hover .info-box {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.flowchart-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 2px;
+    background-color: #ccc;
+}
+
+.flowchart-item:nth-child(odd):hover::before {
+    right: 50%;
+}
+
+.flowchart-item:nth-child(even):hover::before {
+    left: 50%;
+}
+
+.moving-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 16px solid #3498db;
+    transition: top 0.5s ease;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+}
+
+/* Adjust the container of the flowchart */
+#theJourney {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 0;
+}
+
+#theJourney h2 {
+    margin-bottom: 20px;
+}
+
+#flowchart-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .flowchart {
+        --flowchart-height: 90vh;
+    }
+
+    .year-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+    }
+
+    .info-box {
+        width: 150px;
+    }
+
+    .info-content {
+        font-size: 10px;
+    }
 }

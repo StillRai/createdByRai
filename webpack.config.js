@@ -31,28 +31,27 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
+          MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader'
+          'postcss-loader',
         ],
       },
-    
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'media/images/[name][ext]'
-        }
+          filename: 'media/images/[name][ext]',
+        },
       },
       {
         test: /\.(mp3|wav)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'media/audio/[name][ext]'
-        }
+          filename: 'media/audio/[name][ext]',
+        },
       },
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
           'thread-loader',
@@ -60,15 +59,21 @@ module.exports = {
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env', '@babel/preset-react'],
-              plugins: ['@babel/plugin-transform-runtime']
+              plugins: ['@babel/plugin-transform-runtime'],
+              cacheDirectory: true,
+              cacheCompression: false,
             },
-          }
+          },
         ],
       },
       {
         test: /\.html$/,
-        use: 'html-loader'
-      }
+        use: 'html-loader',
+      },
+      {
+        test: /\.json$/,
+        type: 'json',
+      },
     ],
   },
   optimization: {
@@ -77,7 +82,15 @@ module.exports = {
       new TerserPlugin({
         parallel: true,
         terserOptions: {
-          ecma: 6,
+          ecma: 2015,
+          parse: {},
+          compress: {},
+          mangle: true,
+          module: false,
+          output: {
+            comments: false,
+            beautify: false,
+          },
         },
       }),
     ],
@@ -94,22 +107,22 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/projects/weatherapp/index.html',
       filename: 'projects/weatherapp/index.html',
-      chunks: ['weatherapp']
+      chunks: ['weatherapp'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/projects/password-strength-analyser/public/index.html'),
       filename: 'projects/password-strength-analyser/index.html',
-      chunks: ['password-strength-analyser']
+      chunks: ['password-strength-analyser'],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/projects/interactive-storytelling/public/index.html'),
       filename: 'projects/interactive-storytelling/index.html',
-      chunks: ['interactive-storytelling']
+      chunks: ['interactive-storytelling'],
     }),
     new HtmlWebpackPlugin({
       template: './src/sections/skills.html',
       filename: 'sections/skills.html',
-      chunks: ['typeEffect']
+      chunks: ['typeEffect'],
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -128,13 +141,13 @@ module.exports = {
               '**/weatherapp/index.html',
               '**/password-strength-analyser/src/index.html',
               '**/interactive-storytelling/src/index.html',
-              '**/interactive-storytelling/src/assets/audio/**'
-            ]
-          }
+              '**/interactive-storytelling/src/assets/audio/**',
+            ],
+          },
         },
         {
           from: 'src/projects/interactive-storytelling/src/assets/audio',
-          to: 'assets/audio'
+          to: 'assets/audio',
         },
       ],
     }),
@@ -170,10 +183,10 @@ module.exports = {
   stats: {
     children: true,
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
   watchOptions: {
     ignored: /node_modules/,
     aggregateTimeout: 300,
-    poll: 1000
+    poll: 1000,
   },
 };
