@@ -9,24 +9,25 @@ class InteractiveFlowchart {
     }
 
     init() {
-        this.flowchartItems.forEach((item, index) => {
-            item.addEventListener('mouseenter', () => this.moveArrow(item, index));
-        });
+        this.positionItems();
         this.positionArrow(this.flowchartItems[0]);
+        this.animateFlowchart();
     }
 
-    moveArrow(item, index) {
+    positionItems() {
+        const totalHeight = this.flowchartContainer.clientHeight;
+        const itemCount = this.flowchartItems.length;
+        
+        this.flowchartItems.forEach((item, index) => {
+            const topPosition = (index / (itemCount - 1)) * (totalHeight - 60);
+            item.style.top = `${topPosition}px`;
+        });
+    }
+
+    moveArrow(item) {
         const itemRect = item.getBoundingClientRect();
         const containerRect = this.flowchartContainer.getBoundingClientRect();
         const newPosition = itemRect.top - containerRect.top + itemRect.height / 2;
-
-        if (newPosition < this.currentPosition) {
-            this.arrowDirection = -1;
-            this.movingArrow.style.transform = 'rotate(180deg)';
-        } else {
-            this.arrowDirection = 1;
-            this.movingArrow.style.transform = 'rotate(0deg)';
-        }
 
         this.movingArrow.style.top = `${newPosition}px`;
         this.currentPosition = newPosition;
@@ -37,6 +38,18 @@ class InteractiveFlowchart {
         const containerRect = this.flowchartContainer.getBoundingClientRect();
         this.movingArrow.style.top = `${itemRect.top - containerRect.top + itemRect.height / 2}px`;
         this.movingArrow.style.left = 'calc(50% - 10px)';
+    }
+
+    animateFlowchart() {
+        this.flowchartItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.classList.add('active');
+                this.moveArrow(item);
+                if (index === this.flowchartItems.length - 1) {
+                    this.flowchartContainer.classList.add('animation-complete');
+                }
+            }, index * 1000);
+        });
     }
 }
 

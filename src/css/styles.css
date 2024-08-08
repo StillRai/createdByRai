@@ -283,6 +283,7 @@ code span.block {
     z-index: 1;
     top: 10vw;
     left: -10vw;
+    
 }
 
 .resize-text {
@@ -643,6 +644,13 @@ section {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    transition: opacity 0.5s ease;
+
+}
+
+.social-icons.hidden {
+    opacity: 0;
+    pointer-events: none; /* Optional: prevent interaction when hidden */
 }
 
 .icon {
@@ -703,11 +711,15 @@ section {
 }
 
 .line.vertical {
-    display: none;
-    width: 4px;
-    height: 100%;
+    position: absolute;
     left: 50%;
     top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #c91212;
+    transform: translateX(-50%);
+    z-index: 1;
+    height: 100%;
 }
 
 .timeline-item {
@@ -882,7 +894,6 @@ section {
     transform: scaleX(-1);
 }
 
-
 /* Flowchart styling */
 .flowchart {
     --start-year: 2003;
@@ -915,13 +926,14 @@ section {
     align-items: center;
     z-index: 2;
     top: calc((var(--year) - var(--start-year)) / var(--total-years) * (var(--flowchart-height) - 80px));
+    height: 80px;
 }
 
 .year-circle {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    background-color: #3498db;
+    background-color: var(--color-pink);
     color: white;
     display: flex;
     justify-content: center;
@@ -929,9 +941,9 @@ section {
     font-weight: bold;
     font-size: 14px;
     z-index: 3;
-    cursor: pointer;
     transition: transform 0.3s ease;
     box-sizing: border-box;
+    position: relative;
 }
 
 .year-circle:hover {
@@ -963,13 +975,15 @@ section {
     font-size: 12px;
 }
 
-.flowchart-item:hover .info-box {
+.flowchart-item:hover .info-box,
+.flowchart-item.active .info-box {
     opacity: 1;
     transform: translateX(0);
     pointer-events: auto;
 }
 
-.flowchart-item:hover::before {
+.flowchart-item:hover::before,
+.flowchart-item.active::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -978,25 +992,14 @@ section {
     background-color: #ccc;
 }
 
-.flowchart-item:nth-child(odd):hover::before {
+.flowchart-item:nth-child(odd):hover::before,
+.flowchart-item:nth-child(odd).active::before {
     right: 50%;
 }
 
-.flowchart-item:nth-child(even):hover::before {
+.flowchart-item:nth-child(even):hover::before,
+.flowchart-item:nth-child(even).active::before {
     left: 50%;
-}
-
-.moving-arrow {
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 16px solid #3498db;
-    transition: top 0.5s ease;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 4;
 }
 
 /* Adjust the container of the flowchart */
