@@ -556,21 +556,33 @@ section {
     justify-content: space-between;
     background-color: #c4dac6;
     color: #ecf0f1;
+    font-family: 'Poppins', sans-serif;
+
 
     
 }
 
 .footer .contact-info {
     flex: 1;
+    font-family: 'JetBrains Mono', monospace;
+
 }
 
 .footer .contact-info h4 {
     margin: 0;
     font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+
 }
 
 .footer .contact-info p {
     margin: 5px 0;
+}
+
+.footer p {
+    font-family: 'JetBrains Mono', monospace;
+
 }
 
 .footer .qr-code {
