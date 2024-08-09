@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Journey</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     <div id="navbar-container" class="relative z-20"></div> <!-- Navbar container -->
 
-    <section id="theJourney"
-        class="min-h-screen relative w-full flex flex-col items-center justify-center bg-custom-gray">
-        <h2 class="text-4xl font-bold text-custom-light">The Journey</h2>
-        <div class="container mx-auto">
-            <div id="flowchart-container" class="flowchart relative w-full flex flex-col items-center">
-                <div class="line vertical"></div>
+    <main class="flex-grow">
+        <section id="theJourney" class="min-h-screen relative w-full flex flex-col items-center justify-center">
+            <h2 class="text-4xl font-bold text-custom-light">The Journey</h2>
+            <div class="container mx-auto">
+                <div id="flowchart-container" class="flowchart relative w-full flex flex-col items-center">
+                    <div class="line"></div>
                 <div class="flowchart-item" style="--year: 2003;" data-year="2003" data-info="Adobe Dreamweaver">
                     <div class="year-circle">2003</div>
                     <div class="info-box right">
@@ -91,8 +91,9 @@
                 <div class="moving-arrow"></div>
             </div>
         </div>
-        <div id="footer-container" class="relative z-20"></div> 
+    </section>
+</main>
 
-        <script src="../js/initialize.js" type="module"></script> 
-    </body>
-    </html>
+<script src="../js/initialize.js" type="module"></script> 
+</body>
+</html>
