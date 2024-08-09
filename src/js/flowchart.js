@@ -16,46 +16,72 @@ export class InteractiveFlowchart {
         const isMobile = window.innerWidth <= 768;
 
         if (isMobile) {
-            this.line.style.left = '50%';
-            this.line.style.top = '0';
-            this.line.style.width = '2px';
-            this.line.style.height = '100%';
-
-            this.flowchartItems.forEach((item, index) => {
-                const isEven = index % 2 === 0;
-                item.style.top = `${(index + 1) * (100 / (this.flowchartItems.length + 1))}%`;
-                item.style.left = '50%';
-                item.style.transform = 'translate(-50%, -50%)';
-
-                const infoBox = item.querySelector('.info-box');
-                if (infoBox) {
-                    infoBox.style.left = isEven ? '120%' : 'auto';
-                    infoBox.style.right = isEven ? 'auto' : '120%';
-                    infoBox.style.top = '50%';
-                    infoBox.style.transform = 'translateY(-50%)';
-                }
-            });
+            this.positionMobile();
         } else {
-            this.line.style.top = '50%';
-            this.line.style.left = '0';
-            this.line.style.width = '100%';
-            this.line.style.height = '2px';
-
-            this.flowchartItems.forEach((item, index) => {
-                const isEven = index % 2 === 0;
-                item.style.left = `${(index + 1) * (100 / (this.flowchartItems.length + 1))}%`;
-                item.style.top = '50%';
-                item.style.transform = 'translate(-50%, -50%)';
-
-                const infoBox = item.querySelector('.info-box');
-                if (infoBox) {
-                    infoBox.style.top = isEven ? 'auto' : '120%';
-                    infoBox.style.bottom = isEven ? '120%' : 'auto';
-                    infoBox.style.left = '50%';
-                    infoBox.style.transform = 'translateX(-50%)';
-                }
-            });
+            this.positionDesktop();
         }
+    }
+
+    positionMobile() {
+        this.line.style.left = '50%';
+        this.line.style.top = '0';
+        this.line.style.width = '2px';
+        this.line.style.height = '100%';
+
+        this.flowchartItems.forEach((item, index) => {
+            const isEven = index % 2 === 0;
+            item.style.top = `${(index + 1) * (100 / (this.flowchartItems.length + 1))}%`;
+            item.style.left = '50%';
+            item.style.transform = 'translate(-50%, -50%)';
+
+            const infoBox = item.querySelector('.info-box');
+            if (infoBox) {
+                infoBox.style.left = isEven ? '120%' : 'auto';
+                infoBox.style.right = isEven ? 'auto' : '120%';
+                infoBox.style.top = '50%';
+                infoBox.style.transform = 'translateY(-50%)';
+            }
+        });
+
+        // Adjust line height
+        const firstItem = this.flowchartItems[0];
+        const lastItem = this.flowchartItems[this.flowchartItems.length - 1];
+        this.line.style.top = `${firstItem.offsetTop}px`;
+        this.line.style.height = `${lastItem.offsetTop - firstItem.offsetTop}px`;
+    }
+
+    positionDesktop() {
+        this.line.style.top = '50%';
+        this.line.style.left = '0';
+        this.line.style.width = '100%';
+        this.line.style.height = '2px';
+
+        this.flowchartItems.forEach((item, index) => {
+            const isEven = index % 2 === 0;
+            item.style.left = `${(index + 1) * (100 / (this.flowchartItems.length + 1))}%`;
+            item.style.top = '50%';
+            item.style.transform = 'translate(-50%, -50%)';
+
+            const infoBox = item.querySelector('.info-box');
+            if (infoBox) {
+                infoBox.style.top = isEven ? 'auto' : '120%';
+                infoBox.style.bottom = isEven ? '120%' : 'auto';
+                infoBox.style.left = '50%';
+                infoBox.style.transform = 'translateX(-50%)';
+
+                // Convert info content to list items
+                const infoContent = infoBox.querySelector('.info-content');
+                const text = infoContent.textContent;
+                const items = text.split(',').map(item => item.trim());
+                infoContent.innerHTML = `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
+            }
+        });
+
+        // Adjust line width
+        const firstItem = this.flowchartItems[0];
+        const lastItem = this.flowchartItems[this.flowchartItems.length - 1];
+        this.line.style.left = `${firstItem.offsetLeft}px`;
+        this.line.style.width = `${lastItem.offsetLeft - firstItem.offsetLeft}px`;
     }
 
     animateItems() {
