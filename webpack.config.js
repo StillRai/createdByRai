@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     main: './src/js/main.js',
     typeEffect: './src/js/typeEffect.js',
+    theJourney: ['./src/js/initialize.js', './src/js/flowchart.js'],
     weatherapp: './src/projects/weatherapp/weatherapp.js',
     'password-strength-analyser': './src/projects/password-strength-analyser/src/index.js',
     'interactive-storytelling': './src/projects/interactive-storytelling/src/index.js',
@@ -102,7 +103,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      chunks: ['main'],
+      chunks: ['main', 'typeEffect'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/theJourney.html',
+      filename: 'pages/theJourney.html',
+      chunks: ['theJourney', 'main'],
     }),
     new HtmlWebpackPlugin({
       template: './src/projects/weatherapp/index.html',
@@ -119,17 +125,12 @@ module.exports = {
       filename: 'projects/interactive-storytelling/index.html',
       chunks: ['interactive-storytelling'],
     }),
-    new HtmlWebpackPlugin({
-      template: './src/sections/skills.html',
-      filename: 'sections/skills.html',
-      chunks: ['typeEffect'],
-    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/components', to: 'components' },
         { from: 'src/media', to: 'media' },
         { from: 'src/css', to: 'css' },
-        { from: 'src/sections', to: 'sections', globOptions: { ignore: ['**/skills.html'] } },
+        { from: 'src/sections', to: 'sections' },
         {
           from: 'src/projects',
           to: 'projects',
