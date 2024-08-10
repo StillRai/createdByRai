@@ -62,5 +62,7 @@ export function initializeBurgerMenu() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
     initializeBurgerMenu();
-    feather.replace();
+    if (window.feather) {
+        window.feather.replace();
+    }
 });

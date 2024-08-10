@@ -782,7 +782,7 @@ section {
     }
 }
 
-/* Flowchart styling */
+/* Container and line styles */
 .flowchart {
     --start-year: 2003;
     --end-year: 2025;
@@ -794,18 +794,13 @@ section {
     margin-top: 60px;
     overflow: hidden;
 }
-.flowchart-item::after {
-    content: '';
-    position: absolute;
-    border: 1px dashed var(--color-light);
-    z-index: 1;
-}
-
 
 .line {
     position: absolute;
     background-color: var(--color-light);
     z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .flowchart-item {
@@ -813,7 +808,18 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.flowchart-item::before {
+    content: '';
+    position: absolute;
+    border: 1px dashed var(--color-light);
     z-index: 2;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
 .year-circle {
@@ -846,7 +852,15 @@ section {
     border-radius: 5px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
     font-family: 'JetBrains Mono', monospace;
-    font-size: .8rem
+    font-size: 0.8rem;
+}
+
+.flowchart-item.show {
+    opacity: 1;
+}
+
+.flowchart-item.show::before {
+    opacity: 1;
 }
 
 .flowchart-item.show .info-box {
@@ -861,6 +875,32 @@ section {
         min-height: 100vh;
     }
 
+    .line {
+        width: 2px;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .flowchart-item {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .flowchart-item::before {
+        width: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .flowchart-item:nth-child(even)::before {
+        left: calc(100% + 15px);
+    }
+
+    .flowchart-item:nth-child(odd)::before {
+        right: calc(100% + 15px);
+    }
+
     .flowchart-item .info-box {
         transform: translateX(20px);
     }
@@ -868,19 +908,13 @@ section {
     .flowchart-item.show .info-box {
         transform: translateX(0);
     }
-    .flowchart-item::after {
-        width: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .flowchart-item:nth-child(even)::after {
-        left: 100%;
-        z-index: 1;
 
+    .flowchart-item:nth-child(even) .info-box {
+        left: 120%;
     }
-    .flowchart-item:nth-child(odd)::after {
-        right: 100%;
-    z-index: 1;
+
+    .flowchart-item:nth-child(odd) .info-box {
+        right: 120%;
     }
 }
 
@@ -890,6 +924,32 @@ section {
         height: 400px;
     }
 
+    .line {
+        height: 2px;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .flowchart-item {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .flowchart-item::before {
+        height: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .flowchart-item:nth-child(even)::before {
+        bottom: calc(100% + 15px);
+    }
+
+    .flowchart-item:nth-child(odd)::before {
+        top: calc(100% + 15px);
+    }
+
     .flowchart-item .info-box {
         transform: translateY(20px);
     }
@@ -897,21 +957,14 @@ section {
     .flowchart-item.show .info-box {
         transform: translateY(0);
     }
-    .flowchart-item::after {
-        height: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .flowchart-item:nth-child(even)::after {
-        bottom: 100%;
-        z-index: 1;
-    }
-    .flowchart-item:nth-child(odd)::after {
-        top: 100%;
-        z-index: 1;
 
+    .flowchart-item:nth-child(even) .info-box {
+        bottom: 120%;
     }
-    
+
+    .flowchart-item:nth-child(odd) .info-box {
+        top: 120%;
+    }
 }
 
 #flowchart-container {

@@ -72,9 +72,28 @@ export class InteractiveFlowchart {
     }
 
     animateItems() {
+        // Show the main line
+        setTimeout(() => {
+            this.line.style.opacity = '1';
+        }, 1000);
+
+        // Animate items
         this.flowchartItems.forEach((item, index) => {
             setTimeout(() => {
                 item.classList.add('show');
+                
+                // Animate the connecting line
+                const connectingLine = item.querySelector('::after');
+                if (connectingLine) {
+                    connectingLine.style.opacity = '1';
+                }
+
+                // Animate the info box
+                const infoBox = item.querySelector('.info-box');
+                if (infoBox) {
+                    infoBox.style.opacity = '1';
+                    infoBox.style.transform = 'translate(0, 0)';
+                }
             }, 1000 * (index + 1));
         });
     }

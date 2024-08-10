@@ -1,5 +1,4 @@
 import { initializeBurgerMenu } from './burgerMenu';
-import feather from 'feather-icons';
 import { generateStars } from './stars';
 import { InteractiveFlowchart } from './flowchart.js';
 
@@ -38,7 +37,9 @@ function loadNavbar(basePath) {
             const navbarContainer = document.getElementById('navbar-container');
             if (navbarContainer) {
                 navbarContainer.innerHTML = data;
-                feather.replace();
+                if (window.feather) {
+                    window.feather.replace();
+                }
                 initializeBurgerMenu();
                 console.log('Navbar loaded.');
             }
@@ -64,7 +65,9 @@ function loadHomePage(basePath) {
                     .then(data => {
                         console.log(`Loaded content for ${section} section:`, data);
                         sectionsContainer.innerHTML += data;
-                        feather.replace();
+                        if (window.feather) {
+                            window.feather.replace();
+                        }
                         console.log(`${section} section loaded.`);
                         if (section === 'skills') {
                             document.dispatchEvent(new Event('skillsLoaded'));
@@ -84,7 +87,9 @@ function loadJourneyPage(basePath) {
             .then(response => response.text())
             .then(data => {
                 mainContent.innerHTML = data;
-                feather.replace();
+                if (window.feather) {
+                    window.feather.replace();
+                }
                 new InteractiveFlowchart();
             })
             .catch(error => console.error('Error loading The Journey page:', error));
@@ -118,7 +123,9 @@ function loadFooter(basePath) {
             const footerContainer = document.getElementById('footer-container');
             if (footerContainer) {
                 footerContainer.innerHTML = data;
-                feather.replace();
+                if (window.feather) {
+                    window.feather.replace();
+                }
                 console.log('Footer loaded.');
             }
         })
