@@ -783,7 +783,6 @@ section {
 }
 
 /* Flowchart styling */
-/* Flowchart styling */
 .flowchart {
     --start-year: 2003;
     --end-year: 2025;
@@ -795,6 +794,13 @@ section {
     margin-top: 60px;
     overflow: hidden;
 }
+.flowchart-item::after {
+    content: '';
+    position: absolute;
+    border: 1px dashed var(--color-light);
+    z-index: 1;
+}
+
 
 .line {
     position: absolute;
@@ -838,9 +844,9 @@ section {
     color: var(--color-light);
     padding: 10px;
     border-radius: 5px;
-    font-size: 12px;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
     font-family: 'JetBrains Mono', monospace;
+    font-size: .8rem
 }
 
 .flowchart-item.show .info-box {
@@ -862,6 +868,20 @@ section {
     .flowchart-item.show .info-box {
         transform: translateX(0);
     }
+    .flowchart-item::after {
+        width: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .flowchart-item:nth-child(even)::after {
+        left: 100%;
+        z-index: 1;
+
+    }
+    .flowchart-item:nth-child(odd)::after {
+        right: 100%;
+    z-index: 1;
+    }
 }
 
 /* Horizontal layout (desktop) */
@@ -877,6 +897,21 @@ section {
     .flowchart-item.show .info-box {
         transform: translateY(0);
     }
+    .flowchart-item::after {
+        height: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .flowchart-item:nth-child(even)::after {
+        bottom: 100%;
+        z-index: 1;
+    }
+    .flowchart-item:nth-child(odd)::after {
+        top: 100%;
+        z-index: 1;
+
+    }
+    
 }
 
 #flowchart-container {

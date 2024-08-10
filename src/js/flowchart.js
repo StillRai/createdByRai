@@ -14,7 +14,6 @@ export class InteractiveFlowchart {
 
     positionItems() {
         const isMobile = window.innerWidth <= 768;
-
         if (isMobile) {
             this.positionMobile();
         } else {
@@ -42,12 +41,6 @@ export class InteractiveFlowchart {
                 infoBox.style.transform = 'translateY(-50%)';
             }
         });
-
-        // Adjust line height
-        const firstItem = this.flowchartItems[0];
-        const lastItem = this.flowchartItems[this.flowchartItems.length - 1];
-        this.line.style.top = `${firstItem.offsetTop}px`;
-        this.line.style.height = `${lastItem.offsetTop - firstItem.offsetTop}px`;
     }
 
     positionDesktop() {
@@ -68,12 +61,6 @@ export class InteractiveFlowchart {
                 infoBox.style.bottom = isEven ? '120%' : 'auto';
                 infoBox.style.left = '50%';
                 infoBox.style.transform = 'translateX(-50%)';
-
-                // Convert info content to list items
-                const infoContent = infoBox.querySelector('.info-content');
-                const text = infoContent.textContent;
-                const items = text.split(',').map(item => item.trim());
-                infoContent.innerHTML = `<ul>${items.map(item => `<li>${item}</li>`).join('')}</ul>`;
             }
         });
 
