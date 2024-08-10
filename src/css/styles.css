@@ -782,6 +782,28 @@ section {
     }
 }
 
+.journey-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--font-size-body-lg);
+    line-height: 1.6;
+    text-align: justify;
+    color: var(--color-light);
+    justify-content: left;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .journey-text {
+        font-size: var(--font-size-body-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .journey-text {
+        font-size: var(--font-size-body-sm);
+    }
+}
+
 /* Container and line styles */
 .flowchart {
     --start-year: 2003;
@@ -816,8 +838,8 @@ section {
 .flowchart-item::before {
     content: '';
     position: absolute;
-    border: 1px dashed var(--color-light);
-    z-index: 2;
+    border: 0.4px dashed var(--color-light);
+    z-index: 1;
     opacity: 0;
     transition: opacity 1s ease;
 }
@@ -835,6 +857,7 @@ section {
     font-weight: bold;
     font-size: 14px;
     transition: transform 0.3s ease;
+    z-index: 2;
 }
 
 .info-box {
@@ -843,6 +866,7 @@ section {
     opacity: 0;
     transition: opacity 0.5s ease, transform 0.5s ease;
     pointer-events: none;
+    z-index: 2;
 }
 
 .info-content {
@@ -853,6 +877,9 @@ section {
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
+    border: 1px dashed var(--color-light); 
+    width: 80%;
+
 }
 
 .flowchart-item.show {
@@ -876,7 +903,7 @@ section {
     }
 
     .line {
-        width: 2px;
+        width: 1px;
         height: 100%;
         left: 50%;
         transform: translateX(-50%);
@@ -888,32 +915,33 @@ section {
     }
 
     .flowchart-item::before {
-        width: 20px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .flowchart-item:nth-child(even)::before {
-        left: calc(100% + 15px);
+        width: calc(50% + 25px);
+        height: 2px;
+        top: 25px;
     }
 
     .flowchart-item:nth-child(odd)::before {
-        right: calc(100% + 15px);
+        left: auto;
+        right: calc(50% + 25px);
+    }
+
+    .flowchart-item:nth-child(even)::before {
+        left: calc(50% + 25px);
     }
 
     .flowchart-item .info-box {
-        transform: translateX(20px);
+        transform: translateY(-60px);
     }
 
     .flowchart-item.show .info-box {
-        transform: translateX(0);
-    }
-
-    .flowchart-item:nth-child(even) .info-box {
-        left: 120%;
+        transform: translateY(-60px);
     }
 
     .flowchart-item:nth-child(odd) .info-box {
+        left: 120%;
+    }
+
+    .flowchart-item:nth-child(even) .info-box {
         right: 120%;
     }
 }
@@ -937,25 +965,26 @@ section {
     }
 
     .flowchart-item::before {
-        height: 20px;
+        width: 2px;
+        height: calc(50% + 25px);
         left: 50%;
         transform: translateX(-50%);
     }
 
     .flowchart-item:nth-child(even)::before {
-        bottom: calc(100% + 15px);
+        bottom: 50%;
     }
 
     .flowchart-item:nth-child(odd)::before {
-        top: calc(100% + 15px);
+        top: 50%;
     }
 
     .flowchart-item .info-box {
-        transform: translateY(20px);
+        transform: translateX(-75px); /* Adjusted to move slightly more to the left */
     }
 
     .flowchart-item.show .info-box {
-        transform: translateY(0);
+        transform: translateX(-75px); /* Keep consistent with non-show state */
     }
 
     .flowchart-item:nth-child(even) .info-box {
@@ -969,7 +998,6 @@ section {
 
 #flowchart-container {
     width: 100%;
-    max-width: 1200px;
     margin: 0 auto;
     position: relative;
 }
