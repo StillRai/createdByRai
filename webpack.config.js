@@ -11,6 +11,8 @@ module.exports = {
     main: './src/js/main.js',
     typeEffect: './src/js/typeEffect.js',
     theJourney: ['./src/js/initialize.js', './src/js/flowchart.js'],
+    meetRai: ['./src/js/initialize.js'],
+
     weatherapp: './src/projects/weatherapp/weatherapp.js',
     'password-strength-analyser': './src/projects/password-strength-analyser/src/index.js',
     'interactive-storytelling': './src/projects/interactive-storytelling/src/index.js',
@@ -109,6 +111,11 @@ module.exports = {
       template: './src/pages/theJourney.html',
       filename: 'pages/theJourney.html',
       chunks: ['theJourney', 'main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/meetRai.html',
+      filename: 'pages/meetRai.html',
+      chunks: ['meetRai', 'main'],
     }),
     new HtmlWebpackPlugin({
       template: './src/projects/weatherapp/index.html',

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Rai</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body class="flex flex-col min-h-screen bg-custom-dark text-custom-light">
+    <div id="content-container" class="relative z-10">
+        <div id="navbar-container" class="relative z-20"></div>
+
+        <main class="flex-grow">
+            <section id="meetRai" class="w-full relative bg-custom-dark text-custom-light py-16">
+                <div class="container mx-auto text-left px-4">
+                    <h2 class="text-h2-sm md:text-h2-md lg:text-h2-lg font-bold font-poppins mb-8">Meet Rai</h2>
+                    
+                    <div class="flex flex-col md:flex-row gap-8">
+                        <div class="w-full md:w-1/2">
+                            <div class="bg-primary rounded-lg p-4 font-jetBrains text-sm leading-relaxed">
+                                <pre class="text-custom-light"><span class="text-custom-pink">{</span>
+              <span class="text-custom-orange">"name"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Rai"</span><span class="text-custom-light">,</span>
+              <span class="text-custom-orange">"profession"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Tech Professional"</span><span class="text-custom-light">,</span>
+              <span class="text-custom-orange">"interests"</span><span class="text-custom-light">: {</span>
+                <span class="text-custom-orange">"gardening"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Germinating and nurturing plants"</span><span class="text-custom-light">,</span>
+                <span class="text-custom-orange">"reading"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Thrillers and crime novels"</span><span class="text-custom-light">,</span>
+                <span class="text-custom-orange">"exploration"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Visiting old historic buildings"</span><span class="text-custom-light">,</span>
+                <span class="text-custom-orange">"outdoor"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Taking nature walks"</span><span class="text-custom-light">,</span>
+                <span class="text-custom-orange">"fitness"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Regular exercise routines"</span>
+              <span class="text-custom-light">}</span>
+            <span class="text-custom-pink">}</span></pre>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-1/2">
+                            <p class="text-custom-light font-jetBrains resize-text journey-text">
+                                I'm a tech professional who enjoys a variety of hobbies outside of work. In my free time, I like gardening, particularly germinating plants. I'm an avid reader with a preference for thrillers and crime novels. I also enjoy visiting historic buildings, taking nature walks, and maintaining a regular exercise routine.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        if (window.feather) {
+            feather.replace();
+        }
+    </script>
+    <script src="/src/js/main.js" type="module"></script>
+</body>
+
+</html>

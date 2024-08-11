@@ -1,110 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <script src="https://unpkg.com/feather-icons"></script>
 </head>
-<body class="flex flex-col min-h-screen">
-    <div id="navbar-container" class="relative z-20"></div> 
 
-    <main class="flex-grow">
-        <section id="theJourney" class="min-h-screen relative w-full flex flex-col items-center justify-center">
-            <h2 class="font-bold journey-title font-poppins">The Journey</h2>
+<body class="flex flex-col min-h-screen bg-custom-dark text-custom-light">
+    <div id="content-container" class="relative z-10">
+        <div id="navbar-container" class="relative z-20"></div>
 
-            <div class="writing-container">
-                <span class="text-custom-light font-jetBrains resize-text journey-text">Welcome to my tech journey — a
-                    series of happy accidents and questionable decisions! It all started when I was voluntold into <span class="text-custom-lightgreen">web
-                    design</span> by Mom (thanks, Mom!). From there, I made the oh-so-wise choice of <span class="text-custom-lightgreen">Joomla</span> over <span class="text-custom-lightgreen">WordPress</span>, because why make life easy?</span>
-                <br> <br>
-            
-                <span class="text-custom-light font-jetBrains resize-text journey-text"> I then spent countless hours mastering <span class="text-custom-lightgreen">Flash</span> for <span class="text-custom-lightgreen">web development</span> (RIP, my masterpiece), and decided to dabble in <span class="text-custom-lightgreen">PHP</span> before <span class="text-custom-lightgreen">Python</span>,
-                    clearly enjoying doing things the hard way.  From accidental beginnings to unintentional expertise, it's been a wild ride. Who knows what tech mishap I'll stumble into next?</span>
+        <main class="flex-grow">
+            <section id="theJourney" class="min-h-screen relative w-full flex flex-col items-center justify-center">
+                <h2 class="font-bold journey-title font-poppins text-h2-sm md:text-h2-md lg:text-h2-lg">The Journey</h2>
+
+                <div class="writing-container">
+                    <span class="text-custom-light font-jetBrains resize-text journey-text">Welcome to my tech journey — a
+                        series of happy accidents and questionable decisions! It all started when I was voluntold into <span class="text-custom-lightgreen">web
+                        design</span> by Mom (thanks, Mom!). From there, I made the oh-so-wise choice of <span class="text-custom-lightgreen">Joomla</span> over <span class="text-custom-lightgreen">WordPress</span>, because why make life easy?</span>
+                    <br> <br>
+                
+                    <span class="text-custom-light font-jetBrains resize-text journey-text"> I then spent countless hours mastering <span class="text-custom-lightgreen">Flash</span> for <span class="text-custom-lightgreen">web development</span> (RIP, my masterpiece), and decided to dabble in <span class="text-custom-lightgreen">PHP</span> before <span class="text-custom-lightgreen">Python</span>,
+                        clearly enjoying doing things the hard way.  From accidental beginnings to unintentional expertise, it's been a wild ride. Who knows what tech mishap I'll stumble into next?</span>
+                </div>
+                
+
+                <div class="container mx-auto">
+                    <div id="flowchart-container" class="flowchart relative w-full flex flex-col items-center">
+                        <div class="line"></div>
+                        <div class="flowchart-item" style="--year: 2003;" data-year="2003" data-info="Dreamweaver">
+                            <div class="year-circle">2003</div>
+                            <div class="info-box right">
+                                <div class="info-content">Dreamweaver</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2005;" data-year="2005" data-info="Flash, Premiere Pro">
+                            <div class="year-circle">2005</div>
+                            <div class="info-box left">
+                                <div class="info-content">Flash, Premiere Pro</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2007;" data-year="2007"
+                            data-info="Joomla, Final Cut Pro, Photoshop">
+                            <div class="year-circle">2007</div>
+                            <div class="info-box right">
+                                <div class="info-content">Joomla, Final Cut Pro, Photoshop</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2008;" data-year="2008" data-info="HTML, CSS">
+                            <div class="year-circle">2008</div>
+                            <div class="info-box left">
+                                <div class="info-content">HTML, CSS</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2010;" data-year="2010"
+                            data-info="Wix, WordPress, Illustrator">
+                            <div class="year-circle">2010</div>
+                            <div class="info-box right">
+                                <div class="info-content">Wix, WordPress, Illustrator</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2015;" data-year="2015"
+                            data-info="JavaScript, SASS, Optimization">
+                            <div class="year-circle">2015</div>
+                            <div class="info-box left">
+                                <div class="info-content">JavaScript, SASS, Optimization</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2016;" data-year="2016"
+                            data-info="PHP, After Effects, Animate">
+                            <div class="year-circle">2016</div>
+                            <div class="info-box right">
+                                <div class="info-content">PHP, After Effects, Animate</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2022;" data-year="2022"
+                            data-info="Python, SQL, APIs, DevOps">
+                            <div class="year-circle">2022</div>
+                            <div class="info-box left">
+                                <div class="info-content">Python, SQL, APIs, DevOps</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2023;" data-year="2023"
+                            data-info="React, TypeScript, Git, MongoDB, Node.js, React-Native">
+                            <div class="year-circle">2023</div>
+                            <div class="info-box right">
+                                <div class="info-content">React, TypeScript, Git, MongoDB, Node.js, React-Native</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2024;" data-year="2024"
+                            data-info="Tailwind, Cyber Security, AI Product Design">
+                            <div class="year-circle">2024</div>
+                            <div class="info-box left">
+                                <div class="info-content">Tailwind, Cyber Security, AI Product Design</div>
+                            </div>
+                        </div>
+                        <div class="flowchart-item" style="--year: 2025;" data-year="2025" data-info="AWS, Azure">
+                            <div class="year-circle">2025</div>
+                            <div class="info-box right">
+                                <div class="info-content">AWS?, Azure?</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             
+            </section>
+        </main>
+    </div>
 
-            <div class="container mx-auto">
-                <div id="flowchart-container" class="flowchart relativet w-full flex flex-col items-center">
-                    <div class="line"></div>
-                    <div class="flowchart-item" style="--year: 2003;" data-year="2003" data-info="Dreamweaver">
-                        <div class="year-circle">2003</div>
-                        <div class="info-box right">
-                            <div class="info-content">Dreamweaver</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2005;" data-year="2005" data-info="Flash, Premiere Pro">
-                        <div class="year-circle">2005</div>
-                        <div class="info-box left">
-                            <div class="info-content">Flash, Premiere Pro</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2007;" data-year="2007"
-                        data-info="Joomla, Final Cut Pro, Photoshop">
-                        <div class="year-circle">2007</div>
-                        <div class="info-box right">
-                            <div class="info-content">Joomla, Final Cut Pro, Photoshop</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2008;" data-year="2008" data-info="HTML, CSS">
-                        <div class="year-circle">2008</div>
-                        <div class="info-box left">
-                            <div class="info-content">HTML, CSS</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2010;" data-year="2010"
-                        data-info="Wix, WordPress, Illustrator">
-                        <div class="year-circle">2010</div>
-                        <div class="info-box right">
-                            <div class="info-content">Wix, WordPress, Illustrator</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2015;" data-year="2015"
-                        data-info="JavaScript, SASS, Optimization">
-                        <div class="year-circle">2015</div>
-                        <div class="info-box left">
-                            <div class="info-content">JavaScript, SASS, Optimization</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2016;" data-year="2016"
-                        data-info="PHP, After Effects, Animate">
-                        <div class="year-circle">2016</div>
-                        <div class="info-box right">
-                            <div class="info-content">PHP, After Effects, Animate</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2022;" data-year="2022"
-                        data-info="Python, SQL, APIs, DevOps">
-                        <div class="year-circle">2022</div>
-                        <div class="info-box left">
-                            <div class="info-content">Python, SQL, APIs, DevOps</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2023;" data-year="2023"
-                        data-info="React, TypeScript, Git, MongoDB, Node.js, React-Native">
-                        <div class="year-circle">2023</div>
-                        <div class="info-box right">
-                            <div class="info-content">React, TypeScript, Git, MongoDB, Node.js, React-Native</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2024;" data-year="2024"
-                        data-info="Tailwind, Cyber Security, AI Product Design">
-                        <div class="year-circle">2024</div>
-                        <div class="info-box left">
-                            <div class="info-content">Tailwind, Cyber Security, AI Product Design</div>
-                        </div>
-                    </div>
-                    <div class="flowchart-item" style="--year: 2025;" data-year="2025" data-info="AWS, Azuew">
-                        <div class="year-circle">2025</div>
-                        <div class="info-box right">
-                            <div class="info-content">AWS?, Azure?</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-        </section>
-    </main>
-
-    <script src="../js/initialize.js" type="module"></script>
+    <script>
+        if (window.feather) {
+            feather.replace();
+        }
+    </script>
+    <script src="/src/js/main.js" type="module"></script>
 </body>
+
 </html>

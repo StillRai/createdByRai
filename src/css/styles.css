@@ -263,12 +263,9 @@ code span.block {
 #background-container #theJourney {
     display: none;
 }
-
-
-#navbar-container {
-    background-color: var(--color-dark) !important;
+#navbar-container #theJourney {
+    background-color: var(--color-dark);
 }
-
 
 
 #content-container {
@@ -335,8 +332,7 @@ code span.block {
         left: -15%;
     }
 
-    .resize-text {
-    }
+   
 }
 
 @media (max-width: 480px) {
@@ -349,8 +345,7 @@ code span.block {
         left: -5%;
     }
 
-    .resize-text {
-    }
+  
 }
 
 /* Custom styles for the skills section */
@@ -376,7 +371,6 @@ code span.block {
     color: var(--color-light);
     position: relative;
     z-index: 5;
-    font-size: var(--font-size-lg);
     margin-top: 3rem;
     margin-bottom: 2rem;
 }

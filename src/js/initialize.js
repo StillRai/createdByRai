@@ -22,6 +22,8 @@ export function initialize() {
         loadHomePage(basePath);
     } else if (currentPath.includes('theJourney')) {
         loadJourneyPage(basePath);
+    } else if (currentPath.includes('meetRai')) {
+        loadJourneyPage(basePath);
     } else if (currentPath.includes('projects/weatherapp')) {
         loadWeatherApp(basePath);
     }
@@ -93,6 +95,23 @@ function loadJourneyPage(basePath) {
                 new InteractiveFlowchart();
             })
             .catch(error => console.error('Error loading The Journey page:', error));
+    }
+}
+
+function loadMeetRaiPage(basePath) {
+    console.log('The Journey page detected.');
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+        fetch(`${basePath}pages/meetRai.html`)
+            .then(response => response.text())
+            .then(data => {
+                mainContent.innerHTML = data;
+                if (window.feather) {
+                    window.feather.replace();
+                }
+                new InteractiveFlowchart();
+            })
+            .catch(error => console.error('Error loading Meet Rai page:', error));
     }
 }
 
