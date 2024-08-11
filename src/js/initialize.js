@@ -8,6 +8,7 @@ export function initialize() {
     if (isInitialized) return; 
     isInitialized = true;
 
+    console.log('Initializing components...');
     const currentPath = window.location.pathname;
 
     const basePath = currentPath.includes('projects/weatherapp') ? '../../' : 
@@ -40,6 +41,7 @@ function loadNavbar(basePath) {
                     window.feather.replace();
                 }
                 initializeBurgerMenu();
+                console.log('Navbar loaded.');
             }
         })
         .catch(error => console.error('Error loading navbar:', error));
@@ -57,13 +59,16 @@ function loadHomePage(basePath) {
         
         sections.reduce((promise, section) => {
             return promise.then(() => {
+                console.log(`Fetching ${section} section`);
                 return fetch(`${basePath}sections/${section}.html`)
                     .then(response => response.text())
                     .then(data => {
+                        console.log(`Loaded content for ${section} section:`, data);
                         sectionsContainer.innerHTML += data;
                         if (window.feather) {
                             window.feather.replace();
                         }
+                        console.log(`${section} section loaded.`);
                         if (section === 'skills') {
                             document.dispatchEvent(new Event('skillsLoaded'));
                         }
@@ -75,6 +80,7 @@ function loadHomePage(basePath) {
 }
 
 function loadJourneyPage(basePath) {
+    console.log('The Journey page detected.');
     const mainContent = document.getElementById('main-content');
     if (mainContent) {
         fetch(`${basePath}pages/theJourney.html`)
@@ -86,6 +92,7 @@ function loadJourneyPage(basePath) {
                 }
                 new InteractiveFlowchart();
             })
+            .catch(error => console.error('Error loading The Journey page:', error));
     }
 }
 
@@ -100,6 +107,7 @@ function loadWeatherApp(basePath) {
             .then(response => response.text())
             .then(data => {
                 mainContent.innerHTML = data;
+                console.log('Weather section loaded.');
                 import('../projects/weatherapp/initializeWeatherApp.js').then(module => {
                     module.initializeWeatherApp();
                 });
@@ -118,6 +126,7 @@ function loadFooter(basePath) {
                 if (window.feather) {
                     window.feather.replace();
                 }
+                console.log('Footer loaded.');
             }
         })
         .catch(error => console.error('Error loading footer:', error));

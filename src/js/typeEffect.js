@@ -9,7 +9,9 @@ class TypewriterEffect {
         this.audioLoaded = false;
         this.audioPromise = null;
 
+        console.log("Audio source:", this.audio.src);
         this.audio.addEventListener('canplaythrough', () => {
+            console.log("Audio can play through");
             this.audioLoaded = true;
         });
         this.audio.addEventListener('error', (e) => {
@@ -25,16 +27,23 @@ class TypewriterEffect {
         document.addEventListener('click', this.handleClick.bind(this));
 
         document.addEventListener("skillsLoaded", () => {
+            console.log("Skills section loaded, checking for skill items");
             setTimeout(() => this.logSkillItems(), 0);
         });
 
         if (module.hot) {
             module.hot.accept(() => {
+                console.log("HMR update detected");
                 this.logSkillItems();
             });
         }
     }
 
+    logSkillItems() {
+        const skillItems = document.querySelectorAll(".skill-item");
+        console.log("Skill items found:", skillItems.length);
+        skillItems.forEach(item => console.log("Skill item:", item.textContent));
+    }
 
     formatText(text) {
         return text.replace(/(\{|\})/g, '<span class="js-brace">$1</span>')
@@ -67,6 +76,7 @@ class TypewriterEffect {
     }
 
     async typeText(element, text) {
+        console.log("typeText function called with text:", text);
         let formattedText = this.formatText(text);
         let index = 0;
         element.innerHTML = ''; 
@@ -136,6 +146,7 @@ class TypewriterEffect {
             }
 
             const decodedText = this.decodeHTMLEntities(text);
+            console.log("Showing:", item.textContent, "Target element:", targetElement, "Text:", decodedText);
             
             targetElement.style.display = 'block';
             item.classList.add('active');
@@ -149,6 +160,7 @@ class TypewriterEffect {
 
             this.currentOpenItem = item;
         } else {
+            console.log("Hiding:", item.textContent, "Target element:", targetElement);
             targetElement.style.display = 'none';
             targetElement.innerHTML = '';
             item.classList.remove('active');
@@ -177,6 +189,7 @@ class TypewriterEffect {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("Document is ready");
     new TypewriterEffect();
     
     // Dispatch the custom event after ensuring DOM is ready

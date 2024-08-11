@@ -782,26 +782,32 @@ section {
     }
 }
 
-.journey-text {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: var(--font-size-body-lg);
-    line-height: 1.6;
-    text-align: justify;
-    color: var(--color-light);
-    justify-content: left;
+    .journey-text {
+        font-size: 0.6rem;
+        margin-top: 2%;
+        text-align: left;
+        line-height: 1.6;
+        color: var(--color-light);  
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .journey-text {
-        font-size: var(--font-size-body-md);
-    }
+        font-size: 0.8rem;
+        margin-top: 2%;
+        text-align: left;
+        line-height: 1.6;
+        color: var(--color-light);    }
 }
 
 @media (max-width: 480px) {
     .journey-text {
-        font-size: var(--font-size-body-sm);
-    }
+        font-size: 0.6rem;
+        margin-top: 2%;
+        text-align: left;
+        line-height: 1.6;
+        color: var(--color-light);  
+     }
 }
 
 /* Container and line styles */
