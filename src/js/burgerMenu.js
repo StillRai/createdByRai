@@ -60,7 +60,7 @@ export function initializeBurgerMenu() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     initializeBurgerMenu();
     if (window.feather) {
         window.feather.replace();

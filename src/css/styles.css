@@ -263,9 +263,12 @@ code span.block {
 #background-container #theJourney {
     display: none;
 }
-#navbar-container #theJourney {
-    background-color: var(--color-dark);
+
+
+#navbar-container {
+    background-color: var(--color-dark) !important;
 }
+
 
 
 #content-container {
