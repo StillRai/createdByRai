@@ -35,10 +35,11 @@ export class InteractiveFlowchart {
 
             const infoBox = item.querySelector('.info-box');
             if (infoBox) {
-                infoBox.style.left = isEven ? '120%' : 'auto';
-                infoBox.style.right = isEven ? 'auto' : '120%';
-                infoBox.style.top = '50%';
-                infoBox.style.transform = 'translateY(-50%)';
+                // Remove dynamic positioning of info boxes
+                infoBox.style.left = '';
+                infoBox.style.right = '';
+                infoBox.style.top = '';
+                infoBox.style.transform = '';
             }
         });
     }
@@ -57,10 +58,11 @@ export class InteractiveFlowchart {
 
             const infoBox = item.querySelector('.info-box');
             if (infoBox) {
-                infoBox.style.top = isEven ? 'auto' : '120%';
-                infoBox.style.bottom = isEven ? '120%' : 'auto';
-                infoBox.style.left = '50%';
-                infoBox.style.transform = 'translateX(-50%)';
+                // Remove dynamic positioning of info boxes
+                infoBox.style.top = '';
+                infoBox.style.bottom = '';
+                infoBox.style.left = '';
+                infoBox.style.transform = '';
             }
         });
 
@@ -92,7 +94,8 @@ export class InteractiveFlowchart {
                 const infoBox = item.querySelector('.info-box');
                 if (infoBox) {
                     infoBox.style.opacity = '1';
-                    infoBox.style.transform = 'translate(0, 0)';
+                    // Remove transform to prevent shifting
+                    // infoBox.style.transform = 'translate(0, 0)';
                 }
             }, 1000 * (index + 1));
         });

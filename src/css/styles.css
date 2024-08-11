@@ -862,9 +862,8 @@ section {
 
 .info-box {
     position: absolute;
-    width: 150px;
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: opacity 0.5s ease;
     pointer-events: none;
     z-index: 2;
 }
@@ -878,8 +877,6 @@ section {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.8rem;
     border: 1px dashed var(--color-light); 
-    width: 80%;
-
 }
 
 .flowchart-item.show {
@@ -895,15 +892,15 @@ section {
     pointer-events: auto;
 }
 
-/* Vertical layout (mobile) */
-@media (max-width: 768px) {
+/* Mobile layout */
+@media (max-width: 767px) {
     .flowchart {
         height: auto;
         min-height: 100vh;
     }
 
     .line {
-        width: 1px;
+        width: 0.5px;
         height: 100%;
         left: 50%;
         transform: translateX(-50%);
@@ -915,45 +912,52 @@ section {
     }
 
     .flowchart-item::before {
-        width: calc(50% + 25px);
-        height: 2px;
+        width: 40px;
+        height: 0.5px;
         top: 25px;
     }
 
     .flowchart-item:nth-child(odd)::before {
-        left: auto;
-        right: calc(50% + 25px);
+        left: calc(50% + 25px);
+        right: auto;
     }
 
     .flowchart-item:nth-child(even)::before {
-        left: calc(50% + 25px);
+        right: calc(50% + 25px);
+        left: auto;
     }
 
-    .flowchart-item .info-box {
-        transform: translateY(-60px);
-    }
-
-    .flowchart-item.show .info-box {
-        transform: translateY(-60px);
+    .info-box {
+        width: 120px;
     }
 
     .flowchart-item:nth-child(odd) .info-box {
-        left: 120%;
+        left: calc(100% + 30px);
+        right: auto;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .flowchart-item:nth-child(even) .info-box {
-        right: 120%;
+        right: calc(100% + 30px);
+        left: auto;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .info-content {
+        font-size: 0.7rem;
     }
 }
 
-/* Horizontal layout (desktop) */
-@media (min-width: 769px) {
+/* Tablet layout */
+@media (min-width: 768px) and (max-width: 1024px) {
     .flowchart {
-        height: 400px;
+        height: 600px;
     }
 
     .line {
-        height: 2px;
+        height: 0.5px;
         width: 100%;
         top: 50%;
         transform: translateY(-50%);
@@ -965,10 +969,14 @@ section {
     }
 
     .flowchart-item::before {
-        width: 2px;
-        height: calc(50% + 25px);
+        width: 0.5px;
+        height: 30px;
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    .info-box {
+        width: 130px;
     }
 
     .flowchart-item:nth-child(even)::before {
@@ -979,20 +987,70 @@ section {
         top: 50%;
     }
 
-    .flowchart-item .info-box {
-        transform: translateX(-75px); /* Adjusted to move slightly more to the left */
-    }
-
-    .flowchart-item.show .info-box {
-        transform: translateX(-75px); /* Keep consistent with non-show state */
-    }
-
     .flowchart-item:nth-child(even) .info-box {
-        bottom: 120%;
+        bottom: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .flowchart-item:nth-child(odd) .info-box {
-        top: 120%;
+        top: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .info-content {
+        font-size: 0.75rem;
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 1025px) {
+    .flowchart {
+        height: 400px;
+    }
+
+    .line {
+        height: 0.5px;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .flowchart-item {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .flowchart-item::before {
+        width: 0.5px;
+        height: calc(50% + 25px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .info-box {
+        width: 150px;
+    }
+
+    .flowchart-item:nth-child(even)::before {
+        bottom: 50%;
+    }
+
+    .flowchart-item:nth-child(odd)::before {
+        top: 50%;
+    }
+
+    .flowchart-item:nth-child(even) .info-box {
+        bottom: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .flowchart-item:nth-child(odd) .info-box {
+        top: calc(100% + 20px);
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 
