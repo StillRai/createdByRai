@@ -77,7 +77,7 @@ export class InteractiveFlowchart {
         // Show the main line
         setTimeout(() => {
             this.line.style.opacity = '1';
-        }, 1000);
+        }, 2000);
 
         // Animate items
         this.flowchartItems.forEach((item, index) => {
