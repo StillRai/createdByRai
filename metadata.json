@@ -1,0 +1,87 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rai",
+  "url": "https://createdByRai.com",
+  "sameAs": [
+    "https://www.linkedin.com/in/rai-codes/",
+    "https://github.com/StillRai"
+  ],
+  "jobTitle": "Web & Mobile Developer",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "createdByRai"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "CodeFirstGirls"
+  },
+  "knowsAbout": ["Web Development", "Mobile App Development", "React", "Full Stack Development", "Typescript", "Python", "Javascript", "MySql", "APIs"],
+  "affiliation": {
+    "@type": "Organization",
+    "name": "Hobbyist"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "createdByRai - Web & Mobile Developer Portfolio",
+  "url": "https://createdByRai.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://createdByRai.com/?s={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Password Strength Analyzer",
+  "url": "https://createdByRai.com/projects/password-strength-analyser/index.html",
+  "creator": {
+    "@type": "Person",
+    "name": "Rai"
+  },
+  "about": "Analyze the strength of passwords with this tool created by Rai.",
+  "datePublished": "2024-01-01"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Creative Weather App",
+  "url": "https://createdByRai.com/projects/weatherapp/index.html",
+  "creator": {
+    "@type": "Person",
+    "name": "Rai"
+  },
+  "about": "Get real-time weather updates with this app created by Rai.",
+  "datePublished": "2024-01-01"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Interactive Story Game",
+  "url": "https://createdByRai.com/projects/interactive-storygame/",
+  "image": "https://createdByRai.com/projects/weatherapp/assets/icons/og-image.png"
+  "creator": {
+    "@type": "Person",
+    "name": "Rai"
+  },
+  "about": "An immersive interactive storytelling game created by Rai.",
+  "datePublished": "2024-01-01"
+}
+</script>
+
