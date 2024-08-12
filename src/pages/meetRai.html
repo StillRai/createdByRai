@@ -8,6 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/css/styles.css">
     <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .code-block {
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 
 <body class="flex flex-col min-h-screen bg-custom-dark text-custom-light">
@@ -21,25 +28,32 @@
                     
                     <div class="flex flex-col md:flex-row gap-8">
                         <div class="w-full md:w-1/2">
-                            <div class="bg-primary rounded-lg p-4 font-jetBrains text-sm leading-relaxed">
-                                <pre class="text-custom-light"><span class="text-custom-pink">{</span>
-              <span class="text-custom-orange">"name"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Rai"</span><span class="text-custom-light">,</span>
-              <span class="text-custom-orange">"profession"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Tech Professional"</span><span class="text-custom-light">,</span>
-              <span class="text-custom-orange">"interests"</span><span class="text-custom-light">: {</span>
-                <span class="text-custom-orange">"gardening"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Germinating and nurturing plants"</span><span class="text-custom-light">,</span>
-                <span class="text-custom-orange">"reading"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Thrillers and crime novels"</span><span class="text-custom-light">,</span>
-                <span class="text-custom-orange">"exploration"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Visiting old historic buildings"</span><span class="text-custom-light">,</span>
-                <span class="text-custom-orange">"outdoor"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Taking nature walks"</span><span class="text-custom-light">,</span>
-                <span class="text-custom-orange">"fitness"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Regular exercise routines"</span>
-              <span class="text-custom-light">}</span>
-            <span class="text-custom-pink">}</span></pre>
+                            <div class="bg-primary rounded-lg p-4 font-jetBrains text-sm leading-relaxed wrapped-text-meetrai">
+                                <pre class="text-custom-light">
+<span class="text-custom-pink">{</span>
+  <span class="text-custom-orange">"name"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Rai"</span><span class="text-custom-light">,</span>      
+  <span class="text-custom-orange">"profession"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Tech Professional"</span><span class="text-custom-light">,</span>
+  <span class="text-custom-orange">"interests"</span><span class="text-custom-yellow">: {</span>
+  <span class="text-custom-orange">"gardening"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Germinating plants"</span><span class="text-custom-light">,</span>
+  <span class="text-custom-orange">"reading"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Thriller novels"</span><span class="text-custom-light">,</span>
+  <span class="text-custom-orange">"listening"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"True crime podcasts"</span><span class="text-custom-light">,</span>
+  <span class="text-custom-orange">"exploration"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Historic sites"</span><span class="text-custom-light">,</span>
+  <span class="text-custom-orange">"outdoor"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Taking nature walks"</span><span class="text-custom-light">,</span>
+  <span class="text-custom-orange">"fitness"</span><span class="text-custom-light">: </span><span class="text-custom-lightgreen">"Exercise routines"</span>
+  <span class="text-custom-yellow">}</span>
+<span class="text-custom-pink">}</span></pre>
                             </div>
                         </div>
                         <div class="w-full md:w-1/2">
-                            <p class="text-custom-light font-jetBrains resize-text journey-text">
-                                I'm a tech professional who enjoys a variety of hobbies outside of work. In my free time, I like gardening, particularly germinating plants. I'm an avid reader with a preference for thrillers and crime novels. I also enjoy visiting historic buildings, taking nature walks, and maintaining a regular exercise routine.
-                            </p>
-                        </div>
+                            <span class="text-custom-light font-jetBrains resize-text journey-text">
+                                I'm Rai, a tech professional. While I enjoy my work, I also value my time outside of it.
+                            </span><br> <br>
+                            <span class="text-custom-light font-jetBrains resize-text journey-text">
+                                My hobbies provide balance to my tech-focused days. Gardening, especially growing plants from seeds, offers a rewarding hands-on experience. I'm an avid reader of thrillers and crime novels, enjoying their complex plots and intriguing characters.                            </span>
+                        <br> <br>
+                                <span class="text-custom-light font-jetBrains resize-text journey-text">
+                                    I have a deep appreciation for history and architecture, often visiting historic buildings to connect with the past. To stay active, I take regular nature walks and maintain an exercise routine. These activities help me disconnect from technology, clear my mind, and stay energised.                                </span>
+                            </div>
                     </div>
                 </div>
             </section>
