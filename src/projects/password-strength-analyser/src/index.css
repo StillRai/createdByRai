@@ -28,12 +28,17 @@ body {
   margin: 0;
   color: var(--color-light);
 }
+.title-style {
+ font-size: 1.5rem;
+}
+
 
 @media (min-width: 768px) {
   .md\:space-x-4> :not([hidden])~ :not([hidden]) {
     margin-left: 0px !important;
   }
 }
+
 
 .container {
   background: rgba(255, 255, 255, 0.2);
@@ -109,6 +114,7 @@ body {
 .input:focus {
   background-color: rgba(255, 255, 255, 0.5);
 }
+
 
 .button {
   padding: 0;
@@ -256,4 +262,16 @@ ul li {
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.mobile-scroll-container {
+  max-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .mobile-scroll-container {
+    padding-bottom: 4rem; 
+  }
 }

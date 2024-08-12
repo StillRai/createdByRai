@@ -7,6 +7,7 @@ const Lesson1 = ({ nextLesson, prevLesson }) => {
   const { isPlaying, toggleAudio, stopAudio } = useContext(AudioContext);
 
   return (
+    <div className="mobile-scroll-container">
     <div className="p-8">
       <div className="flex justify-between items-center">
         <h2 className="text-2xl font-bold mb-4">Passwords: Your Digital Bodyguards</h2>
@@ -41,6 +42,7 @@ const Lesson1 = ({ nextLesson, prevLesson }) => {
           Let's Keep Rolling!
         </button>
       </div>
+    </div>
     </div>
   );
 };

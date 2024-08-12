@@ -12,7 +12,6 @@ module.exports = {
     typeEffect: './src/js/typeEffect.js',
     theJourney: ['./src/js/initialize.js', './src/js/flowchart.js'],
     meetRai: ['./src/js/initialize.js'],
-
     weatherapp: './src/projects/weatherapp/weatherapp.js',
     'password-strength-analyser': './src/projects/password-strength-analyser/src/index.js',
     'interactive-storytelling': './src/projects/interactive-storytelling/src/index.js',
@@ -132,6 +131,12 @@ module.exports = {
       filename: 'projects/interactive-storytelling/index.html',
       chunks: ['interactive-storytelling'],
     }),
+    // Add this new HtmlWebpackPlugin for the 404 page
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/404.html'),
+      filename: '404.html',
+      inject: false,
+    }),
     new CopyWebpackPlugin({
       patterns: [
         { from: 'src/components', to: 'components' },
@@ -178,7 +183,11 @@ module.exports = {
     hot: true,
     host: '0.0.0.0',
     allowedHosts: 'all',
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /./, to: '/404.html' }
+      ]
+    },
     devMiddleware: {
       writeToDisk: true,
     },

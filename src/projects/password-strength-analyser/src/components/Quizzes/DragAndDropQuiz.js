@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { v4 as uuidv4 } from 'uuid';
@@ -7,7 +7,7 @@ const ItemType = {
   PASSWORD_COMPONENT: 'passwordComponent',
 };
 
-const PasswordComponent = ({ item }) => {
+const PasswordComponent = ({ item, isMobile, onMobileClick }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemType.PASSWORD_COMPONENT,
     item,
@@ -15,6 +15,19 @@ const PasswordComponent = ({ item }) => {
       isDragging: !!monitor.isDragging(),
     }),
   }));
+
+  if (isMobile) {
+    return (
+      <div
+        className="p-2 m-2 border rounded"
+        style={{ backgroundColor: 'white', color: 'black' }}
+        onClick={() => onMobileClick(item)}
+        title={item.description}
+      >
+        {item.name}
+      </div>
+    );
+  }
 
   return (
     <div
@@ -40,7 +53,7 @@ const DroppedItem = ({ item, removeItem }) => {
   );
 };
 
-const DropArea = ({ onDrop, droppedItems, removeItem }) => {
+const DropArea = ({ onDrop, droppedItems, removeItem, isMobile }) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ItemType.PASSWORD_COMPONENT,
     drop: (item) => onDrop(item),
@@ -51,11 +64,11 @@ const DropArea = ({ onDrop, droppedItems, removeItem }) => {
 
   return (
     <div
-      ref={drop}
+      ref={!isMobile ? drop : null}
       className={`p-4 border-2 border-dashed rounded ${isOver ? 'bg-green-100' : 'bg-white'}`}
       style={{ minHeight: '100px' }}
     >
-      {isOver ? 'Drop here!' : 'Drag components here to form a strong password'}
+      {isMobile ? 'Tap components to add them here' : (isOver ? 'Drop here!' : 'Drag components here to form a strong password')}
       <div className="mt-4">
         {droppedItems.map((item) => (
           <DroppedItem key={item.id} item={item} removeItem={removeItem} />
@@ -66,6 +79,7 @@ const DropArea = ({ onDrop, droppedItems, removeItem }) => {
 };
 
 const DragAndDropQuiz = ({ nextLesson, prevLesson }) => {
+  const [isMobile, setIsMobile] = useState(false);
   const initialItems = [
     { id: uuidv4(), name: "Uppercase Letter (A-Z)", description: "Adds complexity by including uppercase letters." },
     { id: uuidv4(), name: "Lowercase Letter (a-z)", description: "Adds complexity by including lowercase letters." },
@@ -82,11 +96,24 @@ const DragAndDropQuiz = ({ nextLesson, prevLesson }) => {
   const [showResult, setShowResult] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const handleDrop = (droppedItem) => {
     if (!droppedItems.some(item => item.id === droppedItem.id)) {
       setDroppedItems((prevItems) => [...prevItems, droppedItem]);
       setAvailableItems(prevItems => prevItems.filter((item) => item.id !== droppedItem.id));
     }
+  };
+
+  const handleMobileClick = (clickedItem) => {
+    handleDrop(clickedItem);
   };
 
   const handleCheck = () => {
@@ -111,13 +138,25 @@ const DragAndDropQuiz = ({ nextLesson, prevLesson }) => {
     <DndProvider backend={HTML5Backend}>
       <div className="p-8">
         <h2 className="text-2xl font-bold mb-4">Test Your Knowledge</h2>
-        <p className="mb-4">Drag and drop the elements below to form components of a strong password.</p>
+        <p className="mb-4">
+          {isMobile ? 'Tap the elements below to add them to your password.' : 'Drag and drop the elements below to form components of a strong password.'}
+        </p>
         <div className="flex flex-wrap mb-4">
           {availableItems.map((item) => (
-            <PasswordComponent key={item.id} item={item} />
+            <PasswordComponent 
+              key={item.id} 
+              item={item} 
+              isMobile={isMobile}
+              onMobileClick={handleMobileClick}
+            />
           ))}
         </div>
-        <DropArea onDrop={handleDrop} droppedItems={droppedItems} removeItem={removeItem} />
+        <DropArea 
+          onDrop={handleDrop} 
+          droppedItems={droppedItems} 
+          removeItem={removeItem}
+          isMobile={isMobile}
+        />
         {showResult && (
           <div className={`mt-4 p-4 ${isCorrect ? 'bg-green-200' : 'bg-red-200'}`}>
             {isCorrect ? 'Correct! You have included all necessary components of a strong password.' : 'Incorrect. Make sure to include all components: Uppercase letter, lowercase letter, number, and special character. Avoid using easily guessable information or common words.'}
