@@ -1,6 +1,10 @@
 import { initializeBurgerMenu } from './burgerMenu';
 import { generateStars } from './stars';
 import { InteractiveFlowchart } from './flowchart.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Loader from './loader.js'; // Ensure the Loader component is created
+import '../css/loader.css';
 
 let isInitialized = false;
 
@@ -14,11 +18,18 @@ export function initialize() {
     const basePath = currentPath.includes('projects/weatherapp') ? '../../' :
         currentPath.includes('pages/') ? '../' : '';
 
+    // Show loader on the homepage
+    if (currentPath === '/' || currentPath === '/index.html') {
+        showLoader(); // Show loader before loading the homepage
+    }
+
     // Load Navbar and then handle the rest of the initialization
     loadNavbar(basePath).then(() => {
         // Handle different pages
         if (currentPath === '/' || currentPath === '/index.html') {
-            loadHomePage(basePath);
+            loadHomePage(basePath).then(() => {
+                hideLoader(); // Hide loader after homepage is loaded
+            });
         } else if (currentPath.includes('theJourney')) {
             loadJourneyPage(basePath);
         } else if (currentPath.includes('meetRai')) {
@@ -30,6 +41,22 @@ export function initialize() {
         // Load Footer after everything else
         loadFooter(basePath);
     });
+}
+
+function showLoader() {
+    const loaderContainer = document.createElement('div');
+    loaderContainer.id = 'loader-root';
+    document.body.appendChild(loaderContainer);
+
+    ReactDOM.render(<Loader />, loaderContainer);
+}
+
+function hideLoader() {
+    const loaderContainer = document.getElementById('loader-root');
+    if (loaderContainer) {
+        ReactDOM.unmountComponentAtNode(loaderContainer);
+        document.body.removeChild(loaderContainer);
+    }
 }
 
 function loadNavbar(basePath) {
@@ -58,7 +85,7 @@ function loadHomePage(basePath) {
         sectionsContainer.innerHTML = '';
         const sections = ['home', 'skills'];
 
-        sections.reduce((promise, section) => {
+        return sections.reduce((promise, section) => {
             return promise.then(() => {
                 return fetch(`${basePath}sections/${section}.html`)
                     .then(response => response.text())

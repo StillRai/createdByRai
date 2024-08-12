@@ -342,6 +342,7 @@ code span.block {
 @media (max-width: 480px) {
     #background-container {
         background-color: var(--color-dark);
+        background-position: center right -10rem !important;
     }
 
     #home .container {

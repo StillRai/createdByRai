@@ -56,11 +56,13 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: [
-          'thread-loader',
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+              ],
               plugins: ['@babel/plugin-transform-runtime'],
               cacheDirectory: true,
               cacheCompression: false,
@@ -68,6 +70,7 @@ module.exports = {
           },
         ],
       },
+      
       {
         test: /\.html$/,
         use: 'html-loader',
@@ -79,22 +82,22 @@ module.exports = {
     ],
   },
   optimization: {
-    minimize: true,
+    minimize: true, // Enables minification
     minimizer: [
       new TerserPlugin({
-        parallel: true,
+        parallel: true, // Use multi-process parallel running to improve build speed
         terserOptions: {
-          ecma: 2015,
-          parse: {},
-          compress: {},
-          mangle: true,
-          module: false,
+          ecma: 5, // Specify ECMAScript version
+          compress: {}, // Options for compressing the code
+          mangle: true, // Enable or disable variable name mangling
           output: {
-            comments: false,
-            beautify: false,
+            comments: false, // Remove comments from the output
+            beautify: false, // Minified output
           },
         },
       }),
+      
+      
     ],
   },
   plugins: [
@@ -131,7 +134,6 @@ module.exports = {
       filename: 'projects/interactive-storytelling/index.html',
       chunks: ['interactive-storytelling'],
     }),
-    // Add this new HtmlWebpackPlugin for the 404 page
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/404.html'),
       filename: '404.html',

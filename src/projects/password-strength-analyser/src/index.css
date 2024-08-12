@@ -275,3 +275,32 @@ ul li {
     padding-bottom: 4rem; 
   }
 }
+
+.mobile-scroll-container {
+  max-height: 70vh; /* Adjust this value to fit your design */
+  overflow-y: scroll; /* This will make the scrollbar always visible */
+  position: relative;
+  padding-right: 10px; /* Prevent content from being hidden behind the scrollbar */
+}
+
+/* Ensure the scrollbar is always visible */
+.mobile-scroll-container::-webkit-scrollbar {
+  width: 12px; /* Adjust the width of the scrollbar */
+}
+
+.mobile-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners on the scrollbar thumb */
+}
+
+.mobile-scroll-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Optional: Adjust scrollbar for Firefox */
+@supports (scrollbar-width: thin) {
+  .mobile-scroll-container {
+    scrollbar-width: thin; /* Makes scrollbar thinner in Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+  }
+}

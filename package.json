@@ -14,9 +14,9 @@
     "src/projects/password-strength-analyser"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.24.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
-    "@babel/runtime": "^7.24.0",
     "autoprefixer": "^10.3.4",
     "express": "^4.19.2",
     "feather-icons": "^4.29.2",
@@ -33,6 +33,7 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
     "@babel/core": "^7.25.2",
     "@babel/plugin-transform-runtime": "^7.24.7",
     "@babel/preset-env": "^7.25.3",

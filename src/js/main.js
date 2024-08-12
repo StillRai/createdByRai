@@ -1,3 +1,5 @@
+// src/js/main.js
+
 import '../css/styles.css';
 import { initialize } from './initialize';
 import './flowchart';
