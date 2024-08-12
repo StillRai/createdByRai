@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { StoryContext } from '../../contexts/StoryContext';
 import Choice from './Choice';
-import { Volume2, VolumeX } from 'react-feather';
+import { Volume2, VolumeX, RefreshCw } from 'react-feather';
 
 // Dynamically import all images from the assets/images directory
 const images = {};
@@ -27,15 +27,33 @@ const StoryPage = () => {
     return audioFiles[audio] || null;
   };
 
-  useEffect(() => {
-    if (audioRef.current) {
+  const stopAudio = () => {
+    if (audioRef.current && !audioRef.current.paused) {
       audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      if (isAudioOn && currentContent.audio) {
-        audioRef.current.src = getAudio(currentContent.audio);
-        audioRef.current.play();
-      }
     }
+    if (hoverAudioRef.current && !hoverAudioRef.current.paused) {
+      hoverAudioRef.current.pause();
+    }
+  };
+
+  useEffect(() => {
+    const handleAudioPlayback = () => {
+      if (audioRef.current) {
+        if (!audioRef.current.paused) {
+          audioRef.current.pause();
+        }
+        audioRef.current.currentTime = 0;
+        if (isAudioOn && currentContent.audio) {
+          audioRef.current.src = getAudio(currentContent.audio);
+          audioRef.current.play().catch((error) => {
+            console.warn('Audio playback was interrupted:', error);
+          });
+        }
+      }
+    };
+
+    handleAudioPlayback();
+
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
@@ -53,22 +71,29 @@ const StoryPage = () => {
   const playHoverAudio = (audio) => {
     if (hoverAudioRef.current && isAudioOn) {
       hoverAudioRef.current.src = getAudio(audio);
-      hoverAudioRef.current.play();
-    }
-  };
-
-  const stopAudio = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-    }
-    if (hoverAudioRef.current) {
-      hoverAudioRef.current.pause();
+      hoverAudioRef.current.play().catch((error) => {
+        console.warn('Hover audio playback was interrupted:', error);
+      });
     }
   };
 
   return (
     <div className="App bg-gradient-to-t from-color-gradient-end to-color-gradient-start">
       <div className="story-page">
+        <div className="controls flex justify-end mb-4 w-full space-x-4">
+          <button className="audio-toggle group relative" onClick={toggleAudio}>
+            {isAudioOn ? <Volume2 /> : <VolumeX />}
+            <span className="tooltip group-hover:opacity-100 group-hover:visible">
+              {isAudioOn ? 'Disable Transcript' : 'Enable Transcript'}
+            </span>
+          </button>
+          <button className="audio-toggle group relative" onClick={resetStory}>
+            <RefreshCw />
+            <span className="tooltip group-hover:opacity-100 group-hover:visible">
+              Restart Story
+            </span>
+          </button>
+        </div>
         <div className="story-content">
           <p className="story-text">{currentContent.text}</p>
         </div>
@@ -90,12 +115,6 @@ const StoryPage = () => {
               />
             ))}
           </div>
-        </div>
-        <div className="controls">
-          <button className="audio-toggle" onClick={toggleAudio}>
-            {isAudioOn ? <Volume2 /> : <VolumeX />}
-          </button>
-          <button className="restart-button" onClick={resetStory}>Restart</button>
         </div>
         <audio ref={audioRef} />
         <audio ref={hoverAudioRef} />

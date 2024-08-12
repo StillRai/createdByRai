@@ -226,5 +226,81 @@ i[data-feather] {
   font-size: 30px;
   font-weight: 600;
   margin-bottom: 10px;
+}
 
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .weather-app-container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .weather-app-content {
+    padding: 15px;
+  }
+
+  .weather-app-input,
+  .weather-app-button,
+  #current-location-button {
+    height: 3.5rem;
+  }
+
+  .headertitle {
+    font-size: 24px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .weather-app-container {
+    max-width: 95%;
+    padding: 10px;
+  }
+
+  .weather-app-content {
+    padding: 10px;
+  }
+
+  .weather-app-input,
+  .weather-app-button,
+  #current-location-button {
+    height: 3rem;
+  }
+
+  .weather-app-input {
+    font-size: 0.9rem;
+  }
+
+  #city-suggestions {
+    top: 70px;
+  }
+
+  .headertitle {
+    font-size: 20px;
+  }
+
+  #weather-container {
+    padding: 15px;
+  }
+
+  .weather-item {
+    align-items: flex-start;
+  }
+
+  .weather-item i.weather-icon {
+    margin-bottom: 5px;
+  }
+}
+
+/* Ensure the app doesn't exceed the viewport height on smaller screens */
+@media (max-height: 700px) {
+  .weather-app-body {
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 0;
+  }
+
+  .weather-app-container {
+    margin: 20px auto;
+  }
 }

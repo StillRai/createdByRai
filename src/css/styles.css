@@ -368,6 +368,15 @@ code span.block {
     padding-right: 2rem;
     font-family: 'JetBrains Mono', monospace;
 }
+.writing-container-nmeetrai {
+    text-align: left;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 1rem;
+    padding-right: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
 
 .skills-title {
     padding-left: 2rem;
@@ -889,6 +898,11 @@ section {
     font-size: 14px;
     transition: transform 0.3s ease;
     z-index: 2;
+}
+
+.future {
+    background-color: rgba(89, 168, 217, 0.2) !important; 
+    border: 1px solid var(--color-darkblue); 
 }
 
 .info-box {

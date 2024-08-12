@@ -6,7 +6,7 @@ const Choice = ({ choice, onClick, playHoverAudio, stopAudio }) => {
   const handleMouseEnter = () => {
     const now = Date.now();
     if (now - lastPlayedRef.current > 3000) {
-      stopAudio(); // Stop any playing audio
+      stopAudio(); 
       playHoverAudio(choice.hoverAudio);
       lastPlayedRef.current = now;
     }
