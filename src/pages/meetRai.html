@@ -57,6 +57,16 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
+
+        #astronaut-image {
+    display: block;
+    margin: 20px auto 0 auto; /* Center the image and add some top margin */
+    max-width: 100%;
+    height: auto;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Soft shadow for a feathered effect */
+}
+
     </style>
 </head>
 
@@ -108,6 +118,11 @@
             </section>
         </main>
     </div>
+
+    <div class="image-container">
+        <img id="astronaut-image" src="/src/media/images/meet-rai-astronaut.png" alt="Meet Rai Astronaut">
+    </div>
+    
 
     <script>
         if (window.feather) {

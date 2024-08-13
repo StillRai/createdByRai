@@ -249,6 +249,21 @@ code span.block {
     gap: calc(3vw + 0.1rem);
 }
 
+/* Custom styles for the dropdown menu */
+
+
+#theMagicDropdown {
+    min-width: 200px; 
+    width: auto;
+}
+@media (max-width: 768px) {
+    #theMagicDropdownMobile {
+        min-width: 200px; 
+        width: auto; 
+    }
+}
+
+
 /* Custom styles for the home section */
 
 #background-container {
@@ -352,6 +367,7 @@ code span.block {
 
   
 }
+
 
 /* Custom styles for the skills section */
 
