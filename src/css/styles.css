@@ -482,6 +482,16 @@ code span.block {
     border-radius: 5px;
 }
 
+.skill-details,
+.skill-details.static {
+    display: none; /* Hide all skill details by default */
+}
+
+.skill-item:hover + .skill-details,
+.skill-item.active + .skill-details {
+    display: block; /* Show the details when hovering or when the item is active */
+}
+
 .skill-details span {
     display: inline;
 }

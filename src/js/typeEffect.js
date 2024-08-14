@@ -20,6 +20,8 @@ class TypewriterEffect {
     }
 
     init() {
+        this.showDynamicContent();
+
         document.addEventListener('mouseover', this.handleMouseOver.bind(this));
         document.addEventListener('mouseout', this.handleMouseOut.bind(this));
         document.addEventListener('click', this.handleClick.bind(this));
@@ -33,6 +35,13 @@ class TypewriterEffect {
                 this.logSkillItems();
             });
         }
+    }
+
+    showDynamicContent() {
+        const skillDetailsElements = document.querySelectorAll(".skill-details");
+        skillDetailsElements.forEach(element => {
+            element.classList.remove('static'); // Remove static class to hide fallback text
+        });
     }
 
     logSkillItems() {
@@ -160,12 +169,6 @@ class TypewriterEffect {
                 this.currentOpenItem = null;
             }
 
-            // Clear the timeout to stop any ongoing typewriter effect
-            if (this.currentTimeout) {
-                clearTimeout(this.currentTimeout);
-                this.currentTimeout = null;
-            }
-
             this.isTyping = false;
             this.queue = [];
             this.pauseAudio();
@@ -181,7 +184,5 @@ class TypewriterEffect {
 
 document.addEventListener("DOMContentLoaded", () => {
     new TypewriterEffect();
-    
-    // Dispatch the custom event after ensuring DOM is ready
     document.dispatchEvent(new Event("skillsLoaded"));
 });

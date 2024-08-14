@@ -18,10 +18,8 @@ export function initialize() {
     const basePath = currentPath.includes('projects/weatherapp') ? '../../' :
         currentPath.includes('pages/') ? '../' : '';
 
-    // Show loader on the homepage
-    if (currentPath === '/' || currentPath === '/index.html') {
-        showLoader(); // Show loader before loading the homepage
-    }
+    // Show loader for all pages
+    showLoader(); // Show loader before loading any page
 
     // Load Navbar and then handle the rest of the initialization
     loadNavbar(basePath).then(() => {
@@ -31,11 +29,19 @@ export function initialize() {
                 hideLoader(); // Hide loader after homepage is loaded
             });
         } else if (currentPath.includes('theJourney')) {
-            loadJourneyPage(basePath);
+            loadJourneyPage(basePath).then(() => {
+                hideLoader(); // Hide loader after the Journey page is loaded
+            });
         } else if (currentPath.includes('meetRai')) {
-            loadMeetRaiPage(basePath);
+            loadMeetRaiPage(basePath).then(() => {
+                hideLoader(); // Hide loader after Meet Rai page is loaded
+            });
         } else if (currentPath.includes('projects/weatherapp')) {
-            loadWeatherApp(basePath);
+            loadWeatherApp(basePath).then(() => {
+                hideLoader(); // Hide loader after the Weather App page is loaded
+            });
+        } else {
+            hideLoader(); // Ensure loader is hidden for any other pages
         }
 
         // Load Footer after everything else
@@ -107,7 +113,7 @@ function loadHomePage(basePath) {
 function loadJourneyPage(basePath) {
     const mainContent = document.getElementById('main-content');
     if (mainContent) {
-        fetch(`${basePath}pages/theJourney.html`)
+        return fetch(`${basePath}pages/theJourney.html`)
             .then(response => response.text())
             .then(data => {
                 mainContent.innerHTML = data;
@@ -120,12 +126,13 @@ function loadJourneyPage(basePath) {
             })
             .catch(error => console.error('Error loading The Journey page:', error));
     }
+    return Promise.resolve(); // Resolve to ensure the loader is hidden even if no content is loaded
 }
 
 function loadMeetRaiPage(basePath) {
     const mainContent = document.getElementById('main-content');
     if (mainContent) {
-        fetch(`${basePath}pages/meetRai.html`)
+        return fetch(`${basePath}pages/meetRai.html`)
             .then(response => response.text())
             .then(data => {
                 mainContent.innerHTML = data;
@@ -138,6 +145,7 @@ function loadMeetRaiPage(basePath) {
             })
             .catch(error => console.error('Error loading Meet Rai page:', error));
     }
+    return Promise.resolve(); // Resolve to ensure the loader is hidden even if no content is loaded
 }
 
 function loadWeatherApp(basePath) {
@@ -147,16 +155,17 @@ function loadWeatherApp(basePath) {
     }
     const mainContent = document.getElementById('main-content');
     if (mainContent) {
-        fetch(basePath + 'projects/weatherapp/index.html')
+        return fetch(basePath + 'projects/weatherapp/index.html')
             .then(response => response.text())
             .then(data => {
                 mainContent.innerHTML = data;
-                import('../projects/weatherapp/initializeWeatherApp.js').then(module => {
+                return import('../projects/weatherapp/initializeWeatherApp.js').then(module => {
                     module.initializeWeatherApp();
                 });
             })
             .catch(error => console.error('Error loading weather app section:', error));
     }
+    return Promise.resolve(); // Resolve to ensure the loader is hidden even if no content is loaded
 }
 
 function loadFooter(basePath) {

@@ -1,0 +1,8 @@
+# Set the 404 Error Document
+ErrorDocument 404 /404.html
+
+# Redirect requests to your index.html
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.html [L,QSA]
