@@ -4,17 +4,6 @@ class TypewriterEffect {
         this.queue = [];
         this.isTyping = false;
         this.currentOpenItem = null;
-        this.audio = new Audio('/media/audio/Typing.mp3');
-        this.audio.loop = true;
-        this.audioLoaded = false;
-        this.audioPromise = null;
-
-        this.audio.addEventListener('canplaythrough', () => {
-            this.audioLoaded = true;
-        });
-        this.audio.addEventListener('error', (e) => {
-            console.error("Audio error:", e);
-        });
 
         this.init();
     }
@@ -54,37 +43,10 @@ class TypewriterEffect {
                    .replace(/,\s*(\w+)/g, ', <span class="js-text">$1</span>');
     }
 
-    async playAudio() {
-        if (!this.audioLoaded) {
-            console.log("Audio not loaded yet, waiting...");
-            await new Promise(resolve => {
-                this.audio.addEventListener('canplaythrough', resolve, { once: true });
-            });
-        }
-
-        try {
-            if (this.audioPromise && this.audioPromise.status === 'pending') {
-                await this.audioPromise;
-            }
-            this.audioPromise = this.audio.play();
-            await this.audioPromise;
-        } catch (error) {
-            console.error("Error playing audio:", error);
-        }
-    }
-
-    pauseAudio() {
-        if (this.audio.paused) return;
-        this.audio.pause();
-    }
-
     async typeText(element, text) {
         let formattedText = this.formatText(text);
         let index = 0;
         element.innerHTML = ''; 
-
-        this.audio.currentTime = 0;
-        await this.playAudio();
 
         const type = () => {
             if (index < formattedText.length) {
@@ -93,7 +55,6 @@ class TypewriterEffect {
                 this.currentTimeout = setTimeout(type, 7);
             } else {
                 this.isTyping = false;
-                this.pauseAudio();
                 if (this.queue.length > 0) {
                     const nextTask = this.queue.shift();
                     this.typeText(nextTask.element, nextTask.text);
@@ -171,7 +132,6 @@ class TypewriterEffect {
 
             this.isTyping = false;
             this.queue = [];
-            this.pauseAudio();
         }
     }
 
