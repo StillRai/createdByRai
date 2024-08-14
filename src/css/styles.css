@@ -268,7 +268,7 @@ code span.block {
 
 .scroll-down-arrow {
     position: absolute;
-    bottom: 20rem;
+    bottom: 10%;
     left: 50%;
     transform: translateX(-50%);
     color: var(--color-light);
