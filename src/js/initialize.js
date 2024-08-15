@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Loader from './loader.js'; // Ensure the Loader component is created
 import '../css/loader.css';
+import '../css/home.css';
 
 let isInitialized = false;
 

@@ -1,0 +1,201 @@
+#home {
+    height: 100vh;
+    min-height: 100vh;
+    max-height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#home .container {
+    text-align: left;
+    width: auto;
+    max-width: 100%;
+    position: relative;
+    z-index: 1;
+    padding: 0px;
+}
+
+.sub-opacity {
+    opacity: 0.12;
+}
+
+.title {
+    font-weight: 800;
+    font-size: 9rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+.heading-container {
+    position: relative;
+    top: 50%;
+    left: -10%;
+}
+
+.home-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    display: block;
+    white-space: pre-wrap;
+    text-align: left;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin-left: 28%;
+    width: 100%;
+ 
+    margin-top: -10%;
+}
+
+.home-subtitle span {
+    display: inline;
+}
+
+.home-subtitle .indented {
+    padding-left: 2em;
+}
+
+.sub-opacity {
+    opacity: 0.03;
+}
+
+
+
+
+
+
+
+/* For phones */
+@media (max-width: 319px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .heading-container {
+        top: 150%;
+        left: 10%;
+    }
+    
+    .home-subtitle {
+        margin-left: -28%;
+        font-size: 0.7rem;
+        padding-top: 15px;
+    }
+}
+
+/* For large phones (320px - 479px) */
+@media (min-width: 320px) and (max-width: 479px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .heading-container {
+        top: 150%;
+        left: 15%;
+    }
+
+    
+    .home-subtitle {
+        margin-left: -26%;
+        font-size: 0.8rem;
+        padding-top: 20px;  }
+}
+
+/* For medium phones (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+    .title {
+        font-size: 3.5rem;
+    }
+
+    .heading-container {
+        top: 150%;
+        left: 15%;
+    }
+
+    
+    .home-subtitle {
+        margin-left: -25%;
+        font-size: 1.1rem;    }
+}
+
+/* For small tablets and large phones (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+    .title {
+        font-size: 4.5rem;
+    }
+
+    .heading-container {
+        top: 120%;
+        left: 10%;
+    }
+    
+    .home-subtitle {
+        margin-left: -19%;
+        font-size: 1.3rem;
+    }
+}
+
+/* For screens between phone and tablet size (768px - 900px) */
+@media (min-width: 768px) and (max-width: 900px) {
+    .title {
+        font-size: 5.5rem;
+    }
+
+    .heading-container {
+        top: 100%;
+        left: 0%;
+    }
+
+    .home-subtitle {
+        margin-left: -8%;
+        font-size: 1.4rem;
+    }
+}
+
+/* For iPads/Tablets in Portrait (901px - 1023px) */
+@media (min-width: 901px) and (max-width: 1023px) {
+    .title {
+        font-size: 7rem;
+    }
+
+    .heading-container {
+        top: 70%;
+        left: -10%;
+    }
+
+    .home-subtitle {
+        margin-left: 7.5%;
+    }
+}
+
+/* For iPads/Tablets in Landscape (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .title {
+        font-size: 7rem;
+    }
+
+    .heading-container {
+        top: 70%;
+        left: -10%;
+    }
+    
+    .home-subtitle {
+        margin-left: 8%;    }
+}
+
+For desktops (1367px and above) / @media (min-width: 1367px) {
+    .title {
+        font-size: 9rem;
+    }
+
+    .heading-container {
+        top: 30%;
+        left: -10%;
+    }
+    
+    .home-subtitle {
+        margin-left: 28%;
+    }
+}

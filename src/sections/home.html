@@ -5,94 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rai - Home page</title>
-    <style>
-        .home-title {
-            font-weight: 800;
-            font-size: 9rem;
-            top: 50%;
-            position: relative;
-            font-family: 'Poppins', sans-serif;
-        }
-
-/* For phones */
-@media (max-width: 767px) {
-    .home-title {
-        font-size: 3rem;
-        top: -10%;
-    }
-}
-
-/* For iPads/Tablets in Portrait */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .home-title {
-        font-size: 5rem;
-        top: 10%
-    }
-}
-
-/* For iPads/Tablets in Landscape */
-@media (min-width: 1024px) and (max-width: 1366px) {
-    .home-title {
-        font-size: 7rem;
-        top: 10%
-
-    }
-}
-
-/* For desktops */
-@media (min-width: 1367px) {
-    .home-title {
-        font-size: 9rem;
-        top: 0%;
-    }
-}
-
-.home-subtitle {
-            top: 50%;
-            position: relative;
-            font-family: 'JetBrains Mono', monospace;
-            /* margin-right: -25px; */
-            font-size: 2rem;
-
-        }
-
-/* For phones */
-@media (max-width: 767px) {
-    .home-subtitle {
-    }
-}
-
-/* For iPads/Tablets in Portrait */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .home-subtitle {
-    }
-}
-
-/* For iPads/Tablets in Landscape */
-@media (min-width: 1024px) and (max-width: 1366px) {
-    .home-subtitle {
-    }
-}
-
-/* For desktops */
-@media (min-width: 1367px) {
-    .home-subtitle {
-    }
-}
-
-    </style>
+    <link rel="stylesheet" href="src/css/home.css">
 </head>
 
 <body>
-
     <section id="home" class="w-full relative">
         <div class="container mx-auto text-left">
-            <h1 class="home-title text-custom-light">Hey, I'm Rai</h1>
-            <code class="resize-text home-subtitle">
-            <span class="opacity-5 block text-custom-light">def create():</span>
-            <span class="opacity-5 text-custom-light">&nbsp;&nbsp;&nbsp;&nbsp;print("</span><span class="text-custom-light">...and I create.</span><span class="opacity-5 text-custom-light">")</span>
-            <span class="opacity-5 block text-custom-light">create()</span>
-        </code>
+        <div class="heading-container  text-custom-light">
+            <h1 class="title">Hey, I'm Rai</h1>
+            <code class="home-subtitle">
+                <span class="sub-opacity ">def create():</span>
+                <span class="sub-opacity indented">print("</span><span>...and I create.</span><span class="sub-opacity">")</span>
+                <span class="sub-opacity">create()</span>
+            </code>
+        </div>
         </div>
         <div class="social-icons">
             <a href="https://github.com/StillRai" target="_blank" class="icon" aria-label="GitHub">
@@ -106,7 +32,6 @@
             <i data-feather="chevron-down"></i>
         </div>
     </section>
-
 </body>
 
 </html>
