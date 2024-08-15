@@ -17,7 +17,7 @@
     --color-pastel-green: #C1F4C5;
     --color-pastel-yellow: #FFFFB5;
     --color-pastel-purple: #D4A5FF;
-    --color-light: #F5F5F5;
+    --color-light: #EEEEEE;
     --color-dark: #111A2C;
     --color-yellow: #DBDBA9;
     --color-darkgreen: #4EBF9F;
@@ -80,7 +80,7 @@ code {
 }
 
 body,
-html {
+html { 
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -314,14 +314,7 @@ code span.block {
     position: relative;
 }
 
-.writing-container {
-    text-align: left;
-    justify-content: center;
-    box-sizing: border-box;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    font-family: 'JetBrains Mono', monospace;
-}
+
 .writing-container-nmeetrai {
     text-align: left;
     justify-content: center;
@@ -331,18 +324,22 @@ code span.block {
     font-family: 'JetBrains Mono', monospace;
 }
 
+.js-brace {
+    color: var(--color-pink);
+  }
+  
+  .js-tech {
+    color: var(--color-orange); /* Customize the color as needed */
+  }
+  
+  .js-bracket {
+    color: var(--color-lightgreen);
+  }
 
-.skills-title {
-    padding-left: 2rem;
-    display: inline-block;
-    color: var(--color-light);
-    position: relative;
-    z-index: 5;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
-}
-
-
+  .js-punctuation {
+    color: var(--color-gray); /* Customize the color as needed */
+  }
+  
 .journey-title {
     z-index: 5;
     font-size: var(--font-size-lg);
@@ -357,136 +354,7 @@ code span.block {
   
 }
 
-.skills-content span {
-    display: block;
-    width: 100%;
-}
 
-.js-brace {
-    color: var(--color-pink);
-}
-
-.js-tech {
-    color: var(--color-orange); /* Customize the color as needed */
-}
-
-.js-bracket {
-    color: var(--color-lightgreen);
-}
-
-.js-punctuation {
-    color: var(--color-gray); /* Customize the color as needed */
-}
-
-.skill-details,
-.skill-details .js-list,
-.skill-details .js-text {
-    color: var(--color-darkblue);
-}
-
-.skill-details .js-brace {
-    color: var(--color-pink);
-}
-/* Skill items and dropdown */
-.skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    margin-bottom: 2rem;
-
-}
-
-.skill-item {
-    background-color: var(--primary);
-    color: var(--color-light);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border: 1px solid var(--color-light);
-    position: relative;
-}
-
-.skill-details {
-    display: none;
-    color: var(--color-light);
-    padding-left: 1rem;
-    font-family: 'JetBrains Mono', monospace;
-    position: relative;
-    padding: 0.5rem;
-    border-radius: 5px;
-}
-
-.skill-details,
-.skill-details.static {
-    display: none; /* Hide all skill details by default */
-}
-
-.skill-item:hover + .skill-details,
-.skill-item.active + .skill-details {
-    display: block; /* Show the details when hovering or when the item is active */
-}
-
-.skill-details span {
-    display: inline;
-}
-
-.skill-details.visible {
-    display: block;
-    /* styles for visible state */
-}
-
-.skill-item:hover .skill-details {
-    display: block; /* Show on hover */
-}
-
-.skill-item:hover {
-    transform: translateY(-2px);
-}
-
-.skill-details .js-tech {
-    color: var(--color-yellow);
-}
-
-.skill-details .js-brace {
-    color: var(--color-pink);
-}
-
-/* Responsive adjustments */
-@media (max-width: 992px) {
-    #skills .resize-text {
-        line-height: 1.8rem;
-        margin-top: 0px;
-    }
-}
-
-.skill-item,
-.skills-detail {
-    transition: opacity 0.3s ease;
-}
-
-.skills-detail {
-    opacity: 0;
-}
-
-.skills-detail:hover {
-    opacity: 1;
-}
-
-
-@media (max-width: 768px) {
-    #skills .resize-text {
-        margin-top: 0px;
-    }
-}
-
-@media (max-width: 480px) {
-    #skills .resize-text {
-        margin-top: 0px;
-    }
-}
 
 .wrapped-text-meetrai {
     word-wrap: break-word;
@@ -567,6 +435,12 @@ section {
 }
 
 /* Footer styles */
+
+footer-styling {
+    position: relative;
+    color: blue;
+    
+}
 .footer {
     display: flex;
     /* flex-direction: column; */

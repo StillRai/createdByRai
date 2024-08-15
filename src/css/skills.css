@@ -1,24 +1,145 @@
-.content {
-  font-size: 1.5rem;
+/* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+--color-light: #EEEEEE;
+--color-yellow: #DBDBA9;
+--color-pink: #A271A1;
+--color-darkblue: #59A8D9;
+
+
+
+.skill-item,
+.skills-detail {
+    transition: opacity 0.3s ease;
 }
 
+.skills-detail {
+    opacity: 0;
+}
+
+.skills-detail:hover {
+    opacity: 1;
+}
+
+
 #skills .container {
-  min-width: 100%;
+  min-width: 85%;
+}
+
+.writing-container {
+  text-align: left;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .skills-title {
   font-family: Poppins, sans-serif;
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 400;
+  padding-left: 2rem;
+  display: inline-block;
+  color: var(--color-light);
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
-.container-width {
-  min-width: 95% !important;
+.skills-content {
+  font-size: 1.5rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--color-light);
 }
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-bottom: 2rem;
+
+}
+
+.skill-item {
+  background-color: var(--primary);
+  color: var(--color-light);
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 1px solid var(--color-light);
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.skill-details {
+  display: none;
+  color: var(--color-light);
+  padding-left: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+
+.skill-details,
+.skill-details.static {
+  display: none;
+  /* Hide by default */
+}
+
+.skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  display: block;
+  font-size: 1.5rem;
+  /* Show when item is active */
+}
+
+.skill-details span {
+  display: inline;
+}
+
+.skill-details.visible {
+  display: block;
+}
+
+.skill-item:hover {
+  transform: translateY(-2px);
+  background-color: #ffffff12;
+}
+
+.skill-details .js-tech {
+  color: var(--color-yellow);
+}
+
+.skill-details .js-brace {
+  color: var(--color-pink);
+}
+
+.skill-details,
+.skill-details .js-list,
+.skill-details .js-text {
+  color: var(--color-darkblue);
+}
+
+
+
+
+
+
+
+
+
+
 
 /* For phones */
 @media (max-width: 319px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1rem;
   }
 
@@ -29,7 +150,7 @@
 
 /* For large phones (320px - 479px) */
 @media (min-width: 320px) and (max-width: 479px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1rem;
   }
 
@@ -41,7 +162,7 @@
 
 /* For medium phones (480px - 599px) */
 @media (min-width: 480px) and (max-width: 599px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1.2rem;
   }
 
@@ -52,7 +173,7 @@
 
 /* For small tablets and large phones (600px - 767px) */
 @media (min-width: 600px) and (max-width: 767px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1.3rem;
   }
 
@@ -63,7 +184,7 @@
 
 /* For screens between phone and tablet size (768px - 900px) */
 @media (min-width: 768px) and (max-width: 900px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1rem;
   }
 
@@ -75,7 +196,7 @@
 
 /* For iPads/Tablets in Portrait (901px - 1023px) */
 @media (min-width: 901px) and (max-width: 1023px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1.2rem;
   }
 
@@ -87,7 +208,7 @@
 
 /* For iPads/Tablets in Landscape (1024px - 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
-  .content {
+  .skills-content + .skills-item-active  {
     font-size: 1.2rem;
   }
 
@@ -98,12 +219,15 @@
 }
 
 For desktops (1367px and above) / @media (min-width: 1367px) {
-  .content {
+  .skills-content + .skills-item-active {
     font-size: 1.5rem;
   }
+
 
   .skills-title {
     font-size: 5rem;
   }
+
+  
 
 }
