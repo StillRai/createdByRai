@@ -1,7 +1,22 @@
-#home {
+
+#background-container {
+    background-image: image-set(url(../media/images/bg_1.webp) type("image/webp"), url(../media/images/bg_1.jpg) type("image/jpeg"));
+    width: 100vw;
     height: 100vh;
-    min-height: 100vh;
-    max-height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+#home {
+    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -9,6 +24,7 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
 
 #home .container {
     text-align: left;
@@ -63,12 +79,63 @@
 
 
 
+/* Social Icons */
+.social-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: opacity 0.5s ease;
 
+}
 
+.social-icons.hidden {
+    opacity: 0;
+    pointer-events: none; 
+}
 
+/* Down-arrow */
+
+.scroll-down-arrow {
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-light);
+    font-size: 2rem;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+}
+
+.scroll-down-arrow svg { 
+    display: block;
+    vertical-align: middle;
+    height: 48px;
+    width: 48px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
 
 /* For phones */
 @media (max-width: 319px) {
+
+    #background-container {
+        background-size: auto 100%;
+        background-position: 80% 0%;
+        }
+
     .title {
         font-size: 2rem;
     }
@@ -87,6 +154,13 @@
 
 /* For large phones (320px - 479px) */
 @media (min-width: 320px) and (max-width: 479px) {
+
+    
+    #background-container {
+        background-size: auto 120%;
+        background-position: 80% 0%;
+        }
+
     .title {
         font-size: 2.5rem;
     }
@@ -105,6 +179,13 @@
 
 /* For medium phones (480px - 599px) */
 @media (min-width: 480px) and (max-width: 599px) {
+
+    
+    #background-container {
+        background-size: auto 120%;
+        background-position: 80% 0%;
+        }
+
     .title {
         font-size: 3.5rem;
     }
@@ -122,6 +203,13 @@
 
 /* For small tablets and large phones (600px - 767px) */
 @media (min-width: 600px) and (max-width: 767px) {
+
+    
+    #background-container {
+        background-size: auto 120%;
+        background-position: 70% 0%;
+        }
+
     .title {
         font-size: 4.5rem;
     }
@@ -139,6 +227,13 @@
 
 /* For screens between phone and tablet size (768px - 900px) */
 @media (min-width: 768px) and (max-width: 900px) {
+
+    #background-container {
+        background-size: auto 120%;
+        background-position: 70% 0%;
+        }
+
+
     .title {
         font-size: 5.5rem;
     }
@@ -156,6 +251,12 @@
 
 /* For iPads/Tablets in Portrait (901px - 1023px) */
 @media (min-width: 901px) and (max-width: 1023px) {
+
+    #background-container {
+        background-size: auto 120%;
+        background-position: 60% 0%;   
+     }
+
     .title {
         font-size: 7rem;
     }
@@ -172,6 +273,12 @@
 
 /* For iPads/Tablets in Landscape (1024px - 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
+
+    #background-container {
+        background-size: auto 120%;
+        background-position: 60% 0%;
+    }
+
     .title {
         font-size: 7rem;
     }
@@ -186,6 +293,11 @@
 }
 
 For desktops (1367px and above) / @media (min-width: 1367px) {
+
+    #background-container {
+        background-position: center 50%;
+    }
+
     .title {
         font-size: 9rem;
     }

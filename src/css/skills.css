@@ -1,0 +1,101 @@
+.content {
+    font-size: 1.5rem;   
+  }
+
+  .skills-title {
+    font-family: Poppins, sans-serif;
+    font-size: 5rem;
+    font-weight: 400;
+  }
+  
+/* For phones */
+@media (max-width: 319px) {
+    .content {
+        font-size: 1.5rem;   
+      }
+
+      .skills-title {
+        font-size: 5rem;
+      }
+}
+
+/* For large phones (320px - 479px) */
+@media (min-width: 320px) and (max-width: 479px) { 
+    .content {
+        font-size: 1.5rem;   
+      } 
+
+      .skills-title {
+        font-size: 5rem;
+      }
+
+}
+
+/* For medium phones (480px - 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+    .content {
+        font-size: 1.5rem;   
+      }
+
+      .skills-title {
+        font-size: 5rem;
+      }
+}
+
+/* For small tablets and large phones (600px - 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+    .content {
+        font-size: 1.5rem;   
+      } 
+
+      .skills-title {
+        font-size: 4rem;
+      }
+}
+
+/* For screens between phone and tablet size (768px - 900px) */
+@media (min-width: 768px) and (max-width: 900px) {
+    .content {
+        font-size: 1.5rem;   
+      }
+
+      .skills-title {
+        font-size: 4.3rem;
+      }
+
+}
+
+/* For iPads/Tablets in Portrait (901px - 1023px) */
+@media (min-width: 901px) and (max-width: 1023px) {
+    .content {
+        font-size: 1.5rem;   
+      }
+
+      .skills-title {
+        font-size: 4.5rem;
+      }
+
+}
+
+/* For iPads/Tablets in Landscape (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .content {
+        font-size: 1.5rem;   
+      }
+
+      .skills-title {
+        font-size: 4.7rem;
+      }
+
+}
+
+For desktops (1367px and above) / @media (min-width: 1367px) {
+    .content {
+        font-size: 1.5rem;   
+      } 
+
+      .skills-title {
+        font-size: 5rem;
+      }
+      
+}

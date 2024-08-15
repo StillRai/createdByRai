@@ -32,6 +32,23 @@
             <i data-feather="chevron-down"></i>
         </div>
     </section>
+
+    <script>
+  function setVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+function handleResize() {
+    setTimeout(setVH, 100);
+}
+setVH();
+
+window.addEventListener('resize', handleResize);
+window.addEventListener('orientationchange', handleResize);
+
+window.addEventListener('scroll', handleResize);
+    </script>
 </body>
 
 </html>

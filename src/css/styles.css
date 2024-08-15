@@ -144,6 +144,12 @@ code span.block {
     margin: 0;
 }
 
+
+
+
+
+
+
 /* Button Styling */
 
 /* Green btn */
@@ -263,41 +269,6 @@ code span.block {
     }
 }
 
-
-/* Custom styles for the home section */
-
-.scroll-down-arrow {
-    position: absolute;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--color-light);
-    font-size: 2rem;
-    cursor: pointer;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateX(-50%) translateY(0);
-    }
-    40% {
-        transform: translateX(-50%) translateY(-10px);
-    }
-    60% {
-        transform: translateX(-50%) translateY(-5px);
-    }
-}
-
-
-#background-container {
-    background-image: image-set(url('../media/images/bg_1.webp') type("image/webp"),
-            url('../media/images/bg_1.jpg') type("image/jpeg"));
-    background-size: cover;
-    background-position: center 50%;
-    background-repeat: no-repeat;
-    height: 100vh;
-}
 
 #background-container #theJourney {
     display: none;
@@ -700,22 +671,7 @@ section {
 }
 
 
-/* Social Icons */
-.social-icons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transition: opacity 0.5s ease;
 
-}
-
-.social-icons.hidden {
-    opacity: 0;
-    pointer-events: none; /* Optional: prevent interaction when hidden */
-}
 
 .icon {
     color: var(--color-dark);
