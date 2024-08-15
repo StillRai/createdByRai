@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-    --font-size-lg: 2rem;
+    --font-size-lg: 7rem;
     --font-size-md: 1.75rem;
     --font-size-sm: 1.5rem;
 
