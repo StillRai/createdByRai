@@ -139,9 +139,21 @@
 
 /* For phones */
 @media (max-width: 319px) {
-  .skills-content + .skills-item-active  {
+  .skills-content {
+    font-size: 1rem;
+
+  } 
+  .skill-item  {
     font-size: 1rem;
   }
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1rem;
+}
+  .skill-item-active  {
+    font-size: 1rem;
+  }
+
 
   .skills-title {
     font-size: 2rem;
@@ -150,7 +162,18 @@
 
 /* For large phones (320px - 479px) */
 @media (min-width: 320px) and (max-width: 479px) {
-  .skills-content + .skills-item-active  {
+  .skills-content {
+    font-size: 1rem;
+
+  } 
+  .skill-item  {
+    font-size: 1rem;
+  }
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1rem;
+}
+  .skill-item-active  {
     font-size: 1rem;
   }
 
@@ -162,7 +185,18 @@
 
 /* For medium phones (480px - 599px) */
 @media (min-width: 480px) and (max-width: 599px) {
-  .skills-content + .skills-item-active  {
+  .skills-content {
+    font-size: 1.2rem;
+
+  } 
+  .skill-item  {
+    font-size: 1.2rem;
+  }
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1.2rem;
+}
+  .skill-item-active  {
     font-size: 1.2rem;
   }
 
@@ -173,7 +207,18 @@
 
 /* For small tablets and large phones (600px - 767px) */
 @media (min-width: 600px) and (max-width: 767px) {
-  .skills-content + .skills-item-active  {
+  .skills-content {
+    font-size: 1.3rem;
+
+  } 
+  .skill-item  {
+    font-size: 1.3rem;
+  }
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1.3rem;
+}
+  .skill-item-active  {
     font-size: 1.3rem;
   }
 
@@ -184,10 +229,20 @@
 
 /* For screens between phone and tablet size (768px - 900px) */
 @media (min-width: 768px) and (max-width: 900px) {
-  .skills-content + .skills-item-active  {
+  .skills-content {
+    font-size: 1rem;
+
+  } 
+  .skill-item  {
     font-size: 1rem;
   }
-
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1rem;
+}
+  .skill-item-active  {
+    font-size: 1rem;
+  }
   .skills-title {
     font-size: 2.5rem;
   }
@@ -196,10 +251,20 @@
 
 /* For iPads/Tablets in Portrait (901px - 1023px) */
 @media (min-width: 901px) and (max-width: 1023px) {
-  .skills-content + .skills-item-active  {
+  .skills-content {
+    font-size: 1.2rem;
+
+  } 
+  .skill-item  {
     font-size: 1.2rem;
   }
-
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1.2rem;
+}
+  .skill-item-active  {
+    font-size: 1.2rem;
+  }
   .skills-title {
     font-size: 2.5rem;
   }
@@ -208,10 +273,20 @@
 
 /* For iPads/Tablets in Landscape (1024px - 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
-  .skills-content + .skills-item-active  {
-    font-size: 1.2rem;
-  }
+  .skills-content {
+    font-size: 1.4rem;
 
+  } 
+  .skill-item  {
+    font-size: 1.4rem;
+  }
+  .skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1.4rem;
+}
+  .skill-item-active  {
+    font-size: 1.4rem;
+  }
   .skills-title {
     font-size: 3.5rem;
   }
@@ -219,15 +294,24 @@
 }
 
 For desktops (1367px and above) / @media (min-width: 1367px) {
-  .skills-content + .skills-item-active {
+  .skills-content {
+    font-size: 1.5rem;
+
+  } 
+  .skill-item  {
     font-size: 1.5rem;
   }
 
+.skill-item:hover+.skill-details,
+.skill-item.active+.skill-details {
+  font-size: 1.5rem;
+}
 
+  .skill-item-active  {
+    font-size: 1.5rem;
+  }
   .skills-title {
     font-size: 5rem;
   }
-
-  
 
 }
