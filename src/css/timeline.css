@@ -1,0 +1,106 @@
+#theJourney {
+    min-height: 100vh;
+}
+
+.flowchart {
+    --start-year: 2003;
+    --end-year: 2025;
+    --total-items: 11;
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding: 20px 0;
+    overflow: visible;
+}
+
+.line.vertical {
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--color-light);
+    z-index: 1;
+}
+
+.flowchart-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.flowchart-item::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-light);
+    z-index: 1;
+}
+
+.year-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--color-darkblue);
+    color: var(--color-light);
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 14px;
+    transition: transform 0.3s ease;
+    z-index: 2;
+    margin-right: 20px;
+}
+
+.info-box {
+    flex-grow: 1;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.info-content {
+    background-color: var(--color-darkblue);
+    color: var(--color-light);
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    border: 1px dashed var(--color-light); 
+}
+
+.flowchart-item.show {
+    opacity: 1;
+}
+
+.flowchart-item.show .info-box {
+    opacity: 1;
+}
+
+@media (max-width: 767px) {
+    #theJourney {
+        flex-direction: column;
+    }
+
+    .line.vertical {
+        left: 25px;
+    }
+
+    .flowchart-item::before {
+        left: 25px;
+    }
+}
+
+@media (min-width: 768px) {
+    .writing-container {
+        padding-left: 20px;
+    }
+}

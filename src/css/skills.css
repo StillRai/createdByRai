@@ -9,6 +9,13 @@
 --color-darkblue: #59A8D9;
 
 
+#skills {
+  min-height: 100vh;
+  height: auto;
+  position: relative;
+  height: 130vh;
+  
+}
 
 .skill-item,
 .skills-detail {
@@ -26,6 +33,11 @@
 
 #skills .container {
   min-width: 85%;
+  padding-bottom: 0%;
+  position: absolute;
+  z-index: 1;
+  display: block;
+  height: 100%;
 }
 
 .writing-container {
@@ -158,6 +170,15 @@
   .skills-title {
     font-size: 2rem;
   }
+
+  
+#skills {
+  min-height: 100vh;
+  height: auto;
+  position: relative;
+  height: 300vh;
+  
+}
 }
 
 /* For large phones (320px - 479px) */

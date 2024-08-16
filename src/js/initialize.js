@@ -3,7 +3,7 @@ import { generateStars } from './stars';
 import { InteractiveFlowchart } from './flowchart.js';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Loader from './loader.js'; // Ensure the Loader component is created
+import Loader from './loader.js';
 import '../css/loader.css';
 import '../css/home.css';
 import '../css/skills.css';
@@ -21,29 +21,29 @@ export function initialize() {
         currentPath.includes('pages/') ? '../' : '';
 
     // Show loader for all pages
-    showLoader(); // Show loader before loading any page
+    showLoader(); 
 
     // Load Navbar and then handle the rest of the initialization
     loadNavbar(basePath).then(() => {
         // Handle different pages
         if (currentPath === '/' || currentPath === '/index.html') {
             loadHomePage(basePath).then(() => {
-                hideLoader(); // Hide loader after homepage is loaded
+                hideLoader();
             });
         } else if (currentPath.includes('theJourney')) {
             loadJourneyPage(basePath).then(() => {
-                hideLoader(); // Hide loader after the Journey page is loaded
+                hideLoader();
             });
         } else if (currentPath.includes('meetRai')) {
             loadMeetRaiPage(basePath).then(() => {
-                hideLoader(); // Hide loader after Meet Rai page is loaded
+                hideLoader(); 
             });
         } else if (currentPath.includes('projects/weatherapp')) {
             loadWeatherApp(basePath).then(() => {
-                hideLoader(); // Hide loader after the Weather App page is loaded
+                hideLoader(); 
             });
         } else {
-            hideLoader(); // Ensure loader is hidden for any other pages
+            hideLoader();
         }
 
         // Load Footer after everything else
@@ -91,7 +91,7 @@ function loadHomePage(basePath) {
     const sectionsContainer = document.getElementById('sections-container');
     if (sectionsContainer) {
         sectionsContainer.innerHTML = '';
-        const sections = ['home', 'skills'];
+        const sections = ['home', 'skills', 'timeline']; 
 
         return sections.reduce((promise, section) => {
             return promise.then(() => {
@@ -104,6 +104,9 @@ function loadHomePage(basePath) {
                         }
                         if (section === 'skills') {
                             document.dispatchEvent(new Event('skillsLoaded'));
+                        }
+                        if (section === 'timeline') {
+                            new InteractiveFlowchart(); 
                         }
                     })
                     .catch(error => console.error(`Error loading ${section} section:`, error));
@@ -128,7 +131,7 @@ function loadJourneyPage(basePath) {
             })
             .catch(error => console.error('Error loading The Journey page:', error));
     }
-    return Promise.resolve(); // Resolve to ensure the loader is hidden even if no content is loaded
+    return Promise.resolve();
 }
 
 function loadMeetRaiPage(basePath) {
@@ -147,7 +150,7 @@ function loadMeetRaiPage(basePath) {
             })
             .catch(error => console.error('Error loading Meet Rai page:', error));
     }
-    return Promise.resolve(); // Resolve to ensure the loader is hidden even if no content is loaded
+    return Promise.resolve(); 
 }
 
 function loadWeatherApp(basePath) {
