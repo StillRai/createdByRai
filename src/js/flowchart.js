@@ -16,6 +16,7 @@ export class InteractiveFlowchart {
     init() {
         window.addEventListener('scroll', () => this.checkScroll());
         this.positionInfoBoxes();
+        this.line.style.zIndex = '1';
     }
 
     checkScroll() {
@@ -32,37 +33,50 @@ export class InteractiveFlowchart {
 
     animateItems() {
         if (this.line) {
+            this.line.style.zIndex = '0';
             this.line.style.opacity = '1';
             this.line.style.height = '0';
         }
-
+    
+        this.flowchartItems.forEach(item => {
+            const yearCircle = item.querySelector('.year-circle');
+            if (yearCircle) {
+                yearCircle.style.zIndex = '2';
+            }
+        });
+    
         this.showNextItem();
     }
-
+    
     showNextItem() {
         if (this.currentItemIndex >= this.flowchartItems.length) return;
-
+    
         const item = this.flowchartItems[this.currentItemIndex];
         item.classList.add('show');
-
+    
         const infoBox = item.querySelector('.info-box');
         if (infoBox) {
             infoBox.style.opacity = '1';
         }
-
+    
         const yearCircle = item.querySelector('.year-circle');
         if (yearCircle) {
             yearCircle.style.transform = 'scale(1.1) translateX(-50%)';
+    
             setTimeout(() => {
                 yearCircle.style.transform = 'scale(1) translateX(-50%)';
-            }, 300);
+    
+                setTimeout(() => {
+                    this.updateLineHeight(item, () => {
+                        this.currentItemIndex++;
+                        setTimeout(() => this.showNextItem(), 300);
+                    });
+                }, 200);
+            }, 100);
         }
-
-        this.updateLineHeight(item, () => {
-            this.currentItemIndex++;
-            setTimeout(() => this.showNextItem(), 500);
-        });
     }
+    
+    
 
     updateLineHeight(item, callback) {
         const yearCircle = item.querySelector('.year-circle');
@@ -70,10 +84,10 @@ export class InteractiveFlowchart {
         const yearCircleRect = yearCircle.getBoundingClientRect();
         const lineHeight = (yearCircleRect.top + yearCircleRect.height / 2) - flowchartRect.top;
         
-        this.line.style.transition = 'height 0.5s ease-out';
+        this.line.style.transition = 'height 1s ease-out'; // Slower line animation
         this.line.style.height = `${lineHeight}px`;
 
-        setTimeout(callback, 500);
+        setTimeout(callback, 800); // Wait for line animation to complete
     }
 
     positionInfoBoxes() {
@@ -84,8 +98,8 @@ export class InteractiveFlowchart {
                     infoBox.style.left = '0';
                     infoBox.style.right = '55%';
                 } else {
-                    infoBox.style.left = '55%';
-                    infoBox.style.right = '0';
+                    infoBox.style.left = '75%';
+                    infoBox.style.right = '20';
                 }
             }
         });
