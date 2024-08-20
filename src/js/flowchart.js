@@ -68,6 +68,7 @@ export class InteractiveFlowchart {
     
                 setTimeout(() => {
                     this.updateLineHeight(item, () => {
+                        this.animateConnectingLine(item);
                         this.currentItemIndex++;
                         setTimeout(() => this.showNextItem(), 300);
                     });
@@ -90,16 +91,30 @@ export class InteractiveFlowchart {
         setTimeout(callback, 800); // Wait for line animation to complete
     }
 
+    animateConnectingLine(item) {
+        const connectingLine = item.querySelector('.connecting-line');
+        const infoBox = item.querySelector('.info-box');
+        if (connectingLine && infoBox) {
+            const lineWidth = Math.abs(infoBox.getBoundingClientRect().left - connectingLine.getBoundingClientRect().left);
+            connectingLine.style.width = `${lineWidth}px`;
+        }
+    }
+
     positionInfoBoxes() {
         this.flowchartItems.forEach((item, index) => {
             const infoBox = item.querySelector('.info-box');
-            if (infoBox) {
+            const connectingLine = item.querySelector('.connecting-line');
+            if (infoBox && connectingLine) {
                 if (index % 2 === 0) {
                     infoBox.style.left = '0';
                     infoBox.style.right = '55%';
+                    connectingLine.style.left = '50px';
+                    connectingLine.style.right = 'auto';
                 } else {
                     infoBox.style.left = '75%';
                     infoBox.style.right = '20';
+                    connectingLine.style.left = 'auto';
+                    connectingLine.style.right = '50px';
                 }
             }
         });

@@ -72,6 +72,24 @@ background: linear-gradient(0deg, rgba(59,59,59,1) 0.3%, rgba(17,26,44,1) 99.7%)
     top: 0;
 }
 
+.connecting-line {
+    position: absolute;
+    top: 50px; /* Half of the year-circle height */
+    width: 0;
+    height: 2px;
+    background-color: var(--color-light);
+    transition: width 0.5s ease-out;
+    z-index: 1;
+}
+
+.flowchart-item:nth-child(even) .connecting-line {
+    left: 50px; /* Half of the year-circle width */
+}
+
+.flowchart-item:nth-child(odd) .connecting-line {
+    right: 50px; /* Half of the year-circle width */
+}
+
 .info-box {
     position: absolute;
     top: 10px; /* Reduce the top value to move it closer */
