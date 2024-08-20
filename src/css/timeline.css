@@ -1,5 +1,13 @@
+/* Timeline specific styles */
+#timeline {
+    position: relative;
+    z-index: 2;
+}
+
 #theJourney {
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 .flowchart {
@@ -11,41 +19,40 @@
     position: relative;
     padding: 20px 0;
     overflow: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .line.vertical {
     position: absolute;
-    left: 25px;
-    top: 0;
-    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 4%;
     width: 2px;
     background-color: var(--color-light);
     z-index: 1;
+    height: 0;
+    transition: height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
 }
 
 .flowchart-item {
-    position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 10%;
     opacity: 0;
     transition: opacity 1s ease;
-}
-
-.flowchart-item::before {
-    content: '';
-    position: absolute;
-    left: 25px;
-    top: 50%;
-    width: 20px;
-    height: 2px;
-    background-color: var(--color-light);
-    z-index: 1;
+    width: 100%;
+    max-width: 800px; 
+    box-sizing: border-box;
+    position: relative;
+    height: 50px;
 }
 
 .year-circle {
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-color: var(--color-darkblue);
     color: var(--color-light);
@@ -57,13 +64,19 @@
     font-size: 14px;
     transition: transform 0.3s ease;
     z-index: 2;
-    margin-right: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
 }
 
 .info-box {
     flex-grow: 1;
     opacity: 0;
     transition: opacity 0.5s ease;
+    width: 45%;
+    position: absolute;
+    top: -25px;
 }
 
 .info-content {
@@ -71,10 +84,22 @@
     color: var(--color-light);
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
-    border: 1px dashed var(--color-light); 
+    border: 1px dashed var(--color-light);
+    max-width: 100%;
+}
+
+/* Left side items */
+.flowchart-item:nth-child(odd) .info-box {
+    right: 55%;
+    text-align: right;
+}
+
+/* Right side items */
+.flowchart-item:nth-child(even) .info-box {
+    left: 55%;
+    text-align: left;
 }
 
 .flowchart-item.show {
@@ -92,15 +117,36 @@
 
     .line.vertical {
         left: 25px;
+        transform: none;
     }
 
-    .flowchart-item::before {
+    .flowchart-item {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .year-circle {
         left: 25px;
+        transform: none;
+    }
+
+    .info-box {
+        width: calc(100% - 70px);
+        margin-left: 70px !important;
+        left: 0 !important;
+        right: auto !important;
+        text-align: left !important;
     }
 }
 
 @media (min-width: 768px) {
     .writing-container {
         padding-left: 20px;
+    }
+
+    .flowchart {
+        margin-top: 0;
     }
 }

@@ -12,9 +12,8 @@
 #skills {
   min-height: 100vh;
   height: auto;
-  position: relative;
-  height: 130vh;
-  
+  display: flex;
+
 }
 
 .skill-item,
@@ -32,12 +31,12 @@
 
 
 #skills .container {
-  min-width: 85%;
-  padding-bottom: 0%;
-  position: absolute;
-  z-index: 1;
-  display: block;
-  height: 100%;
+  width: 100%;
+  max-width: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .writing-container {
@@ -61,7 +60,7 @@
 }
 
 .skills-content {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-family: 'JetBrains Mono', monospace;
   color: var(--color-light);
 }
@@ -85,7 +84,7 @@
   transition: background-color 0.3s ease;
   border: 1px solid var(--color-light);
   position: relative;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .skill-details {
@@ -108,7 +107,7 @@
 .skill-item:hover+.skill-details,
 .skill-item.active+.skill-details {
   display: block;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   /* Show when item is active */
 }
 
@@ -295,18 +294,18 @@
 /* For iPads/Tablets in Landscape (1024px - 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
   .skills-content {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 
   } 
   .skill-item  {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .skill-item:hover+.skill-details,
 .skill-item.active+.skill-details {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 }
   .skill-item-active  {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
   .skills-title {
     font-size: 3.5rem;
@@ -316,20 +315,20 @@
 
 For desktops (1367px and above) / @media (min-width: 1367px) {
   .skills-content {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 
   } 
   .skill-item  {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
 .skill-item:hover+.skill-details,
 .skill-item.active+.skill-details {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
   .skill-item-active  {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
   .skills-title {
     font-size: 5rem;

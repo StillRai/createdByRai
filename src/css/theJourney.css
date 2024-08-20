@@ -1,0 +1,17 @@
+#theJourney {
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+}
+
+#theJourney .container {
+    min-width: 85%;
+  }
+
+.writing-container {
+    text-align: left;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }

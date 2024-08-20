@@ -7,6 +7,7 @@ import Loader from './loader.js';
 import '../css/loader.css';
 import '../css/home.css';
 import '../css/skills.css';
+import '../css/theJourney.css';
 
 let isInitialized = false;
 
