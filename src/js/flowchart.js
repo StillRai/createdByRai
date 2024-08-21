@@ -95,20 +95,7 @@ export class InteractiveFlowchart {
         const connectingLine = item.querySelector('.connecting-line');
         if (connectingLine) {
             const windowWidth = window.innerWidth;
-            let lineWidth;
-
-            if (windowWidth <= 319) {
-                lineWidth = '20px';
-            } else if (windowWidth <= 479) {
-                lineWidth = '25px';
-            } else if (windowWidth <= 599) {
-                lineWidth = '30px';
-            } else if (windowWidth <= 767) {
-                lineWidth = '35px';
-            } else {
-                lineWidth = '70px';
-            }
-
+            let lineWidth = windowWidth <= 767 ? '35px' : '50px';
             connectingLine.style.width = lineWidth;
         }
     }
@@ -120,36 +107,29 @@ export class InteractiveFlowchart {
             const connectingLine = item.querySelector('.connecting-line');
             if (infoBox && connectingLine) {
                 if (windowWidth <= 767) {
-                    let leftPosition;
-                    if (windowWidth <= 319) {
-                        leftPosition = '70px';
-                    } else if (windowWidth <= 479) {
-                        leftPosition = '80px';
-                    } else if (windowWidth <= 599) {
-                        leftPosition = '90px';
-                    } else {
-                        leftPosition = '100px';
-                    }
-                    infoBox.style.left = leftPosition;
+                    infoBox.style.left = '75px';
                     infoBox.style.right = 'auto';
-                    connectingLine.style.left = `calc(${leftPosition} - 25px)`;
+                    connectingLine.style.left = '40px';
                     connectingLine.style.right = 'auto';
+                    connectingLine.style.width = '35px';
                 } else {
                     if (index % 2 === 0) {
-                        infoBox.style.left = 'calc(60% + 20px)';
+                        infoBox.style.left = 'calc(50% + 60px)';
                         infoBox.style.right = 'auto';
                         connectingLine.style.left = 'calc(50% + 50px)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.left = 'auto';
-                        infoBox.style.right = 'calc(60% + 20px)';
+                        infoBox.style.right = 'calc(50% + 60px)';
                         connectingLine.style.left = 'auto';
                         connectingLine.style.right = 'calc(50% + 50px)';
                     }
+                    connectingLine.style.width = '50px';
                 }
             }
         });
     }
+    
 }
 
 document.addEventListener('DOMContentLoaded', () => {
