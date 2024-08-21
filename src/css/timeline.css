@@ -3,7 +3,7 @@
     position: relative;
     z-index: 2;
     background: rgb(59,59,59);
-background: linear-gradient(0deg, rgba(59,59,59,1) 0.3%, rgba(17,26,44,1) 99.7%);
+background: linear-gradient(0deg, rgba(61,80,117,1) 0.3%, rgba(17,26,44,1) 99.7%);
 }
 
 #theJourney {
@@ -74,8 +74,8 @@ background: linear-gradient(0deg, rgba(59,59,59,1) 0.3%, rgba(17,26,44,1) 99.7%)
 
 .connecting-line {
     position: absolute;
-    top: 50px; /* Half of the year-circle height */
-    width: 0;
+    top: 50px; 
+    width: 20%;
     height: 2px;
     background-color: var(--color-light);
     transition: width 0.5s ease-out;
@@ -83,19 +83,20 @@ background: linear-gradient(0deg, rgba(59,59,59,1) 0.3%, rgba(17,26,44,1) 99.7%)
 }
 
 .flowchart-item:nth-child(even) .connecting-line {
-    left: 50px; /* Half of the year-circle width */
+    left: 200px; 
 }
 
 .flowchart-item:nth-child(odd) .connecting-line {
-    right: 50px; /* Half of the year-circle width */
+    right: 280px !important; 
 }
 
 .info-box {
     position: absolute;
-    top: 10px; /* Reduce the top value to move it closer */
+    top: 10px;
     width: auto;
-    max-width: calc(50% - 50px); /* Adjust this value to move closer to the circle */
-    margin-left: -30px; /* Shift left to move closer */
+    max-width: calc(50% - 50px); 
+    margin-left: -30px;
+    z-index: 2;
 }
 
 

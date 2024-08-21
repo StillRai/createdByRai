@@ -107,14 +107,10 @@ export class InteractiveFlowchart {
             if (infoBox && connectingLine) {
                 if (index % 2 === 0) {
                     infoBox.style.left = '0';
-                    infoBox.style.right = '55%';
-                    connectingLine.style.left = '50px';
-                    connectingLine.style.right = 'auto';
+                    infoBox.style.right = '55%';           
                 } else {
                     infoBox.style.left = '75%';
-                    infoBox.style.right = '20';
-                    connectingLine.style.left = 'auto';
-                    connectingLine.style.right = '50px';
+                    infoBox.style.right = '20';     
                 }
             }
         });
