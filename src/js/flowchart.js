@@ -15,6 +15,7 @@ export class InteractiveFlowchart {
 
     init() {
         window.addEventListener('scroll', () => this.checkScroll());
+        window.addEventListener('resize', () => this.positionInfoBoxes());
         this.positionInfoBoxes();
         this.line.style.zIndex = '1';
     }
@@ -77,8 +78,6 @@ export class InteractiveFlowchart {
         }
     }
     
-    
-
     updateLineHeight(item, callback) {
         const yearCircle = item.querySelector('.year-circle');
         const flowchartRect = this.flowchart.getBoundingClientRect();
@@ -129,7 +128,6 @@ export class InteractiveFlowchart {
             }
         });
     }
-    
 }
 
 document.addEventListener('DOMContentLoaded', () => {

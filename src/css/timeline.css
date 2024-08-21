@@ -1,4 +1,10 @@
 /* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 #timeline {
     z-index: 2;
     background: #3d5075;
@@ -27,15 +33,14 @@
 .horizontal-line {
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
+    left: 10%;
+    right: 10%;
     height: 1px;
     background-color: #ffffff0a;
     z-index: 3;
-    margin-left: 10%;
-    margin-right: 10%;
 }
 
+/* Flowchart Styles */
 .flowchart {
     --start-year: 2003;
     --end-year: 2025;
@@ -152,25 +157,35 @@
 @media (max-width: 767px) {
     .flowchart {
         max-width: 100%;
-        top: 0rem;
+        top: 0;
         padding: 20px 10px;
     }
+
     .year-circle {
-            left: 50%;
-            transform: translateX(-50%);
-        }
+        width: 50px; 
+        height: 50px;
+        font-size: 0.8rem;
+    }
+
     .info-content {
         font-size: 0.9rem;
+        padding: 10px;
     }
+
     .info-box {
-            left: 75px; /* Keep as it is unless you need to adjust */
-            right: auto;
-        }
-        .line.vertical {
-            margin-left: 42.8%;
-            transform: translateX(-50%);
-            top: 58%;
-        }
+        width: 80%; /* Adjust to fit better on small screens */
+        max-width: none;
+        position: absolute; 
+        left: 10%; /* Align to left side */
+        right: 10%; /* Align to right side */
+        margin-top: 60px; /* Ensure there's enough space above */
+    }
+
+    .line.vertical {
+        margin-left: 42.8%;
+        top: 58%;
+    }
+
     .connecting-line {
         width: 35px !important;
     }
@@ -180,24 +195,18 @@
     .info-content {
         font-size: 0.95rem;
     }
+
     .info-box {
         width: 35%;
     }
-    .flowchart-item:nth-child(even) .connecting-line,
-    .flowchart-item:nth-child(odd) .connecting-line {
-        width: 50px !important;
-    }
-    .flowchart-item:nth-child(even) .info-box {
-        left: calc(50% + 60px);
-    }
-    .flowchart-item:nth-child(odd) .info-box {
-        right: calc(50% + 60px);
-    }
+
     .line.vertical {
         margin-left: 42.5%;
-        transform: translateX(-50%);
         top: 48%;
-    
+    }
+
+    .connecting-line {
+        width: 50px !important;
     }
 }
 
@@ -205,21 +214,9 @@
     .info-content {
         font-size: 1rem;
     }
-    .flowchart-item:nth-child(even) .info-box {
-        left: calc(50% + 60px);
-        right: auto;
-    }
-    .flowchart-item:nth-child(odd) .info-box {
-        right: calc(50% + 60px);
-        left: auto;
-    }
-    .flowchart-item:nth-child(even) .connecting-line {
-        left: calc(50% + 50px);
-        right: auto;
-    }
-    .flowchart-item:nth-child(odd) .connecting-line {
-        right: calc(50% + 50px);
-        left: auto;
+
+    .info-box {
+        max-width: calc(35% - 70px);
     }
 }
 
@@ -227,7 +224,8 @@
     .info-box {
         max-width: calc(35% - 70px);
     }
+
     .info-content {
         font-size: 1.1rem;
     }
-}}
+}
