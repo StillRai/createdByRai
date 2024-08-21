@@ -93,24 +93,38 @@ export class InteractiveFlowchart {
 
     animateConnectingLine(item) {
         const connectingLine = item.querySelector('.connecting-line');
-        const infoBox = item.querySelector('.info-box');
-        if (connectingLine && infoBox) {
-            const lineWidth = Math.abs(infoBox.getBoundingClientRect().left - connectingLine.getBoundingClientRect().left);
-            connectingLine.style.width = `${lineWidth}px`;
+        if (connectingLine) {
+            const isMobile = window.innerWidth <= 767;
+            if (isMobile) {
+                connectingLine.style.width = '25px'; // Shorter line for mobile
+            } else {
+                connectingLine.style.width = '70px'; // Shorter line for desktop
+            }
         }
     }
-
     positionInfoBoxes() {
+        const isMobile = window.innerWidth <= 767;
         this.flowchartItems.forEach((item, index) => {
             const infoBox = item.querySelector('.info-box');
             const connectingLine = item.querySelector('.connecting-line');
             if (infoBox && connectingLine) {
-                if (index % 2 === 0) {
-                    infoBox.style.left = '0';
-                    infoBox.style.right = '55%';           
+                if (isMobile) {
+                    infoBox.style.left = '100px';
+                    infoBox.style.right = 'auto';
+                    connectingLine.style.left = '75px';
+                    connectingLine.style.right = 'auto';
                 } else {
-                    infoBox.style.left = '75%';
-                    infoBox.style.right = '20';     
+                    if (index % 2 === 0) {
+                        infoBox.style.left = 'calc(60% + 20px)';
+                        infoBox.style.right = 'auto';
+                        connectingLine.style.left = 'calc(50% + 50px)';
+                        connectingLine.style.right = 'auto';
+                    } else {
+                        infoBox.style.left = 'auto';
+                        infoBox.style.right = 'calc(60% + 20px)';
+                        connectingLine.style.left = 'auto';
+                        connectingLine.style.right = 'calc(50% + 50px)';
+                    }
                 }
             }
         });
