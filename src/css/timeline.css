@@ -1,15 +1,47 @@
-/* Timeline specific styles */
+/* Base styles */
 #timeline {
-    position: relative;
     z-index: 2;
-    background: linear-gradient(0deg, rgba(61,80,117,1) 0.3%, rgba(17,26,44,1) 99.7%);
+    background: #3d5075;
     width: 100%;
-}
+        min-height: 100vh;
+        height: auto;
+        display: flex;
+      
+      }
+
 
 #theJourney {
     min-height: 100vh;
     position: relative;
     z-index: 1;
+}
+
+.flowchart-container {
+top: 20%;
+}
+
+.container {
+    width: 100%;
+    max-width: 85%;
+    margin: 0 auto;
+}
+
+.timeline-content {
+    font-size: 1.3rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--color-light);
+  }
+
+.horizontal-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ffffff0a;
+    z-index: 3;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .flowchart {
@@ -24,19 +56,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 600px; 
+    margin: 0 auto;
+    top: 10rem;
 }
 
 .line.vertical {
-    z-index: 0;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 2%;
-    width: 2px;
-    background-color: var(--color-light);
-    height: 0;
-    transition: height 0.5s ease-out, opacity 0.5s ease-out;
-    opacity: 0;
+        z-index: 0;
+        position: absolute;
+        margin-left: 21.3%;
+        transform: translateX(-50%);
+        top: 4%;
+        width: 2px;
+        background-color: var(--color-light);
+        height: 0;
+        transition: height 0.5s ease-out, opacity 0.5s ease-out;
+        opacity: 0;
 }
 
 .flowchart-item {
@@ -59,12 +94,12 @@
     border-radius: 50%;
     background-color: var(--color-darkblue);
     color: var(--color-light);
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Poppins', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 1.3rem;
     transition: transform 0.3s ease;
     position: absolute;
     left: 50%;
@@ -96,9 +131,9 @@
     color: var(--color-light);
     padding: 10px;
     border-radius: 5px;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: 'Poppins', sans-serif;
     border: 2px solid var(--color-light);
-    font-size: 14px;
+    font-size: 1.3rem;
 }
 
 .flowchart-item.show {
@@ -109,72 +144,146 @@
     opacity: 1;
 }
 
-/* Medium screens and up */
-@media (min-width: 768px) {
-    .flowchart-item:nth-child(even) .connecting-line {
-        left: calc(50% + 50px);
+/* Media Queries */
+@media (max-width: 319px) {
+    .year-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 1rem;
+        }
+        .info-content {
+            font-size: 1rem;
+        }
+    .info-box {
+        width: calc(100% - 70px);
+        left: 70px !important;
     }
-
-    .flowchart-item:nth-child(odd) .connecting-line {
-        right: calc(50% + 50px);
+    .connecting-line {
+        left: 55px !important;
     }
+    .flowchart {
+        top: 0rem;
+    }
+    
 }
 
-    @media (min-width: 768px) {
-        .flowchart-item:nth-child(even) .info-box {
-            left: calc(50% + 70px);
-        }
-    
-        .flowchart-item:nth-child(odd) .info-box {
-            right: calc(50% + 70px);
-        }
-    }
-
-/* Small screens */
-@media (max-width: 767px) {
-    .line.vertical {
-        left: 25px;
-        transform: none;
-    }
-
-    .flowchart-item {
-        margin-bottom: 10%;
-        height: auto;
-    }
-
+@media (min-width: 320px) and (max-width: 479px) {
     .year-circle {
-        left: 25px;
-        transform: none;
-    }
-
-    .connecting-line {
-        left: 75px !important;
-        right: auto !important;
-    }
+        width: 70px;
+        height: 70px;
+        font-size: 1rem;
+        }
+        .info-content {
+            font-size: 1rem;
+        }
 
     .info-box {
-        width: calc(100% - 100px);
-        max-width: none;
-        left: 100px !important;
-        right: auto !important;
-        top: 0;
+        width: calc(100% - 80px);
+        left: 80px !important;
+    }
+    .connecting-line {
+        left: 60px !important;
+    }
+    .flowchart {
+        top: 0rem;
     }
 }
 
-/* Extra small screens */
-@media (max-width: 480px) {
+@media (min-width: 480px) and (max-width: 599px) {
     .year-circle {
         width: 80px;
         height: 80px;
-        font-size: 12px;
+        font-size: 1.2rem;
     }
-
-    .connecting-line {
-        left: 65px !important;
+    .info-content {
+        font-size: 1.2rem;
     }
-
     .info-box {
         width: calc(100% - 90px);
         left: 90px !important;
     }
+    .connecting-line {
+        left: 65px !important;
+    }
+    
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .year-circle {
+        width: 90px;
+        height: 90px;
+        font-size: 1.3rem;
+    }
+    .info-content {
+        font-size: 1.3rem;
+    }
+    .info-box {
+        width: calc(100% - 100px);
+        left: 100px !important;
+    }
+    .connecting-line {
+        left: 70px !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+    .flowchart-item:nth-child(even) .connecting-line {
+        left: calc(50% + 50px);
+    }
+    .flowchart-item:nth-child(odd) .connecting-line {
+        right: calc(50% + 50px);
+    }
+    .flowchart-item:nth-child(even) .info-box {
+        left: calc(50% + 70px);
+    }
+    .flowchart-item:nth-child(odd) .info-box {
+        right: calc(50% + 70px);
+    }
+    .info-box {
+        max-width: calc(45% - 70px);
+    }
+    @media (min-width: 768px) {
+        .writing-container {
+            padding-right: 2rem;
+        }
+        #flowchart-container {
+            padding-left: 2rem;
+        }
+}
+
+@media (min-width: 901px) and (max-width: 1023px) {
+    .info-box {
+        max-width: calc(42% - 70px);
+    }
+    .year-circle {
+    
+        font-size: 1.2rem;
+    }
+    .info-content {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .info-box {
+        max-width: calc(40% - 70px);
+    
+    font-size: 1.2rem;
+    }
+.info-content {
+    font-size: 1.2rem;
+
+}
+    }
+
+@media (min-width: 1367px) {
+    .info-box {
+        max-width: calc(35% - 70px);
+      
+        font-size: 1.2rem;
+    }
+        .info-content {
+            font-size: 1.2rem;
+    }
+    
 }

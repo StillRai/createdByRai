@@ -150,6 +150,10 @@
         font-size: 0.7rem;
         padding-top: 15px;
     }
+    .writing-container {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+}
 }
 
 /* For large phones (320px - 479px) */
@@ -175,6 +179,11 @@
         margin-left: -26%;
         font-size: 0.8rem;
         padding-top: 20px;  }
+
+        .writing-container {
+            padding-left: 0rem !important;
+            padding-right: 0rem !important;
+        }
 }
 
 /* For medium phones (480px - 599px) */
@@ -199,6 +208,11 @@
     .home-subtitle {
         margin-left: -25%;
         font-size: 1.1rem;    }
+
+        .writing-container {
+            padding-left: 0rem !important;
+            padding-right: 0rem !important;
+    }
 }
 
 /* For small tablets and large phones (600px - 767px) */
@@ -223,6 +237,11 @@
         margin-left: -19%;
         font-size: 1.3rem;
     }
+
+    .writing-container {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+}
 }
 
 /* For screens between phone and tablet size (768px - 900px) */
@@ -247,6 +266,11 @@
         margin-left: -8%;
         font-size: 1.4rem;
     }
+
+    .writing-container {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+}
 }
 
 /* For iPads/Tablets in Portrait (901px - 1023px) */
@@ -269,6 +293,11 @@
     .home-subtitle {
         margin-left: 7.5%;
     }
+
+    .writing-container {
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+}
 }
 
 /* For iPads/Tablets in Landscape (1024px - 1366px) */
@@ -290,6 +319,7 @@
     
     .home-subtitle {
         margin-left: 8%;    }
+        
 }
 
 For desktops (1367px and above) / @media (min-width: 1367px) {

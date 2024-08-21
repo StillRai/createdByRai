@@ -94,24 +94,45 @@ export class InteractiveFlowchart {
     animateConnectingLine(item) {
         const connectingLine = item.querySelector('.connecting-line');
         if (connectingLine) {
-            const isMobile = window.innerWidth <= 767;
-            if (isMobile) {
-                connectingLine.style.width = '25px'; // Shorter line for mobile
+            const windowWidth = window.innerWidth;
+            let lineWidth;
+
+            if (windowWidth <= 319) {
+                lineWidth = '20px';
+            } else if (windowWidth <= 479) {
+                lineWidth = '25px';
+            } else if (windowWidth <= 599) {
+                lineWidth = '30px';
+            } else if (windowWidth <= 767) {
+                lineWidth = '35px';
             } else {
-                connectingLine.style.width = '70px'; // Shorter line for desktop
+                lineWidth = '70px';
             }
+
+            connectingLine.style.width = lineWidth;
         }
     }
+
     positionInfoBoxes() {
-        const isMobile = window.innerWidth <= 767;
+        const windowWidth = window.innerWidth;
         this.flowchartItems.forEach((item, index) => {
             const infoBox = item.querySelector('.info-box');
             const connectingLine = item.querySelector('.connecting-line');
             if (infoBox && connectingLine) {
-                if (isMobile) {
-                    infoBox.style.left = '100px';
+                if (windowWidth <= 767) {
+                    let leftPosition;
+                    if (windowWidth <= 319) {
+                        leftPosition = '70px';
+                    } else if (windowWidth <= 479) {
+                        leftPosition = '80px';
+                    } else if (windowWidth <= 599) {
+                        leftPosition = '90px';
+                    } else {
+                        leftPosition = '100px';
+                    }
+                    infoBox.style.left = leftPosition;
                     infoBox.style.right = 'auto';
-                    connectingLine.style.left = '75px';
+                    connectingLine.style.left = `calc(${leftPosition} - 25px)`;
                     connectingLine.style.right = 'auto';
                 } else {
                     if (index % 2 === 0) {

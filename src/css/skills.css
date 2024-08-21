@@ -43,15 +43,20 @@
   text-align: left;
   justify-content: center;
   box-sizing: border-box;
-  padding-left: 2rem;
+  padding-left: 0rem;
   padding-right: 2rem;
 }
 
-.skills-title {
+.left-2rem{
+  padding-left: 2rem !important;
+
+}
+
+.content-title {
   font-family: Poppins, sans-serif;
   font-size: 4.5rem;
   font-weight: 400;
-  padding-left: 2rem;
+  padding-left: 0rem;
   display: inline-block;
   color: var(--color-light);
   position: relative;
@@ -59,10 +64,12 @@
   margin-bottom: 2rem;
 }
 
-.skills-content {
+.span-content {
   font-size: 1.3rem;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: Poppins, sans-serif;
   color: var(--color-light);
+  line-height: 2;
+
 }
 
 .skills-list {
@@ -78,7 +85,8 @@
 .skill-item {
   background-color: var(--primary);
   color: var(--color-light);
-  padding: 1rem 1rem;
+  padding: 0.4rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -140,17 +148,9 @@
 
 
 
-
-
-
-
-
-
-
-
 /* For phones */
 @media (max-width: 319px) {
-  .skills-content {
+  .span-content {
     font-size: 1rem;
 
   } 
@@ -166,8 +166,9 @@
   }
 
 
-  .skills-title {
+  .content-title {
     font-size: 2rem;
+    padding-left: 0rem !important;
   }
 
   
@@ -178,11 +179,16 @@
   height: 300vh;
   
 }
+
+.skills-list {
+  padding-left: 0rem !important;
+  padding-right: 0rem !important;
+}
 }
 
 /* For large phones (320px - 479px) */
 @media (min-width: 320px) and (max-width: 479px) {
-  .skills-content {
+  .span-content {
     font-size: 1rem;
 
   } 
@@ -197,15 +203,20 @@
     font-size: 1rem;
   }
 
-  .skills-title {
+  .content-title {
     font-size: 2.5rem;
+    padding-left: 0rem !important;
+  }
+  .skills-list {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
   }
 
 }
 
 /* For medium phones (480px - 599px) */
 @media (min-width: 480px) and (max-width: 599px) {
-  .skills-content {
+  .span-content {
     font-size: 1.2rem;
 
   } 
@@ -220,14 +231,19 @@
     font-size: 1.2rem;
   }
 
-  .skills-title {
+  .content-title {
     font-size: 3rem;
+    padding-left: 0rem !important;
+  }
+  .skills-list {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
   }
 }
 
 /* For small tablets and large phones (600px - 767px) */
 @media (min-width: 600px) and (max-width: 767px) {
-  .skills-content {
+  .span-content {
     font-size: 1.3rem;
 
   } 
@@ -242,14 +258,19 @@
     font-size: 1.3rem;
   }
 
-  .skills-title {
+  .content-title {
     font-size: 4rem;
+    padding-left: 0rem !important;
+  }
+  .skills-list {
+    padding-left: 0rem !important;
+    padding-right: 0rem !important;
   }
 }
 
 /* For screens between phone and tablet size (768px - 900px) */
 @media (min-width: 768px) and (max-width: 900px) {
-  .skills-content {
+  .span-content {
     font-size: 1rem;
 
   } 
@@ -263,15 +284,18 @@
   .skill-item-active  {
     font-size: 1rem;
   }
-  .skills-title {
+  .content-title {
     font-size: 2.5rem;
+  }
+  .skills-list {
+    padding-right: 0rem !important;
   }
 
 }
 
 /* For iPads/Tablets in Portrait (901px - 1023px) */
 @media (min-width: 901px) and (max-width: 1023px) {
-  .skills-content {
+  .span-content {
     font-size: 1.2rem;
 
   } 
@@ -285,15 +309,18 @@
   .skill-item-active  {
     font-size: 1.2rem;
   }
-  .skills-title {
+  .content-title {
     font-size: 2.5rem;
+  }
+  .skills-list {
+    padding-right: 0rem !important;
   }
 
 }
 
 /* For iPads/Tablets in Landscape (1024px - 1366px) */
 @media (min-width: 1024px) and (max-width: 1366px) {
-  .skills-content {
+  .span-content {
     font-size: 1.2rem;
 
   } 
@@ -307,14 +334,14 @@
   .skill-item-active  {
     font-size: 1.2rem;
   }
-  .skills-title {
-    font-size: 3.5rem;
+  .content-title {
+    font-size: 3.2rem;
   }
 
 }
 
 For desktops (1367px and above) / @media (min-width: 1367px) {
-  .skills-content {
+  .span-content {
     font-size: 1.3rem;
 
   } 
