@@ -148,50 +148,45 @@ export class InteractiveFlowchart {
         }
     }
 
-    positionInfoBoxes() {
-        const windowWidth = window.innerWidth;
-        this.flowchartItems.forEach((item, index) => {
-            const infoBox = item.querySelector('.info-box');
-            const connectingLine = item.querySelector('.connecting-line');
-            if (infoBox && connectingLine) {
-                if (windowWidth <= 767) {
-                    // Mobile layout
-                    connectingLine.style.top = '50%';
-                    connectingLine.style.width = '30px';
-                    connectingLine.style.height = '2px';
-                    if (index % 2 === 0) {
-                        infoBox.style.marginLeft = '220px';
-                        infoBox.style.marginRight = '0';
-                        infoBox.style.textAlign = 'left';
-                        connectingLine.style.left = 'calc(50% + 30px)';
-                        connectingLine.style.right = 'auto';
-                    } else {
-                        infoBox.style.marginRight = '70%';
-                        infoBox.style.marginLeft = '0';
-                        infoBox.style.textAlign = 'right';
-                        connectingLine.style.right = 'calc(50% + 20px)';
-                        connectingLine.style.left = 'auto';
-                    }
+  positionInfoBoxes() {
+    const windowWidth = window.innerWidth;
+    this.flowchartItems.forEach((item, index) => {
+        const infoBox = item.querySelector('.info-box');
+        const connectingLine = item.querySelector('.connecting-line');
+        if (infoBox && connectingLine) {
+            if (windowWidth <= 767) {
+                // Mobile layout
+                connectingLine.style.width = '2px';
+                connectingLine.style.height = '15px';
+                connectingLine.style.top = '75px';
+                infoBox.style.top = '90px';
+                if (index % 2 === 0) {
+                    infoBox.style.alignSelf = 'flex-start';
                 } else {
-                    // Desktop layout
-                    if (index % 2 === 0) {
-                        infoBox.style.left = 'calc(50% + 60px)';
-                        infoBox.style.right = 'auto';
-                        connectingLine.style.left = 'calc(50% + 50px)';
-                        connectingLine.style.right = 'auto';
-                    } else {
-                        infoBox.style.left = 'auto';
-                        infoBox.style.right = 'calc(50% + 60px)';
-                        connectingLine.style.left = 'auto';
-                        connectingLine.style.right = 'calc(50% + 50px)';
-                    }
-                    connectingLine.style.width = '0';
-                    connectingLine.style.height = '2px';
-                    connectingLine.style.top = '50px';
+                    infoBox.style.alignSelf = 'flex-end';
+                }
+            } else {
+                // Desktop layout
+                connectingLine.style.width = ''; // Reset to CSS value
+                connectingLine.style.height = '2px';
+                connectingLine.style.top = '40px';
+                infoBox.style.top = '0';
+                infoBox.style.alignSelf = '';
+                if (index % 2 === 0) {
+                    infoBox.style.left = '0';
+                    infoBox.style.right = 'auto';
+                    connectingLine.style.right = '50%';
+                    connectingLine.style.left = 'auto';
+                } else {
+                    infoBox.style.left = 'auto';
+                    infoBox.style.right = '0';
+                    connectingLine.style.left = '50%';
+                    connectingLine.style.right = 'auto';
                 }
             }
-        });
-    }
+        }
+    });
+}
 }
 
 document.addEventListener('DOMContentLoaded', () => {
