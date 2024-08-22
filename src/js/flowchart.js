@@ -17,7 +17,7 @@ export class InteractiveFlowchart {
     init() {
         window.addEventListener('scroll', () => this.checkScroll());
         window.addEventListener('resize', () => this.handleResize());
-        this.positionInfoBoxes();
+        this.positionItems();
         this.line.style.zIndex = '1';
     }
 
@@ -28,7 +28,7 @@ export class InteractiveFlowchart {
 
         this.resizeTimeout = setTimeout(() => {
             this.resetLayout();
-            this.positionInfoBoxes();
+            this.positionItems();
             this.checkScroll();
         }, 250);
     }
@@ -42,20 +42,8 @@ export class InteractiveFlowchart {
             item.classList.remove('show');
             const infoBox = item.querySelector('.info-box');
             const connectingLine = item.querySelector('.connecting-line');
-            if (infoBox) {
-                infoBox.style.opacity = '0';
-                infoBox.style.marginLeft = '';
-                infoBox.style.marginRight = '';
-                infoBox.style.left = '';
-                infoBox.style.right = '';
-                infoBox.style.textAlign = '';
-            }
-            if (connectingLine) {
-                connectingLine.style.width = '0';
-                connectingLine.style.height = '2px';
-                connectingLine.style.left = '';
-                connectingLine.style.right = '';
-            }
+            if (infoBox) infoBox.style.opacity = '0';
+            if (connectingLine) connectingLine.style.width = '0';
         });
     }
 
@@ -77,13 +65,6 @@ export class InteractiveFlowchart {
             this.line.style.opacity = '1';
             this.line.style.height = '0';
         }
-    
-        this.flowchartItems.forEach(item => {
-            const yearCircle = item.querySelector('.year-circle');
-            if (yearCircle) {
-                yearCircle.style.zIndex = '2';
-            }
-        });
     
         this.showNextItem();
     }
@@ -148,45 +129,63 @@ export class InteractiveFlowchart {
         }
     }
 
-  positionInfoBoxes() {
-    const windowWidth = window.innerWidth;
-    this.flowchartItems.forEach((item, index) => {
-        const infoBox = item.querySelector('.info-box');
-        const connectingLine = item.querySelector('.connecting-line');
-        if (infoBox && connectingLine) {
-            if (windowWidth <= 767) {
-                // Mobile layout
-                connectingLine.style.width = '2px';
-                connectingLine.style.height = '15px';
-                connectingLine.style.top = '75px';
-                infoBox.style.top = '90px';
-                if (index % 2 === 0) {
-                    infoBox.style.alignSelf = 'flex-start';
+    positionItems() {
+        const windowWidth = window.innerWidth;
+        this.flowchartItems.forEach((item, index) => {
+            const infoBox = item.querySelector('.info-box');
+            const connectingLine = item.querySelector('.connecting-line');
+            if (infoBox && connectingLine) {
+                if (windowWidth <= 767) {
+                    // Mobile layout
+                    connectingLine.style.top = '50%';
+                    connectingLine.style.width = '30px';
+                    connectingLine.style.height = '2px';
+                    if (index % 2 === 0) {
+                        infoBox.style.marginLeft = '210px';
+                        infoBox.style.marginRight = '0';
+                        infoBox.style.textAlign = 'left';
+                        connectingLine.style.left = 'calc(50% + 30px)';
+                        connectingLine.style.right = 'auto';
+                    } else {
+                        infoBox.style.marginRight = '60px';
+                        infoBox.style.marginLeft = '0';
+                        infoBox.style.textAlign = 'right';
+                        connectingLine.style.right = 'calc(50% + 30px)';
+                        connectingLine.style.left = 'auto';
+                    }
                 } else {
-                    infoBox.style.alignSelf = 'flex-end';
-                }
-            } else {
-                // Desktop layout
-                connectingLine.style.width = ''; // Reset to CSS value
-                connectingLine.style.height = '2px';
-                connectingLine.style.top = '40px';
-                infoBox.style.top = '0';
-                infoBox.style.alignSelf = '';
-                if (index % 2 === 0) {
-                    infoBox.style.left = '0';
-                    infoBox.style.right = 'auto';
-                    connectingLine.style.right = '50%';
-                    connectingLine.style.left = 'auto';
-                } else {
-                    infoBox.style.left = 'auto';
-                    infoBox.style.right = '0';
-                    connectingLine.style.left = '50%';
-                    connectingLine.style.right = 'auto';
+                    // Desktop layout
+                    connectingLine.style.width = '50px';
+                    connectingLine.style.height = '2px';
+                    connectingLine.style.top = '50px';
+                    if (index % 2 === 0) {
+                        infoBox.style.left = 'calc(50% + 60px)';
+                        infoBox.style.right = 'auto';
+                        connectingLine.style.left = 'calc(50% + 50px)';
+                        connectingLine.style.right = 'auto';
+                    } else {
+                        infoBox.style.left = 'auto';
+                        infoBox.style.right = 'calc(50% + 60px)';
+                        connectingLine.style.left = 'auto';
+                        connectingLine.style.right = 'calc(50% + 50px)';
+                    }
                 }
             }
+        });
+
+        // Position vertical line
+        if (windowWidth <= 767) {
+            this.line.style.left = '50%';
+            this.line.style.marginLeft = '-1px';
+            this.line.style.top = '61%';
+        } else if (windowWidth <= 1023) {
+            this.line.style.marginLeft = '42.5%';
+            this.line.style.top = '48%';
+        } else {
+            this.line.style.marginLeft = '21.3%';
+            this.line.style.top = '6.5%';
         }
-    });
-}
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
