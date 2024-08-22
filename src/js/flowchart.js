@@ -71,7 +71,7 @@ export class InteractiveFlowchart {
                     this.updateLineHeight(item, () => {
                         this.animateConnectingLine(item);
                         this.currentItemIndex++;
-                        setTimeout(() => this.showNextItem(), 300);
+                        setTimeout(() => this.showNextItem(), 500);
                     });
                 }, 200);
             }, 100);
@@ -84,18 +84,21 @@ export class InteractiveFlowchart {
         const yearCircleRect = yearCircle.getBoundingClientRect();
         const lineHeight = (yearCircleRect.top + yearCircleRect.height / 2) - flowchartRect.top;
         
-        this.line.style.transition = 'height 1s ease-out'; // Slower line animation
+        this.line.style.transition = 'height 1s ease-out';
         this.line.style.height = `${lineHeight}px`;
 
-        setTimeout(callback, 800); // Wait for line animation to complete
+        setTimeout(callback, 800);
     }
 
     animateConnectingLine(item) {
         const connectingLine = item.querySelector('.connecting-line');
         if (connectingLine) {
             const windowWidth = window.innerWidth;
-            let lineWidth = windowWidth <= 767 ? '35px' : '50px';
-            connectingLine.style.width = lineWidth;
+            let lineWidth = windowWidth <= 767 ? '40px' : '50px';
+            connectingLine.style.width = '0';
+            setTimeout(() => {
+                connectingLine.style.width = lineWidth;
+            }, 50);
         }
     }
 
@@ -106,11 +109,10 @@ export class InteractiveFlowchart {
             const connectingLine = item.querySelector('.connecting-line');
             if (infoBox && connectingLine) {
                 if (windowWidth <= 767) {
-                    infoBox.style.left = '75px';
-                    infoBox.style.right = 'auto';
-                    connectingLine.style.left = '40px';
+                    infoBox.style.left = '70px';
+                    infoBox.style.right = '10px';
+                    connectingLine.style.left = '30px';
                     connectingLine.style.right = 'auto';
-                    connectingLine.style.width = '35px';
                 } else {
                     if (index % 2 === 0) {
                         infoBox.style.left = 'calc(50% + 60px)';
@@ -123,8 +125,8 @@ export class InteractiveFlowchart {
                         connectingLine.style.left = 'auto';
                         connectingLine.style.right = 'calc(50% + 50px)';
                     }
-                    connectingLine.style.width = '50px';
                 }
+                connectingLine.style.width = '0';
             }
         });
     }
