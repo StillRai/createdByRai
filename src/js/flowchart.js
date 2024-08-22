@@ -5,6 +5,7 @@ export class InteractiveFlowchart {
         this.line = document.querySelector('.line.vertical');
         this.animated = false;
         this.currentItemIndex = 0;
+        this.resizeTimeout = null;
         
         if (this.flowchart && this.line && this.flowchartItems.length > 0) {
             this.init();
@@ -15,9 +16,47 @@ export class InteractiveFlowchart {
 
     init() {
         window.addEventListener('scroll', () => this.checkScroll());
-        window.addEventListener('resize', () => this.positionInfoBoxes());
+        window.addEventListener('resize', () => this.handleResize());
         this.positionInfoBoxes();
         this.line.style.zIndex = '1';
+    }
+
+    handleResize() {
+        if (this.resizeTimeout) {
+            clearTimeout(this.resizeTimeout);
+        }
+
+        this.resizeTimeout = setTimeout(() => {
+            this.resetLayout();
+            this.positionInfoBoxes();
+            this.checkScroll();
+        }, 250);
+    }
+
+    resetLayout() {
+        this.animated = false;
+        this.currentItemIndex = 0;
+        this.line.style.height = '0';
+        this.line.style.opacity = '0';
+        this.flowchartItems.forEach(item => {
+            item.classList.remove('show');
+            const infoBox = item.querySelector('.info-box');
+            const connectingLine = item.querySelector('.connecting-line');
+            if (infoBox) {
+                infoBox.style.opacity = '0';
+                infoBox.style.marginLeft = '';
+                infoBox.style.marginRight = '';
+                infoBox.style.left = '';
+                infoBox.style.right = '';
+                infoBox.style.textAlign = '';
+            }
+            if (connectingLine) {
+                connectingLine.style.width = '0';
+                connectingLine.style.height = '2px';
+                connectingLine.style.left = '';
+                connectingLine.style.right = '';
+            }
+        });
     }
 
     checkScroll() {
@@ -94,11 +133,18 @@ export class InteractiveFlowchart {
         const connectingLine = item.querySelector('.connecting-line');
         if (connectingLine) {
             const windowWidth = window.innerWidth;
-            let lineWidth = windowWidth <= 767 ? '40px' : '50px';
-            connectingLine.style.width = '0';
-            setTimeout(() => {
-                connectingLine.style.width = lineWidth;
-            }, 50);
+            if (windowWidth <= 767) {
+                connectingLine.style.height = '0';
+                setTimeout(() => {
+                    connectingLine.style.height = '30px';
+                }, 50);
+            } else {
+                let lineWidth = '50px';
+                connectingLine.style.width = '0';
+                setTimeout(() => {
+                    connectingLine.style.width = lineWidth;
+                }, 50);
+            }
         }
     }
 
@@ -109,11 +155,25 @@ export class InteractiveFlowchart {
             const connectingLine = item.querySelector('.connecting-line');
             if (infoBox && connectingLine) {
                 if (windowWidth <= 767) {
-                    infoBox.style.left = '70px';
-                    infoBox.style.right = '10px';
-                    connectingLine.style.left = '30px';
-                    connectingLine.style.right = 'auto';
+                    // Mobile layout
+                    connectingLine.style.top = '50%';
+                    connectingLine.style.width = '30px';
+                    connectingLine.style.height = '2px';
+                    if (index % 2 === 0) {
+                        infoBox.style.marginLeft = '220px';
+                        infoBox.style.marginRight = '0';
+                        infoBox.style.textAlign = 'left';
+                        connectingLine.style.left = 'calc(50% + 30px)';
+                        connectingLine.style.right = 'auto';
+                    } else {
+                        infoBox.style.marginRight = '70%';
+                        infoBox.style.marginLeft = '0';
+                        infoBox.style.textAlign = 'right';
+                        connectingLine.style.right = 'calc(50% + 20px)';
+                        connectingLine.style.left = 'auto';
+                    }
                 } else {
+                    // Desktop layout
                     if (index % 2 === 0) {
                         infoBox.style.left = 'calc(50% + 60px)';
                         infoBox.style.right = 'auto';
@@ -125,8 +185,10 @@ export class InteractiveFlowchart {
                         connectingLine.style.left = 'auto';
                         connectingLine.style.right = 'calc(50% + 50px)';
                     }
+                    connectingLine.style.width = '0';
+                    connectingLine.style.height = '2px';
+                    connectingLine.style.top = '50px';
                 }
-                connectingLine.style.width = '0';
             }
         });
     }
