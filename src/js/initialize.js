@@ -7,7 +7,7 @@ import Loader from './loader.js';
 import '../css/loader.css';
 import '../css/home.css';
 import '../css/skills.css';
-import '../css/theJourney.css';
+import '../css/projects.css';
 
 let isInitialized = false;
 
@@ -92,7 +92,7 @@ function loadHomePage(basePath) {
     const sectionsContainer = document.getElementById('sections-container');
     if (sectionsContainer) {
         sectionsContainer.innerHTML = '';
-        const sections = ['home', 'skills', 'timeline']; 
+        const sections = ['home', 'skills', 'timeline', 'projects',]; 
 
         return sections.reduce((promise, section) => {
             return promise.then(() => {
@@ -108,6 +108,9 @@ function loadHomePage(basePath) {
                         }
                         if (section === 'timeline') {
                             new InteractiveFlowchart(); 
+                        }
+                        if (section === 'projects') {
+                            document.dispatchEvent(new Event('projectsLoaded'));
                         }
                     })
                     .catch(error => console.error(`Error loading ${section} section:`, error));

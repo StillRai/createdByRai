@@ -12,6 +12,7 @@
     min-height: 100vh;
     height: auto;
     display: flex;
+    position: relative;
 }
 
 #theJourney {
@@ -243,7 +244,6 @@
     }
 
     .info-box {
-        width: 80%;
         margin: 0 auto;
         position: relative;
         top: auto;

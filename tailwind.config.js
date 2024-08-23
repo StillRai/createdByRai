@@ -16,6 +16,7 @@ module.exports = {
         'button-light': '#57A773', // Light Green
         'custom-light': '#EEEEEE',
         'custom-dark': '#111A2C',
+        'custom-secondary': '#D6D3C4',
         'custom-yellow': '#DBDBA9',
         'custom-darkgreen': '#04BF9D',
         'custom-lightgreen': '#5BD963',

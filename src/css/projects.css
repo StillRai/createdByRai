@@ -1,3 +1,13 @@
+
+/* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+--color-dark: #111A2C;
+}
+
 #theJourney {
     min-height: 100vh;
     height: auto;
@@ -14,4 +24,8 @@
     box-sizing: border-box;
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .dark {
+    color: var(--color-dark);
   }
