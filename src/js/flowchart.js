@@ -190,13 +190,13 @@ export class InteractiveFlowchart {
                     connectingLine.style.width = '30px';
                     connectingLine.style.height = '2px';
                     if (index % 2 === 0) {
-                        infoBox.style.marginLeft = '12.5rem';
+                        infoBox.style.marginLeft = 'calc(50% + 3rem)';
                         infoBox.style.marginRight = '0';
                         infoBox.style.textAlign = 'left';
                         connectingLine.style.left = 'calc(50% + 2.5rem)';
                         connectingLine.style.right = 'auto';
                     } else {
-                        infoBox.style.marginRight = '60px';
+                        infoBox.style.marginRight = 'calc(50% + 3rem)';
                         infoBox.style.marginLeft = '-0.5rem';
                         infoBox.style.textAlign = 'right';
                         connectingLine.style.right = 'calc(50% + 0%)';
@@ -222,13 +222,13 @@ export class InteractiveFlowchart {
                     connectingLine.style.height = '2px';
                     connectingLine.style.top = '30px';
                     if (index % 2 === 0) {
-                        infoBox.style.left = 'calc(50% - 23%)';
+                        infoBox.style.left = 'calc(60% + 1rem)';
                         infoBox.style.right = 'auto';
-                        connectingLine.style.left = 'calc(50% + 2rem)';
+                        connectingLine.style.left = 'calc(50% + 4rem)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.left = 'auto';
-                        infoBox.style.right = 'calc(50% - 23%)';
+                        infoBox.style.right = 'calc(50% + 4rem)';
                         connectingLine.style.left = 'auto';
                         connectingLine.style.right = 'calc(50% + 1%)';
                     }
