@@ -7,27 +7,26 @@
     <title>Skills Section</title>
     <link rel="stylesheet" href="./../css/timeline.css">
     <link rel="stylesheet" href="./../css/skills.css">
-
     <script defer src="../js/typeEffect.js"></script>
 </head>
 
 <body>
-    <section id="timeline" class="h-screen relative w-full flex flex-col items-center justify-start bg-custom-dark pt-10">
+    <section id="timeline" class="min-h-screen w-full flex flex-col items-center justify-start bg-custom-dark pt-10">
         <div class="container text-left">
-            <div class="flex flex-wrap w-12/12 mx-auto">
-                <div class="w-full lg:w-1/2">
-                    <h2 class="content-title ">Meet Rai</h2>
+            <div class="flex flex-wrap w-full mx-auto">
+                <!-- Content Column -->
+                <div class="w-full lg:w-1/2 lg:pr-8 mb-8 lg:mb-0">
+                    <h2 class="content-title">Meet Rai</h2>
                     <div class="writing-container">
-    
-                    <span class="span-content">
-                        Hey, I'm Rai. I have a few hobbies that bring balance to my life outside of tech. Gardening,
-                        especially germinating fruit and vegetable seeds, is one of my favourite things to do. 
-                    </span><br> <br>
-                    <span class="span-content"> I'm an
-                        avid reader of thrillers and crime novels. My bookcase includes collections by Authors such as Steig Larson, Dan Brown and Jo Nesbø.
-                         When not reading, I'm often listening to true crime podcasts, or watching survival shows.
-                    </span><br>
-                                            <h2 class="content-title mt-5">The Journey</h2>
+                        <span class="span-content">
+                            Hey, I'm Rai. I have a few hobbies that bring balance to my life outside of tech. Gardening,
+                            especially germinating fruit and vegetable seeds, is one of my favourite things to do. 
+                        </span><br><br>
+                        <span class="span-content">
+                            I'm an avid reader of thrillers and crime novels. My bookcase includes collections by Authors such as Steig Larson, Dan Brown and Jo Nesbø.
+                            When not reading, I'm often listening to true crime podcasts, or watching survival shows.
+                        </span><br>
+                        <h2 class="content-title mt-5">The Journey</h2>
                         <br>
                         <span class="span-content">
                             Welcome to my tech journey — a series of happy accidents and questionable decisions! It all started
@@ -41,97 +40,96 @@
                             dabble in PHP to alter Joomla templates — just enough to get the job done. During my time working as an underwriter at HSBC, tech remained
                             my constant hobby. Throughout various customer service roles, tech was always there in the background. It's been a wild ride, and who knows what tech mishap I'll stumble into next?
                         </span>
-                      
                     </div>
-                </div> <br />
-                    <h2 class="content-title mt-5">Timeline</h2>
+                </div>
+                
+                <!-- Timeline Column -->
+                <div class="w-full lg:w-1/2 lg:pl-8">
+                    <h2 class="content-title">Timeline</h2>
                     <br>
-                <div class="w-full lg:w-1/2 justify-center">
-                   
-
-                    <div class="line vertical"></div>
                     <div id="flowchart-container" class="flowchart relative w-full flex flex-col items-center">
-                <div class="flowchart-item" data-year="2003" data-info="Dreamweaver">
-                    <div class="year-circle">2003</div>
-                    <div class="info-box">
-                        <div class="info-content">Dreamweaver</div>
+                        <div class="line vertical"></div>
+                        
+                        <div class="flowchart-item" data-year="2003" data-info="Dreamweaver">
+                            <div class="year-circle">2003</div>
+                            <div class="info-box">
+                                <div class="info-content">Dreamweaver</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2005" data-info="Flash, Premiere Pro">
+                            <div class="year-circle">2005</div>
+                            <div class="info-box">
+                                <div class="info-content">Flash, Premiere Pro</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2007" data-info="Joomla, Final Cut Pro, Photoshop">
+                            <div class="year-circle">2007</div>
+                            <div class="info-box">
+                                <div class="info-content">Joomla, Final Cut Pro, Photoshop</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2008" data-info="HTML, CSS">
+                            <div class="year-circle">2008</div>
+                            <div class="info-box">
+                                <div class="info-content">HTML, CSS</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2010" data-info="Wix, WordPress, Illustrator">
+                            <div class="year-circle">2010</div>
+                            <div class="info-box">
+                                <div class="info-content">Illustrator</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2015" data-info="JavaScript, SASS, Optimization">
+                            <div class="year-circle">2015</div>
+                            <div class="info-box">
+                                <div class="info-content">JavaScript, SASS, Optimization</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2016" data-info="PHP, After Effects, Animate">
+                            <div class="year-circle">2016</div>
+                            <div class="info-box">
+                                <div class="info-content">PHP, After Effects, Animate</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2022" data-info="Python, SQL, APIs, DevOps">
+                            <div class="year-circle">2022</div>
+                            <div class="info-box">
+                                <div class="info-content">Python, SQL, APIs, DevOps</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2023" data-info="React, TypeScript, Git, MongoDB, Node.js, React-Native">
+                            <div class="year-circle">2023</div>
+                            <div class="info-box">
+                                <div class="info-content">React, TypeScript, Git, MongoDB, Node.js, React-Native</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2024" data-info="Tailwind, Cyber Security, AI Product Design">
+                            <div class="year-circle">2024</div>
+                            <div class="info-box">
+                                <div class="info-content">Tailwind, Cyber Security, Cisco Packet Tracer, AI Product Design</div>
+                            </div>
+                            <div class="connecting-line"></div>
+                        </div>
+                        <div class="flowchart-item" data-year="2025" data-info="AWS, Azure">
+                            <div class="year-circle future">2025</div>
+                            <div class="info-box">
+                                <div class="info-content future">AWS, Azure, CompTIA Pentest+</div>
+                            </div>
+                            <div class="connecting-line future-connecting-line"></div>
+                        </div>
                     </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2005" data-info="Flash, Premiere Pro">
-                    <div class="year-circle">2005</div>
-                    <div class="info-box">
-                        <div class="info-content">Flash, Premiere Pro</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2007" data-info="Joomla, Final Cut Pro, Photoshop">
-                    <div class="year-circle">2007</div>
-                    <div class="info-box">
-                        <div class="info-content">Joomla, Final Cut Pro, Photoshop</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2008" data-info="HTML, CSS">
-                    <div class="year-circle">2008</div>
-                    <div class="info-box">
-                        <div class="info-content">HTML, CSS</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2010" data-info="Wix, WordPress, Illustrator">
-                    <div class="year-circle">2010</div>
-                    <div class="info-box">
-                        <div class="info-content">Illustrator</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2015" data-info="JavaScript, SASS, Optimization">
-                    <div class="year-circle">2015</div>
-                    <div class="info-box">
-                        <div class="info-content">JavaScript, SASS, Optimization</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2016" data-info="PHP, After Effects, Animate">
-                    <div class="year-circle">2016</div>
-                    <div class="info-box">
-                        <div class="info-content">PHP, After Effects, Animate</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2022" data-info="Python, SQL, APIs, DevOps">
-                    <div class="year-circle">2022</div>
-                    <div class="info-box">
-                        <div class="info-content">Python, SQL, APIs, DevOps</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2023"
-                    data-info="React, TypeScript, Git, MongoDB, Node.js, React-Native">
-                    <div class="year-circle">2023</div>
-                    <div class="info-box">
-                        <div class="info-content">React, TypeScript, Git, MongoDB, Node.js, React-Native</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2024" data-info="Tailwind, Cyber Security, AI Product Design">
-                    <div class="year-circle">2024</div>
-                    <div class="info-box">
-                        <div class="info-content">Tailwind, Cyber Security, Cisco Packet Tracer, AI Product Design</div>
-                    </div>
-                    <div class="connecting-line"></div>
-                </div>
-                <div class="flowchart-item" data-year="2025" data-info="AWS, Azure">
-                    <div class="year-circle future">2025</div>
-                    <div class="info-box">
-                        <div class="info-content future">AWS, Azure, CompTIA Pentest+</div>
-                    </div>
-                    <div class="connecting-line future-connecting-line"></div>
-
                 </div>
             </div>
-        </div>
         </div>
     </section>
 

@@ -7,6 +7,8 @@ export class InteractiveFlowchart {
         this.animated = false;
         this.currentItemIndex = 0;
         this.resizeTimeout = null;
+        this.currentBreakpoint = this.getBreakpoint();
+        this.currentOrientation = this.getOrientation();
 
         if (this.flowchart && this.line) {
             this.init();
@@ -18,8 +20,20 @@ export class InteractiveFlowchart {
     init() {
         window.addEventListener('scroll', () => this.checkScroll());
         window.addEventListener('resize', () => this.handleResize());
+        window.addEventListener('orientationchange', () => this.handleOrientationChange());
         this.positionItems();
-        this.line.style.zIndex = '1';
+        this.updateLinePosition();
+    }
+
+    getBreakpoint() {
+        const width = window.innerWidth;
+        if (width <= 767) return 'mobile';
+        if (width <= 1023) return 'tablet';
+        return 'desktop';
+    }
+
+    getOrientation() {
+        return window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
     }
 
     handleResize() {
@@ -28,8 +42,27 @@ export class InteractiveFlowchart {
         }
 
         this.resizeTimeout = setTimeout(() => {
-            this.fullResetAndRestart();
+            const newBreakpoint = this.getBreakpoint();
+            const newOrientation = this.getOrientation();
+            if (newBreakpoint !== this.currentBreakpoint || newOrientation !== this.currentOrientation) {
+                this.currentBreakpoint = newBreakpoint;
+                this.currentOrientation = newOrientation;
+                this.fullResetAndRestart();
+            } else {
+                this.positionItems();
+                this.updateLinePosition();
+            }
         }, 250);
+    }
+
+    handleOrientationChange() {
+        setTimeout(() => {
+            const newOrientation = this.getOrientation();
+            if (newOrientation !== this.currentOrientation) {
+                this.currentOrientation = newOrientation;
+                this.fullResetAndRestart();
+            }
+        }, 100);
     }
 
     fullResetAndRestart() {
@@ -42,8 +75,9 @@ export class InteractiveFlowchart {
             this.animated = false;
             this.resetLayout();
             this.positionItems();
+            this.updateLinePosition();
             this.checkScroll();
-        }, 1000);
+        }, 100);
     }
 
     resetLayout() {
@@ -156,14 +190,14 @@ export class InteractiveFlowchart {
                     connectingLine.style.width = '30px';
                     connectingLine.style.height = '2px';
                     if (index % 2 === 0) {
-                        infoBox.style.marginLeft = '195px';
+                        infoBox.style.marginLeft = '13rem';
                         infoBox.style.marginRight = '0';
                         infoBox.style.textAlign = 'left';
                         connectingLine.style.left = 'calc(50% + 30px)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.marginRight = '60px';
-                        infoBox.style.marginLeft = '-5%';
+                        infoBox.style.marginLeft = '-0.5rem';
                         infoBox.style.textAlign = 'right';
                         connectingLine.style.right = 'calc(50% + 0%)';
                         connectingLine.style.left = 'auto';
@@ -202,35 +236,25 @@ export class InteractiveFlowchart {
             }
         });
 
-        if (windowWidth <= 479) {
+        this.updateLinePosition();
+    }
+
+    updateLinePosition() {
+        const firstYearCircle = document.querySelector('.flowchart-item:first-child .year-circle');
+        const lastYearCircle = document.querySelector('.flowchart-item:last-child .year-circle');
+
+        if (firstYearCircle && lastYearCircle) {
+            const firstYearCircleRect = firstYearCircle.getBoundingClientRect();
+            const lastYearCircleRect = lastYearCircle.getBoundingClientRect();
+            const flowchartRect = this.flowchart.getBoundingClientRect();
+
+            const startPosition = (firstYearCircleRect.top + firstYearCircleRect.height / 2) - flowchartRect.top;
+            const endPosition = (lastYearCircleRect.top + lastYearCircleRect.height / 2) - flowchartRect.top;
+
+            this.line.style.top = `${startPosition}px`;
+            this.line.style.height = `${endPosition - startPosition}px`;
             this.line.style.left = '50%';
-            this.line.style.marginLeft = '-1px';
-            this.line.style.top = '52.8%';
-            
-        } else if (windowWidth <= 599) {
-            this.line.style.left = '50%';
-            this.line.style.marginLeft = '-1px';
-            this.line.style.top = '50%';
-        } else if (windowWidth <= 767) {
-            this.line.style.left = '50%';
-            this.line.style.marginLeft = '-1px';
-            this.line.style.top = '38.3%';
-        } else if (windowWidth <= 900) {
-            this.line.style.left = '50%';
-            this.line.style.marginLeft = '-1px';
-            this.line.style.top = '51%';
-        } else if (windowWidth <= 1023) {
-            this.line.style.left = '50%';
-            this.line.style.marginLeft = '0%';
-            this.line.style.top = '40%';
-        } else if (windowWidth <= 1366) {
-            this.line.style.left = '50%';
-            this.line.style.marginLeft = '21.3%';
-            this.line.style.top = '6.5%';
-        } else {
-            this.line.style.left = '50%';
-            this.line.style.marginLeft = '21.3%';
-            this.line.style.top = '6.5%';
+            this.line.style.transform = 'translateX(-50%)';
         }
     }
 }

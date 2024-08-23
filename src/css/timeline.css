@@ -21,7 +21,7 @@
 }
 
 #theJourney .content-title {
-    color: #D4C582;   
+    display: none; 
 }
 
 .container {
