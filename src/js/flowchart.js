@@ -190,10 +190,10 @@ export class InteractiveFlowchart {
                     connectingLine.style.width = '30px';
                     connectingLine.style.height = '2px';
                     if (index % 2 === 0) {
-                        infoBox.style.marginLeft = '13rem';
+                        infoBox.style.marginLeft = '12.5rem';
                         infoBox.style.marginRight = '0';
                         infoBox.style.textAlign = 'left';
-                        connectingLine.style.left = 'calc(50% + 30px)';
+                        connectingLine.style.left = 'calc(50% + 2.5rem)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.marginRight = '60px';
@@ -205,26 +205,26 @@ export class InteractiveFlowchart {
                 } else if (windowWidth <= 1023) {
                     connectingLine.style.width = '45px';
                     connectingLine.style.height = '2px';
-                    connectingLine.style.top = '50px';
+                    connectingLine.style.top = '30px';
                     if (index % 2 === 0) {
-                        infoBox.style.left = 'calc(50% + 60px)';
+                        infoBox.style.left = 'calc(50% + -9rem)';
                         infoBox.style.right = 'auto';
-                        connectingLine.style.left = 'calc(50% + 50px)';
+                        connectingLine.style.left = 'calc(50% + 2rem)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.left = 'auto';
-                        infoBox.style.right = 'calc(50% + 60px)';
+                        infoBox.style.right= 'calc(50% + -9rem)';
                         connectingLine.style.left = 'auto';
-                        connectingLine.style.right = 'calc(50% + 1%)';
+                        connectingLine.style.right = 'calc(50% + 2rem)';
                     }
                 } else {
                     connectingLine.style.width = '50px';
                     connectingLine.style.height = '2px';
-                    connectingLine.style.top = '50px';
+                    connectingLine.style.top = '30px';
                     if (index % 2 === 0) {
                         infoBox.style.left = 'calc(50% - 23%)';
                         infoBox.style.right = 'auto';
-                        connectingLine.style.left = 'calc(50% + 50px)';
+                        connectingLine.style.left = 'calc(50% + 2rem)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.left = 'auto';
