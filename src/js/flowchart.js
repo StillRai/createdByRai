@@ -1,7 +1,7 @@
 export class InteractiveFlowchart {
     constructor() {
         this.flowchartContainer = document.getElementById('flowchart-container');
-        this.originalFlowchartHTML = this.flowchartContainer.innerHTML; // Store the original HTML for reinitialization
+        this.originalFlowchartHTML = this.flowchartContainer.innerHTML;
         this.flowchart = document.querySelector('.flowchart');
         this.line = document.querySelector('.line.vertical');
         this.animated = false;
@@ -33,24 +33,17 @@ export class InteractiveFlowchart {
     }
 
     fullResetAndRestart() {
-        // Remove the flowchart from the DOM
         this.flowchartContainer.innerHTML = '';
-
-        // Add a delay to ensure the removal is complete before re-adding
         setTimeout(() => {
-            // Re-add the original flowchart HTML
             this.flowchartContainer.innerHTML = this.originalFlowchartHTML;
-
-            // Reinitialize everything
             this.flowchart = document.querySelector('.flowchart');
             this.line = document.querySelector('.line.vertical');
             this.currentItemIndex = 0;
             this.animated = false;
-
             this.resetLayout();
             this.positionItems();
-            this.checkScroll(); // Check scroll to restart the animation
-        }, 1000); // 1 second delay to ensure the DOM has updated
+            this.checkScroll();
+        }, 1000);
     }
 
     resetLayout() {
@@ -152,9 +145,11 @@ export class InteractiveFlowchart {
     positionItems() {
         const windowWidth = window.innerWidth;
         const flowchartItems = document.querySelectorAll('.flowchart-item');
+
         flowchartItems.forEach((item, index) => {
             const infoBox = item.querySelector('.info-box');
             const connectingLine = item.querySelector('.connecting-line');
+
             if (infoBox && connectingLine) {
                 if (windowWidth <= 767) {
                     connectingLine.style.top = '30%';
@@ -170,11 +165,11 @@ export class InteractiveFlowchart {
                         infoBox.style.marginRight = '60px';
                         infoBox.style.marginLeft = '-5%';
                         infoBox.style.textAlign = 'right';
-                        connectingLine.style.right = 'calc(50% + 30px)';
+                        connectingLine.style.right = 'calc(50% + 0%)';
                         connectingLine.style.left = 'auto';
                     }
-                } else {
-                    connectingLine.style.width = '50px';
+                } else if (windowWidth <= 1023) {
+                    connectingLine.style.width = '45px';
                     connectingLine.style.height = '2px';
                     connectingLine.style.top = '50px';
                     if (index % 2 === 0) {
@@ -188,18 +183,52 @@ export class InteractiveFlowchart {
                         connectingLine.style.left = 'auto';
                         connectingLine.style.right = 'calc(50% + 1%)';
                     }
+                } else {
+                    connectingLine.style.width = '50px';
+                    connectingLine.style.height = '2px';
+                    connectingLine.style.top = '50px';
+                    if (index % 2 === 0) {
+                        infoBox.style.left = 'calc(50% - 23%)';
+                        infoBox.style.right = 'auto';
+                        connectingLine.style.left = 'calc(50% + 50px)';
+                        connectingLine.style.right = 'auto';
+                    } else {
+                        infoBox.style.left = 'auto';
+                        infoBox.style.right = 'calc(50% - 23%)';
+                        connectingLine.style.left = 'auto';
+                        connectingLine.style.right = 'calc(50% + 1%)';
+                    }
                 }
             }
         });
 
-        if (windowWidth <= 767) {
+        if (windowWidth <= 479) {
+            this.line.style.left = '50%';
+            this.line.style.marginLeft = '-1px';
+            this.line.style.top = '52.8%';
+            
+        } else if (windowWidth <= 599) {
+            this.line.style.left = '50%';
+            this.line.style.marginLeft = '-1px';
+            this.line.style.top = '50%';
+        } else if (windowWidth <= 767) {
+            this.line.style.left = '50%';
+            this.line.style.marginLeft = '-1px';
+            this.line.style.top = '38.3%';
+        } else if (windowWidth <= 900) {
             this.line.style.left = '50%';
             this.line.style.marginLeft = '-1px';
             this.line.style.top = '51%';
         } else if (windowWidth <= 1023) {
+            this.line.style.left = '50%';
             this.line.style.marginLeft = '0%';
             this.line.style.top = '40%';
+        } else if (windowWidth <= 1366) {
+            this.line.style.left = '50%';
+            this.line.style.marginLeft = '21.3%';
+            this.line.style.top = '6.5%';
         } else {
+            this.line.style.left = '50%';
             this.line.style.marginLeft = '21.3%';
             this.line.style.top = '6.5%';
         }
