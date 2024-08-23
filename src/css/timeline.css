@@ -151,15 +151,87 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 767px) {
+
+/* @media (max-width: 319px) */
+@media (max-width: 319px) {
     .flowchart {
-        max-width: 100%;
-        padding: 20px 10px;
-        top: 0;
+        padding: 15px 10px;
     }
 
     .flowchart-item {
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .year-circle {
+        width: 50px;
         height: 50px;
+        font-size: 0.75rem;
+    }
+
+    .info-box {
+        width: 80%;
+        left: 10%;
+        right: 10%;
+        text-align: center;
+    }
+
+    .connecting-line {
+        width: 20px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .line.vertical {
+        left: 50%;
+        top: 20px;
+    }
+}
+
+/* @media (320px - 479px) */
+@media (min-width: 320px) and (max-width: 479px) {
+    .flowchart {
+        padding: 20px 15px;
+    }
+
+    .flowchart-item {
+        margin-bottom: 25px;
+    }
+
+    .year-circle {
+        width: 55px;
+        height: 55px;
+        font-size: 0.85rem;
+    }
+
+    .info-box {
+        width: 75%;
+        left: 12.5%;
+        right: 12.5%;
+        text-align: center;
+    }
+
+    .connecting-line {
+        width: 25px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .line.vertical {
+        left: 50%;
+        top: 25px;
+    }
+}
+
+/* @media (min-width: 480px) and (max-width: 599px) */
+@media (min-width: 480px) and (max-width: 599px) {
+    .flowchart {
+        padding: 25px 20px;
+    }
+
+    .flowchart-item {
         margin-bottom: 30px;
     }
 
@@ -168,93 +240,197 @@
         height: 60px;
         font-size: 0.9rem;
     }
-    
-    .info-box {
-        width: calc(50% - 30px);
-        max-width: none;
-    }
 
-    .info-content {
-        font-size: 0.85rem;
-        padding: 8px;
+    .info-box {
+        width: 70%;
+        left: 15%;
+        right: 15%;
+        text-align: center;
     }
 
     .connecting-line {
-        top: 50%;
-        transform: translateY(-50%);
-        height: 2px !important;
         width: 30px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
     }
 
     .line.vertical {
         left: 50%;
-        margin-left: -1px;
-        top: 61%;
-    }
-
-    .flowchart-item:nth-child(odd) .info-box {
-        margin-right: 0;
-        margin-left: 210px;
-        text-align: left;
-    }
-
-    .flowchart-item:nth-child(even) .info-box {
-        margin-left: 0;
-        margin-right: 60px;
-        text-align: right;
-    }
-
-    .flowchart-item:nth-child(odd) .connecting-line {
-        right: auto;
-        left: calc(50% + 30px);
-    }
-
-    .flowchart-item:nth-child(even) .connecting-line {
-        left: auto;
-        right: calc(50% + 30px);
+        top: 30px;
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-    .info-content {
-        font-size: 0.95rem;
+/* @media (min-width: 600px) and (max-width: 767px) */
+@media (min-width: 600px) and (max-width: 767px) {
+    .flowchart {
+        padding: 30px 25px;
     }
 
-    .info-box {
-        width: 35%;
+    .flowchart-item {
+        margin-bottom: 35px;
     }
 
-    .line.vertical {
-        margin-left: 42.5%;
-        top: 48%;
-    }
-
-    .connecting-line {
-        width: 50px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .info-content {
+    .year-circle {
+        width: 65px;
+        height: 65px;
         font-size: 1rem;
     }
 
     .info-box {
+        width: 65%;
+        left: 17.5%;
+        right: 17.5%;
+        text-align: center;
+    }
+
+    .connecting-line {
+        width: 35px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .line.vertical {
+        left: 50%;
+        top: 35px;
+    }
+}
+
+/* @media (min-width: 768px) and (max-width: 900px) */
+@media (min-width: 768px) and (max-width: 900px) {
+    .flowchart {
+        padding: 35px 30px;
+    }
+
+    .flowchart-item {
+        margin-bottom: 40px;
+    }
+
+    .year-circle {
+        width: 70px;
+        height: 70px;
+        font-size: 1.1rem;
+    }
+
+    .info-box {
+        width: 60%;
+        left: 20%;
+        right: 20%;
+    }
+
+    .connecting-line {
+        width: 40px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .line.vertical {
+        left: 50%;
+        top: 40px;
+    }
+}
+
+/* @media (min-width: 901px) and (max-width: 1023px) */
+@media (min-width: 901px) and (max-width: 1023px) {
+    .flowchart {
+        padding: 40px 35px;
+    }
+
+    .flowchart-item {
+        margin-bottom: 45px;
+    }
+
+    .year-circle {
+        width: 75px;
+        height: 75px;
+        font-size: 1.2rem;
+    }
+
+    .info-box {
+        width: 55%;
+        left: 22.5%;
+        right: 22.5%;
+    }
+
+    .connecting-line {
+        width: 45px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .line.vertical {
+        left: 50%;
+        top: 45px;
+    }
+}
+
+/* @media (min-width: 1024px) and (max-width: 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .flowchart {
+        padding: 45px 40px;
+    }
+
+    .flowchart-item {
+        margin-bottom: 50px;
+    }
+
+    .year-circle {
+        width: 85px;
+        height: 85px;
+        font-size: 1.3rem;
+    }
+
+    .info-box {
+        width: 50%;
+        left: 25%;
+        right: 25%;
+    }
+
+    .connecting-line {
+        width: 50px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
+    }
+
+    .line.vertical {
+        left: 50%;
+        top: 50px;
+    }
+}
+
+/* @media (min-width: 1367px) */
+@media (min-width: 1367px) {
+    .flowchart {
+        padding: 50px 45px;
+    }
+
+    .flowchart-item {
+        margin-bottom: 55px;
+    }
+
+    .year-circle {
+        width: 100px;
+        height: 100px;
+        font-size: 1.5rem;
+    }
+
+    .info-box {
         max-width: calc(35% - 70px);
+    }
+
+    .connecting-line {
+        width: 55px;
+        height: 2px !important;
+        top: 50%;
+        transform: translateX(-50%);
     }
 
     .line.vertical {
         margin-left: 21.3%;
         top: 6.5%;
-    }
-}
-
-@media (min-width: 1367px) {
-    .info-box {
-        max-width: calc(35% - 70px);
-    }
-
-    .info-content {
-        font-size: 1.1rem;
     }
 }
