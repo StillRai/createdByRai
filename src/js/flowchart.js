@@ -157,18 +157,18 @@ export class InteractiveFlowchart {
             const connectingLine = item.querySelector('.connecting-line');
             if (infoBox && connectingLine) {
                 if (windowWidth <= 767) {
-                    connectingLine.style.top = '50%';
+                    connectingLine.style.top = '30%';
                     connectingLine.style.width = '30px';
                     connectingLine.style.height = '2px';
                     if (index % 2 === 0) {
-                        infoBox.style.marginLeft = '210px';
+                        infoBox.style.marginLeft = '195px';
                         infoBox.style.marginRight = '0';
                         infoBox.style.textAlign = 'left';
                         connectingLine.style.left = 'calc(50% + 30px)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.marginRight = '60px';
-                        infoBox.style.marginLeft = '0';
+                        infoBox.style.marginLeft = '-5%';
                         infoBox.style.textAlign = 'right';
                         connectingLine.style.right = 'calc(50% + 30px)';
                         connectingLine.style.left = 'auto';
@@ -186,7 +186,7 @@ export class InteractiveFlowchart {
                         infoBox.style.left = 'auto';
                         infoBox.style.right = 'calc(50% + 60px)';
                         connectingLine.style.left = 'auto';
-                        connectingLine.style.right = 'calc(50% + 50px)';
+                        connectingLine.style.right = 'calc(50% + 1%)';
                     }
                 }
             }
@@ -195,10 +195,10 @@ export class InteractiveFlowchart {
         if (windowWidth <= 767) {
             this.line.style.left = '50%';
             this.line.style.marginLeft = '-1px';
-            this.line.style.top = '61%';
+            this.line.style.top = '51%';
         } else if (windowWidth <= 1023) {
-            this.line.style.marginLeft = '42.5%';
-            this.line.style.top = '48%';
+            this.line.style.marginLeft = '0%';
+            this.line.style.top = '40%';
         } else {
             this.line.style.marginLeft = '21.3%';
             this.line.style.top = '6.5%';
