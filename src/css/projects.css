@@ -116,6 +116,10 @@ margin-top: 1rem;
     display: flex;
 }
 
+#projects .content-title {
+    color: var(--color-dark) !important;
+}
+
 .try-me-button:hover {
   background-color: #262727;
 }

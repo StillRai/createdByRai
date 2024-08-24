@@ -164,7 +164,7 @@ export class InteractiveFlowchart {
             if (windowWidth <= 767) {
                 connectingLine.style.height = '0';
                 setTimeout(() => {
-                    connectingLine.style.height = '30px';
+                    connectingLine.style.height = '2px';
                 }, 50);
             } else {
                 let lineWidth = '50px';
@@ -187,19 +187,19 @@ export class InteractiveFlowchart {
             if (infoBox && connectingLine) {
                 if (windowWidth <= 767) {
                     connectingLine.style.top = '30%';
-                    connectingLine.style.width = '30px';
+                    connectingLine.style.width = '90px';
                     connectingLine.style.height = '2px';
                     if (index % 2 === 0) {
                         infoBox.style.marginLeft = 'calc(50% + 3rem)';
                         infoBox.style.marginRight = '0';
                         infoBox.style.textAlign = 'left';
-                        connectingLine.style.left = 'calc(50% + 2.5rem)';
+                        connectingLine.style.left = 'calc(50% + 2rem)';
                         connectingLine.style.right = 'auto';
                     } else {
                         infoBox.style.marginRight = 'calc(50% + 3rem)';
                         infoBox.style.marginLeft = '-0.5rem';
                         infoBox.style.textAlign = 'right';
-                        connectingLine.style.right = 'calc(50% + 0%)';
+                        connectingLine.style.right = 'calc(50% - 2rem)';
                         connectingLine.style.left = 'auto';
                     }
                 } else if (windowWidth <= 1023) {
