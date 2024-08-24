@@ -21,9 +21,9 @@
 }
 
 /* General styles */
-body {
+/* body {
   @apply bg-gray-900 text-gray-200 font-sans leading-relaxed;
-  background: linear-gradient(180deg, #6c9973 0%, #a1d5b0 100%);}
+  background: linear-gradient(180deg, #6c9973 0%, #a1d5b0 100%);} */
 
 .App {
   @apply min-h-screen flex items-center justify-center;
@@ -34,21 +34,19 @@ body {
 }
 
 .story-page {
-    padding: 1.5rem;
-    max-width: 60%;
-    margin: auto; /* centers the element horizontally */
-    text-align: left !important;
-    background-color: #0000004a;
-    background-blend-mode: multiply;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 5px;
-    box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
-    color: var(--color-light);
-
-  
+  padding: 1.5rem;
+  max-width: 40%;
+  margin: auto;
+  text-align: left !important;
+  background-color: #6c9973;
+  background-blend-mode: multiply;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
+  color: var(--color-light);
 }
 
 .story-content {
@@ -57,7 +55,7 @@ body {
 
 .story-image {
   @apply max-w-xs h-auto mx-auto mb-4 rounded-lg animate-fadeIn;
-  border: 2px solid #000000;
+  border: 2px solid #222d2d;
 }
 
 .story-body {
@@ -88,9 +86,9 @@ h1 {
   @apply cursor-pointer rounded-lg transition duration-300 ease-in-out transform hover:scale-105;
   width: 20rem;
   height: 3rem;
-  color: #aed7c1;
-  background-color: #ffffff38;
-  border-radius: 0.2rem;
+  color: #f0e7bc;
+  background-color: #222d2d;
+  border-radius: 1.1rem;
 }
 
 .choice-button:hover {
@@ -118,7 +116,7 @@ h1 {
   background-color: #f0e7bc;
     width: 50px;
   padding: 5px;
-  Border-radius: .2rem;
+  Border-radius: .4rem;
 }
 
 .controls {
