@@ -149,7 +149,7 @@ export class InteractiveFlowchart {
         const yearCircle = item.querySelector('.year-circle');
         const flowchartRect = this.flowchart.getBoundingClientRect();
         const yearCircleRect = yearCircle.getBoundingClientRect();
-        const lineHeight = (yearCircleRect.top + yearCircleRect.height / 2) - flowchartRect.top;
+        const lineHeight = (yearCircleRect.top + yearCircleRect.height / 3) - flowchartRect.top;
 
         this.line.style.transition = 'height 1s ease-out';
         this.line.style.height = `${lineHeight}px`;

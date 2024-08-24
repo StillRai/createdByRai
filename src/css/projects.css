@@ -56,20 +56,41 @@
 .image-container {
     position: relative;
     width: 100%;
+    padding-top: 75%; /* 4:3 Aspect Ratio */
     overflow: hidden;
     border-radius: 0.5rem;
-    background-color: #f0f0f0; /* Light gray background to simulate letterboxing */
+    background-color: #f0f0f0;
 }
 
 .project-image {
-    position: relative;
-    top: 0px;
-    left: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%; /* Ensures that images maintain the container's height */
-    object-fit: contain; /* Ensures images are fully visible, even if it means letterboxing */
+    height: 100%;
+    object-fit: cover;
     cursor: pointer;
     border-radius: 9px;
+    transition: transform 0.3s ease;
+}
+
+.interactive-story-image {
+  object-position: center 38%;
+  transform: scale(1.4) !important;
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+
+.interactive-story-image:hover {
+  transform: scale(2); 
+}
+
+
+.project-image:hover {
+    transform: scale(1.05);
 }
 
 #projects .span-content {

@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <BackArrow /> {/* Include the Back Arrow */}
         <main id="main-content" className="p-0 m-0 relative z-10">
           <StoryProvider>
             <StoryPage />

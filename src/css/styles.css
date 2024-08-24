@@ -538,7 +538,9 @@ section {
     margin-left: 3rem;
 }
 
-
+.navbar {
+    width: 110%;
+}
 
 
 .icon {

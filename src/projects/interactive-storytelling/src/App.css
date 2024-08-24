@@ -38,14 +38,14 @@
   max-width: 40%;
   margin: auto;
   text-align: left !important;
-  background-color: #6c9973;
+  background-color: #ffffff21;
   background-blend-mode: multiply;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: 'Poppins', sans-serif;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgb(0 0 0 / 30%);
+  box-shadow: 0 8px 32px rgb(0 0 0 / 10%);
   color: var(--color-light);
 }
 
@@ -86,13 +86,13 @@ h1 {
   @apply cursor-pointer rounded-lg transition duration-300 ease-in-out transform hover:scale-105;
   width: 20rem;
   height: 3rem;
-  color: #f0e7bc;
+  color: #f4c63f;
   background-color: #222d2d;
   border-radius: 1.1rem;
 }
 
 .choice-button:hover {
-  background: var(--color-secondary);
+  background: #1a1c1c;
 }
 
 .restart-button {
@@ -113,11 +113,12 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #f0e7bc;
-    width: 50px;
+  background-color: #edc63d;
+  width: 50px;
   padding: 5px;
   Border-radius: .4rem;
 }
+
 
 .controls {
   display: flex;

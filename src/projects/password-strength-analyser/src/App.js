@@ -54,7 +54,6 @@ const App = () => {
     <AudioProvider>
       <Router>
         <div>
-          <BackArrow /> {/* Include the Back Arrow */}
           <Routes>
             <Route path="/" element={renderLesson(currentLesson)} />
             <Route path="/learn" element={<LearnPasswordStrength />} />

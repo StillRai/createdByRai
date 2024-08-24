@@ -191,7 +191,7 @@
 
     
     #background-container {
-        background-size: auto 120%;
+        background-size: cover !important;
         background-position: 80% 0%;
         }
 
