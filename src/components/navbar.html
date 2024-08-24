@@ -23,3 +23,22 @@
         <a href="#contact" class="btn-o-lightgreen text-lg">Let's Talk</a>
     </div>
 </div>
+
+<script>
+    // Toggle burger menu visibility
+    document.getElementById('burger-menu').addEventListener('click', function () {
+        document.getElementById('nav-links-mobile').classList.toggle('hidden');
+    });
+
+    // Close burger menu when a link is clicked
+    document.querySelectorAll('#nav-links-mobile a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            document.getElementById('nav-links-mobile').classList.add('hidden');
+        });
+    });
+
+    // Close menu on X icon click
+    document.getElementById('close-menu').addEventListener('click', function () {
+        document.getElementById('nav-links-mobile').classList.add('hidden');
+    });
+</script>

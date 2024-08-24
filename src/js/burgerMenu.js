@@ -2,6 +2,7 @@ export function initializeBurgerMenu() {
     const burgerMenu = document.getElementById('burger-menu');
     const navLinksMobile = document.getElementById('nav-links-mobile');
     const closeMenu = document.getElementById('close-menu');
+    const navLinks = document.querySelectorAll('#nav-links-mobile a'); // Select all links inside the mobile menu
 
     if (burgerMenu && navLinksMobile && closeMenu) {
         burgerMenu.addEventListener('click', () => {
@@ -14,6 +15,14 @@ export function initializeBurgerMenu() {
             navLinksMobile.classList.add('hidden');
             navLinksMobile.classList.remove('flex');
             navLinksMobile.classList.remove('active');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinksMobile.classList.add('hidden');
+                navLinksMobile.classList.remove('flex');
+                navLinksMobile.classList.remove('active');
+            });
         });
 
         window.addEventListener('click', (e) => {
