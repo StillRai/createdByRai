@@ -5,9 +5,10 @@
 
 :root {
     --color-dark: #111A2C;
+    --color-light: #EEEEEE;
 }
 
-#theJourney {
+#projects {
     min-height: 100vh;
     height: auto;
     position: relative;
@@ -59,7 +60,7 @@
     padding-top: 75%; /* 4:3 Aspect Ratio */
     overflow: hidden;
     border-radius: 0.5rem;
-    background-color: #f0f0f0;
+    background-color: #000;
 }
 
 .project-image {
@@ -75,25 +76,64 @@
 }
 
 .interactive-story-image {
-  object-position: center 38%;
-  transform: scale(1.4) !important;
+  object-position: center 40%;
+  transform: scale(1.4);
 }
+
+.project-description {
+  text-align: center;
+  padding: 10px;
+  border-radius: 0.5rem;
+  margin-top: -5px;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: rgba(255, 255, 255, 0);
+
+}
+
+.span-project-content {
+color: var(--color-dark);
+text-align: left;
+}
+
+.try-me-button {
+    padding: 10px 20px;
+    background-color: var(--color-dark);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-items: left;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+font-weight: 600;
+margin-top: 1rem;
+}
+
+#projects .span-content {
+    color: var(--color-dark);
+    justify-content: left;
+    display: flex;
+}
+
+.try-me-button:hover {
+  background-color: #262727;
+}
+
 
 .project-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.9);
 }
-
 
 .interactive-story-image:hover {
-  transform: scale(2); 
+  transform: scale(1.6); 
 }
-
 
 .project-image:hover {
     transform: scale(1.05);
 }
 
-#projects .span-content {
+.project-title {
     @apply text-lg font-semibold;
 }
 
