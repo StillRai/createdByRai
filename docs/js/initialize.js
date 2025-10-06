@@ -1,7 +1,7 @@
 // docs/js/initialize.js
 
 import { initializeBurgerMenu } from './burgerMenu.js';
-import { generateStars } from './star.js';        // was './stars'
+import { generateStars } from './stars.js';        // was './stars'
 import { InteractiveFlowchart } from './flowchart.js';
 import '../css/loader.css';
 import '../css/home.css';
