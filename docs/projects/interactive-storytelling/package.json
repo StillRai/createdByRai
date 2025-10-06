@@ -1,0 +1,44 @@
+{
+  "name": "interactive-storytelling",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.4.5",
+    "feather-icons-react": "^0.7.0",
+    "loader-utils": "^3.3.1",
+    "react-dev-utils": "^12.0.1",
+    "shell-quote": "^1.8.1"
+  },
+  "scripts": {
+    "start": "env-cmd -f .env.development react-scripts start",
+    "build": "env-cmd -f .env.production react-scripts build",
+    "test": "env-cmd -f .env.test react-scripts test",
+    "eject": "react-scripts eject",
+    "start:development": "env-cmd -f .env.development react-scripts start",
+    "start:production": "env-cmd -f .env.production react-scripts start"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
+  }
+}

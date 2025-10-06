@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/src/assets/icons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/src/assets/icons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/src/assets/icons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/src/assets/icons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/src/assets/icons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/src/assets/icons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/src/assets/icons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/src/assets/icons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/src/assets/icons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="createdByRai"/>
+    <meta name="msapplication-TileColor" content="#2F5A63" />
+    <meta name="msapplication-TileImage" content="/src/assets/icons/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/src/assets/icons/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/src/assets/icons/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/src/assets/icons/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/src/assets/icons/mstile-310x310.png" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="404 - Page Not Found on Rai's website. You seem to have got lost in the source code. Please return to the homepage.">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- External CSS and Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Preload High-Resolution Image -->
+    <link rel="preload" href="../src/media/images/404.png" as="image">
+    
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../src/media/images/404-lowres.png'); /* Low-res placeholder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            background-position: center right 0rem;
+            filter: blur(20px); /* Blur the low-res image */
+            transition: filter 0.3s ease;
+        }
+
+        .background-image.loaded {
+            filter: none; /* Remove the blur when the high-res image has loaded */
+            background-image: url('../src/media/images/404.png'); /* High-res image */
+        }
+
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(2 22 32 / 87%);
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 12vw;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            font-size: 6vw;
+            font-weight: 700;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #fff;
+            color: #1b3348;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20vw;
+            }
+
+            h2 {
+                font-size: 7vw;
+            }
+
+            span {
+                font-size: small;
+            }
+
+            .background-image {
+                background-position: center right -40rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="background-overlay"></div>
+    <div class="container">
+        <h1>404</h1>
+        <h2>Abort mission!</h2>
+        <span>You seem to have got lost in the source code</span>
+        <a href="/" class="btn">Return to Base</a>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const backgroundImage = document.querySelector('.background-image');
+            const img = new Image();
+            img.src = '../media/images/404.png'; // High-res image path
+
+            img.onload = () => {
+                backgroundImage.classList.add('loaded');
+            };
+        });
+    </script>
+</body>
+
+</html>

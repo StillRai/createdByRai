@@ -1,0 +1,163 @@
+{
+  "chapters": [
+    {
+      "chapter": 1,
+      "text": "Taylor, a photographer, discovers a hidden building with ancient artifacts. He activates a peculiar device, a Timepiece, and is transported to a bustling medieval street. A hooded figure watches him intently.",
+      "image": "ch-1.png",
+      "audio": "ch_1.mp3",
+      "choices": [
+        { "text": "Approach the hooded figure.", "nextChapter": 2, "hoverAudio": "ch_1_c1.mp3" },
+        { "text": "Blend in and observe.", "nextChapter": 3, "hoverAudio": "ch_1_c2.mp3" }
+      ]
+    },
+    {
+      "chapter": 2,
+      "text": "Taylor approaches the hooded figure, who reveals themselves as Elara, a fellow time traveler. She warns Taylor of dangers and suggests teaming up.",
+      "image": "ch-2.png",
+      "audio": "ch_2.mp3",
+      "choices": [
+        { "text": "Team up with Elara.", "nextChapter": 4, "hoverAudio": "ch_2_c1.mp3"  },
+        { "text": "Continue alone.", "nextChapter": 5, "hoverAudio": "ch_2_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 3,
+      "text": "Taylor blends in and overhears about a relic in the castle that might help him return to his time. The hooded figure continues to watch him.",
+      "image": "ch-3.png",
+      "audio": "ch_3.mp3",
+      "choices": [
+        { "text": "Investigate the castle.", "nextChapter": 6, "hoverAudio": "ch_3_c1.mp3"  },
+        { "text": "Confront the hooded figure.", "nextChapter": 2, "hoverAudio": "ch_3_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 4,
+      "text": "Taylor and Elara navigate the street, gathering information about a relic that can enhance the Timepiece. They overhear somebody talking about the location of the relic.",
+      "image": "ch-4.png",
+      "audio": "ch_4.mp3",
+      "choices": [
+        { "text": "Search for the relic.", "nextChapter": 6, "hoverAudio": "ch_4_c1.mp3"  },
+        { "text": "Find a way back without the relic.", "nextChapter": 7, "hoverAudio": "ch_4_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 5,
+      "text": "Taylor continues alone and is soon confronted by a man who looks eerily similar, wielding a glowing dagger.",
+      "image": "ch-5.png",
+      "audio": "ch_5.mp3",
+      "choices": [
+        { "text": "Fight the figure.", "nextChapter": 8, "hoverAudio": "ch_5_c1.mp3"  },
+        { "text": "Try to reason.", "nextChapter": 9, "hoverAudio": "ch_5_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 6,
+      "text": "Taylor and Elara sneak into the castle and find the relic guarded by a fierce knight.",
+       "image": "ch-6.png",
+       "audio": "ch_6.mp3",
+      "choices": [
+        { "text": "Confront the knight.", "nextChapter": 10, "hoverAudio": "ch_6_c1.mp3" },
+        { "text": "Negotiate with the knight.", "nextChapter": 11, "hoverAudio": "ch_6_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 7,
+      "text": "Taylor and Elara focus on repairing the Timepiece with the information gathered, avoiding further conflict.",
+      "image": "ch-7.png",
+      "audio": "ch_7.mp3",
+      "choices": [
+        { "text": "Return to the present.", "nextChapter": 12, "hoverAudio": "ch_7_c1.mp3"  },
+        { "text": "Test the Timepiece in another era.", "nextChapter": 13, "hoverAudio": "ch_7_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 8,
+      "image": "ch-8.png",
+      "audio": "ch_8.mp3",
+      "text": "Taylor fights bravely but is fatally wounded. His journey ends in tragedy.",
+      "outcome": "disastrous"
+    },
+    {
+      "chapter": 9,
+      "image": "ch-9.png",
+      "audio": "ch_9.mp3",
+      "text": "Taylor tries to reason but is overpowered and captured. He faces a grim fate in an unknown era.",
+      "outcome": "disastrous"
+    },
+    {
+      "chapter": 10,
+      "text": "Taylor defeats the knight and secures the relic, enhancing the Timepiece.",
+      "image": "ch-10.png",
+      "audio": "ch_10.mp3",
+      "choices": [
+        { "text": "Return to the present.", "nextChapter": 12, "hoverAudio": "ch_10_c1.mp3"  },
+        { "text": "Explore another era.", "nextChapter": 14, "hoverAudio": "ch_10_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 11,
+      "text": "The knight, impressed by Taylor's courage, hands over the relic peacefully. The Timepiece is enhanced.",
+      "image": "ch-10.png",
+      "audio": "ch_11.mp3",
+      "choices": [
+        { "text": "Return to the present.", "nextChapter": 12, "hoverAudio": "ch_10_c1.mp3"  },
+        { "text": "Explore another era.", "nextChapter": 14, "hoverAudio": "ch_10_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 12,
+      "text": "Taylor returns to the present with a deeper understanding of time travel and a beautiful future with Elara.",
+      "image": "ch-12.png",
+      "audio": "ch_12.mp3",
+      "outcome": "great"
+    },
+    {
+      "chapter": 13,
+      "text": "Taylor decides to explore another era, but the Timepiece malfunctions, leaving him stranded in a hostile time.",
+      "image": "ch-13.png",
+      "audio": "ch_13.mp3",
+      "outcome": "disastrous"
+    },
+    {
+      "chapter": 14,
+      "text": "Taylor explores another era and discovers new allies who help him understand the Timepiece better.",
+      "image": "ch-14.png",
+      "audio": "ch_14.mp3",
+      "choices": [
+        { "text": "Return to the present.", "nextChapter": 15, "hoverAudio": "ch_10_c1.mp3"  },
+        { "text": "Continue exploring with allies.", "nextChapter": 16, "hoverAudio": "ch_14_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 15,
+      "text": "Taylor returns to the present, enriched by his adventures and the knowledge gained from his allies.",
+      "image": "ch-17.png",
+      "audio": "ch_15.mp3",
+      "outcome": "great"
+    },
+    {
+      "chapter": 16,
+      "text": "Taylor continues exploring with his new allies, facing numerous challenges but gaining unparalleled knowledge.",
+      "image": "ch-16.png",
+      "audio": "ch_16.mp3",
+      "choices": [
+        { "text": "Return to the present.", "nextChapter": 17, "hoverAudio": "ch_10_c1.mp3"  },
+        { "text": "Seek more artifacts.", "nextChapter": 18, "hoverAudio": "ch_16_c2.mp3"  }
+      ]
+    },
+    {
+      "chapter": 17,
+      "text": "Taylor returns to the present with vast knowledge and several artifacts, ensuring the stability of the timeline.",
+      "image": "ch-17.png",
+      "audio": "ch_17.mp3",
+      "outcome": "great"
+    },
+    {
+      "chapter": 18,
+      "text": "Taylor's quest for more artifacts exposes him to greater dangers, and he is ultimately trapped in a deadly paradox.",
+      "image": "ch-18.png",
+      "audio": "ch_18.mp3",
+      "outcome": "disastrous"
+    }
+  ]
+}

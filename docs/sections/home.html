@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rai - Home page</title>
+    <link rel="stylesheet" href="src/css/home.css">
+</head>
+
+<body>
+    <section id="home" class="w-full relative">
+        <div class="container mx-auto text-left">
+        <div class="heading-container  text-custom-light">
+            <h1 class="title">Hey, I'm Rai</h1>
+            <code class="home-subtitle">
+                <span class="sub-opacity ">def create():</span>
+                <span class="sub-opacity indented">print("</span><span>...and I create.</span><span class="sub-opacity">")</span>
+                <span class="sub-opacity">create()</span>
+            </code>
+        </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://github.com/StillRai" target="_blank" class="icon" aria-label="GitHub">
+                <i data-feather="github"></i>
+            </a>
+            <a href="mailto:hello@createdbyrai" target="_blank" class="icon" aria-label="Email">
+                <i data-feather="mail"></i>
+            </a>
+        </div>
+        <div class="scroll-down-arrow">
+            <i data-feather="chevron-down"></i>
+        </div>
+    </section>
+
+    <script>
+  function setVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+function handleResize() {
+    setTimeout(setVH, 100);
+}
+setVH();
+
+window.addEventListener('resize', handleResize);
+window.addEventListener('orientationchange', handleResize);
+
+window.addEventListener('scroll', handleResize);
+    </script>
+</body>
+
+</html>

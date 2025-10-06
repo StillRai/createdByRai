@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-pastel-pink: #FFB6C1;
+  --color-pastel-green: #77DD77;
+  --color-pastel-yellow: #FFEF00;
+  --color-pastel-purple: #B19CD9;
+  --color-light: #F5F5F5;
+  --color-dark: #2C2C2C;
+  --color-gradient-start: #f3a683;
+  --color-gradient-end: #f7d794;
+  --color-button-dark: #e77f67;
+  --color-button-light: #cf6a87;
+  --scrollbar-bg: #665a4f;
+  --scrollbar-thumb: #e4b2a7;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to top, var(--color-gradient-end), var(--color-gradient-start));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: var(--color-light);
+}
+.title-style {
+ font-size: 1.5rem;
+}
+
+
+@media (min-width: 768px) {
+  .md\:space-x-4> :not([hidden])~ :not([hidden]) {
+    margin-left: 0px !important;
+  }
+}
+
+
+.container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  min-height: 80%;
+  animation: fadeIn 1.5s ease-in-out;
+  color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+/* Custom Scrollbar Styles */
+.container::-webkit-scrollbar {
+  width: 16px;
+  /* Wider scrollbar */
+}
+
+.container::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 4px solid var(--scrollbar-bg);
+  /* Wider border */
+}
+
+.container {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg);
+}
+
+.content {
+  padding: 1rem;
+  border-radius: 0.9375rem;
+  margin-top: 0;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+
+}
+
+.input {
+  border: none;
+  padding: 0.9375rem;
+  border-radius: 20px;
+  width: 100%;
+  margin-bottom: 0.9375rem;
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--color-dark);
+  transition: background-color 0.3s ease;
+}
+
+.input::placeholder {
+  color: var(--color-dark);
+  opacity: 0.7;
+}
+
+.input:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+.button {
+  padding: 0;
+  border-radius: 20px;
+  width: auto;
+  margin-left: 0;
+  height: 3.125rem;
+  margin-bottom: 0.9375rem;
+  background-color: var(--color-button-dark);
+  color: var(--color-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  /* Center the buttons horizontally */
+  gap: 1rem;
+  /* Space between buttons */
+  width: 100%;
+  /* Ensure the container takes up the full width */
+}
+
+
+.button:hover {
+  background-color: var(--color-button-light);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.content,
+.container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+.button {
+  animation: slideIn 0.5s ease-in-out;
+  height: 4rem;
+  margin-left: 0;
+
+}
+
+.header-summary {
+  color: var(--color-dark);
+}
+
+.list-disc {
+  color: var(--color-dark);
+  margin-bottom: 5rem;
+}
+
+/* Responsive Font Sizes */
+h1 {
+  @apply text-xl md:text-2xl lg:text-3xl;
+}
+
+h2 {
+  @apply text-base md:text-lg lg:text-xl;
+}
+
+p,
+label,
+input,
+ul li {
+  @apply text-sm md:text-base lg:text-lg;
+}
+
+/* Responsive Padding */
+.container {
+  @apply p-4 md:p-6 lg:p-8;
+}
+
+.content {
+  @apply p-4 md:p-6 lg:p-8;
+}
+
+.input-container {
+  @apply md:p-6;
+}
+
+.button {
+  @apply p-2 md:p-4 lg:p-6;
+
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    padding: 2rem;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+}
+
+
+.audio-toggle-button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-scroll-container {
+  max-height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .mobile-scroll-container {
+    padding-bottom: 4rem; 
+  }
+}
+
+.mobile-scroll-container {
+  max-height: 70vh; /* Adjust this value to fit your design */
+  overflow-y: scroll; /* This will make the scrollbar always visible */
+  position: relative;
+  padding-right: 10px; /* Prevent content from being hidden behind the scrollbar */
+}
+
+/* Ensure the scrollbar is always visible */
+.mobile-scroll-container::-webkit-scrollbar {
+  width: 12px; /* Adjust the width of the scrollbar */
+}
+
+.mobile-scroll-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 6px; /* Rounded corners on the scrollbar thumb */
+}
+
+.mobile-scroll-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+}
+
+/* Optional: Adjust scrollbar for Firefox */
+@supports (scrollbar-width: thin) {
+  .mobile-scroll-container {
+    scrollbar-width: thin; /* Makes scrollbar thinner in Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Thumb color and track color */
+  }
+}

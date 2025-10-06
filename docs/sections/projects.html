@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Section</title>
+    <link rel="stylesheet" href="./../css/projects.css">
+    <link rel="stylesheet" href="./../css/skills.css">
+
+    <script defer src="../js/typeEffect.js"></script>
+</head>
+
+<body>
+    <section id="projects"
+        class="min-h-screen w-full flex flex-col items-center justify-start bg-custom-secondary pt-10">
+        <div class="container text-left">
+            <h2 class="content-title dark mb-8">Projects</h2>
+            <div class="project-grid">
+                <!-- Weather App -->
+                <div class="project-item">
+                    <div class="projects-container">
+                        <span class="project-title dark">Weather App</span>
+                    </div>
+                    <div class="image-container">
+                        <img src="/media/images/weather-app.png" alt="Weather App" class="project-image"
+                            onclick="window.open('/projects/weatherapp/index.html', '_blank')">
+                    </div>
+                    <div class="project-description">
+                   
+                        <button onclick="window.open('/projects/weatherapp/index.html', '_blank')"
+                            class="try-me-button">Try Me Out</button>
+                    </div>
+                </div>
+                <!-- Interactive Story -->
+                <div class="project-item">
+                    <div class="projects-container">
+                        <span class="project-title dark">Interactive Story</span>
+                    </div>
+                    <div class="image-container">
+                        <img src="/media/images/interactive-story.png" alt="Interactive Story"
+                            class="project-image interactive-story-image"
+                            onclick="window.open('/projects/interactive-storytelling/index.html', '_blank')">
+                    </div>
+                    <div class="project-description">
+                 
+                        <button onclick="window.open('/projects/interactive-storytelling/index.html', '_blank')"
+                            class="try-me-button">Try Me Out</button>
+                    </div>
+                </div>
+                <!-- Password Analyser -->
+                <div class="project-item">
+                    <div class="projects-container">
+                        <span class="project-title dark">Password Analyser</span>
+                    </div>
+                    <div class="image-container">
+                        <img src="/media/images/password-analyser.png" alt="Password Analyser" class="project-image"
+                            onclick="window.open('/projects/password-strength-analyser/index.html', '_blank')">
+                    </div>
+                    <div class="project-description">
+                   
+                        <button onclick="window.open('/projects/password-strength-analyser/index.html', '_blank')"
+                            class="try-me-button">Try Me Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="projectModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        function openModal(imgSrc) {
+            var modal = document.getElementById("projectModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "block";
+            modalImg.src = imgSrc;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("projectModal");
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+
+</html>

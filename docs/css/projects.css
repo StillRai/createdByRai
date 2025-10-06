@@ -1,0 +1,158 @@
+/* Base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-dark: #111A2C;
+    --color-light: #EEEEEE;
+}
+
+#projects {
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+}
+
+#projects .container {
+    min-width: 85%;
+}
+
+.projects-container {
+    text-align: left;
+    justify-content: center;
+    box-sizing: border-box;
+    padding-right: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.dark {
+    color: var(--color-dark);
+}
+
+/* Additional styles for the projects section */
+.project-grid {
+    @apply grid gap-6;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+    .project-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.project-item {
+    @apply flex flex-col;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: #000;
+}
+
+.project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 9px;
+    transition: transform 0.3s ease;
+}
+
+.interactive-story-image {
+  object-position: center 40%;
+  transform: scale(1.4);
+}
+
+.project-description {
+  text-align: center;
+  padding: 10px;
+  border-radius: 0.5rem;
+  margin-top: -5px;
+  font-family: 'JetBrains Mono', monospace;
+  background-color: rgba(255, 255, 255, 0);
+
+}
+
+.span-project-content {
+color: var(--color-dark);
+text-align: left;
+}
+
+.try-me-button {
+    padding: 10px 20px;
+    background-color: var(--color-dark);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-items: left;
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+font-weight: 600;
+margin-top: 1rem;
+}
+
+#projects .span-content {
+    color: var(--color-dark);
+    justify-content: left;
+    display: flex;
+}
+
+#projects .content-title {
+    color: var(--color-dark) !important;
+}
+
+.try-me-button:hover {
+  background-color: #262727;
+}
+
+
+.project-image:hover {
+  transform: scale(1.9);
+}
+
+.interactive-story-image:hover {
+  transform: scale(1.6); 
+}
+
+.project-image:hover {
+    transform: scale(1.05);
+}
+
+.project-title {
+    @apply text-lg font-semibold;
+}
+
+.modal {
+    @apply hidden fixed inset-0 z-50 bg-black bg-opacity-80;
+}
+
+.modal-content {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 max-w-[90%] max-h-[90%];
+}
+
+.modal-image {
+    @apply w-full h-auto;
+}
+
+.close {
+    @apply text-white absolute top-4 right-8 text-4xl font-bold cursor-pointer;
+}

@@ -1,0 +1,44 @@
+<div class="navbar sticky top-0 z-50 w-11/12 mx-auto" style="z-index: 102;">
+    <div class="container mx-auto flex justify-between items-center p-4">
+        <a href="#home" class="logo text-custom-light font-jetBrains responsive-logo no-underline hover:text-custom-lightgreen transition-colors duration-300 navbar-resize">createdByRai</a>
+        <div class="burger-menu md:hidden cursor-pointer" id="burger-menu">
+            <i data-feather="menu" class="feather-icon-custom-light"></i>
+        </div>
+        <nav class="nav-links responsive-space-x hidden md:flex">
+            <a href="#journey" class="text-lg font-poppins font-regular text-custom-light hover:text-black responsive-text">Meet Rai</a>
+            <a href="#timeline" class="text-lg font-poppins font-regular text-custom-light hover:text-black responsive-text">My Journey</a>
+            <a href="#projects" class="text-lg font-poppins font-regular text-custom-light hover:text-black responsive-text">Projects</a>
+            <a href="mailto:hello@createdbyrai.com?subject=Hi%20Rai,%20I%20saw%20your%20website" class="btn-o-orange text-lg">Let's Talk</a>
+        </nav>
+    </div>
+    <div class="container mx-auto">
+    </div>
+    <div class="nav-links-mobile hidden flex-col space-y-4 border-custom-light p-4 md:hidden" id="nav-links-mobile">
+        <div class="close-menu" id="close-menu">
+            <i data-feather="x" class="feather-icon-custom-dark"></i>
+        </div>
+        <a href="#journey" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">Meet Rai</a>
+        <a href="#timeline" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">My Journey</a>
+        <a href="#projects" class="text-lg font-poppins font-regular text-custom-dark hover:text-black">Projects</a>
+        <a href="mailto:hello@createdbyrai.com?subject=Hi%20Rai,%20I%20saw%20your%20website" class="btn-o-lightgreen text-lg">Let's Talk</a>
+    </div>
+</div>
+
+<script>
+    // Toggle burger menu visibility
+    document.getElementById('burger-menu').addEventListener('click', function () {
+        document.getElementById('nav-links-mobile').classList.toggle('hidden');
+    });
+
+    // Close burger menu when a link is clicked
+    document.querySelectorAll('#nav-links-mobile a').forEach(link => {
+        link.addEventListener('click', function (event) {
+            document.getElementById('nav-links-mobile').classList.add('hidden');
+        });
+    });
+
+    // Close menu on X icon click
+    document.getElementById('close-menu').addEventListener('click', function () {
+        document.getElementById('nav-links-mobile').classList.add('hidden');
+    });
+</script>
